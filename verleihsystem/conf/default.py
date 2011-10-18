@@ -101,6 +101,8 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.admindocs',
     'accounts',
+    'mptt',
+    'category',
 )
 
 # A sample logging configuration. The only tangible logging
