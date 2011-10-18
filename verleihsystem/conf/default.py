@@ -57,7 +57,8 @@ AUTH_LDAP_BIND_PASSWORD = ''
 
 AUTH_LDAP_GROUP_SEARCH = LDAPSearch('ou=Group,dc=fh-weingarten,dc=de',
     ldap.SCOPE_SUBTREE, '(objectClass=posixGroup)')
-AUTH_LDAP_GROUP_TYPE = PosixGroupType
+AUTH_LDAP_GROUP_TYPE = PosixGroupType()
+AUTH_LDAP_MIRROR_GROUPS = True
 
 AUTH_LDAP_USER_DN_TEMPLATE = 'uid=%(user)s,ou=People,dc=fh-weingarten,dc=de'
 AUTH_LDAP_USER_ATTR_MAP = {
