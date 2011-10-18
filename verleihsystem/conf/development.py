@@ -32,3 +32,5 @@ MEDIA_URL = '/media/'
 # Make sure to use a trailing slash.
 # Examples: "http://foo.com/static/admin/", "/static/admin/".
 ADMIN_MEDIA_PREFIX = '/media/admin/'
+
+AUTH_LDAP_SERVER_URI = 'ldap://localhost:8389'
