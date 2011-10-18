@@ -58,6 +58,7 @@ AUTH_LDAP_USER_ATTR_MAP = {
     'email': 'mail',
 }
 
+AUTH_PROFILE_MODULE = 'accounts.UserProfile'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -90,6 +91,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.admin',
     'django.contrib.admindocs',
+    'accounts',
 )
 
 # A sample logging configuration. The only tangible logging
