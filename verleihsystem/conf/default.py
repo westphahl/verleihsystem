@@ -1,5 +1,8 @@
 # Django settings for verleihsystem project.
 import os
+import ldap
+
+from django_auth_ldap.config import LDAPSearch, PosixGroupType
 
 # Get the absolute path to the project root
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
@@ -51,6 +54,12 @@ AUTHENTICATION_BACKENDS = (
 AUTH_LDAP_SERVER_URI = 'ldap://ldapmas.fh-weingarten.de'
 AUTH_LDAP_BIND_DN = ''
 AUTH_LDAP_BIND_PASSWORD = ''
+
+AUTH_LDAP_GROUP_SEARCH = LDAPSearch('ou=Group,dc=fh-weingarten,dc=de',
+    ldap.SCOPE_SUBTREE, '(objectClass=posixGroup)')
+AUTH_LDAP_GROUP_TYPE = PosixGroupType()
+AUTH_LDAP_MIRROR_GROUPS = True
+
 AUTH_LDAP_USER_DN_TEMPLATE = 'uid=%(user)s,ou=People,dc=fh-weingarten,dc=de'
 AUTH_LDAP_USER_ATTR_MAP = {
     'first_name': 'givenName',
