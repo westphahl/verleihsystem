@@ -1,4 +1,4 @@
-from category.models import Category
+from categories.models import Category
 from django.contrib import admin
 from mptt.admin import MPTTModelAdmin
 
