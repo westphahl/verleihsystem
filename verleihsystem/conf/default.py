@@ -104,6 +104,7 @@ INSTALLED_APPS = (
     'accounts',
     'mptt',
     'categories',
+    'products',
 )
 
 # A sample logging configuration. The only tangible logging
