@@ -46,19 +46,11 @@ USE_L10N = True
 # Example: "/home/media/media.lawrence.com/media/"
 MEDIA_ROOT = get_absolute_path('media')
 
-# LDAP authentication settings
-AUTHENTICATION_BACKENDS = (
-    'django_auth_ldap.backend.LDAPBackend',
-    'django.contrib.auth.backends.ModelBackend',
-)
-AUTH_LDAP_SERVER_URI = 'ldap://ldapmas.fh-weingarten.de'
-AUTH_LDAP_BIND_DN = ''
-AUTH_LDAP_BIND_PASSWORD = ''
+# Set model for user profile
+AUTH_PROFILE_MODULE = 'accounts.UserProfile'
 
-AUTH_LDAP_GROUP_SEARCH = LDAPSearch('ou=Group,dc=fh-weingarten,dc=de',
-    ldap.SCOPE_SUBTREE, '(objectClass=posixGroup)')
-AUTH_LDAP_GROUP_TYPE = PosixGroupType()
-AUTH_LDAP_MIRROR_GROUPS = True
+# LDAP authentication settings
+AUTH_LDAP_SERVER_URI = 'ldap://ldapmas.fh-weingarten.de'
 
 AUTH_LDAP_USER_DN_TEMPLATE = 'uid=%(user)s,ou=People,dc=fh-weingarten,dc=de'
 AUTH_LDAP_USER_ATTR_MAP = {
@@ -67,7 +59,16 @@ AUTH_LDAP_USER_ATTR_MAP = {
     'email': 'mail',
 }
 
-AUTH_PROFILE_MODULE = 'accounts.UserProfile'
+AUTH_LDAP_GROUP_SEARCH = LDAPSearch('ou=Group,dc=fh-weingarten,dc=de',
+    ldap.SCOPE_SUBTREE, '(objectClass=posixGroup)')
+AUTH_LDAP_GROUP_TYPE = PosixGroupType()
+AUTH_LDAP_FIND_GROUP_PERMS = True
+AUTH_LDAP_CACHE_GROUPS = True
+
+AUTHENTICATION_BACKENDS = (
+    'django_auth_ldap.backend.LDAPBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
