@@ -1,0 +1,15 @@
+<!DOCTYPE html> 
+
+<html lang="de"> 
+<head> 
+    <title>{% block title %}Verleihsystem{% endblock %}</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{ MEDIA_URL }}style/screen.css">
+</head> 
+<body>
+
+{% include "category_tree.html" %}
+{% block content %}{% endblock %}
+
+</body> 
+</html>
