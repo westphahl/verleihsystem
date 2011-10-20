@@ -1,0 +1,89 @@
+/* css reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* align */
+.left {
+    text-align: left;
+}
+.center {
+    text-align: center;
+}
+.right {
+    text-align: right;
+}
+/* user styles */
+html {
+    font-family: 'Verdana', sans-serif;
+    font-size: 0.8em;
+}
+body {
+}
+input[type="text"],
+input[type="password"] {
+    padding: 5px;
+}
+input[type="submit"] {
+    padding: 5px 20px;
+}
+nav#top {
+    color: #fff;
+    background-color: #222;
+    border-bottom: 1px solid #111;
+}
+nav#top table tr td {
+    padding: 7px;
+}
+nav#right {
+    float: right;
+    width: 250px;
+    background-color: #ccc;
+    padding: 10px;
+    line-height: 1.5em;
+}
+nav#right ul {
+    padding-left: 10px;
+}
+section#content {
+    padding: 10px;
+    margin-right: 280px;
+}
