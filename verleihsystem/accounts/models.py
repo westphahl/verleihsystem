@@ -11,6 +11,8 @@ class UserProfile(models.Model):
         verbose_name=_("Phone"))
     mobile_phone = models.CharField(blank=True, max_length=100,
         verbose_name=_("Mobile phone"))
+    picture = models.ImageField(blank=True, upload_to='accounts',
+        verbose_name=_("Photo"))
 
     class Meta:
         verbose_name = _("User profile")
