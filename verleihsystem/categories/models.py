@@ -6,6 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 
 class Category(MPTTModel):
     name = models.CharField(max_length=50)
+    slug = models.SlugField(max_length=50)
     contact = models.ForeignKey(User, blank=True, null=True, 
         on_delete=models.SET_NULL, 
         limit_choices_to={'groups__name' : 'Verwalter'})
