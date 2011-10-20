@@ -8,6 +8,8 @@ class ProductType(models.Model):
     name = models.CharField(max_length=50, verbose_name=_("Title"))
     description = models.TextField(verbose_name=_("Description"), blank=True)
     categories = models.ManyToManyField(Category, verbose_name=_("Categories"))
+    picture = models.ImageField(blank=True, upload_to='products',
+        verbose_name=_("Photo"))
 
     def __unicode__(self):
         return u"%s" % (self.name)
