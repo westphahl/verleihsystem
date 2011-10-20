@@ -1,15 +1,31 @@
 <!DOCTYPE html> 
-
 <html lang="de"> 
 <head> 
     <title>{% block title %}Verleihsystem{% endblock %}</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="{{ MEDIA_URL }}style/screen.css">
-</head> 
+    <link rel="stylesheet" href="/media/css/screen.css">
+</head>
 <body>
-
-{% include "category_tree.html" %}
-{% block content %}{% endblock %}
-
+    <nav id="top">
+        <table width="100%">
+            <colgroup>
+                <col width="33%">
+                <col width="34%">
+                <col width="33%">
+            </colgroup>
+            <tbody>
+                <tr>
+                    <td class="left">{{ request.path }}</td>
+                    <td class="center">{% now "l, j. F Y" %}</td>
+                    <td class="right">{% if not request.user.is_anonymous %}Sie sind angemeldet als <span style="font-weight:bold">{{ request.user.get_full_name }}</span>. <a href="{% url django.contrib.auth.views.logout %}?next={{ request.path }}">Abmelden</a>{% else %}Sie sind nicht angemeldet. <a href="{% url django.contrib.auth.views.login %}?next={{ request.path }}">Anmelden</a>{% endif %}</td>
+                </tr>
+            </tbody>
+        </table>
+    </nav>
+    <nav id="right">
+    </nav>
+    <section id="content">
+        {% block content %}{% endblock %}
+    </section>
 </body> 
 </html>
