@@ -1,14 +1,26 @@
+import hashlib
+from time import time
+
 from django.db import models
 from django.utils.translation import ugettext as _
 
 from categories.models import Category
 
 
+def get_photo_path(instance, filename):
+    upload_dir = 'products/'
+    path, ext = filename.split('.')
+    value = str(instance) + filename + str(time())
+    hex_digest = hashlib.sha1(value).hexdigest()
+
+    return upload_dir + hex_digest + '.' + ext
+
+
 class ProductType(models.Model):
     name = models.CharField(max_length=50, verbose_name=_("Title"))
     description = models.TextField(verbose_name=_("Description"), blank=True)
     categories = models.ManyToManyField(Category, verbose_name=_("Categories"))
-    picture = models.ImageField(blank=True, upload_to='products',
+    picture = models.ImageField(blank=True, upload_to=get_photo_path,
         verbose_name=_("Photo"))
 
     def __unicode__(self):
