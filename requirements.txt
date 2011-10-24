@@ -1,4 +1,5 @@
 Django==1.3.1
-django-auth-ldap==1.0.12
--e git+https://github.com/django-mptt/django-mptt.git@384b179a36cf221c815045c2e8fa74ec118c04ea#egg=django_mptt-dev
+PIL==1.1.7
 python-ldap==2.4.3
+django-auth-ldap==1.0.12
+-e git+https://github.com/django-mptt/django-mptt.git#egg=django_mptt-dev
