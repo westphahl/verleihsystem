@@ -12,7 +12,7 @@ def index(request):
 
 
 def category_detail(request, path, template, *args, **kwargs):
-    leaf = get_object_or_404(Category, path=path.strip('/'))
+    leaf = get_object_or_404(Category, path=path)
     
     sub_tree = leaf.get_descendants(include_self=True)
     product_list = ProductType.objects.filter(categories__in=sub_tree).distinct()

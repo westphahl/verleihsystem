@@ -38,3 +38,7 @@ class Category(MPTTModel):
         slugs += [self.slug]
         self.path = '/'.join(slugs)
         super(Category, self).save(*args, **kwargs)
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('category_detail', (), {'path': self.path})
