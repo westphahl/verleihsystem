@@ -1,7 +1,8 @@
-from products.models import ProductType, Product
 from django.utils.translation import ugettext as _
 from django.db.models import Count
 from django.contrib import admin
+
+from products.models import ProductType, Product
 
 
 class ProductInline(admin.TabularInline):
@@ -25,7 +26,7 @@ class ProductTypeAdmin(admin.ModelAdmin):
     def product_count(self, obj):
         return u"%s" %(obj.product__count)
     product_count.short_description = _("Number of products")
-    
+
 
 admin.site.register(ProductType, ProductTypeAdmin)
 admin.site.register(Product)
