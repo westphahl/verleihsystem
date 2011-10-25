@@ -36,7 +36,7 @@ class Category(MPTTModel):
         ancestors = self.get_ancestors()
         slugs = [a.slug for a in ancestors]
         slugs += [self.slug]
-        self.path = '/'.join(slugs)
+        self.path = '/'.join(slugs) + '/'
         super(Category, self).save(*args, **kwargs)
 
     @models.permalink
