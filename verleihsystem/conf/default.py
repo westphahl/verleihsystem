@@ -119,6 +119,7 @@ INSTALLED_APPS = (
     'mptt',
     'categories',
     'products',
+    'reservations',
 )
 
 # A sample logging configuration. The only tangible logging
