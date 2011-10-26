@@ -1,0 +1,124 @@
+# German transloation
+# Copyright (C) 2011
+# This file is distributed under the same license as the verleihsystem package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-10-26 10:31+0200\n"
+"PO-Revision-Date: 2011-10-26 10:18+0200\n"
+"Last-Translator: Simon Westphahl\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: accounts/models.py:15
+msgid "Student number"
+msgstr "Matrikelnummer"
+
+#: accounts/models.py:17
+msgid "Phone"
+msgstr "Telefon"
+
+#: accounts/models.py:19
+msgid "Mobile phone"
+msgstr "Handy"
+
+#: accounts/models.py:21 products/models.py:24
+msgid "Photo"
+msgstr "Foto"
+
+#: accounts/models.py:24
+msgid "User profile"
+msgstr "Benutzerprofil"
+
+#: accounts/models.py:25
+msgid "User profiles"
+msgstr "Benutzerprofile"
+
+#: categories/models.py:21
+msgid "Category"
+msgstr "Kategorie"
+
+#: categories/models.py:22 products/models.py:22
+msgid "Categories"
+msgstr "Kategorien"
+
+#: products/admin.py:28
+msgid "Number of products"
+msgstr "Produktanzahl"
+
+#: products/models.py:20
+msgid "Title"
+msgstr "Titel"
+
+#: products/models.py:21
+msgid "Description"
+msgstr "Beschreibung"
+
+#: products/models.py:30
+msgid "Product type"
+msgstr "Produkttyp"
+
+#: products/models.py:31
+msgid "Product types"
+msgstr "Produkttypen"
+
+#: products/models.py:36
+msgid "Serial/Id"
+msgstr "Seriennummer/Id"
+
+#: products/models.py:37
+msgid "Brief description"
+msgstr "Kurzbeschreibung"
+
+#: products/models.py:44 reservations/models.py:26
+msgid "Product"
+msgstr "Produkt"
+
+#: products/models.py:45
+msgid "Products"
+msgstr "Produkte"
+
+#: reservations/models.py:9
+msgid "User"
+msgstr "Benuter"
+
+#: reservations/models.py:10
+msgid "Start date"
+msgstr "Startdatum"
+
+#: reservations/models.py:11
+msgid "End date"
+msgstr "Enddatum"
+
+#: reservations/models.py:12
+msgid "Timestamp"
+msgstr "Zeitstempel"
+
+#: reservations/models.py:14
+msgid "Confirmed"
+msgstr "Bestätigt"
+
+#: reservations/models.py:15
+msgid "Comments"
+msgstr "Kommentare"
+
+#: reservations/models.py:18 reservations/models.py:25
+msgid "Reservation"
+msgstr "Reservierung"
+
+#: reservations/models.py:19
+msgid "Reservations"
+msgstr "Reservierungen"
+
+#: reservations/models.py:29
+msgid "Reservation Entry"
+msgstr "Reservierungseintrag"
+
+#: reservations/models.py:30
+msgid "Reservation Entries"
+msgstr "Reservierunseinträge"
