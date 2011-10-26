@@ -9,10 +9,10 @@ class ReservationItemInline(admin.TabularInline):
 
 
 class ReservationAdmin(admin.ModelAdmin):
-    list_filter = ('confirmed','start_date', 'end_date',)
+    list_filter = ('state','start_date', 'end_date',)
     date_hierarchy = 'timestamp'
-    list_display = ('user', 'start_date', 'end_date', 'confirmed',)
-    list_editable = ('confirmed',)
+    list_display = ('user', 'start_date', 'end_date', 'state',)
+    list_editable = ('state',)
     inlines = [
         ReservationItemInline,
     ]
