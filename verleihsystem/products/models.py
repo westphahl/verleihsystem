@@ -38,7 +38,7 @@ class Product(models.Model):
         blank=True)
 
     def __unicode__(self):
-        return u"%s" % (self.sn)
+        return u"%s > %s" % (self.product_type, self.sn)
 
     class Meta:
         verbose_name = _("Product")
