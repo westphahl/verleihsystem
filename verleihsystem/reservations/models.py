@@ -9,7 +9,7 @@ from products.models import Product
 class Reservation(models.Model):
     STATE_CHOICES = (
         (0, _("Pending")),
-        (1, _("Acknoledged")),
+        (1, _("Acknowledged")),
         (2, _("Rejected")),
     )
     user = models.ForeignKey(User, verbose_name=_("User"))
