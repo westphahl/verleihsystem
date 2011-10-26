@@ -1,29 +1,41 @@
 <!DOCTYPE html> 
 <html lang="de"> 
 <head> 
-    <title>{% block title %}Verleihsystem{% endblock %}</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="{{ MEDIA_URL }}css/screen.css">
+	<title>{% block title %}Verleihsystem{% endblock %}</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="{{ MEDIA_URL }}css/screen.css">
 </head>
 <body>
-    <nav id="top">
-        <table width="100%">
-            <colgroup>
-                <col width="33%">
-                <col width="34%">
-                <col width="33%">
-            </colgroup>
-            <tbody>
-                <tr>
-                    <td class="left">{{ request.path }}</td>
-                    <td class="center">{% now "l, j. F Y" %}</td>
-                    <td class="right">{% if not request.user.is_anonymous %}Sie sind angemeldet als <span style="font-weight:bold">{{ request.user.get_full_name }}</span>. {% if request.user.is_staff %}<a href="/admin/">Administration | </a>{% endif %}<a href="{% url django.contrib.auth.views.logout %}?next={{ request.path }}">Abmelden</a>{% else %}Sie sind nicht angemeldet. <a href="{% url django.contrib.auth.views.login %}?next={{ request.path }}">Anmelden</a>{% endif %}</td>
-                </tr>
-            </tbody>
-        </table>
-    </nav>
-    <section id="content_wrapper">
-        {% block content %}{% endblock %}
-    </section>
+	<section id="header">
+		<a href="/"><img src="{{ MEDIA_URL }}img/hrw_logo.png" class="logo"></a>
+		<div id="usermenu">
+			{% if not request.user.is_anonymous %}Sie sind angemeldet als <span style="font-weight:bold">{{ request.user.get_full_name }}</span>
+			<a href="#"><img src="{{ MEDIA_URL }}img/icon/gear.png" alt="Einstellungen"></a>
+			<a href="/admin/"><img src="{{ MEDIA_URL }}img/icon/key.png" target="_blank" alt="Administration"></a>
+			<a href="{% url django.contrib.auth.views.logout %}?next={{ request.path }}"><img src="{{ MEDIA_URL }}img/icon/door_open_out.png" alt="Abmelden"></a>
+			{% else %}
+				Sie sind nicht angemeldet. <a href="{% url django.contrib.auth.views.login %}?next={{ request.path }}"><img src="{{ MEDIA_URL }}img/icon/door_open_in.png" alt="Anmelden"></a>
+			{% endif %}
+		<div>
+		<div id="cart">
+			<a href="#"><img src="{{ MEDIA_URL }}img/icon/cart.png"><br />WARENKORB</a>
+		</div>
+		<div id="contact">
+			<a href="#"><img src="{{ MEDIA_URL }}img/icon/contact.png"><br />KONTAKT</a>
+		</div>
+		<div id="feedback">
+			<a href="#"><img src="{{ MEDIA_URL }}img/icon/feedback.png"><br />FEEDBACK</a>
+		</div>
+		
+	</section>
+	<section id="content_wrapper">
+		<nav id="sidebar">
+			{% block sidebar %}{% endblock %}
+		</nav>
+		<section id="content">
+			{% block content %}{% endblock %}
+		</section>
+		<section style="clear:both"></section>
+	</section>
 </body> 
 </html>

@@ -48,4 +48,3 @@ class ReservationEntry(models.Model):
     class Meta:
         verbose_name = _("Reservation Entry")
         verbose_name_plural = _("Reservation Entries")
- 

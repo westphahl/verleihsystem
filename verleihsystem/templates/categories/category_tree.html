@@ -1,0 +1,10 @@
+<div id="tree">
+<p class="title">Kategorien</p>
+{% load mptt_tags %}
+{% full_tree_for_model categories.Category as nodes %}
+{% for node,structure in nodes|tree_info %}
+	{% if structure.new_level %}<ul><li>{% else %}</li><li>{% endif %}
+		<a href="{{ node.get_absolute_url }}">{{ node.name }}</a>
+	{% for level in structure.closed_levels %}</li></ul>{% endfor %}
+{% endfor %}
+</div>

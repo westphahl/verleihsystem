@@ -43,57 +43,203 @@ table {
 }
 /* align */
 .left {
-    text-align: left;
+	text-align: left;
 }
 .center {
-    text-align: center;
+	text-align: center;
 }
 .right {
-    text-align: right;
+	text-align: right;
 }
 /* user styles */
 html {
-    font-family: "Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif;
-    font-size: 0.8em;
+	height: 100%;
+	font-family: "Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif;
+	font-size: 0.8em;
+	background-color: #fff;
 }
 body {
+	height: 100%;
+	width: 964px;
+	padding: 0px 20px;
+	margin: 0 auto;
+	background-image: url(../img/bg_body.png);
+	background-position: center top;
+	background-repeat: repeat-y;
 }
 input[type="text"],
 input[type="password"] {
-    padding: 5px;
+	padding: 3px;
 }
 input[type="submit"] {
-    padding: 5px 20px;
+	padding: 5px 20px;
 }
-nav#top {
-    color: #fff;
-    font-size: 0.85em;
-    background-color: #222;
-    border-bottom: 1px solid #111;
+section#header {
+	width: 964px;
+	height: 100px;
+	color: #333;
 }
-nav#top table tr td {
-    padding: 10px;
+section#header .logo {
+	float: left;
+	height: 80px;
+	padding: 10px;
+	text-align: left;
 }
-nav#right {
-    float: right;
-    width: 250px;
-    background-color: #ccc;
-    padding: 10px;
-    line-height: 1.5em;
+section#header div#usermenu {
+	text-align: right;
+	font-size: .8em;
+	padding: 3px 5px;
+	vertical-align: middle;
 }
-nav#right ul {
-    padding-left: 10px;
+section#header div#usermenu #gear {
+	display: inline-block;
+	padding: 3px 5px 6px 5px;
+}
+section#header div#usermenu img {
+	margin-bottom: -3px;
+}
+section#header div#usermenu #gear:hover {
+	background-color: #909;
+}
+section#header div#usermenu #gear ul {
+	display: none;
+	position: absolute;
+	min-width: 150px;
+	background-color: #909;
+	padding: 5px;
+	margin-top: 6px;
+	margin-left: -139px;
+}
+section#header div#usermenu #gear ul a {
+	display: block;
+	color: #fff;
+	font-size: 1.1em;
+	line-height: 1.5em;
+	margin: 2px;
+	text-decoration: none;
+	text-align: center;
+}
+section#header div#usermenu #gear ul a:hover {
+	font-weight: bold;
+}
+section#header div#usermenu #gear:hover ul {
+	display: inline-block;
+}
+section#header div#feedback {
+	float: right;
+	padding: 10px;
+	margin: 5px;
+	text-align: center;
+}
+section#header div#contact {
+	float: right;
+	padding: 10px;
+	text-align: center;
+	margin: 5px;
+}
+section#header div#cart {
+	float: right;
+	padding: 10px;
+	margin: 5px;
+	text-align: center;
+	margin-right: 350px;
 }
 section#content_wrapper {
-    padding: 10px;
+	width: 100%;
+	margin-top: 10px;
+}
+nav#sidebar {
+	float: right;
+	width: 230px;
+	border-left: 1px solid #ccc;
+}
+nav#sidebar p.title {
+	color: #fff;
+	background-color: #666;
+	font-size: .9em;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 5px;
+}
+nav#sidebar ul {
+	padding-left: 10px;
+}
+nav#sidebar ul li a {
+	color: #333;
+	text-decoration: none;
+	padding-left: 10px;
+	background-image: url(../img/dots_black.png);
+	background-position: left center;
+	background-repeat: no-repeat;
+}
+nav#sidebar ul li a:hover {
+	color: #000;
+	font-weight: bold;
+}
+div#tree {
+	line-height: 2em;
+	margin: 10px;
 }
 section#content {
-    background-color: #ff0;
-    margin-right: 280px;
+	padding: 10px;
+	margin-right: 230px;
+}
+section#content div.url {
+	color: #999;
+	font-size: .8em;
+	padding-left: 5px;
+	padding-bottom: 5px;
+	margin-bottom: 5px;
+	border-bottom: 1px solid #ccc;
+	text-transform: uppercase;
+}
+section#content div.title {
+	color: #333;
+	font-size: 2em;
+	margin-bottom: 10px;
+	text-align: center;
+	text-transform: uppercase;
+}
+section#content .list {
+	width: 100%;
+}
+section#content .listitem {
+	width: 100%;
+	display: inline-block;
+	line-height: 1.5em;
+	padding: 10px 0px;
+	border-bottom: 1px solid #ddd;
+	clear: both;
+}
+section#content .listitem:hover {
+	background-color: #f5f5f5;
+}
+section#content .listitem img {
+	float: left;
+	width: 60px;
+	height: 50px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+section#content .listitem .title {
+	font-size: 1.1em;
+}
+section#content .listitem .description {
+	font-size: .9em;
+}
+form#login {
+	text-align: center;
+}
+form#login table {
+	margin: 0 auto;
+}
+form#login table td {
+	text-align: left;
+	padding-left: 5px;
 }
 .errorlist {
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: #F6CECE;
-    border: 1px solid #FA5858;
+	padding: 10px;
+	margin-bottom: 10px;
+	background-color: #F6CECE;
+	border: 1px solid #FA5858;
 }

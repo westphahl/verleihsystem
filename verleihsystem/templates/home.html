@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 
-{% block content %}
+{% block sidebar %}
+	{% include 'categories/category_tree.html' %}
+{% endblock %}
 
-<nav id="right">
-    {% include 'category_tree.html' %}
-</nav>
-<section id="content">
-</section>
+{% block content %}
+<div class="title">Ansprechpartner</div>
+Herr Bernhard
+Raum T1xx
+Sprechzeiten:
 
 {% endblock %}

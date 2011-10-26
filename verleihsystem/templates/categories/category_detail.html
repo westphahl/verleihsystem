@@ -1,9 +1,21 @@
 {% extends "base.html" %}
 
+{% block sidebar %}
+	{% include 'categories/category_tree.html' %}
+{% endblock %}
+
 {% block content %}
-<ul>
+<div class="url">{{ request.path_info }}</div>
+<div class="title">Computer</div>
+<div class="list">
 {% for product in product_list %}
-    <li>{{ product.name }}</li>
+	<a href="#" class="listitem">
+		<img src="http://www.photoscala.de/grafik/2009/EOS-500D-Front.jpg" />
+		<span>
+			<p class="title">{{ product.name }}</p>
+			<p class="description">{{ product.description }}</p>
+		</span>
+	</a>
 {% endfor %}
-</ul>
+</div>
 {% endblock %}
