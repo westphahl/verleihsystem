@@ -36,7 +36,8 @@ class ReservationEntry(models.Model):
     product = models.ForeignKey(Product, verbose_name=_("Product"))
 
     def clean(self):
-        collision = ReservationEntry.objects.filter(product=self.product,
+        collision = ReservationEntry.objects.exclude(id=self.id).filter(
+                product=self.product,
                 reservation__start_date__gte=self.reservation.start_date,
                 reservation__end_date__lte=self.reservation.end_date)
         if len(collision) > 0:

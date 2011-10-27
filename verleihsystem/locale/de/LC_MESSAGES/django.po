@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-26 11:39+0200\n"
+"POT-Creation-Date: 2011-10-26 11:58+0200\n"
 "PO-Revision-Date: 2011-10-26 10:18+0200\n"
 "Last-Translator: Simon Westphahl\n"
 "Language: \n"
@@ -83,6 +83,14 @@ msgstr "Produkt"
 msgid "Products"
 msgstr "Produkte"
 
+#: reservations/admin.py:9
+msgid "Mark selected reservations as acknowledged"
+msgstr "Ausgewählte Reservierungen bestätigen"
+
+#: reservations/admin.py:14
+msgid "Mark selected reservations as rejected"
+msgstr "Ausgewählte Reservierungen ablehnen"
+
 #: reservations/models.py:11
 msgid "Pending"
 msgstr "Ausstehend"
@@ -127,14 +135,14 @@ msgstr "Reservierung"
 msgid "Reservations"
 msgstr "Reservierungen"
 
-#: reservations/models.py:43
+#: reservations/models.py:44
 msgid "There is already a reservation for this product."
 msgstr "Für dieses Produkt ist bereits eine Reservierung vorhanden."
 
-#: reservations/models.py:49
+#: reservations/models.py:50
 msgid "Reservation Entry"
 msgstr "Reservierungseintrag"
 
-#: reservations/models.py:50
+#: reservations/models.py:51
 msgid "Reservation Entries"
 msgstr "Reservierunseinträge"
