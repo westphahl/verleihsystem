@@ -18,6 +18,7 @@ def get_photo_path(instance, filename):
 
 class ProductType(models.Model):
     name = models.CharField(max_length=50, verbose_name=_("Title"))
+    slug = models.SlugField(max_length=50)
     description = models.TextField(verbose_name=_("Description"), blank=True)
     categories = models.ManyToManyField(Category, verbose_name=_("Categories"))
     picture = models.ImageField(blank=True, upload_to=get_photo_path,
@@ -25,6 +26,10 @@ class ProductType(models.Model):
 
     def __unicode__(self):
         return u"%s" % (self.name)
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('product_type_detail', (), {'slug': self.slug})
 
     class Meta:
         verbose_name = _("Product type")

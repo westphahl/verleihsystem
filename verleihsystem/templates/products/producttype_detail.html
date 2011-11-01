@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="url">{{ request.path_info }}</div>
+<div class="title">{{ producttype.name }}</div>
+<div class="list">
+<pre>
+    Produkttyp
+    ==========
+
+    Name: {{ producttype.name }}</p>
+    Beschreibung: {{ producttype.description }}
+    {% if producttype.photo %}
+        <img src="{{ producttype.photo.url }}" />
+    {% else %}
+        Kein Photo vorhanden
+    {% endif %}
+
+    Kategorien
+    ----------
+    {% for category in producttype.categories.all %}
+        - {{ category.name }}
+    {% endfor %}
+
+    Produkte
+    --------
+    {% for product in product_list %}
+    Seriennummer/Id: {{ product.sn }}, Beschreibung: {{ product.brief_description }}
+    {% endfor %}
+</pre>
+</div>
+{% endblock %}

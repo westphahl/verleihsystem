@@ -14,6 +14,7 @@ class ProductTypeAdmin(admin.ModelAdmin):
     list_filter = ('categories',)
     list_display = ('name', 'product_count',)
     filter_horizontal = ('categories',)
+    prepopulated_fields = {'slug': ['name',]}
     search_fields = ['name',]
     inlines = [
         ProductInline,

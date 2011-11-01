@@ -32,7 +32,9 @@
 	</section>
 	<section id="content_wrapper">
 		<nav id="sidebar">
-			{% block sidebar %}{% endblock %}
+        {% block sidebar %}
+            {% include 'categories/category_tree.html' %}
+        {% endblock %}
 		</nav>
 		<section id="content">
 			{% block content %}
