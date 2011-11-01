@@ -1,21 +1,48 @@
 {% extends "base.html" %}
+{% load mptt_tags %}
 
 {% block sidebar %}
 	{% include 'categories/category_tree.html' %}
 {% endblock %}
 
 {% block content %}
-<div class="url">{{ request.path_info }}</div>
-<div class="title">Computer</div>
-<div class="list">
-{% for product in product_list %}
-	<a href="#" class="listitem">
-		<img src="http://www.photoscala.de/grafik/2009/EOS-500D-Front.jpg" />
-		<span>
-			<p class="title">{{ product.name }}</p>
-			<p class="description">{{ product.description }}</p>
-		</span>
-	</a>
-{% endfor %}
+<div id="breadcrumbs">
+	<a href="/">Home</a>
+	{% for a in category.get_ancestors %}
+		 &raquo; <a href="{{ a.get_absolute_url }}">{{ a.name }}</a>
+	{% endfor %}
+	 &raquo; {{ category.name }}
 </div>
+<div class="title">{{ category.name }}</div>
+<table id="productlist">
+	<colgroup>
+		<col width="110px">
+		<col width="">
+		<col width="130px">
+	</colgroup>
+	<thead>
+		<tr>
+			<td>Bild</td>
+			<td>Name</td>
+			<td>Kategorien</td>
+		</tr>
+	</thead>
+	<tbody>
+{% for product in product_list %}
+	{% cycle 'odd' 'even' as rowcolors silent %}
+	<tr class="{{ rowcolors }}">
+		<td><img src="http://www.photoscala.de/grafik/2009/EOS-500D-Front.jpg" /></td>
+		<td>
+			<p class="title"><a href="#">{{ product.name }}</a></p>
+			<p class="description">{{ product.description|truncatewords:15 }}
+		</td>
+		<td>
+			{% for c in product.categories.all %}
+				<p><a href="{{ c.get_absolute_url }}">{{ c.name }}</a></p>
+			{% endfor %}
+		</td>
+	</tr>
+{% endfor %}
+	</tbody>
+</table>
 {% endblock %}

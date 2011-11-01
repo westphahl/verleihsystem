@@ -7,7 +7,6 @@ from products.models import ProductType
 def index(request):
     category_list = Category.objects.all()
     return render_to_response("home.html",
-        {'nodes': category_list},
         context_instance=RequestContext(request))
 
 

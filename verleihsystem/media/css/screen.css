@@ -79,6 +79,13 @@ section#header {
 	height: 100px;
 	color: #333;
 }
+section#header a {
+	color:#333;
+	text-decoration: none;
+}
+section#header a:hover {
+	color:#000;
+}
 section#header .logo {
 	float: left;
 	height: 80px;
@@ -130,19 +137,31 @@ section#header div#feedback {
 	padding: 10px;
 	margin: 5px;
 	text-align: center;
+	font-weight: bold;
+}
+section#header div#feedback img {
+	padding: 10px;
 }
 section#header div#contact {
 	float: right;
 	padding: 10px;
 	text-align: center;
 	margin: 5px;
+	font-weight: bold;
+}
+section#header div#contact img {
+	padding: 10px;
 }
 section#header div#cart {
 	float: right;
 	padding: 10px;
 	margin: 5px;
 	text-align: center;
+	font-weight: bold;
 	margin-right: 350px;
+}
+section#header div#cart img {
+	padding: 10px;
 }
 section#content_wrapper {
 	width: 100%;
@@ -180,16 +199,19 @@ div#tree {
 	line-height: 2em;
 	margin: 10px;
 }
+div#tree .current {
+	font-weight :bold;
+}
 section#content {
 	padding: 10px;
 	margin-right: 230px;
 }
-section#content div.url {
+section#content div#breadcrumbs {
 	color: #999;
 	font-size: .8em;
 	padding-left: 5px;
 	padding-bottom: 5px;
-	margin-bottom: 5px;
+	margin-bottom:10px;
 	border-bottom: 1px solid #ccc;
 	text-transform: uppercase;
 }
@@ -200,32 +222,35 @@ section#content div.title {
 	text-align: center;
 	text-transform: uppercase;
 }
-section#content .list {
+table#productlist {
 	width: 100%;
 }
-section#content .listitem {
-	width: 100%;
-	display: inline-block;
-	line-height: 1.5em;
-	padding: 10px 0px;
-	border-bottom: 1px solid #ddd;
-	clear: both;
+table#productlist thead td {
+	color:#fff;
+	font-weight:bold;
+	text-align:center;
+	background-color:#666;
+	line-height: 2em;
 }
-section#content .listitem:hover {
+table#productlist tbody tr {
+	border-bottom: 1px solid #ccc;
+}
+table#productlist tbody tr.even {
 	background-color: #f5f5f5;
 }
-section#content .listitem img {
-	float: left;
-	width: 60px;
-	height: 50px;
-	margin-left: 10px;
-	margin-right: 10px;
+table#productlist tbody tr td {
+	vertical-align:top;
+	padding:10px;
 }
-section#content .listitem .title {
-	font-size: 1.1em;
+table#productlist tbody tr td img {
+	width:90px;
+	height:75px;
 }
-section#content .listitem .description {
-	font-size: .9em;
+table#productlist tbody tr td p {
+	line-height:1.2em;
+}
+table#productlist tbody tr td p.title {
+	font-size: 1.2em;
 }
 form#login {
 	text-align: center;
