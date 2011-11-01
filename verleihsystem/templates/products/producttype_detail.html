@@ -10,8 +10,8 @@
 
     Name: {{ producttype.name }}</p>
     Beschreibung: {{ producttype.description }}
-    {% if producttype.photo %}
-        <img src="{{ producttype.photo.url }}" />
+    {% if producttype.picture %}
+        <img src="{{ producttype.picture.url }}" />
     {% else %}
         Kein Photo vorhanden
     {% endif %}

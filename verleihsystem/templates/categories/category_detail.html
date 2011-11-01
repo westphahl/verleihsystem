@@ -31,7 +31,7 @@
 {% for product in product_list %}
 	{% cycle 'odd' 'even' as rowcolors silent %}
 	<tr class="{{ rowcolors }}">
-		<td><img src="http://www.photoscala.de/grafik/2009/EOS-500D-Front.jpg" /></td>
+        <td><img width={{ product.picture.width }} height={{ product.picture.height }} src="{{ product.picture.url }}" /></td>
 		<td>
             <p class="title"><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></p>
 			<p class="description">{{ product.description|truncatewords:15 }}

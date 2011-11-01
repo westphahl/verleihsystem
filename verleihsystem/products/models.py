@@ -1,10 +1,13 @@
+import os
 import hashlib
 from time import time
 
 from django.db import models
+from django.conf import settings
 from django.utils.translation import ugettext as _
 
 from categories.models import Category
+from utils.image import scale_image
 
 
 def get_photo_path(instance, filename):
@@ -30,6 +33,14 @@ class ProductType(models.Model):
     @models.permalink
     def get_absolute_url(self):
         return ('product_type_detail', (), {'slug': self.slug})
+
+    def save(self, *args, **kwargs):
+        super(ProductType, self).save(*args, **kwargs)
+        if self.picture and os.path.isfile(self.picture.path):
+            width, height = getattr(settings, 'PRODUCT_IMAGE_SIZE', (200, 150))
+
+            image = scale_image(self.picture.path, width, height)
+            image.save(self.picture.path)
 
     class Meta:
         verbose_name = _("Product type")

@@ -46,6 +46,9 @@ USE_L10N = True
 # Example: "/home/media/media.lawrence.com/media/"
 MEDIA_ROOT = get_absolute_path('media')
 
+# Size uploaded product pictures are cropped to
+PRODUCT_IMAGE_SIZE = (200, 150)
+
 # Set model for user profile
 AUTH_PROFILE_MODULE = 'accounts.UserProfile'
 
