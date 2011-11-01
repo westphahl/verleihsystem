@@ -11,6 +11,7 @@ urlpatterns = patterns('',
     # url(r'^verleihsystem/', include('verleihsystem.foo.urls')),
 
     url(r'^$', 'categories.views.index'),
+    url(r'^user/settings/$', 'accounts.views.settings'),
     url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'login.html'}),
     url(r'^logout/$', 'django.contrib.auth.views.logout'),
     # url(r'category/(?P<path>(?:\w+/)+)$' # Catchall

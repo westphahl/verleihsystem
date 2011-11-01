@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block sidebar %}
+	{% include 'categories/category_tree.html' %}
+{% endblock %}
+
+{% block content %}
+<p>Matrikelnummer: {{ request.user.id }}</p>
+<p>Benutzername: {{ request.user.username }}</p>
+<p>Vorname: {{ request.user.first_name }}</p>
+<p>Nachname: {{ request.user.last_name }}</p>
+<p>Telefon: {{ request.user.phone }}</p>
+<p>Mobiltelefon: {{ request.user.mobile_phone }}</p>
+<p>E-Mail: {{ request.user.email }}</p>
+<p>Aktiviert: {{ request.user.is_active }}</p>
+<p>Redakteur: {{ request.user.is_staff }}</p>
+<p>Administrator: {{ request.user.is_superuser }}</p>
+<p>Letzte Anmeldung: {{ request.user.last_login }}</p>
+{% endblock %}
