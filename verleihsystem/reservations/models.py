@@ -15,6 +15,8 @@ class Reservation(models.Model):
     user = models.ForeignKey(User, verbose_name=_("User"))
     start_date = models.DateField(verbose_name=_("Start date"))
     end_date = models.DateField(verbose_name=_("End date"))
+    borrow_date = models.DateField(verbose_name=_("Borrow date"))
+    return_date = models.DateField(verbose_name=_("Return date"))
     timestamp = models.DateField(verbose_name=_("Timestamp"),
             auto_now_add=True)
     state = models.IntegerField(verbose_name=_("State"), default=0,

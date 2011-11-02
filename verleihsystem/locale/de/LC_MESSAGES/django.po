@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-26 11:58+0200\n"
+"POT-Creation-Date: 2011-11-02 21:30+0100\n"
 "PO-Revision-Date: 2011-10-26 10:18+0200\n"
 "Last-Translator: Simon Westphahl\n"
 "Language: \n"
@@ -27,7 +27,7 @@ msgstr "Telefon"
 msgid "Mobile phone"
 msgstr "Handy"
 
-#: accounts/models.py:21 products/models.py:24
+#: accounts/models.py:21 products/models.py:28
 msgid "Photo"
 msgstr "Foto"
 
@@ -43,43 +43,43 @@ msgstr "Benutzerprofile"
 msgid "Category"
 msgstr "Kategorie"
 
-#: categories/models.py:22 products/models.py:22
+#: categories/models.py:22 products/models.py:26
 msgid "Categories"
 msgstr "Kategorien"
 
-#: products/admin.py:28
+#: products/admin.py:29
 msgid "Number of products"
 msgstr "Produktanzahl"
 
-#: products/models.py:20
+#: products/models.py:23
 msgid "Title"
 msgstr "Titel"
 
-#: products/models.py:21
+#: products/models.py:25
 msgid "Description"
 msgstr "Beschreibung"
 
-#: products/models.py:30
+#: products/models.py:46
 msgid "Product type"
 msgstr "Produkttyp"
 
-#: products/models.py:31
+#: products/models.py:47
 msgid "Product types"
 msgstr "Produkttypen"
 
-#: products/models.py:36
+#: products/models.py:52
 msgid "Serial/Id"
 msgstr "Seriennummer/Id"
 
-#: products/models.py:37
+#: products/models.py:53
 msgid "Brief description"
 msgstr "Kurzbeschreibung"
 
-#: products/models.py:44 reservations/models.py:36
+#: products/models.py:60 reservations/models.py:38
 msgid "Product"
 msgstr "Produkt"
 
-#: products/models.py:45
+#: products/models.py:61
 msgid "Products"
 msgstr "Produkte"
 
@@ -116,33 +116,45 @@ msgid "End date"
 msgstr "Enddatum"
 
 #: reservations/models.py:18
+msgid "Borrow date"
+msgstr "Ausleihdatum"
+
+#: reservations/models.py:19
+msgid "Return date"
+msgstr "Rückgabedatum"
+
+#: reservations/models.py:20
 msgid "Timestamp"
 msgstr "Zeitstempel"
 
-#: reservations/models.py:20
+#: reservations/models.py:22
 msgid "State"
 msgstr "Status"
 
-#: reservations/models.py:22
+#: reservations/models.py:24
 msgid "Comments"
 msgstr "Kommentare"
 
-#: reservations/models.py:28 reservations/models.py:35
+#: reservations/models.py:30 reservations/models.py:37
 msgid "Reservation"
 msgstr "Reservierung"
 
-#: reservations/models.py:29
+#: reservations/models.py:31
 msgid "Reservations"
 msgstr "Reservierungen"
 
-#: reservations/models.py:44
+#: reservations/models.py:46
 msgid "There is already a reservation for this product."
 msgstr "Für dieses Produkt ist bereits eine Reservierung vorhanden."
 
-#: reservations/models.py:50
+#: reservations/models.py:52
 msgid "Reservation Entry"
 msgstr "Reservierungseintrag"
 
-#: reservations/models.py:51
+#: reservations/models.py:53
 msgid "Reservation Entries"
 msgstr "Reservierunseinträge"
+
+#: templates/admin/base_site.html:8 templates/admin/base_site.html.py:11
+msgid "Verleihsystem-Administration"
+msgstr "Verleihsystem-Verwaltung"
