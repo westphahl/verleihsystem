@@ -134,8 +134,8 @@ section#header div#usermenu #gear:hover ul {
 }
 section#header div#feedback {
 	float: right;
-	padding: 10px;
-	margin: 5px;
+	padding: 0px;
+	margin: 5px 10px;
 	text-align: center;
 	font-weight: bold;
 }
@@ -144,9 +144,9 @@ section#header div#feedback img {
 }
 section#header div#contact {
 	float: right;
-	padding: 10px;
+	padding: 0px;
 	text-align: center;
-	margin: 5px;
+	margin: 5px 10px;
 	font-weight: bold;
 }
 section#header div#contact img {
@@ -154,11 +154,11 @@ section#header div#contact img {
 }
 section#header div#cart {
 	float: right;
-	padding: 10px;
-	margin: 5px;
+	padding: 0px;
+	margin: 5px 10px;
 	text-align: center;
 	font-weight: bold;
-	margin-right: 350px;
+	margin-right: 300px;
 }
 section#header div#cart img {
 	padding: 10px;
@@ -222,36 +222,6 @@ section#content div.title {
 	text-align: center;
 	text-transform: uppercase;
 }
-table#productlist {
-	width: 100%;
-}
-table#productlist thead td {
-	color:#fff;
-	font-weight:bold;
-	text-align:center;
-	background-color:#666;
-	line-height: 2em;
-}
-table#productlist tbody tr {
-	border-bottom: 1px solid #ccc;
-}
-table#productlist tbody tr.even {
-	background-color: #f5f5f5;
-}
-table#productlist tbody tr td {
-	vertical-align:top;
-	padding:10px;
-}
-table#productlist tbody tr td img {
-	width:90px;
-	height:75px;
-}
-table#productlist tbody tr td p {
-	line-height:1.2em;
-}
-table#productlist tbody tr td p.title {
-	font-size: 1.2em;
-}
 form#login {
 	text-align: center;
 }
@@ -267,4 +237,7 @@ form#login table td {
 	margin-bottom: 10px;
 	background-color: #F6CECE;
 	border: 1px solid #FA5858;
+}
+.clear {
+	clear: both;
 }

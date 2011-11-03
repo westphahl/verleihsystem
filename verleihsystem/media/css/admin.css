@@ -1,18 +1,14 @@
 #header {
-	background-color: #000;
-    color: #fff;
+	background-color: #666;
+	color: #fff;
 }
-
 #branding h1 {
 	color: #fff;
 }
-
-
 .module h2, .module caption {
 	background:#EEEEEE url(../admin/img/admin/nav-bg.gif) repeat-x scroll left bottom;
 	color: #666;
 }
-
 .module caption a.section {
 	color: #666;
 }

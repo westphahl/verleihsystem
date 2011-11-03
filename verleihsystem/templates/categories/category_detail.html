@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% load mptt_tags %}
 
-{% block sidebar %}
-	{% include 'categories/category_tree.html' %}
+{% block extra_css %}
+	<link rel="stylesheet" href="{{ MEDIA_URL }}css/categories_detail.css">
 {% endblock %}
 
 {% block content %}
@@ -14,16 +14,18 @@
 	 &raquo; {{ category.name }}
 </div>
 <div class="title">{{ category.name }}</div>
-<table id="productlist">
+<table id="producttype_list">
 	<colgroup>
 		<col width="110px">
 		<col width="">
+		<col width:="50px">
 		<col width="130px">
 	</colgroup>
 	<thead>
 		<tr>
 			<td>Bild</td>
 			<td>Name</td>
+			<td>Anzahl</td>
 			<td>Kategorien</td>
 		</tr>
 	</thead>
@@ -32,15 +34,16 @@
 	{% cycle 'odd' 'even' as rowcolors silent %}
 	<tr class="{{ rowcolors }}">
         <td>{% if product.picture %}
-            <img width={{ product.picture.width }} height={{ product.picture.height }} src="{{ product.picture.url }}" />
+            <img src="{{ product.picture.url }}" />
         {% else %}
-            <p>Kein Bild!</p>
+            <img src="{{ MEDIA_URL }}img/no_picture.png" />
         {% endif %}
         </td>
 		<td>
             <p class="title"><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></p>
 			<p class="description">{{ product.description|truncatewords:15 }}
 		</td>
+		<td>{{ product.product_count }}</td>
 		<td>
 			{% for c in product.categories.all %}
 				<p><a href="{{ c.get_absolute_url }}">{{ c.name }}</a></p>

@@ -1,0 +1,30 @@
+table#producttype_list {
+	width: 100%;
+}
+table#producttype_list thead td {
+	color:#fff;
+	font-weight:bold;
+	text-align:center;
+	background-color:#666;
+	line-height: 2em;
+}
+table#producttype_list tbody tr {
+	border-bottom: 1px solid #ccc;
+}
+table#producttype_list tbody tr.even {
+	background-color: #f5f5f5;
+}
+table#producttype_list tbody tr td {
+	vertical-align:top;
+	padding:10px;
+}
+table#producttype_list tbody tr td img {
+	width:90px;
+	height:75px;
+}
+table#producttype_list tbody tr td p {
+	line-height:1.2em;
+}
+table#producttype_list tbody tr td p.title {
+	font-size: 1.2em;
+}

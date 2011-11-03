@@ -9,5 +9,12 @@
 Herr Bernhard
 Raum T1xx
 Sprechzeiten:
+<br />
+<br />
+{% for a in request.session.color %}
+	{{ a }}<br />
+{% endfor %}
+<br />
+Länge: {{ request.session.color|length }}
 
 {% endblock %}

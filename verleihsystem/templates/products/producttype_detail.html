@@ -1,32 +1,74 @@
 {% extends "base.html" %}
 
+{% block extra_css %}
+	<link rel="stylesheet" href="{{ MEDIA_URL }}css/producttype_detail.css">
+{% endblock %}
+
 {% block content %}
-<div class="url">{{ request.path_info }}</div>
-<div class="title">{{ producttype.name }}</div>
-<div class="list">
-<pre>
-    Produkttyp
-    ==========
+<div id="breadcrumbs">{{ request.path_info }}</div>
+<div id="producttype_detail">
+	<div class="title">{{ producttype.name }}</div>
+	<div class="photo">
+	{% if producttype.picture %}
+		<img src="{{ producttype.picture.url }}" />
+	{% else %}
+		<img src="{{ MEDIA_URL }}img/no_picture.png" />
+	{% endif %}
+	</div>
+	<div class="description">
+		{{ producttype.description }}
+	</div>
+	<div class="clear">
+	<table id="product_list">
+		<colgroup>
+			<col width="150px">
+			<col width="">
+			<col width="150px">
+		</colgroup>
+		<thead>
+			<tr>
+				<td>ID/Serial No.</td>
+				<td>Beschreibung</td>
+				<td></td>
+			</tr>
+		</thead>
+		<tbody>
+		{% for product in product_list %}
+			{% cycle 'odd' 'even' as rowcolors silent %}
+			<tr class="{{ rowcolors }}">
+				<td>{{ product.sn }}</td>
+				<td>{{ product.brief_description }}</td>
+				<td class="cart"><a href="/cart/add?id={{ product.id }}">in Warenkorb</a></td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+	<!--
+	<div class="list">
+	<pre>
+		Produkttyp
+		==========
+		Name: {{ producttype.name }}</p>
+		Beschreibung: {{ producttype.description }}
+		{% if producttype.picture %}
+			<img src="{{ producttype.picture.url }}" />
+		{% else %}
+			Kein Photo vorhanden
+		{% endif %}
 
-    Name: {{ producttype.name }}</p>
-    Beschreibung: {{ producttype.description }}
-    {% if producttype.picture %}
-        <img src="{{ producttype.picture.url }}" />
-    {% else %}
-        Kein Photo vorhanden
-    {% endif %}
+		Kategorien
+		----------
+		{% for category in producttype.categories.all %}
+			- {{ category.name }}
+		{% endfor %}
 
-    Kategorien
-    ----------
-    {% for category in producttype.categories.all %}
-        - {{ category.name }}
-    {% endfor %}
-
-    Produkte
-    --------
-    {% for product in product_list %}
-    Seriennummer/Id: {{ product.sn }}, Beschreibung: {{ product.brief_description }}
-    {% endfor %}
-</pre>
+		Produkte
+		--------
+		{% for product in product_list %}
+		Seriennummer/Id: {{ product.sn }}, Beschreibung: {{ product.brief_description }}
+		{% endfor %}
+	</pre>
+	</div>
+	-->
 </div>
 {% endblock %}

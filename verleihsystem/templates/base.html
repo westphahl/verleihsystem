@@ -4,6 +4,7 @@
 	<title>{% block title %}Verleihsystem{% endblock %}</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="{{ MEDIA_URL }}css/screen.css">
+	{% block extra_css %}{% endblock %}
 </head>
 <body>
 	<section id="header">
@@ -20,7 +21,7 @@
 			{% endif %}
 		<div>
 		<div id="cart">
-			<a href="#"><img src="{{ MEDIA_URL }}img/icon/cart.png"><br />WARENKORB</a>
+			<a href="/cart/"><img src="{{ MEDIA_URL }}img/icon/cart.png"><br />WARENKORB</a>
 		</div>
 		<div id="contact">
 			<a href="#"><img src="{{ MEDIA_URL }}img/icon/contact.png"><br />KONTAKT</a>
