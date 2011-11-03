@@ -9,9 +9,9 @@
 <div id="breadcrumbs">
 	<a href="/">Home</a>
 	{% for a in category.get_ancestors %}
-		 &raquo; <a href="{{ a.get_absolute_url }}">{{ a.name }}</a>
+		&raquo; <a href="{{ a.get_absolute_url }}">{{ a.name }}</a>
 	{% endfor %}
-	 &raquo; {{ category.name }}
+	&raquo; {{ category.name }}
 </div>
 <div class="title">{{ category.name }}</div>
 <table id="producttype_list">
@@ -33,14 +33,14 @@
 {% for product in product_list %}
 	{% cycle 'odd' 'even' as rowcolors silent %}
 	<tr class="{{ rowcolors }}">
-        <td>{% if product.picture %}
-            <img src="{{ product.picture.url }}" />
-        {% else %}
-            <img src="{{ MEDIA_URL }}img/no_picture.png" />
-        {% endif %}
-        </td>
+		<td>{% if product.picture %}
+			<img src="{{ product.picture.url }}" />
+		{% else %}
+			<img src="{{ MEDIA_URL }}img/no_picture.png" />
+		{% endif %}
+		</td>
 		<td>
-            <p class="title"><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></p>
+			<p class="title"><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></p>
 			<p class="description">{{ product.description|truncatewords:15 }}
 		</td>
 		<td>{{ product.product_count }}</td>

@@ -43,32 +43,5 @@
 		{% endfor %}
 		</tbody>
 	</table>
-	<!--
-	<div class="list">
-	<pre>
-		Produkttyp
-		==========
-		Name: {{ producttype.name }}</p>
-		Beschreibung: {{ producttype.description }}
-		{% if producttype.picture %}
-			<img src="{{ producttype.picture.url }}" />
-		{% else %}
-			Kein Photo vorhanden
-		{% endif %}
-
-		Kategorien
-		----------
-		{% for category in producttype.categories.all %}
-			- {{ category.name }}
-		{% endfor %}
-
-		Produkte
-		--------
-		{% for product in product_list %}
-		Seriennummer/Id: {{ product.sn }}, Beschreibung: {{ product.brief_description }}
-		{% endfor %}
-	</pre>
-	</div>
-	-->
 </div>
 {% endblock %}
