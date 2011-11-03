@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block sidebar %}
+	{% include 'categories/category_tree.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="title">Warenkorb</div>
+{% for a in request.session.cart %}
+	{{ a }}<br />
+{% endfor %}
+<br />
+Länge: {{ request.session.cart|length }}
+<br />
+<a href="clear/">Löschen</a>
+{% endblock %}

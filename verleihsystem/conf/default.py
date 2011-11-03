@@ -123,6 +123,7 @@ INSTALLED_APPS = (
     'categories',
     'products',
     'reservations',
+    'shoppingcart',
 )
 
 # A sample logging configuration. The only tangible logging
