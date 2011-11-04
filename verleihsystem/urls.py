@@ -11,14 +11,14 @@ urlpatterns = patterns('',
     # url(r'^verleihsystem/', include('verleihsystem.foo.urls')),
 
     url(r'^$', 'categories.views.index'),
-    url(r'^cart/$', 'shoppingcart.views.index'),
-    url(r'^cart/add/$', 'shoppingcart.views.add'),
+
     url(r'^cart/clear/$', 'shoppingcart.views.clear'),
     url(r'^user/settings/$', 'accounts.views.settings'),
     url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'login.html'}),
     url(r'^logout/$', 'django.contrib.auth.views.logout'),
     url(r'^category/', include('categories.urls')),
     url(r'^product/', include('products.urls')),
+    url(r'^cart/', include('shoppingcart.urls')),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

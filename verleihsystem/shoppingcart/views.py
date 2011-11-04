@@ -29,3 +29,11 @@ def add(request):
         request.session['cart'].append(obj)
     request.session.modified = True
     return redirect('/cart/')
+
+def remove(request):
+    pid = request.GET.get('id', '0')
+    obj = get_object_or_404(Product, id=pid)
+    if obj in request.session['cart']:
+        request.session['cart'].remove(obj)
+    request.session.modified = True
+    return redirect('/cart/')

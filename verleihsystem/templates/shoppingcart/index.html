@@ -5,7 +5,10 @@
 {% endblock %}
 
 {% block content %}
-<div class="title">Warenkorb</div>
+<div id="breadcrumbs">
+	<p><a href="/">Home</a> &raquo; Warenkorb</p>
+</div>
+<h1>Warenkorb</h1>
 {% for a in request.session.cart %}
 	{{ a }}<br />
 {% endfor %}
