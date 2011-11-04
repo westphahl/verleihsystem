@@ -5,43 +5,69 @@
 {% endblock %}
 
 {% block content %}
-<div id="breadcrumbs">{{ request.path_info }}</div>
+<div id="breadcrumbs">
+{% for c in producttype.categories.all %}
+	{% if forloop.first %}
+		<p><a href="/">Home</a>
+	{% else %}
+		<p><span style="visibility:hidden">Home</span>
+	{% endif %}
+	{% for a in c.get_ancestors %}
+		&raquo; <a href="{{ a.get_absolute_url }}">{{ a.name }}</a>
+	{% endfor %}
+	&raquo; <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+	&raquo; {{ producttype.name }}
+	</p>
+{% endfor %}
+</div>
+<h1>{{ producttype.name }}</h1>
 <div id="producttype_detail">
-	<div class="title">{{ producttype.name }}</div>
-	<div class="photo">
+	<p class="photo">
 	{% if producttype.picture %}
 		<img src="{{ producttype.picture.url }}" />
 	{% else %}
 		<img src="{{ MEDIA_URL }}img/no_picture.png" />
 	{% endif %}
-	</div>
-	<div class="description">
+	</p>
+	<p class="description">
 		{{ producttype.description }}
-	</div>
-	<div class="clear">
-	<table id="product_list">
-		<colgroup>
-			<col width="150px">
-			<col width="">
-			<col width="150px">
-		</colgroup>
-		<thead>
-			<tr>
-				<td>ID/Serial No.</td>
-				<td>Beschreibung</td>
-				<td></td>
-			</tr>
-		</thead>
-		<tbody>
-		{% for product in product_list %}
-			{% cycle 'odd' 'even' as rowcolors silent %}
-			<tr class="{{ rowcolors }}">
-				<td>{{ product.sn }}</td>
-				<td>{{ product.brief_description }}</td>
-				<td class="cart"><a href="/cart/add?id={{ product.id }}">in Warenkorb</a></td>
-			</tr>
-		{% endfor %}
-		</tbody>
-	</table>
+	</p>
 </div>
+<div class="clear">
+<table id="product_list">
+	<colgroup>
+		<col width="150px">
+		<col width="">
+		<col width="150px">
+	</colgroup>
+	<thead>
+		<tr>
+			<td>ID/Serial No.</td>
+			<td>Beschreibung</td>
+			<td></td>
+		</tr>
+	</thead>
+	<tbody>
+	{% for product in product_list %}
+		{% cycle 'odd' 'even' as rowcolors silent %}
+		<tr class="{{ rowcolors }}">
+			<td>{{ product.sn }}</td>
+			<td>{{ product.brief_description }}</td>
+			<td class="actions">
+			{% if product in request.session.cart %}
+				<a href="#"><img src="{{ MEDIA_URL }}img/icon/calendar.png" /></a>
+				<a href="/cart/remove?id={{ product.id }}"><img src="{{ MEDIA_URL }}img/icon/cart_minus.png" /></a>
+			{% else %}
+				<a href="/cart/add?id={{ product.id }}"><img src="{{ MEDIA_URL }}img/icon/cart_plus.png" /></a>
+			{% endif %}
+			</td>
+		</tr>
+		<tr class="{{ rowcolors }}">
+			<td colspan="3">
+				--- TIMELINE ---
+			</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
 {% endblock %}

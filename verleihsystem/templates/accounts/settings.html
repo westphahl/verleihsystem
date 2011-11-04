@@ -5,6 +5,10 @@
 {% endblock %}
 
 {% block content %}
+<div id="breadcrumbs">
+	<p><a href="/">Home</a>	&raquo; Einstellungen</p>
+</div>
+<h1>Benutzerdaten</h1>
 <p>Matrikelnummer: {{ request.user.id }}</p>
 <p>Benutzername: {{ request.user.username }}</p>
 <p>Vorname: {{ request.user.first_name }}</p>

@@ -5,16 +5,12 @@
 {% endblock %}
 
 {% block content %}
-<div class="title">Ansprechpartner</div>
+<div id="breadcrumbs">
+	<p>Home</p>
+</div>
+<h1>Ansprechpartner</h1>
 Herr Bernhard
 Raum T1xx
 Sprechzeiten:
-<br />
-<br />
-{% for a in request.session.color %}
-	{{ a }}<br />
-{% endfor %}
-<br />
-Länge: {{ request.session.color|length }}
 
 {% endblock %}

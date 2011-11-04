@@ -6,7 +6,10 @@
 {% endblock %}
 
 {% block content %}
-<div class="title">Anmeldung</div>
+<div id="breadcrumbs">
+	<p><a href="/">Home</a> &raquo; Anmelden</p>
+</div>
+<h1>Anmeldung</h1>
 {% if request.user.is_anonymous %}
 	{% if form.errors %}
 	<p class="errorlist">Your username and password didn't match. Please try again.</p>

@@ -3,6 +3,7 @@
 <head> 
 	<title>{% block title %}Verleihsystem{% endblock %}</title>
 	<meta charset="utf-8">
+	<link rel="stylesheet" href="{{ MEDIA_URL }}css/core.css">
 	<link rel="stylesheet" href="{{ MEDIA_URL }}css/screen.css">
 	{% block extra_css %}{% endblock %}
 </head>
@@ -41,7 +42,7 @@
 			{% block content %}
 			{% endblock %}
 		</section>
-		<section style="clear:both"></section>
+		<section class="clear"></section>
 	</section>
 </body> 
 </html>
