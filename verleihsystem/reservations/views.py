@@ -46,9 +46,10 @@ class ReservationDateListView(JSONResponseMixin, BaseDetailView):
                 product=int(self.kwargs['pk']),
                 reservation__state=1,
                 reservation__end_date__gte=range_start,
-                reservation__end_date__lt=range_end)
+                reservation__start_date__lte=range_end)
 
         current_date = range_start
+        print entries
 
         while current_date < range_end:
             reserved = [e for e in entries if

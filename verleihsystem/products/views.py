@@ -37,7 +37,7 @@ class ProductTypeDetailView(DetailView):
                 product__in=product_list,
                 reservation__state=1,
                 reservation__end_date__gte=range_start,
-                reservation__end_date__lt=range_end
+                reservation__start_date__lte=range_end
             ).select_related('reservation')
 
         sorted_entries = dict()
