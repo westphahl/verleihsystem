@@ -79,9 +79,9 @@
 						<td>
 							<p class="date">{{ day.date|date:"d.m" }}</p>
 							{% if day.reserved %}
-								<p class="reserved">&nbsp;</p>
+								<p class="reserved" title="Reserviert">&nbsp;</p>
 							{% else %}
-								<p class="free">&nbsp;</p>
+								<p class="free" title="Frei">&nbsp;</p>
 							{% endif %}
                         </td>
                     {% endfor %}
