@@ -63,8 +63,17 @@
 			</td>
 		</tr>
 		<tr class="{{ rowcolors }}">
-			<td colspan="3">
-				--- TIMELINE ---
+            <td colspan="3">
+                <ul>
+                {% for day in product.timeline %}
+                    <li>{{ day.date }}: 
+                {% if day.reserved %}
+                    <strong>reserviert</strong>
+                {% else %}
+                    <em>frei</em>
+                {% endif %}
+                {% endfor %}
+                </ul>
 			</td>
 		</tr>
 	{% endfor %}
