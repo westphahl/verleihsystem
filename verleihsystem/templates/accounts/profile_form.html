@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block extra_css %}
+	<link rel="stylesheet" href="{{ MEDIA_URL }}css/profile_form.css">
+{% endblock %}
+
 {% block sidebar %}
 	{% include 'categories/category_tree.html' %}
 {% endblock %}
@@ -8,17 +12,62 @@
 <div id="breadcrumbs">
 	<p><a href="/">Home</a>	&raquo; Einstellungen</p>
 </div>
-<h1>Benutzerdaten</h1>
-<p>Benutzername: {{ request.user.username }}</p>
-<p>Vorname: {{ request.user.first_name }}</p>
-<p>Nachname: {{ request.user.last_name }}</p>
-<p>E-Mail: {{ request.user.email }}</p>
+<h1>Einstellungen</h1>
 
-<form method="post" action="">
-    {% csrf_token %}
-    {{ formset }}
-    <input type="submit" value="Speichern">
-</form>
-
+<div id="userdata">
+	<h5>Stammdaten</h5>
+	<table>
+		<colgroup>
+			<col width="200px"">
+			<col width=""">
+		</colgroup>
+		<tbody>
+			<tr>
+				<td>Benutzername</td>
+				<td>{{ request.user.username }}</td>
+			</tr>
+			<tr>
+				<td>Vorname</td>
+				<td>{{ request.user.first_name }}</td>
+			</tr>
+			<tr>
+				<td>Nachname</td>
+				<td>{{ request.user.last_name }}</td>
+			</tr>
+			<tr>
+				<td>E-Mail</td>
+				<td>{{ request.user.email }}</td>
+			</tr>
+		</tbody>
+	</table>
+	<br /><br />
+	<h5>Zusätzliche Daten</h5>
+	<form method="post" action="">
+		{% csrf_token %}
+		<table>
+			<colgroup>
+				<col width="200px">
+				<col width="">
+			</colgroup>
+			<tbody>
+				<tr>
+					<td>{{ formset.student_number.label_tag }}</td>
+					<td>{{ formset.student_number }}</td>
+				</tr>
+				<tr>
+					<td>{{ formset.phone.label_tag }}</td>
+					<td>{{ formset.phone }}</td>
+				</tr>
+				<tr>
+					<td>{{ formset.mobile_phone.label_tag }}</td>
+					<td>{{ formset.mobile_phone }}</td>
+				</tr>
+			</tbody>
+		</table>
+		<br />
+		<p style="text-align:center"><input type="submit" value="Speichern"></p>
+	</form>
+<div>
+<br />
 <p>Letzte Anmeldung: {{ request.user.last_login }}</p>
 {% endblock %}

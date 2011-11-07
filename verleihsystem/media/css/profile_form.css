@@ -1,0 +1,17 @@
+div#userdata table {
+	width: 100%;
+}
+div#userdata > table tr td {
+	padding: 6px 10px;
+}
+div#userdata > form table tr td {
+	padding: 0px 10px;
+}
+input[type="text"],
+input[type="password"] {
+	padding: 1px;
+	border: 1px solid #ccc;
+}
+input[type="submit"] {
+	padding: 5px 20px;
+}
