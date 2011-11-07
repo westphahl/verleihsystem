@@ -67,10 +67,15 @@
 			<table class="timeline">
 				<tbody>
 					<tr>
-						<td class="back">
-							<a href="#">&laquo;</a>
+                        <td class="back">
+                        {% with year=previous_range|date:"Y" month=previous_range|date:"m" day=previous_range|date:"d" %}
+                            <a href="{{ request.url }}?timeline={{ year }}-{{ month }}-{{ day }}">&laquo;</a>
+                            <!--
+                            JavaScript JSON Link: {% url reservation_date_list year month day product.id %}
+                            -->
+                        {% endwith %}
 						</td>
-						{% for day in product.timeline %}
+                    {% for day in product.timeline %}
 						<td>
 							<p class="date">{{ day.date|date:"d.m" }}</p>
 							{% if day.reserved %}
@@ -78,10 +83,15 @@
 							{% else %}
 								<p class="free">&nbsp;</p>
 							{% endif %}
-						</td>
-						{% endfor %}
-						<td class="forward">
-							<a href="#">&raquo;</a>
+                        </td>
+                    {% endfor %}
+                        <td class="forward">
+                        {% with year=next_range|date:"Y" month=next_range|date:"m" day=next_range|date:"d" %}
+                            <a href="{{ request.url }}?timeline={{ year }}-{{ month }}-{{ day }}">&raquo;</a>
+                            <!--
+                            JavaScript JSON Link: {% url reservation_date_list year month day product.id %}
+                            -->
+                        {% endwith %}
 						</td>
 					</tr>
 				</tbody>

@@ -14,12 +14,26 @@ class ProductTypeDetailView(DetailView):
     def get_context_data(self, **kwargs):
         # Call implementation in base class to get context
         context = super(ProductTypeDetailView, self).get_context_data(**kwargs)
-        product_list = Product.objects.filter(product_type=self.object)
 
-        range_start = date.today()
+        timeline = self.request.GET.get('timeline', None)
+        try:
+            if timeline:
+                year, month, day = map(int, timeline.split('-'))
+                print(timeline.split('-'))
+                range_start = date(year, month, day)
+                print(date)
+        except ValueError:
+            range_start = date.today()
+
         day_range = getattr(settings, 'RESERVATION_TIMELINE_RANGE', 14)
         range_end = range_start + timedelta(days=day_range)
 
+        context.update({
+            'next_range': range_end,
+            'previous_range': range_start - timedelta(days=14),
+        })
+
+        product_list = Product.objects.filter(product_type=self.object)
         entry_list = ReservationEntry.objects.filter(
                 product__in=product_list,
                 reservation__state=1,
