@@ -1,67 +1,67 @@
 <table class="timeline" id="product{{ product.id }}">
-    <tbody>
-        <tr>
-            {% with year=previous_range|date:"Y" month=previous_range|date:"m" day=previous_range|date:"d" %}
-            <td class="back">
-                <a id="navPrev{{ product.id }}" href="{{ request.url }}?timeline={{ year }}-{{ month }}-{{ day }}">&laquo;</a>
-            </td>
-            <script>
-                $(document).ready(function() {
-                    $('#navPrev{{ product.id }}').click(function() {
-                        $.ajax({
-                            url: "{% url reservation_date_list year month day product.id %}",
-                            success: function(response, textStatus, jqXHR) {
-                                $('#product{{ product.id }}').html(response.timeline);
-                            },
-                            error: function(jqXHR, testStatus, errorThrown) {
-                                // Error handling
-                            },
-                            complete: function() {
-                                // Other handling
-                            }
-                        });
+	<tbody>
+		<tr>
+			{% with year=previous_range|date:"Y" month=previous_range|date:"m" day=previous_range|date:"d" %}
+			<td class="back">
+				<a id="navPrev{{ product.id }}" href="{{ request.url }}?timeline={{ year }}-{{ month }}-{{ day }}"><img src="{{ MEDIA_URL }}img/icon/arrow_left.png" alt="&laquo;"></a>
+			</td>
+			<script>
+				$(document).ready(function() {
+					$('#navPrev{{ product.id }}').click(function() {
+						$.ajax({
+							url: "{% url reservation_date_list year month day product.id %}",
+							success: function(response, textStatus, jqXHR) {
+								$('#product{{ product.id }}').html(response.timeline);
+							},
+							error: function(jqXHR, testStatus, errorThrown) {
+								// Error handling
+							},
+							complete: function() {
+								// Other handling
+							}
+						});
 
-                    return false;
-                    });
-                });
-            </script>
-            {% endwith %}
-            {% for day in product.timeline %}
-            <td>
-                <p class="date">{{ day.date|date:"d.m" }}</p>
-                {% if day.reserved %}
-                    <p class="reserved">&nbsp;</p>
-                {% else %}
-                    <p class="free">&nbsp;</p>
-                {% endif %}
-            </td>
-            {% endfor %}
-            <td class="forward">
-            {% with year=next_range|date:"Y" month=next_range|date:"m" day=next_range|date:"d" %}
-                <a id="navNext{{ product.id }}" href="{{ request.url }}?timeline={{ year }}-{{ month }}-{{ day }}">&raquo;</a>
-            </td>
-            <script>
-                $(document).ready(function() {
-                    $('#navNext{{ product.id }}').click(function() {
-                        $.ajax({
-                            url: "{% url reservation_date_list year month day product.id %}",
-                            success: function(data, textStatus, jqXHR) {
-                                // Update timeline
-                                $('#product{{ product.id }}').html(data.timeline);
-                            },
-                            error: function(jqXHR, testStatus, errorThrown) {
-                                // Error handling
-                            },
-                            complete: function(jqXHR, textStatus) {
-                                // Request finished
-                            }
-                        });
+					return false;
+					});
+				});
+			</script>
+			{% endwith %}
+			{% for day in product.timeline %}
+			<td>
+				<p class="date">{{ day.date|date:"d.m" }}</p>
+				{% if day.reserved %}
+					<p class="reserved">&nbsp;</p>
+				{% else %}
+					<p class="free">&nbsp;</p>
+				{% endif %}
+			</td>
+			{% endfor %}
+			<td class="forward">
+			{% with year=next_range|date:"Y" month=next_range|date:"m" day=next_range|date:"d" %}
+				<a id="navNext{{ product.id }}" href="{{ request.url }}?timeline={{ year }}-{{ month }}-{{ day }}"><img src="{{ MEDIA_URL }}img/icon/arrow_right.png" alt="&raquo;"></a>
+			</td>
+			<script>
+				$(document).ready(function() {
+					$('#navNext{{ product.id }}').click(function() {
+						$.ajax({
+							url: "{% url reservation_date_list year month day product.id %}",
+							success: function(data, textStatus, jqXHR) {
+								// Update timeline
+								$('#product{{ product.id }}').html(data.timeline);
+							},
+							error: function(jqXHR, testStatus, errorThrown) {
+								// Error handling
+							},
+							complete: function(jqXHR, textStatus) {
+								// Request finished
+							}
+						});
 
-                    return false;
-                    });
-                });
-            </script>
-            {% endwith %}
-        </tr>
-    </tbody>
+					return false;
+					});
+				});
+			</script>
+			{% endwith %}
+		</tr>
+	</tbody>
 </table>
