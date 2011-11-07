@@ -16,14 +16,13 @@ class ProductTypeDetailView(DetailView):
         context = super(ProductTypeDetailView, self).get_context_data(**kwargs)
 
         timeline = self.request.GET.get('timeline', None)
+        range_start = date.today()
         try:
             if timeline:
                 year, month, day = map(int, timeline.split('-'))
-                print(timeline.split('-'))
                 range_start = date(year, month, day)
-                print(date)
         except ValueError:
-            range_start = date.today()
+            pass
 
         day_range = getattr(settings, 'RESERVATION_TIMELINE_RANGE', 14)
         range_end = range_start + timedelta(days=day_range)
