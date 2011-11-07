@@ -1,5 +1,5 @@
 body {
-	height: 100%;
+	min-height: 100%;
 	width: 964px;
 	padding: 0px 20px;
 	margin: 0 auto;
@@ -60,6 +60,9 @@ section#header div#cart {
 }
 section#header div#cart img {
 	padding: 10px;
+}
+section#header div#cart p {
+	padding-bottom: 3px;
 }
 section#content_wrapper {
 	width: 100%;

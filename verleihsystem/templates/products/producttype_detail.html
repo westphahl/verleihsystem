@@ -63,17 +63,29 @@
 			</td>
 		</tr>
 		<tr class="{{ rowcolors }}">
-            <td colspan="3">
-                <ul>
-                {% for day in product.timeline %}
-                    <li>{{ day.date }}: 
-                {% if day.reserved %}
-                    <strong>reserviert</strong>
-                {% else %}
-                    <em>frei</em>
-                {% endif %}
-                {% endfor %}
-                </ul>
+			<td colspan="3">
+			<table class="timeline">
+				<tbody>
+					<tr>
+						<td class="back">
+							<a href="#">&laquo;</a>
+						</td>
+						{% for day in product.timeline %}
+						<td>
+							<p class="date">{{ day.date|date:"d.m" }}</p>
+							{% if day.reserved %}
+								<p class="reserved">&nbsp;</p>
+							{% else %}
+								<p class="free">&nbsp;</p>
+							{% endif %}
+						</td>
+						{% endfor %}
+						<td class="forward">
+							<a href="#">&raquo;</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
 			</td>
 		</tr>
 	{% endfor %}

@@ -22,7 +22,12 @@
 			{% endif %}
 		<div>
 		<div id="cart">
-			<a href="/cart/"><img src="{{ MEDIA_URL }}img/icon/cart.png"><br />WARENKORB</a>
+			<a href="/cart/">
+				<img src="{{ MEDIA_URL }}img/icon/cart.png"><br />
+				<p>WARENKORB</p>
+				{% if request.session.cart %}
+				<p>({{ request.session.cart|length }})</p>
+				{% endif %}</a>
 		</div>
 		<div id="contact">
 			<a href="#"><img src="{{ MEDIA_URL }}img/icon/contact.png"><br />KONTAKT</a>
