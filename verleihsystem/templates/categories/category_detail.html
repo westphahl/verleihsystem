@@ -5,6 +5,11 @@
 	<link rel="stylesheet" href="{{ MEDIA_URL }}css/categories_detail.css">
 {% endblock %}
 
+{% block sidebar %}
+	{% include 'categories/category_contact.html' %}
+	{% include 'categories/category_tree.html' %}
+{% endblock %}
+
 {% block content %}
 <div id="breadcrumbs">
 	<p><a href="/">Home</a>

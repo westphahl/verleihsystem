@@ -42,3 +42,13 @@ class Category(MPTTModel):
     @models.permalink
     def get_absolute_url(self):
         return ('category_detail', (), {'path': self.path})
+
+    def get_contact_person(self):
+        user_id = self.contact_id
+        if not user_id:
+            for c in self.get_ancestors():
+                if c.contact_id != None:
+                    user_id = c.contact_id
+                    break
+        user = User.objects.get(id=user_id)
+        return user
