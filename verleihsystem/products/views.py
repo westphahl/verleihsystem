@@ -29,7 +29,7 @@ class ProductTypeDetailView(DetailView):
 
         context.update({
             'next_range': range_end,
-            'previous_range': range_start - timedelta(days=14),
+            'previous_range': range_start - timedelta(days=day_range),
         })
 
         product_list = Product.objects.filter(product_type=self.object)

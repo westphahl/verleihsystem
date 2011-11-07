@@ -1,6 +1,7 @@
 from datetime import date, timedelta
 
 from django.conf import settings
+from django.core.urlresolvers import reverse
 from django.http import Http404, HttpResponse
 from django.views.generic.detail import BaseDetailView
 from django.utils import simplejson as json
@@ -42,6 +43,20 @@ class ReservationDateListView(JSONResponseMixin, BaseDetailView):
         day_range = getattr(settings, 'RESERVATION_TIMELINE_RANGE', 14)
         range_end = range_start + timedelta(days=day_range)
 
+        previous_range = range_start - timedelta(days=day_range)
+        context.update({
+            'next_url': reverse('reservation_date_list', args=[
+                range_end.year,
+                range_end.month,
+                range_end.day,
+                context['product']]),
+            'previous_url': reverse('reservation_date_list', args=[
+                previous_range.year,
+                previous_range.month,
+                previous_range.day,
+                context['product']]),
+        })
+
         entries = ReservationEntry.objects.filter(
                 product=int(self.kwargs['pk']),
                 reservation__state=1,
@@ -49,7 +64,6 @@ class ReservationDateListView(JSONResponseMixin, BaseDetailView):
                 reservation__start_date__lte=range_end)
 
         current_date = range_start
-        print entries
 
         while current_date < range_end:
             reserved = [e for e in entries if
