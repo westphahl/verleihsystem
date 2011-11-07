@@ -1,5 +1,6 @@
 from datetime import date, timedelta
 
+from django.conf import settings
 from django.http import Http404, HttpResponse
 from django.views.generic.detail import BaseDetailView
 from django.utils import simplejson as json
@@ -22,10 +23,6 @@ class JSONResponseMixin(object):
 
     def convert_context_to_json(self, context):
         """Convert the context dictionary into a JSON."""
-        # Note: This is *EXTREMELY* naive; in reality, you'll need
-        # to do much more complex handling to ensure that arbitrary
-        # objects -- such as Django model instances or querysets
-        # -- can be serialized as JSON.
         return json.dumps(context)
 
 
@@ -42,7 +39,8 @@ class ReservationDateListView(JSONResponseMixin, BaseDetailView):
         except ValueError:
             raise Http404
 
-        range_end = range_start + timedelta(days=14)
+        day_range = getattr(settings, 'RESERVATION_TIMELINE_RANGE', 14)
+        range_end = range_start + timedelta(days=day_range)
 
         entries = ReservationEntry.objects.filter(
                 product=int(self.kwargs['pk']),

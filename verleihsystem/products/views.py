@@ -1,5 +1,6 @@
 from datetime import date, timedelta
 
+from django.conf import settings
 from django.views.generic.detail import DetailView
 
 from products.models import ProductType, Product
@@ -16,7 +17,8 @@ class ProductTypeDetailView(DetailView):
         product_list = Product.objects.filter(product_type=self.object)
 
         range_start = date.today()
-        range_end = range_start + timedelta(days=14)
+        day_range = getattr(settings, 'RESERVATION_TIMELINE_RANGE', 14)
+        range_end = range_start + timedelta(days=day_range)
 
         entry_list = ReservationEntry.objects.filter(
                 product__in=product_list,
