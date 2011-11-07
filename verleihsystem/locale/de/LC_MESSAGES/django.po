@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-02 21:30+0100\n"
+"POT-Creation-Date: 2011-11-07 11:41+0100\n"
 "PO-Revision-Date: 2011-10-26 10:18+0200\n"
 "Last-Translator: Simon Westphahl\n"
 "Language: \n"
@@ -75,7 +75,7 @@ msgstr "Seriennummer/Id"
 msgid "Brief description"
 msgstr "Kurzbeschreibung"
 
-#: products/models.py:60 reservations/models.py:38
+#: products/models.py:60 reservations/models.py:46
 msgid "Product"
 msgstr "Produkt"
 
@@ -91,67 +91,72 @@ msgstr "Ausgewählte Reservierungen bestätigen"
 msgid "Mark selected reservations as rejected"
 msgstr "Ausgewählte Reservierungen ablehnen"
 
-#: reservations/models.py:11
+#: reservations/models.py:13
 msgid "Pending"
 msgstr "Ausstehend"
 
-#: reservations/models.py:12
+#: reservations/models.py:14
 msgid "Acknowledged"
 msgstr "Bestätigt"
 
-#: reservations/models.py:13
+#: reservations/models.py:15
 msgid "Rejected"
 msgstr "Abgelehnt"
 
-#: reservations/models.py:15
+#: reservations/models.py:17
 msgid "User"
 msgstr "Benuter"
 
-#: reservations/models.py:16
+#: reservations/models.py:18
 msgid "Start date"
 msgstr "Startdatum"
 
-#: reservations/models.py:17
+#: reservations/models.py:19
 msgid "End date"
 msgstr "Enddatum"
 
-#: reservations/models.py:18
+#: reservations/models.py:20
 msgid "Borrow date"
 msgstr "Ausleihdatum"
 
-#: reservations/models.py:19
+#: reservations/models.py:22
 msgid "Return date"
 msgstr "Rückgabedatum"
 
-#: reservations/models.py:20
+#: reservations/models.py:24
 msgid "Timestamp"
 msgstr "Zeitstempel"
 
-#: reservations/models.py:22
+#: reservations/models.py:26
 msgid "State"
 msgstr "Status"
 
-#: reservations/models.py:24
+#: reservations/models.py:28
 msgid "Comments"
 msgstr "Kommentare"
 
-#: reservations/models.py:30 reservations/models.py:37
+#: reservations/models.py:35
+msgid "End date must be greater than start date."
+msgstr "Das Enddatum muss größer sein, als das Startdatum."
+
+#: reservations/models.py:38 reservations/models.py:45
 msgid "Reservation"
 msgstr "Reservierung"
 
-#: reservations/models.py:31
+#: reservations/models.py:39
 msgid "Reservations"
 msgstr "Reservierungen"
 
-#: reservations/models.py:46
-msgid "There is already a reservation for this product."
-msgstr "Für dieses Produkt ist bereits eine Reservierung vorhanden."
+#: reservations/models.py:54
+#, fuzzy
+msgid "There is already a reservation for this product in the given timeframe."
+msgstr "Für dieses Produkt ist angegebenen Zeitraum bereits eine Reservierung vorhanden."
 
-#: reservations/models.py:52
+#: reservations/models.py:60
 msgid "Reservation Entry"
 msgstr "Reservierungseintrag"
 
-#: reservations/models.py:53
+#: reservations/models.py:61
 msgid "Reservation Entries"
 msgstr "Reservierunseinträge"
 

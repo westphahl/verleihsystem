@@ -6,6 +6,8 @@ from django.utils.translation import ugettext_lazy as _
 from products.models import Product
 
 
+# TODO Implement validation
+# start_date < end_date
 class Reservation(models.Model):
     STATE_CHOICES = (
         (0, _("Pending")),
@@ -15,8 +17,10 @@ class Reservation(models.Model):
     user = models.ForeignKey(User, verbose_name=_("User"))
     start_date = models.DateField(verbose_name=_("Start date"))
     end_date = models.DateField(verbose_name=_("End date"))
-    borrow_date = models.DateField(verbose_name=_("Borrow date"))
-    return_date = models.DateField(verbose_name=_("Return date"))
+    borrow_date = models.DateField(verbose_name=_("Borrow date"),
+            blank=True, null=True)
+    return_date = models.DateField(verbose_name=_("Return date"),
+            blank=True, null=True)
     timestamp = models.DateField(verbose_name=_("Timestamp"),
             auto_now_add=True)
     state = models.IntegerField(verbose_name=_("State"), default=0,
@@ -25,6 +29,10 @@ class Reservation(models.Model):
 
     def __unicode__(self):
         return u"%s: %s - %s" % (self.user, self.start_date, self.end_date)
+
+    def clean(self):
+        if self.start_date > self.end_date:
+            raise ValidationError(_("End date must be greater than start date."))
 
     class Meta:
         verbose_name = _("Reservation")
@@ -40,10 +48,10 @@ class ReservationEntry(models.Model):
     def clean(self):
         collision = ReservationEntry.objects.exclude(id=self.id).filter(
                 product=self.product,
-                reservation__start_date__gte=self.reservation.start_date,
-                reservation__end_date__lte=self.reservation.end_date)
-        if len(collision) > 0:
-            raise ValidationError(_("There is already a reservation for this product."))
+                reservation__end_date__gte=self.reservation.start_date,
+                reservation__end_date__lte=self.reservation.end_date).count()
+        if collision > 0:
+            raise ValidationError(_("There is already a reservation for this product in the given timeframe."))
     
     def __unicode__(self):
         return u"%s | %s" % (self.reservation, self.product)
