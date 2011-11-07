@@ -62,4 +62,5 @@ table.timeline > tbody > tr > td p.reserved {
 }
 table.timeline p.date {
 	font-size: 0.7em;
+	line-height: 1.2em;
 	margin-bottom: 3px;
