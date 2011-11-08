@@ -94,8 +94,8 @@ def clear_shoppingcart(request):
 @require_GET
 def add_product(request):
     try:
-        request.session['cart']
         pid = int(request.GET.get('id', None))
+        request.session['cart']
     except KeyError:
         request.session['cart'] = []
     except (TypeError, ValueError):

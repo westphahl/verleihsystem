@@ -54,7 +54,7 @@
 			<td>{{ product.sn }}</td>
 			<td>{{ product.brief_description }}</td>
 			<td class="actions">
-			{% if product in request.session.cart %}
+			{% if product.id in request.session.cart %}
 				<a href="#"><img src="{{ MEDIA_URL }}img/icon/calendar.png" /></a>
                 <a href="{% url shoppingcart_remove %}?id={{ product.id }}"><img src="{{ MEDIA_URL }}img/icon/cart_minus.png" /></a>
 			{% else %}
