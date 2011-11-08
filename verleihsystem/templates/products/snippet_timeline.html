@@ -3,7 +3,8 @@
 		<tr>
 			{% with year=previous_range|date:"Y" month=previous_range|date:"m" day=previous_range|date:"d" %}
 			<td class="back">
-				<a id="navPrev{{ product.id }}" href="{{ request.url }}?timeline={{ year }}-{{ month }}-{{ day }}"><img src="{{ MEDIA_URL }}img/icon/arrow_left.png" alt="&laquo;"></a>
+                <a id="navPrev{{ product.id }}" href="{{ request.url }}?timeline={{ year }}-{{ month }}-{{ day }}">
+                <img src="{{ MEDIA_URL }}img/icon/arrow_left.png" alt="&laquo;"></a>
 			</td>
 			<script>
 				$(document).ready(function() {

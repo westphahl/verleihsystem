@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block extra_css %}
+	<link rel="stylesheet" href="{{ MEDIA_URL }}css/producttype_detail.css">
+{% endblock %}
+
 {% block sidebar %}
 	{% include 'categories/category_tree.html' %}
 {% endblock %}
@@ -8,12 +12,43 @@
 <div id="breadcrumbs">
 	<p><a href="/">Home</a> &raquo; Warenkorb</p>
 </div>
+
 <h1>Warenkorb</h1>
-{% for a in request.session.cart %}
-	{{ a }}<br />
-{% endfor %}
-<br />
-Länge: {{ request.session.cart|length }}
-<br />
-<a href="clear/">Löschen</a>
+<table id="product_list">
+	<colgroup>
+		<col width="150px">
+		<col width="">
+		<col width="150px">
+	</colgroup>
+	<thead>
+		<tr>
+			<td>ID/Serial No.</td>
+			<td>Beschreibung</td>
+			<td></td>
+		</tr>
+	</thead>
+	<tbody>
+	{% for product in product_list %}
+		{% cycle 'odd' 'even' as rowcolors silent %}
+		<tr class="{{ rowcolors }}">
+            <td>{{ product.product_type.name }}: {{ product.sn }}</td>
+			<td>{{ product.brief_description }}</td>
+			<td class="actions">
+			{% if product in request.session.cart %}
+				<a href="#"><img src="{{ MEDIA_URL }}img/icon/calendar.png" /></a>
+                <a href="{% url shoppingcart_remove %}?id={{ product.id }}"><img src="{{ MEDIA_URL }}img/icon/cart_minus.png" /></a>
+			{% else %}
+				<a href="{% url shoppingcart_add %}?id={{ product.id }}"><img src="{{ MEDIA_URL }}img/icon/cart_plus.png" /></a>
+			{% endif %}
+			</td>
+		</tr>
+		<tr class="{{ rowcolors }}">
+			<td colspan="3">
+			{% include "products/snippet_timeline.html" %}
+			</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
+<p><a href="{% url shoppingcart_clear %}">Löschen</a></p>
 {% endblock %}

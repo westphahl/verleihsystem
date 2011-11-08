@@ -7,8 +7,6 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$', 'categories.views.index'),
-    url(r'^cart/clear/$', 'shoppingcart.views.clear',
-        name='shoppingcart_clear'),
     url(r'^user/profile/$', 'accounts.views.change_user_profile',
         name='user_profile_form'),
     url(r'^login/$', 'django.contrib.auth.views.login',
