@@ -71,3 +71,8 @@
 	</tbody>
 </table>
 {% endblock %}
+
+{% block script %}
+{{ block.super }}
+{% include "products/timeline_javascript.html" %}
+{% endblock %}

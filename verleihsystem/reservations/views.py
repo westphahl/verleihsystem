@@ -4,8 +4,7 @@ from django.conf import settings
 from django.template import loader, RequestContext
 from django.core.urlresolvers import reverse
 from django.http import Http404, HttpResponse
-from django.views.generic.detail import BaseDetailView
-from django.shortcuts import get_object_or_404
+from django.views.generic.list import BaseListView
 from django.utils import simplejson as json
 
 from reservations.models import ReservationEntry
@@ -29,14 +28,27 @@ class JSONResponseMixin(object):
         return json.dumps(context)
 
 
-class ReservationDateListView(JSONResponseMixin, BaseDetailView):
+class ReservationDateListView(JSONResponseMixin, BaseListView):
 
-    model = Product
+    allow_empty = True
+
+    def get_queryset(self):
+        pid_list = self.request.POST.getlist('products[]')
+        return Product.objects.filter(pk__in=pid_list).select_related('product_type')
+
+    def post(self, request, *args, **kwargs):
+        self.object_list = self.get_queryset()
+        allow_empty = self.get_allow_empty()
+        if not allow_empty and len(self.object_list) == 0:
+            raise Http404(u"Empty list and '%(class_name)s.allow_empty' is False."
+                          % {'class_name': self.__class__.__name__})
+        context = self.get_context_data(object_list=self.object_list)
+        return self.render_to_response(context)
 
     def get_context_data(self, **kwargs):
-        product = get_object_or_404(Product, pk=self.kwargs['pk'])
 
-        context = {'product': int(product.id),}
+        self.object_list
+        context = {}
         try:
             range_start = date(year=int(self.kwargs['year']),
                     month=int(self.kwargs['month']),
@@ -47,9 +59,9 @@ class ReservationDateListView(JSONResponseMixin, BaseDetailView):
         day_range = getattr(settings, 'RESERVATION_TIMELINE_RANGE', 14)
         range_end = range_start + timedelta(days=day_range)
 
-        next_args = range_end.isoformat().split('-') + [context['product'],]
+        next_args = range_end.isoformat().split('-')
         previous_args = (range_start - timedelta(days=day_range)).isoformat(
-                ).split('-') + [context['product'],]
+                ).split('-')
 
         next_url = reverse('reservation_date_list', args=next_args)
         previous_url = reverse('reservation_date_list', args=previous_args)
@@ -60,36 +72,50 @@ class ReservationDateListView(JSONResponseMixin, BaseDetailView):
         })
 
         entry_list = ReservationEntry.objects.filter(
-                product=product,
+                product__in=self.object_list,
                 reservation__state=1,
                 reservation__end_date__gte=range_start,
                 reservation__start_date__lte=range_end
             ).select_related('reservation')
 
-        current_date = range_start
-        product.timeline = list()
-
-        while current_date < range_end:
-            reserved = [e for e in entry_list if (
-                e.reservation.start_date <= current_date)
-                and (e.reservation.end_date >= current_date)]
-            if reserved:
-                product.timeline.append(
-                    {'date': current_date, 'reserved': True})
-            else:
-                product.timeline.append(
-                    {'date': current_date, 'reserved': False})
-            current_date += timedelta(days=1)
-
-        html_context = {
-            'product': product,
-            'next_range': range_end,
-            'previous_range': range_start - timedelta(days=day_range)
-        }
-        template = loader.get_template('products/snippet_timeline.html')
-        html = template.render(RequestContext(self.request, html_context))
+        sorted_entries = dict()
+        for entry in entry_list:
+            try:
+                sorted_entries[entry.product_id].append(entry)
+            except KeyError:
+                sorted_entries.update({ entry.product_id: [entry,]})
 
         context.update({
-            'timeline': html,
+            'timeline': list(),
         })
+        for product in self.object_list:
+            current_date = range_start
+            product.timeline = list()
+            try:
+                reservation_list = sorted_entries[product.id]
+            except KeyError:
+                reservation_list = list()
+
+            while current_date < range_end:
+                reserved = [e for e in reservation_list if (
+                    e.reservation.start_date <= current_date)
+                    and (e.reservation.end_date >= current_date)]
+                if reserved:
+                    product.timeline.append(
+                        {'date': current_date, 'reserved': True})
+                else:
+                    product.timeline.append(
+                        {'date': current_date, 'reserved': False})
+                current_date += timedelta(days=1)
+
+            html_context = {
+                'product': product,
+                'next_range': range_end,
+                'previous_range': range_start - timedelta(days=day_range)
+            }
+            template = loader.get_template('products/snippet_timeline.html')
+            html = template.render(RequestContext(self.request, html_context))
+
+            context['timeline'].append((product.id, html))
+
         return context

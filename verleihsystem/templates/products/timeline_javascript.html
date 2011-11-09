@@ -1,0 +1,47 @@
+<script>
+
+function UpdateTimeline(eventObject) {
+    // statische Variablen für Timeline-Navigation setzen
+    if (typeof UpdateTimeline.previousURL == 'undefined') {
+        {% with year=previous_range|date:"Y" month=previous_range|date:"m" day=previous_range|date:"d" %}
+        UpdateTimeline.previousURL = "{% url reservation_date_list year month day %}";
+        {% endwith %}
+        {% with year=next_range|date:"Y" month=next_range|date:"m" day=next_range|date:"d" %}
+        UpdateTimeline.nextURL = "{% url reservation_date_list year month day %}";
+        {% endwith %}
+    }
+    // Pruefung in welche Richtung naviviert werden soll
+    if (eventObject.data == 'previous') {
+        requestURL = UpdateTimeline.previousURL;
+    } else {
+        requestURL = UpdateTimeline.nextURL;
+    }
+    // Timeline holen und aktualisieren
+    $.ajax({
+        url: requestURL,
+        type: "post",
+        data: { 'products': [{% for product in product_list %}{{ product.id }}, {% endfor %}]},
+        success: function(response, textStatus, jqXHR) {
+            for (var i = 0; i < response.timeline.length; i++) {
+                product = response.timeline[i];
+                $('#product' + product[0]).html(product[1]);
+            }
+            UpdateTimeline.previousURL = response.previous_url;
+            UpdateTimeline.nextURL = response.next_url;
+        },
+        error: function(jqXHR, testStatus, errorThrown) {
+            // Error handling
+        },
+        complete: function() {
+            // Other handling
+        }
+    });
+
+return false;
+}
+
+$(document).ready(function() {
+    $('.navPrev').live("click", 'previous', UpdateTimeline);
+    $('.navNext').live("click", 'next', UpdateTimeline);
+});
+</script>

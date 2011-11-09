@@ -52,3 +52,8 @@
 </table>
 <p><a href="{% url shoppingcart_clear %}">Löschen</a></p>
 {% endblock %}
+
+{% block script %}
+{{ block.super }}
+{% include "products/timeline_javascript.html" %}
+{% endblock %}
