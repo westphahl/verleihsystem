@@ -1,26 +1,31 @@
 <table class="timeline" id="product{{ product.id }}">
-	<tbody>
+	<thead>
 		<tr>
+			<td></td>
+			{% for day in product.timeline %}
+			<td><p class="date_head">{{ day.date|date:"D" }}</p></td>
+			{% endfor %}
+			<td></td>
+		</tr>
+	<thead>
+	<tbody>
+		<tr style="background-color:#eee;">
 			{% with year=previous_range|date:"Y" month=previous_range|date:"m" day=previous_range|date:"d" %}
 			<td class="back">
-                <a class="navPrev" href="{{ request.url }}?timeline={{ year }}-{{ month }}-{{ day }}">
-                <img src="{{ MEDIA_URL }}img/icon/arrow_left.png" alt="&laquo;"></a>
+				<a class="navPrev" href="{{ request.url }}?timeline={{ year }}-{{ month }}-{{ day }}">&nbsp;</a>
 			</td>
 			{% endwith %}
 			{% for day in product.timeline %}
-			<td>
-				<p class="date">{{ day.date|date:"d.m" }}</p>
-				{% if day.reserved %}
-					<p class="reserved">&nbsp;</p>
-				{% else %}
-					<p class="free">&nbsp;</p>
-				{% endif %}
+			<td class="{% ifchanged day.reserved %}{% if not forloop.first %}start {% endif %}{% endifchanged %}
+				{% if day.reserved and not day.reserved_next %}end {% endif %}
+				{% if not day.reserved and day.reserved_next %}end {% endif %}
+				{% if day.reserved %}reserved{% else %}free{% endif %}">
+					<p class="date">{{ day.date|date:"d.m" }}</p>
 			</td>
 			{% endfor %}
 			<td class="forward">
 			{% with year=next_range|date:"Y" month=next_range|date:"m" day=next_range|date:"d" %}
-            <a class="navNext" href="{{ request.url }}?timeline={{ year }}-{{ month }}-{{ day }}">
-            <img src="{{ MEDIA_URL }}img/icon/arrow_right.png" alt="&raquo;"></a>
+			<a class="navNext" href="{{ request.url }}?timeline={{ year }}-{{ month }}-{{ day }}">&nbsp;</a>
 			</td>
 			{% endwith %}
 		</tr>

@@ -97,15 +97,15 @@ class ReservationDateListView(JSONResponseMixin, BaseListView):
                 reservation_list = list()
 
             while current_date < range_end:
+                date_next = current_date + timedelta(days=1)
                 reserved = [e for e in reservation_list if (
                     e.reservation.start_date <= current_date)
                     and (e.reservation.end_date >= current_date)]
-                if reserved:
-                    product.timeline.append(
-                        {'date': current_date, 'reserved': True})
-                else:
-                    product.timeline.append(
-                        {'date': current_date, 'reserved': False})
+                reserved_next = [e for e in reservation_list if (
+                    e.reservation.start_date <= date_next)
+                    and (e.reservation.end_date >= date_next)]
+                product.timeline.append(
+                    {'date': current_date, 'reserved': reserved, 'reserved_next': reserved_next})
                 current_date += timedelta(days=1)
 
             html_context = {

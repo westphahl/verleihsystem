@@ -39,28 +39,76 @@ table#product_list > tbody > tr > td.actions img {
 table.timeline {
 	width: 100%;
 }
+table.timeline > thead > tr > td {
+	text-align: center;
+}
 table.timeline > tbody > tr > td {
 	text-align: center;
 }
 table.timeline > tbody > tr > td.back,
 table.timeline > tbody > tr > td.forward {
-	text-align: center;
+	height: 26px;
+	width: 30px;
+	vertical-align: middle;
+}
+table.timeline > tbody > tr > td.forward a {
+	display: block;
+	height: 100%;
+	width: 100%;
+	background-image: url(../img/icon/arrow_right.png);
+	background-position: center center;
+	background-repeat: no-repeat;
+	text-decoration: none;
+	border-top: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+table.timeline > tbody > tr > td.forward a:hover {
+	background-image: url(../img/icon/arrow_right_over.png);
+}
+table.timeline > tbody > tr > td.back a {
+	display: block;
+	height: 100%;
+	width: 100%;
+	background-image: url(../img/icon/arrow_left.png);
+	background-position: center center;
+	background-repeat: no-repeat;
+	text-decoration: none;
+	border-top: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+}
+table.timeline > tbody > tr > td.back a:hover {
+	background-image: url(../img/icon/arrow_left_over.png);
+}
+table.timeline > tbody > tr > td.free {
+	background-color: #20e33e;
 	vertical-align: middle;
 	font-weight: bold;
 }
-table.timeline > tbody > tr > td.back a,
-table.timeline > tbody > tr > td.forward a {
-	text-decoration: none;
+table.timeline > tbody > tr > td.reserved {
+	background-image: url(../img/red_hatch.png);
+	vertical-align: middle;
+	color: #fff;
+	font-weight: bold;
 }
-table.timeline > tbody > tr > td p.free {
-	background-color: #0f0;
-	border-right: 1px solid #0c0;
+table.timeline > tbody > tr > td.start {
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
 }
-table.timeline > tbody > tr > td p.reserved {
-	background-color: #c00;
-	border-right: 1px solid #900;
+table.timeline > tbody > tr > td.end {
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
 }
 table.timeline p.date {
 	font-size: 0.7em;
-	line-height: 1.2em;
+}
+table.timeline p.date_head {
+	font-size: 0.7em;
 	margin-bottom: 3px;
+	color: #666;
+}
