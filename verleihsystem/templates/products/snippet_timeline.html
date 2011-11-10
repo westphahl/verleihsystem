@@ -5,7 +5,7 @@
 			{% for day in product.timeline %}
 			<td><p class="date_head">{{ day.date|date:"D" }}</p></td>
 			{% endfor %}
-			<td></td>
+			<td style="border:0"></td>
 		</tr>
 	<thead>
 	<tbody>
@@ -16,10 +16,7 @@
 			</td>
 			{% endwith %}
 			{% for day in product.timeline %}
-			<td class="{% ifchanged day.reserved %}{% if not forloop.first %}start {% endif %}{% endifchanged %}
-				{% if day.reserved and not day.reserved_next %}end {% endif %}
-				{% if not day.reserved and day.reserved_next %}end {% endif %}
-				{% if day.reserved %}reserved{% else %}free{% endif %}">
+			<td class="{% if day.state|first == 0 %}pending{% else %}{% if day.state|first == 1 %}reserved{% else %}free{% endif %}{% endif %}">
 					<p class="date">{{ day.date|date:"d.m" }}</p>
 			</td>
 			{% endfor %}

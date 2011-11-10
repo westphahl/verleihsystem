@@ -41,6 +41,7 @@ table.timeline {
 }
 table.timeline > thead > tr > td {
 	text-align: center;
+	border-right: 1px solid #eee;
 }
 table.timeline > tbody > tr > td {
 	text-align: center;
@@ -86,15 +87,24 @@ table.timeline > tbody > tr > td.back a:hover {
 	background-image: url(../img/icon/arrow_left_over.png);
 }
 table.timeline > tbody > tr > td.free {
-	background-color: #20e33e;
+	background: #3e1;
 	vertical-align: middle;
 	font-weight: bold;
+	border-right: 1px solid #3d1;
 }
-table.timeline > tbody > tr > td.reserved {
-	background-image: url(../img/red_hatch.png);
+table.timeline > tbody > tr > td.pending {
+	background: #01DF01 url(../img/green_hatch.png);
 	vertical-align: middle;
 	color: #fff;
 	font-weight: bold;
+	border-right: 1px solid #3a1;
+}
+table.timeline > tbody > tr > td.reserved {
+	background: #c00 url(../img/red_hatch.png);
+	vertical-align: middle;
+	color: #fff;
+	font-weight: bold;
+	border-right: 1px solid #c00;
 }
 table.timeline > tbody > tr > td.start {
 	border-top-left-radius: 5px;
@@ -103,6 +113,7 @@ table.timeline > tbody > tr > td.start {
 table.timeline > tbody > tr > td.end {
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
+	border-right: none;
 }
 table.timeline p.date {
 	font-size: 0.7em;
