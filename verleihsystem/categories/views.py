@@ -16,6 +16,6 @@ def category_detail(request, path, template, *args, **kwargs):
     
     sub_tree = leaf.get_descendants(include_self=True)
     product_list = ProductType.objects.filter(categories__in=sub_tree
-            ).annotate(product_count=Count('product')).distinct()
+        ).annotate(product_count=Count('product', distinct=True))
     return render_to_response(template, {'category': leaf,
         'product_list': product_list}, context_instance=RequestContext(request))
