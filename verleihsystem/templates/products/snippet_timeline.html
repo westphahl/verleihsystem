@@ -3,7 +3,7 @@
 		<tr>
 			<td></td>
 			{% for day in product.timeline %}
-			<td><p class="date_head">{{ day.date|date:"D" }}</p></td>
+			<td><p class="date_head {% if day.date|date:"w" == "0" %}sunday {% endif %}{% if day.date|date:"w" == "6" %}saturday{% endif %}">{{ day.date|date:"D" }}</p></td>
 			{% endfor %}
 			<td style="border:0"></td>
 		</tr>
@@ -16,7 +16,7 @@
 			</td>
 			{% endwith %}
 			{% for day in product.timeline %}
-			<td class="{% if day.state|first == 0 %}pending{% else %}{% if day.state|first == 1 %}reserved{% else %}free{% endif %}{% endif %}">
+			<td class="{% if day.state|first == 0 %}pending{% else %}{% if day.state|first == 1 %}reserved{% else %}free{% endif %}{% endif %}" title="test">
 					<p class="date">{{ day.date|date:"d.m" }}</p>
 			</td>
 			{% endfor %}

@@ -5,8 +5,8 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="{{ MEDIA_URL }}css/core.css">
 	<link rel="stylesheet" href="{{ MEDIA_URL }}css/screen.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js">
-    </script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js">
+	</script>
 	{% block extra_css %}{% endblock %}
 </head>
 <body>
@@ -16,7 +16,7 @@
 			{% if not request.user.is_anonymous %}Sie sind angemeldet als <span style="font-weight:bold">{{ request.user.get_full_name }}</span>
 			<a href="{% url user_profile_form %}"><img src="{{ MEDIA_URL }}img/icon/user.png" alt="Einstellungen"></a>
 			{% if request.user.is_staff %}
-            <a href="{% url admin:index %}" target="_blank"><img src="{{ MEDIA_URL }}img/icon/gear.png" alt="Administration"></a>
+			<a href="{% url admin:index %}" target="_blank"><img src="{{ MEDIA_URL }}img/icon/gear.png" alt="Administration"></a>
 			{% endif %}
 			<a href="{% url django.contrib.auth.views.logout %}?next={{ request.path }}"><img src="{{ MEDIA_URL }}img/icon/door_open_out.png" alt="Abmelden"></a>
 			{% else %}
@@ -24,7 +24,7 @@
 			{% endif %}
 		<div>
 		<div id="cart">
-            <a href="{% url shoppingcart_index %}">
+			<a href="{% url shoppingcart_index %}">
 				<img src="{{ MEDIA_URL }}img/icon/cart.png"><br />
 				<p>WARENKORB</p>
 				{% if request.session.cart %}
@@ -51,7 +51,7 @@
 		</section>
 		<section class="clear"></section>
 	</section>
-    {% block script %}
-    {% endblock %}
+	{% block script %}
+	{% endblock %}
 </body> 
 </html>

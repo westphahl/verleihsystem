@@ -1,3 +1,28 @@
+div#contact_person {
+	float: left;
+	width: 350px;
+	margin-bottom: 10px;
+	border: 1px solid #666;
+}
+div#legend {
+	float:right;
+	width:350px;
+	margin-bottom:10px;
+	border: 1px solid #666;
+}
+div#legend p,
+div#contact_person p {
+	line-height: 2em;
+	padding: 0 10px;
+}
+div#legend p.title,
+div#contact_person p.title {
+	color: #fff;
+	text-align: center;
+	font-weight: bold;
+	line-height: 2em;
+	background-color: #666;
+}
 table#producttype_list {
 	width: 100%;
 }

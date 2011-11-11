@@ -52,6 +52,9 @@ table.timeline > tbody > tr > td.forward {
 	width: 30px;
 	vertical-align: middle;
 }
+table.timeline > tbody > tr > td.back {
+	border-right: 1px solid #ccc;
+}
 table.timeline > tbody > tr > td.forward a {
 	display: block;
 	height: 100%;
@@ -122,4 +125,10 @@ table.timeline p.date_head {
 	font-size: 0.7em;
 	margin-bottom: 3px;
 	color: #666;
+}
+table.timeline p.saturday {
+	color: #999;
+}
+table.timeline p.sunday {
+	color: #F78181;
 }
