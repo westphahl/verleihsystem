@@ -16,7 +16,7 @@
 			</td>
 			{% endwith %}
 			{% for day in product.timeline %}
-			<td class="{% if day.state|first == 0 %}pending{% else %}{% if day.state|first == 1 %}reserved{% else %}free{% endif %}{% endif %}" title="test">
+			<td class="{% if day.state|first == 0 %}pending{% else %}{% if day.state|first == 1 %}reserved{% else %}free{% endif %}{% endif %}" title="{% if day.state|first == 0 %}Anfrage vorhanden{% else %}{% if day.state|first == 1 %}Reserviert{% else %}Frei{% endif %}{% endif %}">
 					<p class="date">{{ day.date|date:"d.m" }}</p>
 			</td>
 			{% endfor %}
