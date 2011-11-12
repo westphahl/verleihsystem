@@ -6,11 +6,11 @@
 	<link rel="stylesheet" href="{{ MEDIA_URL }}css/core.css">
 	<link rel="stylesheet" href="{{ MEDIA_URL }}css/screen.css">
 	<link rel="stylesheet" href="{{ MEDIA_URL }}css/tipsy.css">
-    <script src="{{ MEDIA_URL }}js/jquery-1.7.min.js"></script>
-    <script src="{{ MEDIA_URL }}js/jquery-ui-1.8.16.custom.min.js"></script>
+	{% block extra_css %}{% endblock %}
+	<script src="{{ MEDIA_URL }}js/jquery-1.7.min.js"></script>
+	<script src="{{ MEDIA_URL }}js/jquery-ui-1.8.16.custom.min.js"></script>
 	<script src="{{ MEDIA_URL }}js/jquery-ui.datepicker-de.js"></script>
 	<script src="{{ MEDIA_URL }}js/jquery.tipsy.js"></script>
-	{% block extra_css %}{% endblock %}
 </head>
 <body>
 	<section id="header">
@@ -54,6 +54,14 @@
 		</section>
 		<section class="clear"></section>
 	</section>
+	<script>
+		$(function() {
+			$('*[rel=tipsy_n]').tipsy({delayIn: 500, gravity: 'n'});
+			$('*[rel=tipsy_w]').tipsy({fade: true, gravity: 'w'});
+			$('*[rel=tipsy_s]').tipsy({delayIn: 500, gravity: 's'});
+			$('*[rel=tipsy_e]').tipsy({fade: true, gravity: 'e'});
+		});
+	</script>
 	{% block script %}
 	{% endblock %}
 </body> 

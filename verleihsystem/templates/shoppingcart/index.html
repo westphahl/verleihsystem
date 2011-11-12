@@ -2,6 +2,7 @@
 
 {% block extra_css %}
 	<link rel="stylesheet" href="{{ MEDIA_URL }}css/producttype_detail.css">
+	<link rel="stylesheet" href="{{ MEDIA_URL }}css/shoppingcart.css">
 {% endblock %}
 
 {% block sidebar %}
@@ -15,8 +16,8 @@
 
 <h1>Warenkorb</h1>
 <div id="actions">
-	<a href="{% url shoppingcart_clear %}" style="float:left" rel="tipsy_w" title="Aktualisieren"><img src="{{ MEDIA_URL }}img/icon/arrow_refresh.png" /></a>
-	<a href="#" style="float:right" rel="tipsy_e" title="Auschecken"><img src="{{ MEDIA_URL }}img/icon/cart_go.png" /></a>
+	<a href="{% url shoppingcart_clear %}" id="clear" rel="tipsy_w" title="Alle löschen"><img src="{{ MEDIA_URL }}img/icon/cross.png" /></a>
+	<a href="#" id="checkout" rel="tipsy_e" title="Auschecken"><img src="{{ MEDIA_URL }}img/icon/cart_go.png" /></a>
 </div>
 <table id="product_list">
 	<colgroup>

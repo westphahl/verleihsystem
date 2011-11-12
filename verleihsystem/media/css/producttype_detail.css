@@ -39,8 +39,8 @@ table#product_list > tbody > tr.even {
 	background-color: #f5f5f5;
 }
 table#product_list > tbody > tr > td {
-	vertical-align:middle;
-	padding:10px;
+	vertical-align: middle;
+	padding: 5px;
 }
 table#product_list > tbody > tr > td p {
 }
@@ -49,6 +49,15 @@ table#product_list > tbody > tr > td.actions {
 }
 table#product_list > tbody > tr > td.actions img {
 	margin-left: 5px;
+	padding: 5px;
+	background: #f5f5f5;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+}
+table#product_list > tbody > tr > td.actions img:hover {
+	background: #eee;
+	border: 1px solid #aaa;
+	box-shadow: 0px 0px 2px #ddd;
 }
 table.timeline {
 	width: 100%;
