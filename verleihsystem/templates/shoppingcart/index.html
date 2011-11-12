@@ -14,9 +14,13 @@
 </div>
 
 <h1>Warenkorb</h1>
+<div id="actions">
+	<a href="{% url shoppingcart_clear %}" style="float:left" rel="tipsy_w" title="Aktualisieren"><img src="{{ MEDIA_URL }}img/icon/arrow_refresh.png" /></a>
+	<a href="#" style="float:right" rel="tipsy_e" title="Auschecken"><img src="{{ MEDIA_URL }}img/icon/cart_go.png" /></a>
+</div>
 <table id="product_list">
 	<colgroup>
-		<col width="150px">
+		<col width="300px">
 		<col width="">
 		<col width="150px">
 	</colgroup>
@@ -31,12 +35,11 @@
 	{% for product in product_list %}
 		{% cycle 'odd' 'even' as rowcolors silent %}
 		<tr class="{{ rowcolors }}">
-            <td>{{ product.product_type.name }}: {{ product.sn }}</td>
+			<td>{{ product.product_type.name }}: {{ product.sn }}</td>
 			<td>{{ product.brief_description }}</td>
 			<td class="actions">
 			{% if product.id in request.session.cart %}
-				<a href="#"><img src="{{ MEDIA_URL }}img/icon/calendar.png" /></a>
-                <a href="{% url shoppingcart_remove %}?id={{ product.id }}"><img src="{{ MEDIA_URL }}img/icon/cart_minus.png" /></a>
+				<a href="{% url shoppingcart_remove %}?id={{ product.id }}"><img src="{{ MEDIA_URL }}img/icon/cart_minus.png" /></a>
 			{% else %}
 				<a href="{% url shoppingcart_add %}?id={{ product.id }}"><img src="{{ MEDIA_URL }}img/icon/cart_plus.png" /></a>
 			{% endif %}
@@ -50,7 +53,6 @@
 	{% endfor %}
 	</tbody>
 </table>
-<p><a href="{% url shoppingcart_clear %}">Löschen</a></p>
 {% endblock %}
 
 {% block script %}
