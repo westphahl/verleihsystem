@@ -46,8 +46,6 @@ class ReservationDateListView(JSONResponseMixin, BaseListView):
         return self.render_to_response(context)
 
     def get_context_data(self, **kwargs):
-
-        self.object_list
         context = {}
         try:
             range_start = date(year=int(self.kwargs['year']),
@@ -73,6 +71,7 @@ class ReservationDateListView(JSONResponseMixin, BaseListView):
 
         entry_list = ReservationEntry.objects.filter(
                 product__in=self.object_list,
+                reservation__state__in=[0, 1],
                 reservation__end_date__gte=range_start,
                 reservation__start_date__lte=range_end
             ).select_related('reservation')
@@ -96,15 +95,11 @@ class ReservationDateListView(JSONResponseMixin, BaseListView):
                 reservation_list = list()
 
             while current_date < range_end:
-                date_next = current_date + timedelta(days=1)
                 state = [e.reservation.state for e in reservation_list if (
                     e.reservation.start_date <= current_date)
                     and (e.reservation.end_date >= current_date)]
-                state_next = [e.reservation.state for e in reservation_list if (
-                    e.reservation.start_date <= date_next)
-                    and (e.reservation.end_date >= date_next)]
                 product.timeline.append(
-                    {'date': current_date, 'state': state, 'state_next': state_next})
+                    {'date': current_date, 'state': state})
                 current_date += timedelta(days=1)
 
             html_context = {
