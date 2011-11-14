@@ -11,10 +11,12 @@ function UpdateTimeline(eventObject) {
         {% endwith %}
     }
     // Pruefung in welche Richtung naviviert werden soll
-    if (eventObject.data == 'previous') {
+    if (eventObject.target.className == 'navPrev') {
         requestURL = UpdateTimeline.previousURL;
-    } else {
+    } else if (eventObject.target.className == 'navNext') {
         requestURL = UpdateTimeline.nextURL;
+    } else {
+        return true;
     }
     // Timeline holen und aktualisieren
     $.ajax({
@@ -41,7 +43,10 @@ return false;
 }
 
 $(document).ready(function() {
-    $('.navPrev').live("click", 'previous', UpdateTimeline);
-    $('.navNext').live("click", 'next', UpdateTimeline);
+    $('.timeline').on("click", "a", UpdateTimeline);
+    $('*[rel=tipsy_n]').tipsy({fade: false, gravity: 'n'});
+    $('*[rel=tipsy_w]').tipsy({fade: false, gravity: 'w'});
+    $('*[rel=tipsy_s]').tipsy({fade: false, gravity: 's'});
+    $('*[rel=tipsy_e]').tipsy({fade: false, gravity: 'e'});
 });
 </script>

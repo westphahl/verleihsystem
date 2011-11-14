@@ -6,16 +6,10 @@
 	<link rel="stylesheet" href="{{ MEDIA_URL }}css/core.css">
 	<link rel="stylesheet" href="{{ MEDIA_URL }}css/screen.css">
 	<link rel="stylesheet" href="{{ MEDIA_URL }}css/tipsy.css">
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-	<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.tipsy.js"></script>
-	<script type="text/javascript">
-		$(function() {
-			$('*[rel=tipsy_n]').tipsy({fade: false, gravity: 'n'});
-			$('*[rel=tipsy_w]').tipsy({fade: false, gravity: 'w'});
-			$('*[rel=tipsy_s]').tipsy({fade: false, gravity: 's'});
-			$('*[rel=tipsy_e]').tipsy({fade: false, gravity: 'e'});
-		});
-	</script>
+    <script src="{{ MEDIA_URL }}js/jquery-1.7.min.js"></script>
+    <script src="{{ MEDIA_URL }}js/jquery-ui-1.8.16.custom.min.js"></script>
+	<script src="{{ MEDIA_URL }}js/jquery-ui.datepicker-de.js"></script>
+	<script src="{{ MEDIA_URL }}js/jquery.tipsy.js"></script>
 	{% block extra_css %}{% endblock %}
 </head>
 <body>
