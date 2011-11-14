@@ -35,7 +35,7 @@
 	{% for product in product_list %}
 		{% cycle 'odd' 'even' as rowcolors silent %}
 		<tr class="{{ rowcolors }}">
-			<td>{{ product.product_type.name }}: {{ product.sn }}</td>
+            <td><a href="{{ product.product_type.get_absolute_url }}">{{ product.product_type.name }}</a> ({{ product.sn }})</td>
 			<td>{{ product.brief_description }}</td>
 			<td class="actions">
 			{% if product.id in request.session.cart %}
@@ -53,9 +53,37 @@
 	{% endfor %}
 	</tbody>
 </table>
+
+<form method="post" action="">
+	{% csrf_token %}
+    {{ form.management_form }}
+    <table id="forms">
+        {% for fieldset in form %}
+            {% include "shoppingcart/snippet_range_form.html" %}
+        {% endfor %}
+    </table>
+</form>
+<a href="javascript:void(0)" id="add_form">Zeitraum hinzufügen</a>
+
 {% endblock %}
 
 {% block script %}
 {{ block.super }}
 {% include "products/timeline_javascript.html" %}
+<script>
+
+$(document).ready(function() {
+    var form_count = {{form.total_form_count}};
+    $.datepicker.setDefaults($.datepicker.regional['de']);
+    $('.datepicker > input').datepicker();
+
+    $('#add_form').click(function() {
+        form_count++;
+        var form = "{% filter escapejs %}{% include "shoppingcart/snippet_range_form.html" with fieldset=form.empty_form %}{% endfilter %}".replace(/__prefix__/g, form_count);
+        $('#forms').append(form)
+        $('.datepicker > input').datepicker();
+        $('#id_form-TOTAL_FORMS').val(form_count);
+    });
+});
+</script>
 {% endblock %}

@@ -2,18 +2,20 @@ from datetime import date, timedelta
 
 from django.shortcuts import get_object_or_404, redirect
 from django.views.decorators.http import require_GET
-from django.views.generic.base import TemplateView
+from django.views.generic.edit import FormView
 from django.http import Http404
 from django.conf import settings
 from django.core.urlresolvers import reverse
 
 from products.models import Product
 from reservations.models import ReservationEntry
+from shoppingcart.forms import ShoppingCartReservationFormset
 
 
-class ShoppingCartIndexView(TemplateView):
+class ShoppingCartIndexView(FormView):
 
     template_name = 'shoppingcart/index.html'
+    form_class = ShoppingCartReservationFormset
 
     def get_context_data(self, **kwargs):
         # Call implementation in base class to get context
