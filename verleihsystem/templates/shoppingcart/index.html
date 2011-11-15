@@ -1,62 +1,55 @@
 {% extends "base.html" %}
 
 {% block extra_css %}
-	<link rel="stylesheet" href="{{ MEDIA_URL }}css/producttype_detail.css">
-	<link rel="stylesheet" href="{{ MEDIA_URL }}css/shoppingcart.css">
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/producttype_detail.css">
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/shoppingcart.css">
 {% endblock %}
 
 {% block sidebar %}
-	{% include 'categories/category_tree.html' %}
+    {% include 'categories/category_tree.html' %}
 {% endblock %}
 
 {% block content %}
-<div id="breadcrumbs">
-	<p><a href="/">Home</a> &raquo; Warenkorb</p>
-</div>
-
 <h1>Warenkorb</h1>
 <div id="actions">
-	<a href="{% url shoppingcart_clear %}" id="clear" rel="tipsy_w" title="Alle löschen"><img src="{{ MEDIA_URL }}img/icon/cross.png" /></a>
-	<a href="#" id="checkout" rel="tipsy_e" title="Auschecken"><img src="{{ MEDIA_URL }}img/icon/cart_go.png" /></a>
+    <a href="{% url shoppingcart_clear %}" id="clear" rel="tipsy_w" title="Alle löschen"><img src="{{ MEDIA_URL }}img/icon/cross.png" /></a>
+    <a href="#" id="checkout" rel="tipsy_e" title="Auschecken"><img src="{{ MEDIA_URL }}img/icon/cart_go.png" /></a>
 </div>
 <table id="product_list">
-	<colgroup>
-		<col width="300px">
-		<col width="">
-		<col width="150px">
-	</colgroup>
-	<thead>
-		<tr>
-			<td>ID/Serial No.</td>
-			<td>Beschreibung</td>
-			<td></td>
-		</tr>
-	</thead>
-	<tbody>
-	{% for product in product_list %}
-		{% cycle 'odd' 'even' as rowcolors silent %}
-		<tr class="{{ rowcolors }}">
-            <td><a href="{{ product.product_type.get_absolute_url }}">{{ product.product_type.name }}</a> ({{ product.sn }})</td>
-			<td>{{ product.brief_description }}</td>
-			<td class="actions">
-			{% if product.id in request.session.cart %}
-				<a href="{% url shoppingcart_remove %}?id={{ product.id }}"><img src="{{ MEDIA_URL }}img/icon/cart_minus.png" /></a>
-			{% else %}
-				<a href="{% url shoppingcart_add %}?id={{ product.id }}"><img src="{{ MEDIA_URL }}img/icon/cart_plus.png" /></a>
-			{% endif %}
-			</td>
-		</tr>
-		<tr class="{{ rowcolors }}">
-			<td colspan="3">
-			{% include "products/snippet_timeline.html" %}
-			</td>
-		</tr>
-	{% endfor %}
-	</tbody>
+    <colgroup>
+        <col width="">
+        <col width="30px">
+    </colgroup>
+    <thead>
+        <tr>
+            <td>Produkt</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+    {% for product in product_list %}
+        {% cycle 'odd' 'even' as rowcolors silent %}
+        <tr class="{{ rowcolors }}">
+            <td><a href="{{ product.product_type.get_absolute_url }}" class="title">{{ product.product_type.name }}</a> <span style="font-size:0.9em">({{ product.sn }})</span></td>
+            <td rowspan="2" class="actions" style="border-bottom: 1px solid #ccc">
+            {% if product.id in request.session.cart %}
+                <a href="{% url shoppingcart_remove %}?id={{ product.id }}"><img src="{{ MEDIA_URL }}img/icon/cart_minus.png" /></a>
+            {% else %}
+                <a href="{% url shoppingcart_add %}?id={{ product.id }}"><img src="{{ MEDIA_URL }}img/icon/cart_plus.png" /></a>
+            {% endif %}
+            </td>
+        </tr>
+        <tr class="{{ rowcolors }}" style="border-bottom: 1px solid #ccc">
+            <td>
+            {% include "products/snippet_timeline.html" %}
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
 </table>
 
 <form method="post" action="">
-	{% csrf_token %}
+    {% csrf_token %}
     {{ form.management_form }}
     <table id="forms">
         {% for fieldset in form %}

@@ -1,60 +1,51 @@
 <!DOCTYPE html> 
 <html lang="de"> 
 <head> 
-	<title>{% block title %}Verleihsystem{% endblock %}</title>
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="{{ MEDIA_URL }}css/core.css">
-	<link rel="stylesheet" href="{{ MEDIA_URL }}css/screen.css">
-	<link rel="stylesheet" href="{{ MEDIA_URL }}css/tipsy.css">
-	{% block extra_css %}{% endblock %}
-	<script src="{{ MEDIA_URL }}js/jquery-1.7.min.js"></script>
-	<script src="{{ MEDIA_URL }}js/jquery-ui-1.8.16.custom.min.js"></script>
-	<script src="{{ MEDIA_URL }}js/jquery-ui.datepicker-de.js"></script>
-	<script src="{{ MEDIA_URL }}js/jquery.tipsy.js"></script>
+    <title>{% block title %}Verleihsystem{% endblock %}</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/core.css">
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/screen.css">
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/tipsy.css">
+    {% block extra_css %}{% endblock %}
+    <script src="{{ MEDIA_URL }}js/jquery-1.7.min.js"></script>
+    <script src="{{ MEDIA_URL }}js/jquery-ui-1.8.16.custom.min.js"></script>
+    <script src="{{ MEDIA_URL }}js/jquery-ui.datepicker-de.js"></script>
+    <script src="{{ MEDIA_URL }}js/jquery.tipsy.js"></script>
 </head>
 <body>
-	<section id="header">
-		<a href="/"><img src="{{ MEDIA_URL }}img/hrw_logo.png" class="logo"></a>
-		<div id="usermenu">
-			{% if not request.user.is_anonymous %}Sie sind angemeldet als <span style="font-weight:bold">{{ request.user.get_full_name }}</span>
-			<a href="{% url user_profile_form %}"><img src="{{ MEDIA_URL }}img/icon/user.png" alt="Einstellungen"></a>
-			{% if request.user.is_staff %}
-			<a href="{% url admin:index %}" target="_blank"><img src="{{ MEDIA_URL }}img/icon/gear.png" alt="Administration"></a>
-			{% endif %}
-			<a href="{% url django.contrib.auth.views.logout %}?next={{ request.path }}"><img src="{{ MEDIA_URL }}img/icon/door_open_out.png" alt="Abmelden"></a>
-			{% else %}
-				Sie sind nicht angemeldet. <a href="{% url django.contrib.auth.views.login %}?next={{ request.path }}"><img src="{{ MEDIA_URL }}img/icon/door_open_in.png" alt="Anmelden"></a>
-			{% endif %}
-		<div>
-		<div id="cart">
-			<a href="{% url shoppingcart_index %}">
-				<img src="{{ MEDIA_URL }}img/icon/cart.png"><br />
-				<p>WARENKORB</p>
-				{% if request.session.cart %}
-				<p>({{ request.session.cart|length }})</p>
-				{% endif %}</a>
-		</div>
-		<div id="contact">
-			<a href="#"><img src="{{ MEDIA_URL }}img/icon/contact.png"><br />KONTAKT</a>
-		</div>
-		<div id="feedback">
-			<a href="#"><img src="{{ MEDIA_URL }}img/icon/feedback.png"><br />FEEDBACK</a>
-		</div>
-		
-	</section>
-	<section id="content_wrapper">
-		<nav id="sidebar">
-		{% block sidebar %}
-			{% include 'categories/category_tree.html' %}
-		{% endblock %}
-		</nav>
-		<section id="content">
-			{% block content %}
-			{% endblock %}
-		</section>
-		<section class="clear"></section>
-	</section>
-	{% block script %}
-	{% endblock %}
+    <section id="header">
+        <a href="/"><img src="{{ MEDIA_URL }}img/hrw_logo.png" class="logo"></a>
+        <div id="usermenu">
+            {% if not request.user.is_anonymous %}Sie sind angemeldet als <span style="font-weight:bold">{{ request.user.get_full_name }}</span>
+            <a href="{% url user_profile_form %}"><img src="{{ MEDIA_URL }}img/icon/user.png" alt="Einstellungen"></a>
+            {% if request.user.is_staff %}
+            <a href="{% url admin:index %}" target="_blank"><img src="{{ MEDIA_URL }}img/icon/gear.png" alt="Administration"></a>
+            {% endif %}
+            <a href="{% url django.contrib.auth.views.logout %}?next={{ request.path }}"><img src="{{ MEDIA_URL }}img/icon/door_open_out.png" alt="Abmelden"></a>
+            {% else %}
+                Sie sind nicht angemeldet. <a href="{% url django.contrib.auth.views.login %}?next={{ request.path }}"><img src="{{ MEDIA_URL }}img/icon/door_open_in.png" alt="Anmelden"></a>
+            {% endif %}
+        </div>
+        <div id="nav_top">
+            <a href="/">Startseite</a>
+            <a href="#">Dashboard</a>
+            <a href="#">Kontakt</a>
+            <a href="{% url shoppingcart_index %}">Warenkorb</a>
+        </div>
+    </section>
+    <section id="content_wrapper">
+        <nav id="sidebar">
+        {% block sidebar %}
+            {% include 'categories/category_tree.html' %}
+        {% endblock %}
+        </nav>
+        <section id="content">
+            {% block content %}
+            {% endblock %}
+        </section>
+        <section class="clear"></section>
+    </section>
+    {% block script %}
+    {% endblock %}
 </body> 
 </html>
