@@ -9,7 +9,7 @@
         </tr>
     <thead>
     <tbody>
-        <tr">
+        <tr>
             {% with year=previous_range|date:"Y" month=previous_range|date:"m" day=previous_range|date:"d" %}
             <td class="back">
                 <a class="navPrev" href="{{ request.url }}?timeline={{ year }}-{{ month }}-{{ day }}">&nbsp;</a>

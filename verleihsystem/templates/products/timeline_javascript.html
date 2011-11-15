@@ -1,6 +1,7 @@
 <script>
 
 function UpdateTimeline(eventObject) {
+    $('.timeline').empty().html('<img src="{{ MEDIA_URL }}img/loading.gif" />');
     // statische Variablen für Timeline-Navigation setzen
     if (typeof UpdateTimeline.previousURL == 'undefined') {
         {% with year=previous_range|date:"Y" month=previous_range|date:"m" day=previous_range|date:"d" %}
@@ -35,7 +36,10 @@ function UpdateTimeline(eventObject) {
             // Error handling
         },
         complete: function() {
-            // Other handling
+            $('*[rel=tipsy_n]').tipsy({delayIn: 500, gravity: 'n'});
+            $('*[rel=tipsy_w]').tipsy({fade: true, gravity: 'w'});
+            $('*[rel=tipsy_s]').tipsy({delayIn: 500, gravity: 's'});
+            $('*[rel=tipsy_e]').tipsy({fade: true, gravity: 'e'});
         }
     });
 
@@ -43,6 +47,7 @@ return false;
 }
 
 $(function() {
+    $('.timeline').on("click", "a", UpdateTimeline);
     $('*[rel=tipsy_n]').tipsy({delayIn: 500, gravity: 'n'});
     $('*[rel=tipsy_w]').tipsy({fade: true, gravity: 'w'});
     $('*[rel=tipsy_s]').tipsy({delayIn: 500, gravity: 's'});

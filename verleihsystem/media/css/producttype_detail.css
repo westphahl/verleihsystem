@@ -67,6 +67,8 @@ table#product_list > tbody > tr > td.actions img:hover {
 }
 table.timeline {
 	width: 100%;
+	text-align: center;
+	height: 37px;
 }
 table.timeline > thead > tr > td {
 	text-align: center;
