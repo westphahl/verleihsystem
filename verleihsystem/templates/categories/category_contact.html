@@ -1,4 +1,7 @@
-<div id="tree">
+<div id="contact">
 <p class="title">Ansprechpartner</p>
-{{ category.get_contact_person.username }}
+<div>
+    <p class="name">{{ category.get_contact_person.first_name }} {{ category.get_contact_person.last_name }}</p>
+    <p class="detail">Raum T116, Tel.: 01234567890</p>
+</div>
 </div>

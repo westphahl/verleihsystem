@@ -15,17 +15,12 @@
     <a href="{% url shoppingcart_clear %}" id="clear" rel="tipsy_w" title="Alle löschen"><img src="{{ MEDIA_URL }}img/icon/cross.png" /></a>
     <a href="#" id="checkout" rel="tipsy_e" title="Auschecken"><img src="{{ MEDIA_URL }}img/icon/cart_go.png" /></a>
 </div>
+<h6>Produkte</h6>
 <table id="product_list">
     <colgroup>
         <col width="">
         <col width="30px">
     </colgroup>
-    <thead>
-        <tr>
-            <td>Produkt</td>
-            <td></td>
-        </tr>
-    </thead>
     <tbody>
     {% for product in product_list %}
         {% cycle 'odd' 'even' as rowcolors silent %}
@@ -47,8 +42,9 @@
     {% endfor %}
     </tbody>
 </table>
-
-<form method="post" action="">
+<br />
+<h6>Zeiträume</h6>
+<form method="post"action="">
     {% csrf_token %}
     {{ form.management_form }}
     <table id="forms">

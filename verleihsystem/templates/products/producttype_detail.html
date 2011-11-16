@@ -27,15 +27,15 @@
 	</colgroup>
 	<thead>
 		<tr>
-			<td>ID/Serial No.</td>
+			<td class="first">ID/Serial No.</td>
 			<td>Beschreibung</td>
-			<td></td>
+			<td class="last"></td>
 		</tr>
 	</thead>
 	<tbody>
 	{% for product in product_list %}
 		{% cycle 'odd' 'even' as rowcolors silent %}
-		<tr class="{{ rowcolors }}">
+		<tr class="{{ rowcolors }}" style="border-top:1px solid #fff">
 			<td>{{ product.sn }}</td>
 			<td>{{ product.brief_description }}</td>
 			<td rowspan="2" class="actions" style="border-bottom: 1px solid #ccc">
@@ -46,7 +46,7 @@
 			{% endif %}
 			</td>
 		</tr>
-		<tr class="{{ rowcolors }}" style="border-bottom: 1px solid #ccc">
+		<tr class="{{ rowcolors }}" style="border-bottom:1px solid #ccc">
 			<td colspan="2">
 			{% include "products/snippet_timeline.html" %}
 			</td>

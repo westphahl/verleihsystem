@@ -10,13 +10,13 @@
 
 {% block content %}
 <h1>Einstellungen</h1>
-
+<br />
 <div id="userdata">
-	<h5>Stammdaten</h5>
+	<h6>Stammdaten</h6>
 	<table>
 		<colgroup>
-			<col width="200px"">
-			<col width=""">
+			<col style="width:200px" />
+			<col />
 		</colgroup>
 		<tbody>
 			<tr>
@@ -38,7 +38,7 @@
 		</tbody>
 	</table>
 	<br /><br />
-	<h5>Zusätzliche Daten</h5>
+	<h6>Zusätzliche Daten</h6>
 	<form method="post" action="">
 		{% csrf_token %}
 		<table>
@@ -66,5 +66,5 @@
 	</form>
 <div>
 <br />
-<p style="font-size:0.8em;text-align:right">Letzte Anmeldung: {{ request.user.last_login }}</p>
+<p style="font-size:0.9em;text-align:right">Letzte Anmeldung: {{ request.user.last_login }}</p>
 {% endblock %}

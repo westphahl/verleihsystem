@@ -1,143 +1,144 @@
 body {
-	min-height: 100%;
-	width: 964px;
-	padding: 0px 20px;
-	margin: 0 auto;
-	background-image: url(../img/bg_body.png);
-	background-position: center top;
-	background-repeat: repeat-y;
+    min-height: 100%;
+    width: 980px;
+    padding: 0px 20px;
+    margin: 0 auto;
+    background-image: url(../img/bg_body3.png);
+    background-position: center top;
+    background-repeat: repeat-y;
 }
 section#header {
-	width: 964px;
-	height: 100px;
-	color: #333;
+    width: 100%;
+    height: 80px;
+    color: #333;
 }
 section#header a {
-	text-decoration: none;
+    text-decoration: none;
 }
 section#header .logo {
-	float: left;
-	height: 80px;
-	padding: 10px;
-	text-align: left;
+    float: left;
+    height: 60px;
+    padding: 10px;
+    text-align: left;
 }
 section#header div#usermenu {
-	text-align: right;
-	font-size: .8em;
-	padding: 3px 5px;
-	vertical-align: middle;
+    text-align: right;
+    font-size: .9em;
+    padding: 3px 5px;
+    vertical-align: middle;
 }
 section#header div#usermenu img {
-	margin-bottom: -3px;
+    margin-bottom: -3px;
 }
-section#header div#feedback {
-	float: right;
-	padding: 0px;
-	margin: 5px 10px;
-	text-align: center;
-	font-weight: bold;
+section#header div#nav_top {
+    position: absolute;
+    top: 10px;
+    margin-left: 300px;
 }
-section#header div#feedback img {
-	padding: 10px;
+section#header div#nav_top > a {
+    display: inline-block;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
 }
-section#header div#contact {
-	float: right;
-	padding: 0px;
-	text-align: center;
-	margin: 5px 10px;
-	font-weight: bold;
-}
-section#header div#contact img {
-	padding: 10px;
-}
-section#header div#cart {
-	float: right;
-	padding: 0px;
-	margin: 5px 10px;
-	text-align: center;
-	font-weight: bold;
-	margin-right: 300px;
-}
-section#header div#cart img {
-	padding: 10px;
-}
-section#header div#cart p {
-	padding-bottom: 3px;
+section#header div#nav_top a img {
+    padding-bottom: 5px;
 }
 section#content_wrapper {
-	width: 100%;
-	margin-top: 10px;
+    width: 100%;
+    margin-top: 10px;
 }
 nav#sidebar {
-	float: right;
-	width: 230px;
-	border-left: 1px solid #ccc;
+    float: right;
+    width: 200px;
+    line-height: 2.5em;
+    color: #fff;
+}
+nav#sidebar p {
+	padding: 0 5px;
 }
 nav#sidebar p.title {
-	color: #fff;
-	background-color: #666;
-	font-size: .9em;
-	font-weight: bold;
-	text-align: center;
-	margin-bottom: 5px;
+    color: #fff;
+    background-color: #939;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    line-height: 2em;
 }
 nav#sidebar ul {
-	padding-left: 10px;
+}
+nav#sidebar ul li {
 }
 nav#sidebar ul li a {
-	color: #333;
-	text-decoration: none;
-	padding-left: 10px;
-	background-image: url(../img/dots_black.png);
-	background-position: left center;
-	background-repeat: no-repeat;
+    display: block;
+    color: #eee;
+    text-decoration: none;
+    padding-left: 15px;
 }
 nav#sidebar ul li a:hover {
-	color: #000;
-	font-weight: bold;
+    color: #fff;
+    font-weight: bold;
+    background-color: #555;
+}
+div#contact {
+    background-color: #333;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
 }
 div#tree {
-	line-height: 2em;
-	margin: 10px;
+    background-color: #333;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
 }
-div#tree .current {
-	font-weight :bold;
+div#tree a.current {
+    background-color: #444;
+    font-weight :bold;
 }
 section#content {
-	padding: 10px;
-	margin-right: 230px;
+    padding: 10px;
+    margin-right: 200px;
 }
 section#content div#breadcrumbs {
-	color: #999;
-	font-size: .8em;
-	padding-left: 5px;
-	margin-bottom:10px;
-	border-bottom: 1px solid #ccc;
-	text-transform: uppercase;
+    color: #999;
+    font-size: .8em;
+    padding-left: 5px;
+    margin-bottom:10px;
+    border-bottom: 1px solid #ccc;
+    text-transform: uppercase;
 }
 section#content div#breadcrumbs p {
-	padding-bottom: 5px;
+    padding-bottom: 5px;
+}
+section#footer {
+    text-align: center;
+    line-height: 1.5em;
 }
 .errorlist {
-	padding: 10px;
-	margin-bottom: 10px;
-	background-color: #F6CECE;
-	border: 1px solid #FA5858;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #F6CECE;
+    border: 1px solid #FA5858;
 }
 form#login {
-	text-align: center;
+    text-align: center;
 }
 form#login table {
-	margin: 0 auto;
+    margin: 0 auto;
 }
 form#login table td {
-	text-align: left;
-	padding-left: 5px;
+    text-align: left;
+    padding-left: 5px;
 }
 input[type="text"],
 input[type="password"] {
-	padding: 3px;
+    padding: 3px;
 }
 input[type="submit"] {
-	padding: 5px 20px;
+    padding: 5px 20px;
 }

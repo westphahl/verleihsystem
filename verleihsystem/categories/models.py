@@ -46,7 +46,7 @@ class Category(MPTTModel):
     def get_contact_person(self):
         user_id = self.contact_id
         if not user_id:
-            for c in self.get_ancestors():
+            for c in self.get_ancestors(True):
                 if c.contact_id != None:
                     user_id = c.contact_id
                     break

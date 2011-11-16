@@ -4,7 +4,7 @@
 {% full_tree_for_model categories.Category as nodes %}
 {% for node,structure in nodes|tree_info %}
 	{% if structure.new_level %}<ul><li>{% else %}</li><li>{% endif %}
-		<a href="{{ node.get_absolute_url }}" class="{% if request.path_info == node.get_absolute_url %}current{% endif %}">{{ node.name }}</a>
+		<a href="{{ node.get_absolute_url }}" class="{% if request.path_info == node.get_absolute_url %}current{% endif %}" style="padding-left:{{ node.level }}5px">&raquo; {{ node.name }}</a>
 	{% for level in structure.closed_levels %}</li></ul>{% endfor %}
 {% endfor %}
 </div>
