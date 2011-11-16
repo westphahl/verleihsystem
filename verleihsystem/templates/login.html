@@ -6,9 +6,6 @@
 {% endblock %}
 
 {% block content %}
-<div id="breadcrumbs">
-	<p><a href="/">Home</a> &raquo; Anmelden</p>
-</div>
 <h1>Anmeldung</h1>
 {% if request.user.is_anonymous %}
 	{% if form.errors %}
