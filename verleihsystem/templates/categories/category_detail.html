@@ -11,14 +11,6 @@
 {% endblock %}
 
 {% block content %}
-<div id="breadcrumbs">
-	<p><a href="/">Home</a>
-	{% for a in category.get_ancestors %}
-		&raquo; <a href="{{ a.get_absolute_url }}">{{ a.name }}</a>
-	{% endfor %}
-	&raquo; {{ category.name }}
-	</p>
-</div>
 <h1>{{ category.name }}</h1>
 <table id="producttype_list">
 	<colgroup>

@@ -5,21 +5,6 @@
 {% endblock %}
 
 {% block content %}
-<div id="breadcrumbs">
-{% for c in producttype.categories.all %}
-	{% if forloop.first %}
-		<p><a href="/">Home</a>
-	{% else %}
-		<p><span style="visibility:hidden">Home</span>
-	{% endif %}
-	{% for a in c.get_ancestors %}
-		&raquo; <a href="{{ a.get_absolute_url }}">{{ a.name }}</a>
-	{% endfor %}
-	&raquo; <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
-	&raquo; {{ producttype.name }}
-	</p>
-{% endfor %}
-</div>
 <h1>{{ producttype.name }}</h1>
 <div id="producttype_detail">
 	<p class="photo">
