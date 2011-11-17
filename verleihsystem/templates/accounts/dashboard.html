@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block extra_css %}
+	<link rel="stylesheet" href="{{ MEDIA_URL }}css/profile_form.css">
+{% endblock %}
+
+{% block sidebar %}
+	{% include 'categories/category_tree.html' %}
+{% endblock %}
+
+{% block content %}
+<h1>Dashboard</h1>
+<br />
+<h6>Überfällig</h6>
+<br />
+<h6>Ausgeliehen</h6>
+<br />
+<h6>Reservierungen</h6>
+<br />
+<h6>Anfragen</h6>
+{% endblock %}

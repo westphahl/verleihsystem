@@ -30,7 +30,7 @@
         <div id="nav_top">
             <a href="/"><img src="{{ MEDIA_URL }}img/icon/home.png" alt="" /><br />Startseite</a>
             {% if not request.user.is_anonymous %}
-            <a href="#"><img src="{{ MEDIA_URL }}img/icon/note.png" alt="" /><br />Dashboard</a>
+            <a href="{% url user_dashboard %}"><img src="{{ MEDIA_URL }}img/icon/note.png" alt="" /><br />Dashboard</a>
             {% endif %}
             <a href="{% url contact %}"><img src="{{ MEDIA_URL }}img/icon/contact.png" alt="" /><br />Kontakt</a>
             <a href="{% url shoppingcart_index %}"><img src="{{ MEDIA_URL }}img/icon/cart.png" alt="" ><br />Warenkorb</a>
