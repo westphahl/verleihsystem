@@ -32,7 +32,7 @@ section#header div#usermenu img {
 }
 section#header div#nav_top {
     position: absolute;
-    top: 10px;
+    top: 15px;
     margin-left: 300px;
 }
 section#header div#nav_top > a {
@@ -43,6 +43,8 @@ section#header div#nav_top > a {
 }
 section#header div#nav_top a img {
     padding-bottom: 5px;
+    width: 24px;
+    height: 24px;
 }
 section#content_wrapper {
     width: 100%;
@@ -136,8 +138,18 @@ form#login table td {
 }
 input[type="text"],
 input[type="password"] {
+    width: 300px;
     padding: 3px;
+    border: 1px solid #ccc;
 }
-input[type="submit"] {
+input[type="submit"],
+input[type="reset"] {
     padding: 5px 20px;
+}
+textarea {
+    width: 750px;
+    height: 100px;
+    padding: 3px;
+    border: 1px solid #ccc;
+    margin-top: 3px;
 }

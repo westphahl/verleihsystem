@@ -32,7 +32,7 @@
             {% if not request.user.is_anonymous %}
             <a href="#"><img src="{{ MEDIA_URL }}img/icon/note.png" alt="" /><br />Dashboard</a>
             {% endif %}
-            <a href="#"><img src="{{ MEDIA_URL }}img/icon/contact.png" alt="" /><br />Kontakt</a>
+            <a href="{% url contact %}"><img src="{{ MEDIA_URL }}img/icon/contact.png" alt="" /><br />Kontakt</a>
             <a href="{% url shoppingcart_index %}"><img src="{{ MEDIA_URL }}img/icon/cart.png" alt="" ><br />Warenkorb</a>
         </div>
     </section>
@@ -52,7 +52,7 @@
         <hr />
         <p>&copy; 2011 Simon Westphahl &amp; Michael Wydler</p>
         <p>Hochschule Ravensburg-Weingarten<p>
-        <p><a href="/">Startseite</a> | <a href="#">Dashboard</a> | <a href="#">Kontakt</a> | <a href="#">Warenkorb</a>
+        <p><a href="/">Startseite</a> | <a href="#">Kontakt</a> | <a href="#">Warenkorb</a>
     </section>
     {% block script %}
     {% endblock %}

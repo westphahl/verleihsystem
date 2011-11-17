@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load url from future %}
+
+{% block sidebar %}
+	{% include 'categories/category_tree.html' %}
+{% endblock %}
+
+{% block content %}
+<h1>Kontakt</h1>
+<hr />
+<form action="/contact/" method="post">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <div>
+        {{ form.sender.errors }}
+        <label for="id_sender">Meine E-Mail Adresse:</label><br />
+        {{ form.sender }}
+    </div>
+    <br />
+    <div>
+        {{ form.subject.errors }}
+        <label for="id_subject">Betreff:</label><br />
+        {{ form.subject }}
+    </div>
+    <br />
+    <div>
+        {{ form.message.errors }}
+        <label for="id_message">Nachricht:</label><br />
+        {{ form.message }}
+    </div>
+    <br />
+    <div>
+        {{ form.cc_myself.errors }}
+        <label for="id_cc_myself">Kopie an mich selbst schicken?</label>
+        {{ form.cc_myself }}
+    </div>
+    <br />
+    <p class="center">
+        <input type="reset" value="Zurücksetzten">
+        <input type="submit" value="Abschicken" />
+    </p>
+</form>
+{% endblock %}
