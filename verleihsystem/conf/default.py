@@ -108,6 +108,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.static",
     'django.core.context_processors.request',
     "django.contrib.messages.context_processors.messages",
+    'categories.context_processors.category_tree',
 )
 
 INSTALLED_APPS = (

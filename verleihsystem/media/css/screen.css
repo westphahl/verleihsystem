@@ -3,7 +3,6 @@ body {
     width: 980px;
     padding: 0px 20px;
     margin: 0 auto;
-    background-image: url(../img/bg_body3.png);
     background-position: center top;
     background-repeat: repeat-y;
 }
@@ -32,14 +31,24 @@ section#header div#usermenu img {
 }
 section#header div#nav_top {
     position: absolute;
-    top: 15px;
+    top: 0;
     margin-left: 300px;
+    text-align: center;
 }
 section#header div#nav_top > a {
     display: inline-block;
-    padding: 10px;
+    padding: 5px 10px;
     text-align: center;
     font-weight: bold;
+    border-left: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    border-right: 1px solid transparent;
+}
+section#header div#nav_top > a:hover {
+    background-color: #fff;
+    border-left: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    border-right: 1px solid #eee;
 }
 section#header div#nav_top a img {
     padding-bottom: 5px;
@@ -126,16 +135,6 @@ section#footer {
     background-color: #F6CECE;
     border: 1px solid #FA5858;
 }
-form#login {
-    text-align: center;
-}
-form#login table {
-    margin: 0 auto;
-}
-form#login table td {
-    text-align: left;
-    padding-left: 5px;
-}
 input[type="text"],
 input[type="password"] {
     width: 300px;
@@ -152,4 +151,20 @@ textarea {
     padding: 3px;
     border: 1px solid #ccc;
     margin-top: 3px;
+}
+form#login {
+    text-align: center;
+}
+form#login table {
+    margin: 0 auto;
+}
+form#login table td {
+    text-align: left;
+    padding-left: 5px;
+}
+form#login input[type="text"],
+form#login input[type="password"] {
+    width: 150px;
+    padding: 3px;
+    border: 1px solid #ccc;
 }
