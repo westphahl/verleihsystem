@@ -11,11 +11,16 @@
 {% block content %}
 <h1>Dashboard</h1>
 <br />
-<h6>Überfällig</h6>
+{% for name, reservation_list in reservation_categories %}
+<h6>{{ name }}</h6>
 <br />
-<h6>Ausgeliehen</h6>
-<br />
-<h6>Reservierungen</h6>
-<br />
-<h6>Anfragen</h6>
+<table>
+    {% for reservation in reservation_list %}
+    <tr>
+        <td>{{ reservation }}</td>
+        <td>{{ reservation.get_state_display }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endfor %}
 {% endblock %}

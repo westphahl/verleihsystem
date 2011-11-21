@@ -60,10 +60,9 @@ class ShoppingCartIndexView(FormView):
                     # We can't use the models clean() method here since we
                     # are inside a transaction.
                     collision = ReservationEntry.objects.filter(
-                        product=product,
-                        reservation__state=1,
-                        reservation__end_date__gte=start_date,
-                        reservation__end_date__lte=end_date).count()
+                        product=product, reservation__state=1).exclude(
+                        reservation__end_date__lt=start_date).exclude(
+                        reservation__start_date__gt=end_date).count()
                     if collision > 0:
                         raise ValidationError(
                             _("There is already a reservation for this "

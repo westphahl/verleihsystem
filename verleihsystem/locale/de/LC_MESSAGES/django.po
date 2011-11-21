@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-21 14:12+0100\n"
+"POT-Creation-Date: 2011-11-21 15:30+0100\n"
 "PO-Revision-Date: 2011-10-26 10:18+0200\n"
 "Last-Translator: Simon Westphahl\n"
 "Language: \n"
@@ -38,6 +38,26 @@ msgstr "Benutzerprofil"
 #: accounts/models.py:25
 msgid "User profiles"
 msgstr "Benutzerprofile"
+
+#: accounts/views.py:63
+msgid "Overdue"
+msgstr ""
+
+#: accounts/views.py:64
+msgid "Borrowed"
+msgstr "Ausgeliehen"
+
+#: accounts/views.py:65
+msgid "Reserved"
+msgstr "Reserviert"
+
+#: accounts/views.py:66
+msgid "Requested"
+msgstr "Anfragen"
+
+#: accounts/views.py:67 reservations/models.py:13
+msgid "Rejected"
+msgstr "Abgelehnt"
 
 #: categories/models.py:21
 msgid "Category"
@@ -98,10 +118,6 @@ msgstr "Ausstehend"
 #: reservations/models.py:12
 msgid "Acknowledged"
 msgstr "Bestätigt"
-
-#: reservations/models.py:13
-msgid "Rejected"
-msgstr "Abgelehnt"
 
 #: reservations/models.py:15
 msgid "User"
