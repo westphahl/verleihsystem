@@ -65,8 +65,8 @@ class ShoppingCartIndexView(FormView):
                         reservation__start_date__gt=end_date).count()
                     if collision > 0:
                         raise ValidationError(
-                            _("There is already a reservation for this "
-                              "product in the given timeframe."))
+                            _("There is already a reservation for %s "
+                              "product in this timeframe.") % product)
                     e = ReservationEntry(reservation=reservation, product=product)
                     e.save()
             except ValidationError, e:

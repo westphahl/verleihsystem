@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-21 15:30+0100\n"
+"POT-Creation-Date: 2011-11-21 16:14+0100\n"
 "PO-Revision-Date: 2011-10-26 10:18+0200\n"
 "Last-Translator: Simon Westphahl\n"
 "Language: \n"
@@ -163,9 +163,11 @@ msgstr "Reservierung"
 msgid "Reservations"
 msgstr "Reservierungen"
 
-#: reservations/models.py:53 shoppingcart/views.py:69
+#: reservations/models.py:53
 msgid "There is already a reservation for this product in the given timeframe."
-msgstr "Für dieses Produkt ist angegebenen Zeitraum bereits eine Reservierung vorhanden."
+msgstr ""
+"Für dieses Produkt ist angegebenen Zeitraum bereits eine Reservierung "
+"vorhanden."
 
 #: reservations/models.py:60
 msgid "Reservation Entry"
@@ -178,6 +180,10 @@ msgstr "Reservierunseinträge"
 #: shoppingcart/forms.py:21
 msgid "End date must be greater than or equal to the start date."
 msgstr "Das Enddatum muss größer sein, als das Startdatum."
+
+#: shoppingcart/views.py:68
+msgid "There is already a reservation for %s product in this timeframe."
+msgstr "Für das Produkt %s ist in diesem Zeitraum bereits eine Reservierung vorhanden."
 
 #: templates/admin/base_site.html:8 templates/admin/base_site.html.py:11
 msgid "Verleihsystem-Administration"
