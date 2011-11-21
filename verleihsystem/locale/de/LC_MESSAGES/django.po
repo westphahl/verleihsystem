@@ -41,7 +41,7 @@ msgstr "Benutzerprofile"
 
 #: accounts/views.py:63
 msgid "Overdue"
-msgstr ""
+msgstr "Überfällig"
 
 #: accounts/views.py:64
 msgid "Borrowed"

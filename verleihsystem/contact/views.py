@@ -6,6 +6,7 @@ from django.conf import settings
 
 from contact.forms import ContactForm
 
+
 def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -15,14 +16,13 @@ def contact(request):
             message = form.cleaned_data['message']
             cc_myself = form.cleaned_data['cc_myself']
             
-
             recipients = [getattr(settings, 'CONTACT_FORM_EMAIL', '')]
             
             if cc_myself:
                 recipients.append(sender)
             
             email = EmailMessage(subject=subject, body=message,
-                to= recipients, headers={'Reply-To': sender})
+                to=recipients, headers={'Reply-To': sender})
             email.send()
             return redirect(reverse('home'))
     else:
