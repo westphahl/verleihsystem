@@ -49,6 +49,12 @@ MEDIA_ROOT = get_absolute_path('media')
 # Size uploaded product pictures are cropped to
 PRODUCT_IMAGE_SIZE = (200, 150)
 
+# Email address for the contact form
+CONTACT_FORM_EMAIL = 'info@hs-weingarten.de'
+
+DEFAULT_FROM_EMAIL = 'verleihsystem@hs-weingarten-de'
+SERVER_EMAIL = DEFAULT_FROM_EMAIL
+
 # Set model for user profile
 AUTH_PROFILE_MODULE = 'accounts.UserProfile'
 
