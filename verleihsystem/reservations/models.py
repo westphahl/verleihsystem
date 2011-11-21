@@ -6,8 +6,6 @@ from django.utils.translation import ugettext_lazy as _
 from products.models import Product
 
 
-# TODO Implement validation
-# start_date < end_date
 class Reservation(models.Model):
     STATE_CHOICES = (
         (0, _("Pending")),
@@ -48,10 +46,12 @@ class ReservationEntry(models.Model):
     def clean(self):
         collision = ReservationEntry.objects.exclude(id=self.id).filter(
                 product=self.product,
+                reservation__state=1,
                 reservation__end_date__gte=self.reservation.start_date,
                 reservation__end_date__lte=self.reservation.end_date).count()
         if collision > 0:
-            raise ValidationError(_("There is already a reservation for this product in the given timeframe."))
+            raise ValidationError(_("There is already a reservation for this "
+                "product in the given timeframe."))
     
     def __unicode__(self):
         return u"%s | %s" % (self.reservation, self.product)
