@@ -5,10 +5,13 @@ from django.views.decorators.http import require_GET
 from django.views.generic.edit import FormView
 from django.http import Http404
 from django.conf import settings
+from django.db import transaction
+from django.core.exceptions import ValidationError
 from django.core.urlresolvers import reverse
+from django.utils.translation import ugettext as _
 
 from products.models import Product
-from reservations.models import ReservationEntry
+from reservations.models import Reservation, ReservationEntry
 from shoppingcart.forms import ShoppingCartReservationFormset
 
 
@@ -16,6 +19,68 @@ class ShoppingCartIndexView(FormView):
 
     template_name = 'shoppingcart/index.html'
     form_class = ShoppingCartReservationFormset
+    # reverse() doesn't work here. This is fixed in Django 1.4
+    # See: https://code.djangoproject.com/ticket/5925
+    success_url = '/user/dashboard/'
+
+    def post(self, request, *args, **kwargs):
+        form_class = self.get_form_class()
+        formset = self.get_form(form_class)
+        if formset.is_valid() and self.process_formset(formset):
+            return self.form_valid(formset)
+        else:
+            return self.form_invalid(formset)
+
+    @transaction.commit_manually
+    def process_formset(self, formset):
+        commit = True
+        user=self.request.user
+        pid_list = self.request.session.get('cart')
+        if not pid_list:
+            return False
+        product_list = Product.objects.filter(id__in=pid_list)
+
+        # Create a reservation for every timeframe and reservation entries
+        # for all the products.
+        for form in formset:
+            start_date=form.cleaned_data.get('start_date')
+            end_date=form.cleaned_data.get('end_date')
+            # Empty form; process next
+            if not (start_date and end_date):
+                continue
+
+            try:
+                reservation = Reservation(user=user, start_date=start_date,
+                        end_date=end_date)
+                reservation.clean()
+                reservation.save()
+                for product in product_list:
+                    # Make sure there is no resevation entry for the product
+                    # in the given timeframe.
+                    # We can't use the models clean() method here since we
+                    # are inside a transaction.
+                    collision = ReservationEntry.objects.filter(
+                        product=product,
+                        reservation__state=1,
+                        reservation__end_date__gte=start_date,
+                        reservation__end_date__lte=end_date).count()
+                    if collision > 0:
+                        raise ValidationError(
+                            _("There is already a reservation for this "
+                              "product in the given timeframe."))
+                    e = ReservationEntry(reservation=reservation, product=product)
+                    e.save()
+            except ValidationError, e:
+                # Add the error message to the form, so that we can display
+                # the error to the user.
+                form.invalidate_form(e.messages)
+                commit = False
+        if commit:
+            transaction.commit()
+            del self.request.session['cart']
+        else:
+            transaction.rollback()
+        return commit
 
     def get_context_data(self, **kwargs):
         # Call implementation in base class to get context
