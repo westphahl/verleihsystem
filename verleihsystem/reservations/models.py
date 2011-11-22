@@ -28,9 +28,16 @@ class Reservation(models.Model):
     def __unicode__(self):
         return u"%s: %s - %s" % (self.user, self.start_date, self.end_date)
 
+    @models.permalink
+    def get_absolute_url(self):
+        return ('reservation_detail', (), {'pk': self.id})
+
     def clean(self):
         if self.start_date > self.end_date:
             raise ValidationError(_("End date must be greater than start date."))
+
+    def is_cancellable(self):
+        return True if not self.borrow_date else False
 
     class Meta:
         verbose_name = _("Reservation")

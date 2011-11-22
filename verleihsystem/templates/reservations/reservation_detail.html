@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Reservierungsdetails</h1>
+
+<p>Startdatum: {{ reservation.start_date }}<br>
+Enddatum: {{ reservation.end_date }}<br>
+abgeholt am: {{ reservation.borrow_date|default:"--" }}<br>
+Status: {{ reservation.get_state_display }}<br>
+Kommentar: {{ reservation.comments|default:"--" }}
+</p>
+
+<h6>reservierte Produkte</h6>
+<table>
+{% for entry in reservation.reservationentry_set.all %}
+    <tr>
+        <td><a href="{{ entry.product.product_type.get_absolute_url }}">{{ entry.product.product_type.name }}</a></td>
+        <td>{{ entry.product.sn }}</td>
+    </tr>
+{% endfor %}
+</table>
+{% if reservation.is_cancellable %}
+<p><a href="{% url reservation_delete reservation.id %}">Reservierung stornieren</a></p>
+{% endif %}
+{% endblock %}

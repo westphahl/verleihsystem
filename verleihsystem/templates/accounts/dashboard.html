@@ -17,7 +17,7 @@
 <table>
     {% for reservation in reservation_list %}
     <tr>
-        <td>{{ reservation }}</td>
+        <td><a href="{{ reservation.get_absolute_url }}">{{ reservation }}</a></td>
         <td>{{ reservation.get_state_display }}</td>
     </tr>
     {% endfor %}

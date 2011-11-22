@@ -5,10 +5,38 @@ from django.template import loader, RequestContext
 from django.core.urlresolvers import reverse
 from django.http import Http404, HttpResponse
 from django.views.generic.list import BaseListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import DeleteView
 from django.utils import simplejson as json
 
-from reservations.models import ReservationEntry
+from reservations.models import Reservation, ReservationEntry
 from products.models import Product
+
+
+class ReservationDetailView(DetailView):
+
+    def get_queryset(self):
+        queryset = Reservation.objects.select_related()
+        if self.request.user.is_staff:
+            return queryset
+        else:
+            return queryset.filter(user=self.request.user)
+
+
+class ReservationDeleteView(DeleteView):
+
+    # reverse() doesn't work here. This is fixed in Django 1.4
+    # See: https://code.djangoproject.com/ticket/5925
+    success_url = '/user/dashboard/'
+
+    def get_queryset(self):
+        # You can only cancel a reservation who was not picked up yet
+        queryset = Reservation.objects.filter(
+            borrow_date__isnull=True).select_related()
+        if self.request.user.is_staff:
+            return queryset
+        else:
+            return queryset.filter(user=self.request.user)
 
 
 class JSONResponseMixin(object):

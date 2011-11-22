@@ -31,6 +31,7 @@ def change_user_profile(request):
     return render_to_response('accounts/profile_form.html', {
         'formset': form,}, context_instance=RequestContext(request))
 
+
 @login_required
 def dashboard(request, template='accounts/dashboard.html', *args, **kwargs):
     today = date.today()

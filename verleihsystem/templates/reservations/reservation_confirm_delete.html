@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Reservierung wirklich stornieren?</h1>
+
+<p>Startdatum: {{ reservation.start_date }}<br>
+Enddatum: {{ reservation.end_date }}<br>
+Status: {{ reservation.get_state_display }}<br>
+Kommentar: {{ reservation.comments|default:"--" }}
+</p>
+
+<form action="" method="post">
+	{% csrf_token %}
+    <input type="hidden" name="post" value="yes">
+    <input type="submit" value="Stornieren">
+</form>
+{% endblock %}
+
