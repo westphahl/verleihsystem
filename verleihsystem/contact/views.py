@@ -11,7 +11,8 @@ def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            sender = form.cleaned_data['sender']
+            name = form.cleaned_data['name']
+            mail = form.cleaned_data['mail']
             subject = "[Verleihsystem:Kontakt]: " + form.cleaned_data['subject']
             message = form.cleaned_data['message']
             cc_myself = form.cleaned_data['cc_myself']
@@ -26,7 +27,12 @@ def contact(request):
             email.send()
             return redirect(reverse('home'))
     else:
-        form = ContactForm()
+        if request.user.is_anonymous():
+            form = ContactForm()
+        else:
+            name = request.user.first_name + " " + request.user.last_name
+            mail = request.user.email
+            form = ContactForm(initial={'name': name, 'mail': mail})
     
     return render_to_response('contact.html', {'form': form,}, 
             context_instance=RequestContext(request))

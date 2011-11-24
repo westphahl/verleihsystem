@@ -1,0 +1,17 @@
+form#contact input[type="text"],
+form#contact input[type="password"] {
+    width: 300px;
+}
+form#contact textarea {
+    width: 650px;
+    height: 100px;
+    padding: 3px;
+    border: 1px solid #ccc;
+    margin-top: 3px;
+}
+form#contact table {
+	width: 100%;
+}
+form#contact table tr td {
+	vertical-align: top;
+}

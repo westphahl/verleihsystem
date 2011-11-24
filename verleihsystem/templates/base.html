@@ -17,23 +17,26 @@
     <section id="header">
         <a href="/"><img src="{{ MEDIA_URL }}img/hrw_logo.png" class="logo" alt="" /></a>
         <div id="usermenu">
-            {% if not request.user.is_anonymous %}Sie sind angemeldet als <span style="font-weight:bold">{{ request.user.get_full_name }}</span>
-            <a href="{% url user_profile_form %}"><img src="{{ MEDIA_URL }}img/icon/user.png" alt="Einstellungen" /></a>
-            {% if request.user.is_staff %}
-            <a href="{% url admin:index %}" target="_blank"><img src="{{ MEDIA_URL }}img/icon/gear.png" alt="Administration" /></a>
-            {% endif %}
-            <a href="{% url django.contrib.auth.views.logout %}?next={{ request.path }}"><img src="{{ MEDIA_URL }}img/icon/door_open_out.png" alt="Abmelden" /></a>
+            {% if not request.user.is_anonymous %}Sie sind angemeldet als <span style="font-weight:600">{{ request.user.get_full_name }}</span>
+                <a href="{% url user_profile_form %}"><img src="{{ MEDIA_URL }}img/icon/user.png" alt="Einstellungen" /></a>
+                {% if request.user.is_staff %}
+                <a href="{% url admin:index %}" target="_blank"><img src="{{ MEDIA_URL }}img/icon/gear.png" alt="Administration" /></a>
+                {% endif %}
+                <a href="{% url django.contrib.auth.views.logout %}?next={{ request.path }}"><img src="{{ MEDIA_URL }}img/icon/door_open_out.png" alt="Abmelden" /></a>
             {% else %}
                 Sie sind nicht angemeldet. <a href="{% url django.contrib.auth.views.login %}?next={{ request.path }}"><img src="{{ MEDIA_URL }}img/icon/door_open_in.png" alt="Anmelden" /></a>
             {% endif %}
         </div>
         <div id="nav_top">
-            <a href="/"><img src="{{ MEDIA_URL }}img/icon/home.png" alt="" /><br />Startseite</a>
+            <a class="{% ifequal request.path '/' %}current{% endifequal %}" href="/"><img src="{{ MEDIA_URL }}img/icon/home.png" alt="" /><br />Startseite</a>
             {% if not request.user.is_anonymous %}
-            <a href="{% url user_dashboard %}"><img src="{{ MEDIA_URL }}img/icon/note.png" alt="" /><br />Dashboard</a>
+                {% url user_dashboard as url_dashboard %}
+                <a class="{% ifequal request.path url_dashboard %}current{% endifequal %}" href="{% url user_dashboard %}"><img src="{{ MEDIA_URL }}img/icon/note.png" alt="" /><br />Dashboard</a>
             {% endif %}
-            <a href="{% url contact %}"><img src="{{ MEDIA_URL }}img/icon/contact.png" alt="" /><br />Kontakt</a>
-            <a href="{% url shoppingcart_index %}"><img src="{{ MEDIA_URL }}img/icon/cart.png" alt="" ><br />Warenkorb</a>
+            {% url contact as url_contact %}
+            <a class="{% ifequal request.path url_contact %}current{% endifequal %}" href="{% url contact %}"><img src="{{ MEDIA_URL }}img/icon/contact.png" alt="" /><br />Kontakt</a>
+            {% url shoppingcart_index as url_shoppingcart %}
+            <a class="{% ifequal request.path url_shoppingcart %}current{% endifequal %}" href="{% url shoppingcart_index %}"><img src="{{ MEDIA_URL }}img/icon/cart.png" alt="" ><br />Warenkorb</a>
         </div>
     </section>
     <section id="content_wrapper">

@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load url from future %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/contact.css">
+{% endblock %}
+
 {% block sidebar %}
 	{% include 'categories/category_tree.html' %}
 {% endblock %}
@@ -8,32 +12,49 @@
 {% block content %}
 <h1>Kontakt</h1>
 <hr />
-<form action="/contact/" method="post">
+<form id="contact" action="/contact/" method="post">
     {% csrf_token %}
     {{ form.non_field_errors }}
-    <div>
-        {{ form.sender.errors }}
-        <label for="id_sender">Meine E-Mail Adresse:</label><br />
-        {{ form.sender }}
-    </div>
-    <br />
-    <div>
-        {{ form.subject.errors }}
-        <label for="id_subject">Betreff:</label><br />
-        {{ form.subject }}
-    </div>
-    <br />
-    <div>
-        {{ form.message.errors }}
-        <label for="id_message">Nachricht:</label><br />
-        {{ form.message }}
-    </div>
-    <br />
-    <div class="center">
-        {{ form.cc_myself.errors }}
-        <label for="id_cc_myself">Kopie an mich selbst schicken?</label>
-        {{ form.cc_myself }}
-    </div>
+    <table>
+        <colgroup>
+            <col style="width:300px" />
+            <col style="" />
+        </colgroup>
+        <tr>
+            <td colspan="2">{{ form.name.errors }}</td>
+        </tr>
+        <tr>
+            <td><label for="id_name">Name:</label></td>
+            <td>{{ form.name }}</td>
+        </tr>
+        <tr>
+            <td colspan="2">{{ form.mail.errors }}</td>
+        </tr>
+        <tr>
+            <td><label for="id_name">E-Mail:</label></td>
+            <td>{{ form.mail }}</td>
+        </tr>
+        <tr>
+            <td colspan="2">{{ form.subject.errors }}</td>
+        </tr>
+        <tr>
+            <td><label for="id_name">Betreff:</label></td>
+            <td>{{ form.subject }}</td>
+        </tr>
+        <tr>
+            <td colspan="2">{{ form.message.errors }}</td>
+        </tr>
+        <tr>
+            <td><label for="id_name">Nachricht:</label></td>
+            <td>{{ form.message }}</td>
+        </tr>
+        <tr>
+            <td colspan="2">{{ form.subject.errors }}</td>
+        </tr>
+        <tr class="center">
+            <td colspan="2"><label for="id_name">Kopie an mich selbst schicken?</label> {{ form.cc_myself }}</td>
+        </tr>
+    </table>
     <br />
     <p class="center">
         <input type="reset" value="Zurücksetzten">
