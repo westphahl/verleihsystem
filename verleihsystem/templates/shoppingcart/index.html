@@ -11,6 +11,7 @@
 
 {% block content %}
 <h1>Warenkorb</h1>
+<br />
 <h6>Produkte</h6>
 <table id="product_list">
     <colgroup>
@@ -43,7 +44,7 @@
 <form method="post"action="{% url shoppingcart_index %}">
     {% csrf_token %}
     {{ form.management_form }}
-    <table id="forms">
+    <table id="forms" style="margin-left:100px;">
         {% for fieldset in form %}
             {% include "shoppingcart/snippet_range_form.html" %}
         {% endfor %}
@@ -72,5 +73,6 @@ $(document).ready(function() {
         $('#id_form-TOTAL_FORMS').val(form_count);
     });
 });
+
 </script>
 {% endblock %}

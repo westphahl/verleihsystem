@@ -17,7 +17,7 @@
     <section id="header">
         <a href="/"><img src="{{ MEDIA_URL }}img/hrw_logo.png" class="logo" alt="" /></a>
         <div id="usermenu">
-            {% if not request.user.is_anonymous %}Sie sind angemeldet als <span style="font-weight:600">{{ request.user.get_full_name }}</span>
+            {% if not request.user.is_anonymous %}Sie sind angemeldet als <span style="font-weight:700">{{ request.user.get_full_name }}</span>
                 <a href="{% url user_profile_form %}"><img src="{{ MEDIA_URL }}img/icon/user.png" alt="Einstellungen" /></a>
                 {% if request.user.is_staff %}
                 <a href="{% url admin:index %}" target="_blank"><img src="{{ MEDIA_URL }}img/icon/gear.png" alt="Administration" /></a>

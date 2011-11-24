@@ -1,14 +1,18 @@
 <tr>
-    <td>{{ fieldset.non_field_errors }}</td>
+    <td colspan="5">{{ fieldset.non_field_errors }}</td>
 </tr>
 <tr>
-    <td>Ausleihdatum</td>
-    <td>{{ fieldset.start_date.errors }}</td>
+	<td colspan="2">{{ fieldset.start_date.errors }}</td>
+	<td></td>
+	<td colspan="2">{{ fieldset.end_date.errors }}</td>
+</tr>
+<tr>
+    <td>Ausleihdatum&nbsp;</td>
     <td class="datepicker">{{ fieldset.start_date }}</td>
-</tr>
-<tr>
-    <td>Rückgabedatum</td>
-    <td>{{ fieldset.end_date.errors }}</td>
+    <td>&nbsp;&nbsp;</td>
+    <td>Rückgabedatum&nbsp;</td>
     <td class="datepicker">{{ fieldset.end_date }}</td>
 </tr>
 <tr>
+	<td colspan="5"><hr /></td>
+</tr>

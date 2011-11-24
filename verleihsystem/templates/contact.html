@@ -17,42 +17,38 @@
     {{ form.non_field_errors }}
     <table>
         <colgroup>
-            <col style="width:300px" />
+            <col style="width:100px" />
+            <col style="width:310px" />
             <col style="" />
         </colgroup>
         <tr>
-            <td colspan="2">{{ form.name.errors }}</td>
-        </tr>
-        <tr>
             <td><label for="id_name">Name:</label></td>
             <td>{{ form.name }}</td>
+            <td>{{ form.name.errors }}</td>
         </tr>
         <tr>
-            <td colspan="2">{{ form.mail.errors }}</td>
-        </tr>
-        <tr>
-            <td><label for="id_name">E-Mail:</label></td>
+            <td><label for="id_mail">E-Mail:</label></td>
             <td>{{ form.mail }}</td>
+            <td>{{ form.mail.errors }}</td>
         </tr>
         <tr>
-            <td colspan="2">{{ form.subject.errors }}</td>
-        </tr>
-        <tr>
-            <td><label for="id_name">Betreff:</label></td>
+            <td><label for="id_subject">Betreff:</label></td>
             <td>{{ form.subject }}</td>
+            <td>{{ form.subject.errors }}</td>
         </tr>
         <tr>
+            <td></td>
             <td colspan="2">{{ form.message.errors }}</td>
         </tr>
         <tr>
-            <td><label for="id_name">Nachricht:</label></td>
-            <td>{{ form.message }}</td>
+            <td><label for="id_message">Nachricht:</label></td>
+            <td colspan="2">{{ form.message }}</td>
         </tr>
         <tr>
-            <td colspan="2">{{ form.subject.errors }}</td>
+            <td colspan="3">{{ form.cc_myself.errors }}</td>
         </tr>
         <tr class="center">
-            <td colspan="2"><label for="id_name">Kopie an mich selbst schicken?</label> {{ form.cc_myself }}</td>
+            <td colspan="3"><label for="id_cc_myself">Kopie an mich selbst schicken?</label> {{ form.cc_myself }}</td>
         </tr>
     </table>
     <br />

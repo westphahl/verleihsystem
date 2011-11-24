@@ -13,7 +13,7 @@ form#contact table {
 	width: 100%;
 }
 form#contact table tr td {
-	vertical-align: top;
+	vertical-align: middle;
 }
 input[type="reset"].cross {
 	padding: 7px 10px 7px 30px;
