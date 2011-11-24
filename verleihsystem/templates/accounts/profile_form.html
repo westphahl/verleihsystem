@@ -12,7 +12,7 @@
 <h1>Einstellungen</h1>
 <br />
 <div id="userdata">
-	<h6>Stammdaten</h6>
+	<h5>Stammdaten</h5>
 	<table>
 		<colgroup>
 			<col style="width:200px" />
@@ -38,7 +38,7 @@
 		</tbody>
 	</table>
 	<br /><br />
-	<h6>Zusätzliche Daten</h6>
+	<h5>Zusätzliche Daten</h5>
 	<form method="post" action="">
 		{% csrf_token %}
 		<table>
@@ -62,7 +62,7 @@
 			</tbody>
 		</table>
 		<br />
-		<p style="text-align:center"><input type="submit" value="Speichern"></p>
+		<p style="text-align:center"><input class="save" type="submit" value="Speichern"></p>
 	</form>
 <div>
 <br />

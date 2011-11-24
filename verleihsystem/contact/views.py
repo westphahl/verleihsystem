@@ -23,7 +23,7 @@ def contact(request):
                 recipients.append(sender)
             
             email = EmailMessage(subject=subject, body=message,
-                to=recipients, headers={'Reply-To': sender})
+                to=recipients, headers={'Reply-To': mail})
             email.send()
             return redirect(reverse('home'))
     else:

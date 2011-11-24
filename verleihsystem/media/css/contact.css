@@ -15,3 +15,15 @@ form#contact table {
 form#contact table tr td {
 	vertical-align: top;
 }
+input[type="reset"].cross {
+	padding: 7px 10px 7px 30px;
+	background-image: url(../img/icon/cross.png);
+	background-position: 10px center;
+	background-repeat: no-repeat;
+}
+input[type="submit"].mail {
+	padding: 7px 10px 7px 30px;
+	background-image: url(../img/icon/mail.png);
+	background-position: 10px center;
+	background-repeat: no-repeat;
+}

@@ -19,3 +19,9 @@ a#checkout {
 a#clear {
 	float: left;
 }
+input[type="submit"].checkout {
+    padding: 7px 10px 7px 30px;
+    background-image: url(../img/icon/cart_go.png);
+    background-position: 10px center;
+    background-repeat: no-repeat;
+}

@@ -11,10 +11,6 @@
 
 {% block content %}
 <h1>Warenkorb</h1>
-<div id="actions">
-    <a href="{% url shoppingcart_clear %}" id="clear" rel="tipsy_w" title="Alle löschen"><img src="{{ MEDIA_URL }}img/icon/cross.png" /></a>
-    <a href="#" id="checkout" rel="tipsy_e" title="Auschecken"><img src="{{ MEDIA_URL }}img/icon/cart_go.png" /></a>
-</div>
 <h6>Produkte</h6>
 <table id="product_list">
     <colgroup>
@@ -53,7 +49,7 @@
         {% endfor %}
     </table>
     <p><a href="javascript:void(0)" id="add_form">Zeitraum hinzufügen</a></p>
-    <input type="submit" id="checkout" rel="tipsy_e" title="Auschecken">
+    <p class="right"><input class="checkout" type="submit" rel="tipsy_e" value="Auschecken"></p>
 </form>
 
 {% endblock %}
