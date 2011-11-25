@@ -1,0 +1,152 @@
+from string import Template
+
+from reportlab.lib.units import mm
+from reportlab.lib import colors
+from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Table, Image, \
+    Spacer, TableStyle, ParagraphAndImage
+from django.core.exceptions import ObjectDoesNotExist
+
+
+class DummyProfile(object):
+    student_number = None
+    phone = None
+    mobile_phone = None 
+
+
+class BorrowFormTemplate(SimpleDocTemplate):
+
+    title = u"Leihschein"
+    hint = u"""<i>Hinweis:</i> Der Leihschein muss in <b>zweifacher
+    Ausf\u00fchrung</b> ausgedruckt und mitgebracht werden. Andernfalls
+    k\u00f6nnen die reservierten Produkte leider nicht ausgeliehen werden!
+    """
+    reservation_template = Template("""
+    <b>Leihzeitraum: ${start_date} bis ${end_date}</b><br/>
+    <b>Kommentar:</b> ${comments}
+    """)
+    student_template = Template(u"""
+    <b>Name:</b> ${name} ${surname}<br/>
+    <b>Matrikelnr.:</b> ${student_id}<br/>
+    <b>Telefon:</b> ${phone}<br/>
+    <b>Mobil:</b> ${mobil}<br/>
+    <b>Email:</b> ${email}
+    """)
+    reservation_data = []
+    flowables = []
+    logo = None
+
+    def __init__(self, path, reservation):
+        SimpleDocTemplate.__init__(self, path)
+        # Get a default stylesheet
+        self.styles = getSampleStyleSheet()
+        self._set_data(reservation)
+
+    def set_logo(self, logo, width, height):
+        self.logo = logo
+        self.logo_width = width
+        self.logo_height = height
+
+    def _set_data(self, reservation):
+        self.start_date = reservation.start_date.strftime('%d.%m.%Y')
+        self.end_date = reservation.end_date.strftime('%d.%m.%Y')
+        self.comments = reservation.comments if reservation.comments else "--"
+        self.student = reservation.user
+        self.reservationentries = reservation.reservationentry_set.all()
+
+    def _get_head(self):
+        title = Paragraph(u"Leihschein", self.styles['h1'])
+        if self.logo and self.logo_width and self.logo_height:
+            img = Image(self.logo, self.logo_width*mm, self.logo_height*mm)
+            img.hAlign = 'RIGHT'
+            return ParagraphAndImage(title, img)
+        else:
+            return title
+
+    def _get_hint(self):
+        text = Paragraph(self.hint, self.styles['Normal'])
+        column_widths = [160*mm]
+        tstyle = TableStyle([
+            ('GRID', (0, 0), (-1, -1), 0.5, colors.black),
+        ])
+        return Table([[text]], colWidths=column_widths, style=tstyle)
+
+    def _blank_line_if_empty(self, field):
+        blank_line = "______________________________"
+        return field if field else blank_line
+
+    def _get_student_data(self):
+        try:
+            profile = self.student.get_profile()
+        except ObjectDoesNotExist:
+            profile = DummyProfile()
+        student_id = self._blank_line_if_empty(profile.student_number)
+        phone = self._blank_line_if_empty(profile.phone)
+        mobil = self._blank_line_if_empty(profile.mobile_phone)
+
+        return Paragraph(self.student_template.substitute(
+            name=self.student.first_name, surname=self.student.last_name,
+            student_id=student_id, phone=phone,
+            mobil=mobil, email=self.student.email), self.styles['Normal'])
+
+    def _get_reservation_data(self):
+        return Paragraph(self.reservation_template.substitute(
+            start_date=self.start_date, end_date=self.end_date,
+            comments=self.comments), self.styles['Normal'])
+
+    def _get_table_titles(self):
+        return [
+            [Paragraph(u"<b>Titel/Beschreibung</b>", self.styles['Normal']),
+                Paragraph(u"<b>Anmerkung</b>", self.styles['Normal']),
+                Paragraph(u"<b>S/N</b>", self.styles['Normal']),
+            ],
+        ]
+
+    def _get_reservation_table(self):
+        reservation_table = []
+        for entry in self.reservationentries:
+            reservation_table.append([
+                Paragraph(entry.product.product_type.name,
+                    self.styles['Normal']),
+                Paragraph(entry.product.brief_description,
+                    self.styles['Normal']),
+                Paragraph(entry.product.sn, self.styles['Normal'])])
+        table = self._get_table_titles() + reservation_table
+        column_widths = [40*mm, 80*mm, 40*mm]
+        tstyle = TableStyle([
+            ('LINEABOVE', (0, 0), (-1, 0), 1, colors.black),
+            ('LINEBELOW', (0, 0), (-1, 0), 1, colors.black),
+            ('GRID', (0, 0), (-1, -1), 0.5, colors.black),
+            ('LINEBELOW', (0, -1), (-1, -1), 1, colors.black),
+        ])
+        return Table(table, colWidths=column_widths,
+            repeatRows=1, style=tstyle)
+
+    def _get_signature_line(self):
+        column_widths = [70*mm, 20*mm, 70*mm]
+        tstyle = TableStyle([
+            ('LINEBELOW', (0, 0), (0, 0), 0.5, colors.black),
+            ('LINEBELOW', (2, 0), (2, 0), 0.5, colors.black),
+            ('ALIGN', (0, 1), (-1, 1), 'RIGHT'),
+        ])
+        signature_data = [
+            [self.start_date, "", self.end_date],
+            [u"Unterschrift (Ausleihe)", "", u"Unterschrift (R\u00fcckgabe)"]
+        ]
+        return Table(signature_data, colWidths=column_widths,
+            repeatRows=1, style=tstyle)
+
+    def build(self):
+        # Create the flowables and build the pdf
+        flowables = [self._get_head()]
+        flowables.append(Spacer(1, 10*mm))
+        flowables.append(self._get_hint())
+        flowables.append(Spacer(1, 10*mm))
+        flowables.append(self._get_student_data())
+        flowables.append(Spacer(1, 5*mm))
+        flowables.append(self._get_reservation_data())
+        flowables.append(Spacer(1, 10*mm))
+        flowables.append(self._get_reservation_table())
+        flowables.append(Spacer(1, 20*mm))
+        flowables.append(self._get_signature_line())
+        SimpleDocTemplate.build(self, flowables)

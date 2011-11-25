@@ -6,6 +6,7 @@ from reservations.models import Reservation, ReservationEntry
 
 def mark_acknowledged(modeladmin, request, queryset):
     queryset.update(state=1)
+    [e.create_pdf() for e in queryset]
 mark_acknowledged.short_description = _("Mark selected reservations as acknowledged")
 
 

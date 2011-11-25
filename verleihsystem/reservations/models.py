@@ -3,7 +3,9 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
 
+from utils.path import get_media_path
 from products.models import Product
+from reservations.pdf import BorrowFormTemplate
 
 
 class Reservation(models.Model):
@@ -38,6 +40,21 @@ class Reservation(models.Model):
 
     def is_cancellable(self):
         return True if not self.borrow_date else False
+
+    def save(self, *args, **kwargs):
+        super(Reservation, self).save(*args, **kwargs)
+        if self.state == 1:
+            self.create_pdf()
+
+    def create_pdf(self):
+        pdf_path = get_media_path(self.get_pdf_path())
+        img_path = get_media_path('img/hrw_logo.png')
+        pdf = BorrowFormTemplate(pdf_path, self)
+        pdf.set_logo(img_path, 42, 16)
+        pdf.build()
+
+    def get_pdf_path(self):
+        return 'reservations/' + self.user.username +'_' + str(self.id) + '.pdf'
 
     class Meta:
         verbose_name = _("Reservation")
