@@ -11,6 +11,11 @@ Status: {{ reservation.get_state_display }}<br>
 Kommentar: {{ reservation.comments|default:"--" }}
 </p>
 
+ {% if reservation.state == 1 %}
+ <p><a href="{{ reservation.get_pdf_path }}">Leihschein als PDF herunterladen</a></p>
+ {% endif %}
+
+
 <h6>reservierte Produkte</h6>
 <table>
 {% for entry in reservation.reservationentry_set.all %}
