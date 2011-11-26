@@ -34,7 +34,7 @@
             <td>{{ reservation.start_date }}</td>
             <td>{{ reservation.end_date }}</td>
             <td>{{ reservation.get_state_display }}</td>
-            <td><a href="{{ reservation.get_absolute_url }}">Details</a>{% if reservation.state == 1 %} <a href="{{ MEDIA_URL }}{{ reservation.get_pdf_path }}">PDF</a>{% endif %}</td>
+            <td><a href="{{ reservation.get_absolute_url }}"><img src="{{ MEDIA_URL }}img/icon/magnifier.png" alt="Details" /></a>{% if reservation.state == 1 %} <a href="{{ MEDIA_URL }}{{ reservation.get_pdf_path }}"><img src="{{ MEDIA_URL }}img/icon/page_white_acrobat.png" alt="PDF" /></a>{% endif %}</td>
         </tr>
         {% endfor %}
     </tbody>

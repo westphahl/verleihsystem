@@ -31,7 +31,11 @@
             <a class="{% ifequal request.path '/' %}current{% endifequal %}" href="/"><img src="{{ MEDIA_URL }}img/icon/home.png" alt="" /><br />Startseite</a>
             {% if not request.user.is_anonymous %}
                 {% url user_dashboard as url_dashboard %}
-                <a class="{% ifequal request.path url_dashboard %}current{% endifequal %}" href="{% url user_dashboard %}"><img src="{{ MEDIA_URL }}img/icon/note.png" alt="" /><br />Dashboard</a>
+                <a class="{% ifequal request.path url_dashboard %}current{% endifequal %}" href="{% url user_dashboard %}">
+                    {% if dashboard_problem %}
+                        <div style="position:absolute;margin-left:10px;"><img src="{{ MEDIA_URL }}img/icon/error.png" alt="" /></div>
+                    {% endif %}
+                    <img src="{{ MEDIA_URL }}img/icon/note.png" alt="" /><br />Dashboard</a>
             {% endif %}
             {% url contact as url_contact %}
             <a class="{% ifequal request.path url_contact %}current{% endifequal %}" href="{% url contact %}"><img src="{{ MEDIA_URL }}img/icon/contact.png" alt="" /><br />Kontakt</a>

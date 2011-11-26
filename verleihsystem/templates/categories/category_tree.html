@@ -1,7 +1,7 @@
 <div id="tree">
 <p class="title">Kategorien</p>
 {% load mptt_tags %}
-{% for node,structure in nodes|tree_info %}
+{% for node,structure in tree_nodes|tree_info %}
 	{% if structure.new_level %}<ul><li>{% else %}</li><li>{% endif %}
 		<a href="{{ node.get_absolute_url }}" class="{% if request.path_info == node.get_absolute_url %}current{% endif %}" style="padding-left:{{ node.level }}5px">&raquo; {{ node.name }}</a>
 	{% for level in structure.closed_levels %}</li></ul>{% endfor %}

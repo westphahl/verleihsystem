@@ -115,6 +115,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
     "django.contrib.messages.context_processors.messages",
     'categories.context_processors.category_tree',
+    'accounts.context_processors.dashboard_info',
 )
 
 INSTALLED_APPS = (

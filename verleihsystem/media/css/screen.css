@@ -58,7 +58,7 @@ section#header div#nav_top > a.current {
     border-right: 1px solid #e5e5e5;
     box-shadow: 0 0 10px #ddd;
 }
-section#header div#nav_top a img {
+section#header div#nav_top a > img {
     padding-bottom: 5px;
     width: 24px;
     height: 24px;

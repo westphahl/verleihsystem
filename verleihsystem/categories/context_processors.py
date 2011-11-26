@@ -36,4 +36,4 @@ def category_tree(request):
     except (Category.DoesNotExist, IndexError):
         tree = Category.objects.root_nodes()
     
-    return {'nodes': tree}
+    return {'tree_nodes': tree}
