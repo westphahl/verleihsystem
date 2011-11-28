@@ -1,0 +1,583 @@
+[
+    {
+        "pk": 3, 
+        "model": "products.producttype", 
+        "fields": {
+            "picture": "", 
+            "description": "", 
+            "name": "Tonschnitt-Arbeitsplatz", 
+            "categories": [
+                1, 
+                6
+            ], 
+            "slug": "tonschnitt-arbeitsplatz"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "products.producttype", 
+        "fields": {
+            "picture": "", 
+            "description": "", 
+            "name": "Sony HVR-Z1E (HDV)", 
+            "categories": [
+                3
+            ], 
+            "slug": "sony-hvr-z1e-hdv"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "products.producttype", 
+        "fields": {
+            "picture": "", 
+            "description": "", 
+            "name": "Sony DSR-PD150P (DVCAM)", 
+            "categories": [
+                3
+            ], 
+            "slug": "sony-dsr-pd150p-dvcam"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "products.producttype", 
+        "fields": {
+            "picture": "", 
+            "description": "", 
+            "name": "Sony HDR SR12 (HDD)", 
+            "categories": [
+                3
+            ], 
+            "slug": "sony-hdr-sr12-hdd"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "products.producttype", 
+        "fields": {
+            "picture": "", 
+            "description": "", 
+            "name": "Bluescreen", 
+            "categories": [
+                4, 
+                3
+            ], 
+            "slug": "bluescreen"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "products.producttype", 
+        "fields": {
+            "picture": "", 
+            "description": "", 
+            "name": "DV-Rig", 
+            "categories": [
+                3
+            ], 
+            "slug": "dv-rig"
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "products.producttype", 
+        "fields": {
+            "picture": "", 
+            "description": "", 
+            "name": "Sachtler Baby-Stativ", 
+            "categories": [
+                8, 
+                7
+            ], 
+            "slug": "sachtler-baby-stativ"
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "products.producttype", 
+        "fields": {
+            "picture": "", 
+            "description": "", 
+            "name": "Stativwagen", 
+            "categories": [
+                8, 
+                7
+            ], 
+            "slug": "stativwagen"
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "products.producttype", 
+        "fields": {
+            "picture": "", 
+            "description": "", 
+            "name": "MP3-Recorder + Mikro", 
+            "categories": [
+                1
+            ], 
+            "slug": "mp3-recorder-mikro"
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "products.producttype", 
+        "fields": {
+            "picture": "", 
+            "description": "", 
+            "name": "Mikroset", 
+            "categories": [
+                1, 
+                3
+            ], 
+            "slug": "mikroset"
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "products.producttype", 
+        "fields": {
+            "picture": "", 
+            "description": "", 
+            "name": "Funk-Mikroset", 
+            "categories": [
+                1, 
+                3
+            ], 
+            "slug": "funk-mikroset"
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "products.producttype", 
+        "fields": {
+            "picture": "", 
+            "description": "", 
+            "name": "Nikon D80", 
+            "categories": [
+                4
+            ], 
+            "slug": "nikon-d80"
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "products.producttype", 
+        "fields": {
+            "picture": "", 
+            "description": "", 
+            "name": "Nikon D90", 
+            "categories": [
+                4
+            ], 
+            "slug": "nikon-d90"
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "products.producttype", 
+        "fields": {
+            "picture": "", 
+            "description": "", 
+            "name": "DigiCam Sony / Olympus", 
+            "categories": [
+                4
+            ], 
+            "slug": "digicam-sony-olympus"
+        }
+    }, 
+    {
+        "pk": 17, 
+        "model": "products.producttype", 
+        "fields": {
+            "picture": "", 
+            "description": "", 
+            "name": "Nikon-Cam + Panorama-Set", 
+            "categories": [
+                4
+            ], 
+            "slug": "nikon-cam-panorama-set"
+        }
+    }, 
+    {
+        "pk": 18, 
+        "model": "products.producttype", 
+        "fields": {
+            "picture": "", 
+            "description": "", 
+            "name": "Lichtzelt", 
+            "categories": [
+                4, 
+                3
+            ], 
+            "slug": "lichtzelt"
+        }
+    }, 
+    {
+        "pk": 19, 
+        "model": "products.producttype", 
+        "fields": {
+            "picture": "", 
+            "description": "", 
+            "name": "LED-Ringlicht", 
+            "categories": [
+                4, 
+                3
+            ], 
+            "slug": "led-ringlicht"
+        }
+    }, 
+    {
+        "pk": 20, 
+        "model": "products.producttype", 
+        "fields": {
+            "picture": "", 
+            "description": "", 
+            "name": "Licht-Set", 
+            "categories": [
+                4, 
+                3
+            ], 
+            "slug": "licht-set"
+        }
+    }, 
+    {
+        "pk": 21, 
+        "model": "products.producttype", 
+        "fields": {
+            "picture": "", 
+            "description": "", 
+            "name": "Kamera-Kopflicht", 
+            "categories": [
+                4, 
+                3
+            ], 
+            "slug": "kamera-kopflicht"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "products.product", 
+        "fields": {
+            "brief_description": "", 
+            "product_type": 3, 
+            "sn": "Arbeitsplatz 1"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "products.product", 
+        "fields": {
+            "brief_description": "", 
+            "product_type": 4, 
+            "sn": "Kamera 1"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "products.product", 
+        "fields": {
+            "brief_description": "", 
+            "product_type": 4, 
+            "sn": "Kamera 2"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "products.product", 
+        "fields": {
+            "brief_description": "", 
+            "product_type": 5, 
+            "sn": "Kamera 1"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "products.product", 
+        "fields": {
+            "brief_description": "", 
+            "product_type": 5, 
+            "sn": "Kamera 2"
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "products.product", 
+        "fields": {
+            "brief_description": "", 
+            "product_type": 6, 
+            "sn": "Kamera 1"
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "products.product", 
+        "fields": {
+            "brief_description": "", 
+            "product_type": 6, 
+            "sn": "Kamera 2"
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "products.product", 
+        "fields": {
+            "brief_description": "", 
+            "product_type": 6, 
+            "sn": "Kamera 3"
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "products.product", 
+        "fields": {
+            "brief_description": "", 
+            "product_type": 7, 
+            "sn": "T104"
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "products.product", 
+        "fields": {
+            "brief_description": "", 
+            "product_type": 8, 
+            "sn": "Rig 1"
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "products.product", 
+        "fields": {
+            "brief_description": "", 
+            "product_type": 8, 
+            "sn": "Rig 2"
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "products.product", 
+        "fields": {
+            "brief_description": "", 
+            "product_type": 9, 
+            "sn": "Stativ 1"
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "products.product", 
+        "fields": {
+            "brief_description": "", 
+            "product_type": 10, 
+            "sn": "Stativwagen 1"
+        }
+    }, 
+    {
+        "pk": 17, 
+        "model": "products.product", 
+        "fields": {
+            "brief_description": "", 
+            "product_type": 11, 
+            "sn": "Set 1"
+        }
+    }, 
+    {
+        "pk": 18, 
+        "model": "products.product", 
+        "fields": {
+            "brief_description": "", 
+            "product_type": 11, 
+            "sn": "Set 2"
+        }
+    }, 
+    {
+        "pk": 19, 
+        "model": "products.product", 
+        "fields": {
+            "brief_description": "mit Tonangel", 
+            "product_type": 12, 
+            "sn": "Set 1"
+        }
+    }, 
+    {
+        "pk": 20, 
+        "model": "products.product", 
+        "fields": {
+            "brief_description": "", 
+            "product_type": 12, 
+            "sn": "Set 2"
+        }
+    }, 
+    {
+        "pk": 21, 
+        "model": "products.product", 
+        "fields": {
+            "brief_description": "", 
+            "product_type": 12, 
+            "sn": "Set 3"
+        }
+    }, 
+    {
+        "pk": 22, 
+        "model": "products.product", 
+        "fields": {
+            "brief_description": "", 
+            "product_type": 12, 
+            "sn": "Set 4"
+        }
+    }, 
+    {
+        "pk": 23, 
+        "model": "products.product", 
+        "fields": {
+            "brief_description": "", 
+            "product_type": 13, 
+            "sn": "Set 1"
+        }
+    }, 
+    {
+        "pk": 24, 
+        "model": "products.product", 
+        "fields": {
+            "brief_description": "", 
+            "product_type": 13, 
+            "sn": "Set 2"
+        }
+    }, 
+    {
+        "pk": 25, 
+        "model": "products.product", 
+        "fields": {
+            "brief_description": "", 
+            "product_type": 14, 
+            "sn": "Kamera 1"
+        }
+    }, 
+    {
+        "pk": 26, 
+        "model": "products.product", 
+        "fields": {
+            "brief_description": "", 
+            "product_type": 14, 
+            "sn": "Kamera 2"
+        }
+    }, 
+    {
+        "pk": 27, 
+        "model": "products.product", 
+        "fields": {
+            "brief_description": "", 
+            "product_type": 14, 
+            "sn": "Kamera 3"
+        }
+    }, 
+    {
+        "pk": 28, 
+        "model": "products.product", 
+        "fields": {
+            "brief_description": "", 
+            "product_type": 14, 
+            "sn": "Kamera 4"
+        }
+    }, 
+    {
+        "pk": 29, 
+        "model": "products.product", 
+        "fields": {
+            "brief_description": "", 
+            "product_type": 15, 
+            "sn": "Kamera 1"
+        }
+    }, 
+    {
+        "pk": 30, 
+        "model": "products.product", 
+        "fields": {
+            "brief_description": "", 
+            "product_type": 16, 
+            "sn": "Set 1"
+        }
+    }, 
+    {
+        "pk": 31, 
+        "model": "products.product", 
+        "fields": {
+            "brief_description": "", 
+            "product_type": 17, 
+            "sn": "Set 1"
+        }
+    }, 
+    {
+        "pk": 32, 
+        "model": "products.product", 
+        "fields": {
+            "brief_description": "", 
+            "product_type": 18, 
+            "sn": "Zelt 1"
+        }
+    }, 
+    {
+        "pk": 33, 
+        "model": "products.product", 
+        "fields": {
+            "brief_description": "", 
+            "product_type": 19, 
+            "sn": "Ringlicht 1"
+        }
+    }, 
+    {
+        "pk": 34, 
+        "model": "products.product", 
+        "fields": {
+            "brief_description": "2x Fluter, 2x Spot", 
+            "product_type": 20, 
+            "sn": "Set 1"
+        }
+    }, 
+    {
+        "pk": 35, 
+        "model": "products.product", 
+        "fields": {
+            "brief_description": "3x Fluter", 
+            "product_type": 20, 
+            "sn": "Set 2"
+        }
+    }, 
+    {
+        "pk": 36, 
+        "model": "products.product", 
+        "fields": {
+            "brief_description": "", 
+            "product_type": 20, 
+            "sn": "Set 3"
+        }
+    }, 
+    {
+        "pk": 37, 
+        "model": "products.product", 
+        "fields": {
+            "brief_description": "3x Fluter Stufenlinse", 
+            "product_type": 20, 
+            "sn": "Set 4"
+        }
+    }, 
+    {
+        "pk": 38, 
+        "model": "products.product", 
+        "fields": {
+            "brief_description": "", 
+            "product_type": 21, 
+            "sn": "Bebob LUX-LED"
+        }
+    }, 
+    {
+        "pk": 39, 
+        "model": "products.product", 
+        "fields": {
+            "brief_description": "", 
+            "product_type": 21, 
+            "sn": "Litepanels"
+        }
+    }
+]

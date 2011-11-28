@@ -1,0 +1,107 @@
+[
+    {
+        "pk": 1, 
+        "model": "categories.category", 
+        "fields": {
+            "rght": 4, 
+            "name": "Audio", 
+            "parent": null, 
+            "level": 0, 
+            "lft": 1, 
+            "contact": null, 
+            "tree_id": 1, 
+            "path": "audio/", 
+            "slug": "audio"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "categories.category", 
+        "fields": {
+            "rght": 3, 
+            "name": "Sonstiges", 
+            "parent": 1, 
+            "level": 1, 
+            "lft": 2, 
+            "contact": null, 
+            "tree_id": 1, 
+            "path": "audio/sonstiges/", 
+            "slug": "sonstiges"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "categories.category", 
+        "fields": {
+            "rght": 2, 
+            "name": "Computer", 
+            "parent": null, 
+            "level": 0, 
+            "lft": 1, 
+            "contact": null, 
+            "tree_id": 3, 
+            "path": "computer/", 
+            "slug": "computer"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "categories.category", 
+        "fields": {
+            "rght": 4, 
+            "name": "Fotografie", 
+            "parent": null, 
+            "level": 0, 
+            "lft": 1, 
+            "contact": null, 
+            "tree_id": 4, 
+            "path": "fotografie/", 
+            "slug": "fotografie"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "categories.category", 
+        "fields": {
+            "rght": 3, 
+            "name": "Stative", 
+            "parent": 4, 
+            "level": 1, 
+            "lft": 2, 
+            "contact": null, 
+            "tree_id": 4, 
+            "path": "fotografie/stative/", 
+            "slug": "stative"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "categories.category", 
+        "fields": {
+            "rght": 4, 
+            "name": "Video", 
+            "parent": null, 
+            "level": 0, 
+            "lft": 1, 
+            "contact": null, 
+            "tree_id": 6, 
+            "path": "video/", 
+            "slug": "video"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "categories.category", 
+        "fields": {
+            "rght": 3, 
+            "name": "Stative", 
+            "parent": 3, 
+            "level": 1, 
+            "lft": 2, 
+            "contact": null, 
+            "tree_id": 6, 
+            "path": "video/stative/", 
+            "slug": "stative"
+        }
+    }
+]
