@@ -32,6 +32,7 @@ class BorrowFormTemplate(SimpleDocTemplate):
     <b>Mobil:</b> ${mobil}<br/>
     <b>Email:</b> ${email}
     """)
+    blank_line = "______________________________"
     reservation_data = []
     flowables = []
     logo = None
@@ -71,18 +72,14 @@ class BorrowFormTemplate(SimpleDocTemplate):
         ])
         return Table([[text]], colWidths=column_widths, style=tstyle)
 
-    def _blank_line_if_empty(self, field):
-        blank_line = "______________________________"
-        return field if field else blank_line
-
     def _get_student_data(self):
         try:
             profile = self.student.get_profile()
         except ObjectDoesNotExist:
             profile = DummyProfile()
-        student_id = self._blank_line_if_empty(profile.student_number)
-        phone = self._blank_line_if_empty(profile.phone)
-        mobil = self._blank_line_if_empty(profile.mobile_phone)
+        student_id = profile.student_number or self.blank_line
+        phone = profile.phone or self.blank_line
+        mobil = profile.mobile_phone or self.blank_line
 
         return Paragraph(self.student_template.substitute(
             name=self.student.first_name, surname=self.student.last_name,
