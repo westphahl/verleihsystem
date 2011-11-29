@@ -6,7 +6,6 @@
 {% endblock %}
 
 {% block sidebar %}
-    
     {% include 'categories/category_contact.html' %}
     <br />
     {% include 'categories/category_tree.html' %}
@@ -25,8 +24,7 @@
         <tr>
             <td class="first"></td>
             <td>Name</td>
-            <td>Anzahl</td>
-            <td class="last">Kategorien</td>
+            <td class="last">Anzahl</td>
         </tr>
     </thead>
     <tbody>
@@ -44,11 +42,6 @@
             <p class="description">{{ product.description|truncatewords:15 }}
         </td>
         <td><p class="count">{{ product.product_count }}</p></td>
-        <td>
-            {% for c in product.categories.all %}
-                <p><a href="{{ c.get_absolute_url }}">{{ c.name }}</a></p>
-            {% endfor %}
-        </td>
     </tr>
 {% endfor %}
     </tbody>

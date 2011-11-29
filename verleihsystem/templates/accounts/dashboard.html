@@ -10,15 +10,12 @@
 
 {% block content %}
 <h1>Dashboard</h1>
-<br />
-{% for name, reservation_list in reservation_categories %}
-<h5>{{ name }}</h5>
 <table style="width:100%">
     <colgroup>
-        <col style="width:30%" />
-        <col style="width:30%" />
+        <col style="width:35%" />
+        <col style="width:35%" />
         <col style="width:20%" />
-        <col style="width:20%" />
+        <col style="width:10%" />
     </colgroup>
     <thead style="background-color:#333;color:#fff;">
         <tr>
@@ -29,16 +26,17 @@
         </tr>
     </thead>
     <tbody>
+        {% for name, reservation_list in reservation_categories %}
         {% for reservation in reservation_list %}
         <tr>
             <td>{{ reservation.start_date }}</td>
             <td>{{ reservation.end_date }}</td>
-            <td>{{ reservation.get_state_display }}</td>
+            <td>{{ name }}</td>
             <td><a href="{{ reservation.get_absolute_url }}"><img src="{{ MEDIA_URL }}img/icon/magnifier.png" alt="Details" /></a>{% if reservation.state == 1 %} <a href="{{ MEDIA_URL }}{{ reservation.get_pdf_path }}"><img src="{{ MEDIA_URL }}img/icon/page_white_acrobat.png" alt="PDF" /></a>{% endif %}</td>
         </tr>
+        {% endfor %}
         {% endfor %}
     </tbody>
 </table>
 <br />
-{% endfor %}
 {% endblock %}

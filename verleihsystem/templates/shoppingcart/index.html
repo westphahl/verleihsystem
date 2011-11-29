@@ -11,7 +11,6 @@
 
 {% block content %}
 <h1>Warenkorb</h1>
-<br />
 <h6>Produkte</h6>
 <table id="product_list">
     <colgroup>
@@ -44,12 +43,12 @@
 <form method="post"action="{% url shoppingcart_index %}">
     {% csrf_token %}
     {{ form.management_form }}
-    <table id="forms" style="margin-left:100px;">
+    <table id="forms" style="margin:0 auto">
         {% for fieldset in form %}
             {% include "shoppingcart/snippet_range_form.html" %}
         {% endfor %}
     </table>
-    <p><a href="javascript:void(0)" id="add_form">Zeitraum hinzufügen</a></p>
+    <p class="center"><a href="javascript:void(0)" id="add_form">Zeitraum hinzufügen</a></p>
     <p class="right"><input class="checkout" type="submit" rel="tipsy_e" value="Auschecken"></p>
 </form>
 

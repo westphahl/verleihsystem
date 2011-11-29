@@ -3,7 +3,7 @@ form#contact input[type="password"] {
     width: 300px;
 }
 form#contact textarea {
-    width: 650px;
+    width: 600px;
     height: 100px;
     padding: 3px;
     border: 1px solid #ccc;

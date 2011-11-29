@@ -53,7 +53,7 @@ msgstr "Reserviert"
 
 #: accounts/views.py:66
 msgid "Requested"
-msgstr "Anfragen"
+msgstr "Anfrage"
 
 #: accounts/views.py:67 reservations/models.py:13
 msgid "Rejected"
