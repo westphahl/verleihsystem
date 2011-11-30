@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="{{ MEDIA_URL }}css/core.css">
     <link rel="stylesheet" href="{{ MEDIA_URL }}css/screen.css">
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/navigation.css">
     <link rel="stylesheet" href="{{ MEDIA_URL }}css/jquery-ui-1.8.16.custom.css">
     <link rel="stylesheet" href="{{ MEDIA_URL }}css/tipsy.css">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,700' rel='stylesheet' type='text/css'>
@@ -15,33 +16,7 @@
     <script src="{{ MEDIA_URL }}js/jquery.tipsy.js"></script>
 </head>
 <body>
-    <section id="nav_top">
-        <a rel="tipsy_w" title="Startseite" class="home{% ifequal request.path '/' %} current{% endifequal %}" href="/"></a>
-        {% url shoppingcart_index as url_shoppingcart %}
-        <a rel="tipsy_w" title="Warenkorb" class="cart{% ifequal request.path url_shoppingcart %} current{% endifequal %}" href="{% url shoppingcart_index %}"></a>
-        {% if not request.user.is_anonymous %}
-            {% url user_profile_form as url_user_profile %}
-            <a rel="tipsy_w" title="{{ request.user.get_full_name }}" class="user{% ifequal request.path url_user_profile %} current{% endifequal %}" href="{% url user_profile_form %}"></a>
-            {% url reservation_dashboard as url_dashboard %}
-            <a rel="tipsy_w" title="Dashboard" class="dashboard{% ifequal request.path url_dashboard %} current{% endifequal %}" href="{% url reservation_dashboard %}">
-                {% if dashboard_problem %}
-                    <div style="position:absolute;margin:5px;"><img src="{{ MEDIA_URL }}img/icon/error.png" alt="" /></div>
-                {% endif %}</a>
-            {% if request.user.is_staff %}
-            {% url admin:index as url_admin %}
-            <a rel="tipsy_w" title="Administration" class="admin{% ifequal request.path url_admin %} current{% endifequal %}" href="{% url admin:index %}" target="_blank"></a>
-            {% endif %}
-        {% endif %}
-        {% url contact_form as url_contact %}
-        <a rel="tipsy_w" title="Kontakt" class="contact{% ifequal request.path url_contact %} current{% endifequal %}" href="{{ url_contact }}"></a>
-        {% if not request.user.is_anonymous %}
-            {% url django.contrib.auth.views.logout as url_logout %}
-            <a rel="tipsy_w" title="Abmelden" class="logout{% ifequal request.path url_logout %} current{% endifequal %}" href="{% url django.contrib.auth.views.logout %}?next={{ request.path }}"></a>
-        {% else %}
-            {% url django.contrib.auth.views.login as url_login %}
-            <a rel="tipsy_w" title="Anmelden" class="login{% ifequal request.path url_login %} current{% endifequal %}" href="{% url django.contrib.auth.views.login %}?next={{ request.path }}"></a>
-        {% endif %}
-    </section>
+    {% include 'navigation.html' %}
     <section id="content_wrapper">
         <nav id="sidebar">
         {% block sidebar %}

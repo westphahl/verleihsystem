@@ -4,113 +4,6 @@ body {
     background-position: center top;
     background-repeat: repeat-y;
 }
-section#nav_top {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    text-align: center;
-    background-color: #333;
-    background-image: url('../img/nav_bg.png');
-    background-position: top right;
-    background-repeat: repeat-y;
-}
-section#nav_top > a {
-    display: block;
-    width: 50px;
-    height: 50px;
-    background-repeat: no-repeat;
-    background-position: center center;
-    border-bottom: 1px solid #222;
-}
-section#nav_top a.home {
-    background-image: url('../img/icon/home.png');
-}
-section#nav_top a.home:hover {
-    background-color: #444;
-    background-image: url('../img/icon/home.png');
-}
-section#nav_top a.home.current {
-    background-color: #f5f5f5;
-    background-image: url('../img/icon/home_over.png');
-}
-section#nav_top a.cart {
-    background-image: url('../img/icon/cart.png');
-}
-section#nav_top a.cart:hover {
-    background-color: #444;
-    background-image: url('../img/icon/cart.png');
-}
-section#nav_top a.cart.current {
-    background-color: #f5f5f5;
-    background-image: url('../img/icon/cart_over.png');
-}
-section#nav_top a.user {
-    background-image: url('../img/icon/user.png');
-}
-section#nav_top a.user:hover {
-    background-color: #444;
-    background-image: url('../img/icon/user.png');
-}
-section#nav_top a.user.current {
-    background-color: #f5f5f5;
-    background-image: url('../img/icon/user_over.png');
-}
-section#nav_top a.dashboard {
-    background-image: url('../img/icon/order.png');
-}
-section#nav_top a.dashboard:hover {
-    background-color: #444;
-    background-image: url('../img/icon/order.png');
-}
-section#nav_top a.dashboard.current {
-    background-color: #f5f5f5;
-    background-image: url('../img/icon/order_over.png');
-}
-section#nav_top a.admin {
-    background-image: url('../img/icon/settings.png');
-}
-section#nav_top a.admin:hover {
-    background-color: #444;
-    background-image: url('../img/icon/settings.png');
-}
-section#nav_top a.admin.current {
-    background-color: #f5f5f5;
-    background-image: url('../img/icon/settings_over.png');
-}
-section#nav_top a.contact {
-    background-image: url('../img/icon/pen.png');
-}
-section#nav_top a.contact:hover {
-    background-color: #444;
-    background-image: url('../img/icon/pen.png');
-}
-section#nav_top a.contact.current {
-    background-color: #f5f5f5;
-    background-image: url('../img/icon/pen_over.png');
-}
-section#nav_top a.login {
-    background-image: url('../img/icon/login.png');
-}
-section#nav_top a.login:hover {
-    background-color: #444;
-    background-image: url('../img/icon/login.png');
-}
-section#nav_top a.login.current {
-    background-color: #f5f5f5;
-    background-image: url('../img/icon/login_over.png');
-}
-section#nav_top a.logout {
-    background-image: url('../img/icon/logout.png');
-}
-section#nav_top a.logout:hover {
-    background-color: #444;
-    background-image: url('../img/icon/logout.png');
-}
-section#nav_top a.logout.current {
-    background-color: #f5f5f5;
-    background-image: url('../img/icon/logout_over.png');
-}
 section#content_wrapper {
     width: 920px;
     padding-top: 20px;
@@ -197,7 +90,7 @@ input[type="submit"],
 input[type="reset"] {
     font-weight: bold;
     padding: 7px 10px;
-    margin: 10px 5px;
+    margin: 10px 10px 10px 0;
     background-color: #eee;
     border: 1px solid #bbb;
     border-radius: 4px;

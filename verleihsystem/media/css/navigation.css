@@ -1,0 +1,97 @@
+section#nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    text-align: center;
+    background-color: #333;
+    background-image: url('../img/nav_bg.png');
+    background-position: top right;
+    background-repeat: repeat-y;
+}
+section#nav a {
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-bottom: 1px solid #222;
+}
+section#nav a:hover {
+    background-color: #444;
+}
+section#nav a.current {
+    background-color: #f5f5f5;
+}
+section#nav a.home {
+    background-image: url('../img/icon/home.png');
+}
+section#nav a.home:hover {
+    background-image: url('../img/icon/home.png');
+}
+section#nav a.home.current {
+    background-image: url('../img/icon/home_over.png');
+}
+section#nav a.cart {
+    background-image: url('../img/icon/cart.png');
+}
+section#nav a.cart:hover {
+    background-image: url('../img/icon/cart.png');
+}
+section#nav a.cart.current {
+    background-image: url('../img/icon/cart_over.png');
+}
+section#nav a.user {
+    background-image: url('../img/icon/user.png');
+}
+section#nav a.user:hover {
+    background-image: url('../img/icon/user.png');
+}
+section#nav a.user.current {
+    background-image: url('../img/icon/user_over.png');
+}
+section#nav a.dashboard {
+    background-image: url('../img/icon/order.png');
+}
+section#nav a.dashboard:hover {
+    background-image: url('../img/icon/order.png');
+}
+section#nav a.dashboard.current {
+    background-image: url('../img/icon/order_over.png');
+}
+section#nav a.admin {
+    background-image: url('../img/icon/settings.png');
+}
+section#nav a.admin:hover {
+    background-image: url('../img/icon/settings.png');
+}
+section#nav a.admin.current {
+    background-image: url('../img/icon/settings_over.png');
+}
+section#nav a.contact {
+    background-image: url('../img/icon/pen.png');
+}
+section#nav a.contact:hover {
+    background-image: url('../img/icon/pen.png');
+}
+section#nav a.contact.current {
+    background-image: url('../img/icon/pen_over.png');
+}
+section#nav a.login {
+    background-image: url('../img/icon/login.png');
+}
+section#nav a.login:hover {
+    background-image: url('../img/icon/login.png');
+}
+section#nav a.login.current {
+    background-image: url('../img/icon/login_over.png');
+}
+section#nav a.logout {
+    background-image: url('../img/icon/logout.png');
+}
+section#nav a.logout:hover {
+    background-image: url('../img/icon/logout.png');
+}
+section#nav a.logout.current {
+    background-image: url('../img/icon/logout_over.png');
+}

@@ -124,10 +124,10 @@ table.timeline > tbody > tr > td.back a:hover {
     box-shadow: inset 0px 0px 3px #fff;
 }
 table.timeline > tbody > tr > td.free {
-    background: #0e0;
+    background: #6c3;
     vertical-align: middle;
     font-weight: bold;
-    border-right: 1px solid #0d0;
+    border-right: 1px solid #6d3;
 }
 table.timeline > tbody > tr > td.pending {
     background: #0c0;

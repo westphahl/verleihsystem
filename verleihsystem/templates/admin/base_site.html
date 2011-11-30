@@ -3,6 +3,8 @@
 
 {% block extrastyle %}
 <link rel="stylesheet" type="text/css" media="screen" href="{{ MEDIA_URL }}css/admin.css" />
+<link rel="stylesheet" href="{{ MEDIA_URL }}css/navigation.css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,700' rel='stylesheet' type='text/css'>
 {% endblock %}
 
 {% block title %}{{ title }} | {% trans 'Verleihsystem-Administration' %}{% endblock %}
@@ -11,4 +13,4 @@
 <h1 id="site-name">{% trans 'Verleihsystem-Administration' %}</h1>
 {% endblock %}
 
-{% block nav-global %}{% endblock %}
+{% block nav-global %}{% include 'navigation.html' %}{% endblock %}
