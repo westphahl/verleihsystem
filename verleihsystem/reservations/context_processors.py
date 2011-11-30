@@ -7,15 +7,7 @@ from reservations.models import Reservation
 @login_required
 def dashboard_info(request):
     today = date.today()
-    reservation_list = Reservation.objects.filter(user=request.user).exclude(
-        end_date__lte=today, return_date__lte=today)
+    overdue = Reservation.objects.filter(user=request.user,
+        end_date__lt=today, return_date__isnull=True, state=1).exists()
 
-    problem = False
-    overdue = []
-    for reservation in reservation_list:
-        if (reservation.end_date < today) and not reservation.return_date:
-            # Reservation is overdue
-            overdue.append(reservation)
-    if len(overdue) > 0:
-        problem = True
-    return {'dashboard_problem': problem}
+    return {'dashboard_problem': overdue}
