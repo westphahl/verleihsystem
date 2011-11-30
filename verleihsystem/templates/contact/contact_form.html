@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load url from future %}
 
 {% block extra_css %}
     <link rel="stylesheet" href="{{ MEDIA_URL }}css/contact.css">
@@ -11,7 +10,7 @@
 
 {% block content %}
 <h1>Kontakt</h1>
-<form id="contact" action="/contact/" method="post">
+<form id="contact" action="{% url contact_form %}" method="post">
     {% csrf_token %}
     {{ form.non_field_errors }}
     <table>

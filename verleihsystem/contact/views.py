@@ -7,7 +7,7 @@ from django.conf import settings
 from contact.forms import ContactForm
 
 
-def contact(request):
+def contact_form(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -34,5 +34,5 @@ def contact(request):
             mail = request.user.email
             form = ContactForm(initial={'name': name, 'mail': mail})
     
-    return render_to_response('contact.html', {'form': form,}, 
+    return render_to_response('contact/contact_form.html', {'form': form,}, 
             context_instance=RequestContext(request))

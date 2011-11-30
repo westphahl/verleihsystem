@@ -1,10 +1,8 @@
 from datetime import date
 
-from django.template import RequestContext
-from django.shortcuts import get_object_or_404
-
 from django.contrib.auth.decorators import login_required
 from reservations.models import Reservation
+
 
 @login_required
 def dashboard_info(request):

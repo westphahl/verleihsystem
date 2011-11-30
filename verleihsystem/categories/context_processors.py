@@ -1,7 +1,5 @@
-from django.template import RequestContext
-from django.shortcuts import get_object_or_404
-
 from categories.models import Category
+
 
 def category_tree(request):
     try:
