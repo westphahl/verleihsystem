@@ -20,7 +20,7 @@ def contact_form(request):
             recipients = [getattr(settings, 'CONTACT_FORM_EMAIL', '')]
             
             if cc_myself:
-                recipients.append(sender)
+                recipients.append(mail)
             
             email = EmailMessage(subject=subject, body=message,
                 to=recipients, headers={'Reply-To': mail})
