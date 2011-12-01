@@ -1,4 +1,5 @@
 <section id="nav">
+    <img src="{{ MEDIA_URL }}img/icon/hrw.png" alt="" style="padding: 10px 0" />
     <a rel="tipsy_w" title="Startseite" class="home{% ifequal request.path '/' %} current{% endifequal %}" href="/"></a>
 
     {% if not request.user.is_anonymous %}
