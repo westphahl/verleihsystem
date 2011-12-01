@@ -21,7 +21,7 @@ class ShoppingCartIndexView(FormView):
     form_class = ShoppingCartReservationFormset
     # reverse() doesn't work here. This is fixed in Django 1.4
     # See: https://code.djangoproject.com/ticket/5925
-    success_url = '/reservations/dashboard/'
+    success_url = '/reservations/'
 
     def post(self, request, *args, **kwargs):
         form_class = self.get_form_class()
