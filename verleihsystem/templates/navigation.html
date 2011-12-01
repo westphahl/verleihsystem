@@ -1,22 +1,29 @@
 <section id="nav">
     <a rel="tipsy_w" title="Startseite" class="home{% ifequal request.path '/' %} current{% endifequal %}" href="/"></a>
-    {% url shoppingcart_index as url_shoppingcart %}
-    <a rel="tipsy_w" title="Warenkorb" class="cart{% ifequal request.path url_shoppingcart %} current{% endifequal %}" href="{{ url_shoppingcart }}"></a>
+
     {% if not request.user.is_anonymous %}
-        {% url user_profile_form as url_user_profile %}
-        <a rel="tipsy_w" title="{{ request.user.get_full_name }}" class="user{% ifequal request.path url_user_profile %} current{% endifequal %}" href="{{ url_user_profile }}"></a>
         {% url reservation_dashboard as url_dashboard %}
         <a rel="tipsy_w" title="Dashboard" class="dashboard{% ifequal request.path url_dashboard %} current{% endifequal %}" href="{{ url_dashboard }}">
             {% if dashboard_problem %}
                 <div style="position:absolute;margin:5px;"><img src="{{ MEDIA_URL }}img/icon/error.png" alt="" /></div>
             {% endif %}</a>
+
+        {% url shoppingcart_index as url_shoppingcart %}
+        <a rel="tipsy_w" title="Warenkorb" class="cart{% ifequal request.path url_shoppingcart %} current{% endifequal %}" href="{{ url_shoppingcart }}"></a>
+
         {% if request.user.is_staff %}
         {% url admin:index as url_admin %}
         <a rel="tipsy_w" title="Administration" class="admin{% if url_admin in request.path %} current{% endif %}" href="{{ url_admin }}"></a>
         {% endif %}
+
+        {% url user_profile_form as url_user_profile %}
+        <a rel="tipsy_w" title="{{ request.user.get_full_name }}" class="user{% ifequal request.path url_user_profile %} current{% endifequal %}" href="{{ url_user_profile }}"></a>
+        
     {% endif %}
+
     {% url contact_form as url_contact %}
     <a rel="tipsy_w" title="Kontakt" class="contact{% ifequal request.path url_contact %} current{% endifequal %}" href="{{ url_contact }}"></a>
+    
     {% if not request.user.is_anonymous %}
         {% url django.contrib.auth.views.logout as url_logout %}
         <a rel="tipsy_w" title="Abmelden" class="logout{% ifequal request.path url_logout %} current{% endifequal %}" href="{{ url_logout }}?next={{ request.path }}"></a>
