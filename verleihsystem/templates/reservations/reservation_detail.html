@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block extra_css %}
+	<link rel="stylesheet" href="{{ MEDIA_URL }}css/dashboard.css">
+{% endblock %}
+
 {% block content %}
 
 <h1>Reservierungsdetails</h1>
@@ -11,11 +15,10 @@ Status: {{ reservation.get_state_display }}<br>
 Kommentar: {{ reservation.comments|default:"--" }}
 </p>
 
- {% if reservation.state == 1 %}
- <p><a href="{{ reservation.get_pdf_path }}">Leihschein als PDF herunterladen</a></p>
- {% endif %}
-
-
+{% if reservation.state == 1 %}
+ 	<p><a href="{{ reservation.get_pdf_path }}">Leihschein als PDF herunterladen</a></p>
+{% endif %}
+<br />
 <h6>reservierte Produkte</h6>
 <table>
 {% for entry in reservation.reservationentry_set.all %}
@@ -26,6 +29,6 @@ Kommentar: {{ reservation.comments|default:"--" }}
 {% endfor %}
 </table>
 {% if reservation.is_cancellable %}
-<p><a href="{% url reservation_delete reservation.id %}">Reservierung stornieren</a></p>
+	<p><a href="{% url reservation_delete reservation.id %}">Reservierung stornieren</a></p>
 {% endif %}
 {% endblock %}

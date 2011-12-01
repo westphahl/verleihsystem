@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block extra_css %}
-	<link rel="stylesheet" href="{{ MEDIA_URL }}css/profile_form.css">
+	<link rel="stylesheet" href="{{ MEDIA_URL }}css/dashboard.css">
 {% endblock %}
 
 {% block sidebar %}
@@ -10,14 +10,14 @@
 
 {% block content %}
 <h1>Dashboard</h1>
-<table style="width:100%">
+<table>
     <colgroup>
         <col style="width:35%" />
         <col style="width:35%" />
         <col style="width:20%" />
         <col style="width:10%" />
     </colgroup>
-    <thead style="background-color:#333;color:#fff;">
+    <thead>
         <tr>
             <td>Startdatum</td>
             <td>Enddatum</td>
@@ -28,9 +28,9 @@
     <tbody>
         {% for name, reservation_list in reservation_categories %}
         {% for reservation in reservation_list %}
-        <tr>
-            <td>{{ reservation.start_date }}</td>
-            <td>{{ reservation.end_date }}</td>
+        <tr class="{{ name }}">
+            <td>{{ reservation.start_date|date:"l, d. F Y" }}</td>
+            <td>{{ reservation.end_date|date:"l, d. F Y" }}</td>
             <td>{{ name }}</td>
             <td><a href="{{ reservation.get_absolute_url }}"><img src="{{ MEDIA_URL }}img/icon/magnifier.png" alt="Details" /></a>{% if reservation.state == 1 %} <a href="{{ MEDIA_URL }}{{ reservation.get_pdf_path }}"><img src="{{ MEDIA_URL }}img/icon/page_white_acrobat.png" alt="PDF" /></a>{% endif %}</td>
         </tr>

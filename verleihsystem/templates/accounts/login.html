@@ -12,7 +12,6 @@
 
 {% block content %}
 <h1>Anmeldung</h1>
-<hr />
 {% if request.user.is_anonymous %}
 	{% if form.errors %}
 	<p class="errorlist">Your username and password didn't match. Please try again.</p>
