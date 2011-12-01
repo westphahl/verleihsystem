@@ -4,10 +4,18 @@ section#nav {
     left: 0;
     height: 100%;
     text-align: center;
-    background-color: #333;
-    background-image: url('../img/nav_bg.png');
-    background-position: top right;
-    background-repeat: repeat-y;
+    background-image: linear-gradient(left , rgb(34,34,34) 0%, rgb(51,51,51) 50%);
+    background-image: -o-linear-gradient(left , rgb(34,34,34) 0%, rgb(51,51,51) 50%);
+    background-image: -moz-linear-gradient(left , rgb(34,34,34) 0%, rgb(51,51,51) 50%);
+    background-image: -webkit-linear-gradient(left , rgb(34,34,34) 0%, rgb(51,51,51) 50%);
+    background-image: -ms-linear-gradient(left , rgb(34,34,34) 0%, rgb(51,51,51) 50%);
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        right bottom,
+        color-stop(0, rgb(34,34,34)),
+        color-stop(0.5, rgb(51,51,51))
+    );
 }
 section#nav a {
     display: block;
