@@ -12,7 +12,7 @@
             {% endif %}</a>
         {% if request.user.is_staff %}
         {% url admin:index as url_admin %}
-        <a rel="tipsy_w" title="Administration" class="admin{% ifequal request.path url_admin %} current{% endifequal %}" href="{{ url_admin }}"></a>
+        <a rel="tipsy_w" title="Administration" class="admin{% if url_admin in request.path %} current{% endif %}" href="{{ url_admin }}"></a>
         {% endif %}
     {% endif %}
     {% url contact_form as url_contact %}
