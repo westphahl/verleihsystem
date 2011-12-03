@@ -94,3 +94,5 @@ class AdminReservationEntry(ReservationEntry):
 
     class Meta:
         proxy = True
+        verbose_name = _("Reservation Entry")
+        verbose_name_plural = _("Reservation Entries")
