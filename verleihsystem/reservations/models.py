@@ -83,3 +83,14 @@ class ReservationEntry(models.Model):
     class Meta:
         verbose_name = _("Reservation Entry")
         verbose_name_plural = _("Reservation Entries")
+
+
+
+class AdminReservationEntry(ReservationEntry):
+    """
+    Proxy model for allowing direct editing of reservation entries by admin
+    users.
+    """
+
+    class Meta:
+        proxy = True
