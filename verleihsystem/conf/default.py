@@ -52,6 +52,9 @@ PRODUCT_IMAGE_SIZE = (200, 150)
 # Email address for the contact form
 CONTACT_FORM_EMAIL = 'info@hs-weingarten.de'
 
+# Limit the contact choice for categories to this group
+CATEGORY_CONTACT_GROUP = 'Verwalter'
+
 DEFAULT_FROM_EMAIL = 'verleihsystem@hs-weingarten-de'
 SERVER_EMAIL = DEFAULT_FROM_EMAIL
 
