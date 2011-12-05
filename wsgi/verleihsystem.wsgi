@@ -6,7 +6,9 @@ import os, sys
 
 # Add the project path to the system path
 sys.path.append(os.path.abspath(
-    os.path.join(os.path.dirname(__file__), '../../')))
+    os.path.join(os.path.dirname(__file__), '../')))
+sys.path.append(os.path.abspath(
+    os.path.join(os.path.dirname(__file__), '../verleihsystem/')))
 # Export Django settings module
 os.environ['DJANGO_SETTINGS_MODULE'] = 'verleihsystem.settings'
 
