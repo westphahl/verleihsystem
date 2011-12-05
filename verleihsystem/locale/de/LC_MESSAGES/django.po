@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-21 16:14+0100\n"
+"POT-Creation-Date: 2011-12-05 14:33+0100\n"
 "PO-Revision-Date: 2011-10-26 10:18+0200\n"
 "Last-Translator: Simon Westphahl\n"
 "Language: \n"
@@ -15,59 +15,63 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
-#: accounts/models.py:15
+#: accounts/models.py:23
 msgid "Student number"
 msgstr "Matrikelnummer"
 
-#: accounts/models.py:17
+#: accounts/models.py:25
 msgid "Phone"
 msgstr "Telefon"
 
-#: accounts/models.py:19
+#: accounts/models.py:27
 msgid "Mobile phone"
 msgstr "Handy"
 
-#: accounts/models.py:21 products/models.py:28
+#: accounts/models.py:29 products/models.py:28
 msgid "Photo"
 msgstr "Foto"
 
-#: accounts/models.py:24
+#: accounts/models.py:32
 msgid "User profile"
 msgstr "Benutzerprofil"
 
-#: accounts/models.py:25
+#: accounts/models.py:33
 msgid "User profiles"
 msgstr "Benutzerprofile"
 
-#: accounts/views.py:63
-msgid "Overdue"
-msgstr "Überfällig"
+#: categories/models.py:23
+msgid "Name"
+msgstr "Name"
 
-#: accounts/views.py:64
-msgid "Borrowed"
-msgstr "Ausgeliehen"
+#: categories/models.py:24
+msgid "Slug"
+msgstr "Slug"
 
-#: accounts/views.py:65
-msgid "Reserved"
-msgstr "Reserviert"
+#: categories/models.py:25
+msgid ""
+"A slug is a user- and SEO-friendly short text used in a URL to identify and "
+"describe a resource"
+msgstr ""
+"Ein Slug ist ein aus wenigen Wörtern bestehender benutzer- und "
+"suchmaschinenfreundlicher Text als Bestandteil einer URL"
 
-#: accounts/views.py:66
-msgid "Requested"
-msgstr "Anfrage"
+#: categories/models.py:29
+msgid "Contact"
+msgstr "Kontakt"
 
-#: accounts/views.py:67 reservations/models.py:13
-msgid "Rejected"
-msgstr "Abgelehnt"
+#: categories/models.py:32
+msgid "Parent"
+msgstr "Elternkategorie"
 
-#: categories/models.py:21
+#: categories/models.py:36
 msgid "Category"
 msgstr "Kategorie"
 
-#: categories/models.py:22 products/models.py:26
+#: categories/models.py:37 products/models.py:26
 msgid "Categories"
 msgstr "Kategorien"
 
-#: products/admin.py:29
+#: products/admin.py:48
 msgid "Number of products"
 msgstr "Produktanzahl"
 
@@ -95,7 +99,7 @@ msgstr "Seriennummer/Id"
 msgid "Brief description"
 msgstr "Kurzbeschreibung"
 
-#: products/models.py:60 reservations/models.py:44
+#: products/models.py:60 reservations/models.py:68
 msgid "Product"
 msgstr "Produkt"
 
@@ -103,88 +107,111 @@ msgstr "Produkt"
 msgid "Products"
 msgstr "Produkte"
 
-#: reservations/admin.py:9
+#: reservations/admin.py:16
 msgid "Mark selected reservations as acknowledged"
 msgstr "Ausgewählte Reservierungen bestätigen"
 
-#: reservations/admin.py:14
+#: reservations/admin.py:24
 msgid "Mark selected reservations as rejected"
 msgstr "Ausgewählte Reservierungen ablehnen"
 
-#: reservations/models.py:11
+#: reservations/models.py:13
 msgid "Pending"
 msgstr "Ausstehend"
 
-#: reservations/models.py:12
+#: reservations/models.py:14
 msgid "Acknowledged"
 msgstr "Bestätigt"
 
-#: reservations/models.py:15
+#: reservations/models.py:15 reservations/views.py:52
+msgid "Rejected"
+msgstr "Abgelehnt"
+
+#: reservations/models.py:17
 msgid "User"
 msgstr "Benuter"
 
-#: reservations/models.py:16
+#: reservations/models.py:18
 msgid "Start date"
 msgstr "Startdatum"
 
-#: reservations/models.py:17
+#: reservations/models.py:19
 msgid "End date"
 msgstr "Enddatum"
 
-#: reservations/models.py:18
+#: reservations/models.py:20
 msgid "Borrow date"
 msgstr "Ausleihdatum"
 
-#: reservations/models.py:20
+#: reservations/models.py:22
 msgid "Return date"
 msgstr "Rückgabedatum"
 
-#: reservations/models.py:22
+#: reservations/models.py:24
 msgid "Timestamp"
 msgstr "Zeitstempel"
 
-#: reservations/models.py:24
+#: reservations/models.py:26
 msgid "State"
 msgstr "Status"
 
-#: reservations/models.py:26
+#: reservations/models.py:28
 msgid "Comments"
 msgstr "Kommentare"
 
-#: reservations/models.py:33
+#: reservations/models.py:39
 msgid "End date must be greater than start date."
 msgstr "Das Enddatum muss größer sein, als das Startdatum."
 
-#: reservations/models.py:36 reservations/models.py:43
+#: reservations/models.py:60 reservations/models.py:67
 msgid "Reservation"
 msgstr "Reservierung"
 
-#: reservations/models.py:37
+#: reservations/models.py:61
 msgid "Reservations"
 msgstr "Reservierungen"
 
-#: reservations/models.py:53
+#: reservations/models.py:77
 msgid "There is already a reservation for this product in the given timeframe."
 msgstr ""
 "Für dieses Produkt ist angegebenen Zeitraum bereits eine Reservierung "
 "vorhanden."
 
-#: reservations/models.py:60
+#: reservations/models.py:84 reservations/models.py:97
 msgid "Reservation Entry"
 msgstr "Reservierungseintrag"
 
-#: reservations/models.py:61
+#: reservations/models.py:85 reservations/models.py:98
 msgid "Reservation Entries"
 msgstr "Reservierunseinträge"
+
+#: reservations/views.py:48
+msgid "Overdue"
+msgstr "Überfällig"
+
+#: reservations/views.py:49
+msgid "Borrowed"
+msgstr "Ausgeliehen"
+
+#: reservations/views.py:50
+msgid "Reserved"
+msgstr "Reserviert"
+
+#: reservations/views.py:51
+msgid "Requested"
+msgstr "Anfrage"
 
 #: shoppingcart/forms.py:21
 msgid "End date must be greater than or equal to the start date."
 msgstr "Das Enddatum muss größer sein, als das Startdatum."
 
 #: shoppingcart/views.py:68
+#, python-format
 msgid "There is already a reservation for %s product in this timeframe."
-msgstr "Für das Produkt %s ist in diesem Zeitraum bereits eine Reservierung vorhanden."
+msgstr ""
+"Für das Produkt %s ist in diesem Zeitraum bereits eine Reservierung "
+"vorhanden."
 
-#: templates/admin/base_site.html:8 templates/admin/base_site.html.py:11
+#: templates/admin/base_site.html:10 templates/admin/base_site.html.py:13
 msgid "Verleihsystem-Administration"
 msgstr "Verleihsystem-Verwaltung"
