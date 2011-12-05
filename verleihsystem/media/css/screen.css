@@ -100,3 +100,6 @@ input[type="reset"]:hover {
     border: 1px solid #aaa;
     box-shadow: 0 0 3px #bbb;
 }
+.adminopt {
+    float: right;
+}

@@ -6,6 +6,9 @@
     border: 1px solid #ccc;
     border-radius: 2px;
 }
+#producttype_detail .description {
+    line-height: 1.5em;
+}
 table#product_list {
     width: 100%;
 }
