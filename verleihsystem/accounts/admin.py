@@ -5,14 +5,21 @@ from django.contrib.auth.admin import UserAdmin
 
 
 class UserProfileInline(admin.StackedInline):
+    """
+    Inline for editing the profile on the user admin page.
+    """
     model = UserProfile
     max_num = 1
     can_delete = False
 
 
 class FullUserAdmin(UserAdmin):
- inlines = [UserProfileInline]
+    """
+    Admin for a user with a profile inline.
+    """
+    inlines = [UserProfileInline]
 
 
+# Unregister the Django default user admin
 admin.site.unregister(User)
 admin.site.register(User, FullUserAdmin)

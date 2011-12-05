@@ -4,12 +4,20 @@ from django.contrib.auth.models import User
 
 
 def get_photo_path(instance, filename):
+    """
+    Method for building the path where the profile picture is saved.
+    """
     upload_dir = 'accounts/'
     path, ext = filename.split('.')
     return upload_dir + instance.user.username + '.' + ext
 
 
 class UserProfile(models.Model):
+    """
+    User profile for storing additional data for a user.
+
+    The picture attribute should only be available to admin users.
+    """
     user = models.ForeignKey(User, unique=True)
     student_number = models.PositiveIntegerField(blank=True, null=True,
         verbose_name=_("Student number"))
