@@ -20,13 +20,16 @@ class Category(MPTTModel):
     """
     CONTACT_GROUP = getattr(settings, 'CATEGORY_CONTACT_GROUP', 'Contact')
 
-    name = models.CharField(max_length=50)
-    slug = models.SlugField(max_length=50)
+    name = models.CharField(max_length=50, verbose_name=_("Name"))
+    slug = models.SlugField(max_length=50, verbose_name=_("Slug"),
+        help_text=_("A slug is a user- and SEO-friendly short text used in a "
+            "URL to identify and describe a resource"))
     path = models.TextField(db_index=True, unique=True, blank=True)
     contact = models.ForeignKey(User, blank=True, null=True, 
-        on_delete=models.SET_NULL, 
+        on_delete=models.SET_NULL, verbose_name=_("Contact"),
         limit_choices_to={'groups__name' : CONTACT_GROUP})
-    parent = TreeForeignKey('self', blank=True, null=True)
+    parent = TreeForeignKey('self', blank=True, null=True,
+        verbose_name=_("Parent"))
 
     class Meta:
         ordering = ['name']
@@ -34,7 +37,7 @@ class Category(MPTTModel):
         verbose_name_plural = _(u"Categories")
 
     class MPTTMeta:
-        # Order the nodes by name
+        # Order the nodes on insert by name
         order_insertion_by = ['name']
 
     def __unicode__(self):
@@ -58,6 +61,9 @@ class Category(MPTTModel):
 
     @models.permalink
     def get_absolute_url(self):
+        """
+        Return the absolute path of a category.
+        """
         return ('category_detail', (), {'path': self.path})
 
     def get_contact_person(self):

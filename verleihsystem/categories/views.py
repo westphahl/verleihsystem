@@ -1,4 +1,3 @@
-from django import template
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from django.db.models import Count
@@ -6,13 +5,14 @@ from django.db.models import Count
 from categories.models import Category
 from products.models import ProductType
 
-def index(request):
-    return render_to_response("home.html",
-        context_instance=RequestContext(request))
 
 def category_detail(request, path, template, *args, **kwargs):
+    """
+    View for displaying a list product types of a category.
+    """
     leaf = get_object_or_404(Category, path=path)
-    
+
+    # Build the tree for the category navigation
     tree = []
     tree.append(leaf)
     for c in leaf.get_children():
@@ -38,6 +38,7 @@ def category_detail(request, path, template, *args, **kwargs):
             tmp.append(r)
     tree = tmp
     
+    # Get all products for the current and its child categories
     sub_tree = leaf.get_descendants(include_self=True)
     product_list = ProductType.objects.filter(categories__in=sub_tree
         ).annotate(product_count=Count('product', distinct=True))
