@@ -1,5 +1,5 @@
 # Django settings for verleihsystem project.
-from verleihsystem.conf.default import *
+from conf.default import *
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG

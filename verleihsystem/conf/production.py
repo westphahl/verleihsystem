@@ -1,5 +1,5 @@
 # Django settings for verleihsystem project.
-from verleihsystem.conf.production import *
+from conf.production import *
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
