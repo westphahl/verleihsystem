@@ -4,7 +4,6 @@ from django.conf import settings
 from django.views.generic.detail import DetailView
 
 from products.models import ProductType, Product
-from reservations.models import ReservationEntry
 
 
 class ProductTypeDetailView(DetailView):
@@ -44,38 +43,9 @@ class ProductTypeDetailView(DetailView):
             'previous_range': range_start - timedelta(days=day_range),
         })
 
-        # Get list of products and possible reservations
-        product_list = Product.objects.filter(product_type=self.object)
-        entry_list = ReservationEntry.objects.filter(
-                product__in=product_list,
-                reservation__end_date__gte=range_start,
-                reservation__start_date__lte=range_end
-            ).select_related('reservation')
-
-        # Group reservations by product id
-        sorted_entries = dict()
-        for entry in entry_list:
-            try:
-                sorted_entries[entry.product_id].append(entry)
-            except KeyError:
-                sorted_entries.update({ entry.product_id: [entry,]})
-
-        # Create product timelines
-        for product in product_list:
-            current_date = range_start
-            product.timeline = list()
-            try:
-                reservation_list = sorted_entries[product.id]
-            except KeyError:
-                reservation_list = list()
-
-            while current_date < range_end:
-                state = [e.reservation.state for e in reservation_list if (
-                    e.reservation.start_date <= current_date)
-                    and (e.reservation.end_date >= current_date)]
-                product.timeline.append(
-                    {'date': current_date, 'state': state})
-                current_date += timedelta(days=1)
+        # Get product list with timeline attribute
+        product_list = Product.objects.with_timeline_for_type(
+            self.object, range_start, range_end)
 
         context.update({
             'product_list': product_list,

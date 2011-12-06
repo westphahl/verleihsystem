@@ -7,6 +7,7 @@ from django.conf import settings
 from django.utils.translation import ugettext as _
 
 from categories.models import Category
+from products.managers import ProductManager
 from utils.image import scale_image
 
 
@@ -60,10 +61,16 @@ class ProductType(models.Model):
 
 
 class Product(models.Model):
+    """
+    Concrete object of a product type.
+    """
     product_type = models.ForeignKey(ProductType)
     sn = models.CharField(max_length=255, verbose_name=_("Serial/Id"))
     brief_description = models.TextField(verbose_name=_("Brief description"),
         blank=True)
+
+    # Add custom manager
+    objects = ProductManager()
 
     def __unicode__(self):
         return u"%s > %s" % (self.product_type, self.sn)

@@ -178,42 +178,14 @@ class ReservationJSONDateList(JSONResponseMixin, BaseListView):
             'previous_url': previous_url,
         })
 
-        # Get list of reservations
-        entry_list = ReservationEntry.objects.filter(
-                product__in=self.object_list,
-                reservation__state__in=[0, 1],
-                reservation__end_date__gte=range_start,
-                reservation__start_date__lte=range_end
-            ).select_related('reservation')
-
-        # Group reservations by product id
-        sorted_entries = dict()
-        for entry in entry_list:
-            try:
-                sorted_entries[entry.product_id].append(entry)
-            except KeyError:
-                sorted_entries.update({ entry.product_id: [entry,]})
+        # Get product list with timeline attribute
+        product_list = Product.objects.with_timeline(
+            self.object_list, range_start, range_end)
 
         context.update({
             'timeline': list(),
         })
-        # Create product timelines
-        for product in self.object_list:
-            current_date = range_start
-            product.timeline = list()
-            try:
-                reservation_list = sorted_entries[product.id]
-            except KeyError:
-                reservation_list = list()
-
-            while current_date < range_end:
-                state = [e.reservation.state for e in reservation_list if (
-                    e.reservation.start_date <= current_date)
-                    and (e.reservation.end_date >= current_date)]
-                product.timeline.append(
-                    {'date': current_date, 'state': state})
-                current_date += timedelta(days=1)
-
+        for product in product_list:
             # Create context for timeline HTML snippet
             html_context = {
                 'product': product,
