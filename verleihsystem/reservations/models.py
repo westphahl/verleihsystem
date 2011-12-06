@@ -9,6 +9,10 @@ from reservations.pdf import BorrowFormTemplate
 
 
 class Reservation(models.Model):
+    """
+    Reservation of a user for a given timerange.
+    """
+    # Possible states of a reservation
     STATE_CHOICES = (
         (0, _("Pending")),
         (1, _("Acknowledged")),
@@ -32,21 +36,36 @@ class Reservation(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
+        """
+        Returns the absolute path of a reservation.
+        """
         return ('reservation_detail', (), {'pk': self.id})
 
     def clean(self):
+        """
+        Makes sure the timerange is valid.
+        """
         if self.start_date > self.end_date:
             raise ValidationError(_("End date must be greater than start date."))
 
     def is_cancellable(self):
+        """
+        Checks whether the reservation can be cancelled. 
+        """
         return True if not self.borrow_date else False
 
     def save(self, *args, **kwargs):
+        """
+        Generates the PDF form on save, if the reservation was acknowledged.
+        """
         super(Reservation, self).save(*args, **kwargs)
         if self.state == 1:
             self.create_pdf()
 
     def create_pdf(self):
+        """
+        Creates a PDF form for the reservation.
+        """
         pdf_path = get_media_path(self.get_pdf_path())
         img_path = get_media_path('img/hrw_logo.png')
         pdf = BorrowFormTemplate(pdf_path, self)
@@ -54,7 +73,10 @@ class Reservation(models.Model):
         pdf.build()
 
     def get_pdf_path(self):
-        return 'reservations/' + self.user.username +'_' + str(self.id) + '.pdf'
+        """
+        Generates the path and name for the PDF form.
+        """
+        return 'reservations/%s_%s.pdf' % (self.user.username, str(self.id))
 
     class Meta:
         verbose_name = _("Reservation")
@@ -64,10 +86,16 @@ class Reservation(models.Model):
 
 
 class ReservationEntry(models.Model):
+    """
+    Entry for a specific product and reservation.
+    """
     reservation = models.ForeignKey(Reservation, verbose_name=_("Reservation"))
     product = models.ForeignKey(Product, verbose_name=_("Product"))
 
     def clean(self):
+        """
+        Makes sure there are no collisions with other reservations.
+        """
         collision = ReservationEntry.objects.exclude(id=self.id).filter(
                 product=self.product,
                 reservation__state=1,

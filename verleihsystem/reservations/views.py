@@ -18,10 +18,14 @@ from products.models import Product
 
 @login_required
 def dashboard(request, template='accounts/dashboard.html', *args, **kwargs):
+    """
+    Displays a dashboard view with all the reservations of the current user.
+    """
     today = date.today()
     reservation_list = Reservation.objects.filter(user=request.user).exclude(
         end_date__lte=today, return_date__lte=today)
 
+    # Sort reservations
     overdue = []
     borrowed = []
     reserved = []
@@ -57,8 +61,15 @@ def dashboard(request, template='accounts/dashboard.html', *args, **kwargs):
 
 
 class ReservationDetailView(DetailView):
+    """
+    Detail view of a reservation along with the reserved products.
+    """
 
     def get_queryset(self):
+        """
+        Filters the queryset by user and as a result prevents non-admin users
+        from viewing unrelated reservations.
+        """
         queryset = Reservation.objects.select_related()
         if self.request.user.is_staff:
             return queryset
@@ -67,13 +78,21 @@ class ReservationDetailView(DetailView):
 
 
 class ReservationDeleteView(DeleteView):
+    """
+    Delete view for a reservation.
+    """
 
     # reverse() doesn't work here. This is fixed in Django 1.4
     # See: https://code.djangoproject.com/ticket/5925
     success_url = '/user/dashboard/'
 
     def get_queryset(self):
-        # You can only cancel a reservation who was not picked up yet
+        """
+        Filters the queryset by user and as a result prevents non-admin users
+        from deleting unrelated reservations.
+
+        A reservation can only be deleted if it was not picked up yet.
+        """
         queryset = Reservation.objects.filter(
             borrow_date__isnull=True).select_related()
         if self.request.user.is_staff:
@@ -83,6 +102,9 @@ class ReservationDeleteView(DeleteView):
 
 
 class JSONResponseMixin(object):
+    """
+    View mixin for converting and returning the response as JSON.
+    """
 
     def render_to_response(self, context):
         """Returns a JSON response containing context as payload."""
@@ -100,14 +122,23 @@ class JSONResponseMixin(object):
 
 
 class ReservationJSONDateList(JSONResponseMixin, BaseListView):
+    """
+    JSON timeline information for the requested products.
+    """
 
     allow_empty = True
 
     def get_queryset(self):
+        """
+        Filters the queryset by requested products.
+        """
         pid_list = self.request.POST.getlist('products[]')
         return Product.objects.filter(pk__in=pid_list).select_related('product_type')
 
     def post(self, request, *args, **kwargs):
+        """
+        Processes a POST request.
+        """
         self.object_list = self.get_queryset()
         allow_empty = self.get_allow_empty()
         if not allow_empty and len(self.object_list) == 0:
@@ -117,6 +148,13 @@ class ReservationJSONDateList(JSONResponseMixin, BaseListView):
         return self.render_to_response(context)
 
     def get_context_data(self, **kwargs):
+        """
+        Populates the context with the products and associated timelines. It
+        also adds links for the next and previous timeline navigation.
+
+        The range of the timelines is defined by the RESERVATION_TIMELINE_RANGE
+        setting. (default: 14 days)
+        """
         context = {}
         try:
             range_start = date(year=int(self.kwargs['year']),
@@ -140,6 +178,7 @@ class ReservationJSONDateList(JSONResponseMixin, BaseListView):
             'previous_url': previous_url,
         })
 
+        # Get list of reservations
         entry_list = ReservationEntry.objects.filter(
                 product__in=self.object_list,
                 reservation__state__in=[0, 1],
@@ -147,6 +186,7 @@ class ReservationJSONDateList(JSONResponseMixin, BaseListView):
                 reservation__start_date__lte=range_end
             ).select_related('reservation')
 
+        # Group reservations by product id
         sorted_entries = dict()
         for entry in entry_list:
             try:
@@ -157,6 +197,7 @@ class ReservationJSONDateList(JSONResponseMixin, BaseListView):
         context.update({
             'timeline': list(),
         })
+        # Create product timelines
         for product in self.object_list:
             current_date = range_start
             product.timeline = list()
@@ -173,6 +214,7 @@ class ReservationJSONDateList(JSONResponseMixin, BaseListView):
                     {'date': current_date, 'state': state})
                 current_date += timedelta(days=1)
 
+            # Create context for timeline HTML snippet
             html_context = {
                 'product': product,
                 'next_range': range_end,
@@ -181,6 +223,7 @@ class ReservationJSONDateList(JSONResponseMixin, BaseListView):
             template = loader.get_template('products/snippet_timeline.html')
             html = template.render(RequestContext(self.request, html_context))
 
+            # Add HTML timeline for product
             context['timeline'].append((product.id, html))
 
         return context
