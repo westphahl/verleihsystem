@@ -8,10 +8,21 @@ from reservations.models import ReservationEntry
 
 
 class ProductTypeDetailView(DetailView):
+    """
+    Detail view for a product type and its associated products.
+    """
 
     model = ProductType
 
     def get_context_data(self, **kwargs):
+        """
+        Adds a list of all associated products and the corresponding product
+        timelines to the template context. It also adds date objects for
+        the next and previous timeline range.
+
+        The range of the timelines is defined by the RESERVATION_TIMELINE_RANGE
+        setting. (default: 14 days)
+        """
         # Call implementation in base class to get context
         context = super(ProductTypeDetailView, self).get_context_data(**kwargs)
 
@@ -27,11 +38,13 @@ class ProductTypeDetailView(DetailView):
         day_range = getattr(settings, 'RESERVATION_TIMELINE_RANGE', 14)
         range_end = range_start + timedelta(days=day_range)
 
+        # Add date objects for next and previous timeline range
         context.update({
             'next_range': range_end,
             'previous_range': range_start - timedelta(days=day_range),
         })
 
+        # Get list of products and possible reservations
         product_list = Product.objects.filter(product_type=self.object)
         entry_list = ReservationEntry.objects.filter(
                 product__in=product_list,
@@ -39,6 +52,7 @@ class ProductTypeDetailView(DetailView):
                 reservation__start_date__lte=range_end
             ).select_related('reservation')
 
+        # Group reservations by product id
         sorted_entries = dict()
         for entry in entry_list:
             try:
@@ -46,6 +60,7 @@ class ProductTypeDetailView(DetailView):
             except KeyError:
                 sorted_entries.update({ entry.product_id: [entry,]})
 
+        # Create product timelines
         for product in product_list:
             current_date = range_start
             product.timeline = list()

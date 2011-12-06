@@ -11,6 +11,12 @@ from utils.image import scale_image
 
 
 def get_photo_path(instance, filename):
+    """
+    Builds and returns the path where the product picture is saved.
+
+    The returned filename contains a SHA1 hex digest to avoid any naming
+    collisions.
+    """
     upload_dir = 'products/'
     path, ext = filename.split('.')
     value = str(instance) + filename + str(time())
@@ -20,6 +26,9 @@ def get_photo_path(instance, filename):
 
 
 class ProductType(models.Model):
+    """
+    Product type for storing common product information.
+    """
     name = models.CharField(max_length=50, verbose_name=_("Title"))
     slug = models.SlugField(max_length=50)
     description = models.TextField(verbose_name=_("Description"), blank=True)
@@ -32,6 +41,9 @@ class ProductType(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
+        """
+        Returns the absolute path of a product type.
+        """
         return ('product_type_detail', (), {'slug': self.slug})
 
     def save(self, *args, **kwargs):
