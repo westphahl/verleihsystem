@@ -127,17 +127,17 @@ table.timeline > tbody > tr > td.back a:hover {
     box-shadow: inset 0px 0px 3px #fff;
 }
 table.timeline > tbody > tr > td.free {
-    background: #6c3;
+    background: #3f0;
     vertical-align: middle;
     font-weight: bold;
-    border-right: 1px solid #6d3;
+    border-right: 1px solid #3c0;
 }
 table.timeline > tbody > tr > td.pending {
-    background: #0c0;
+    background: #ff0;
     vertical-align: middle;
-    color: #fff;
+    color: #000;
     font-weight: bold;
-    border-right: 1px solid #0b0;
+    border-right: 1px solid #fc0;
 }
 table.timeline > tbody > tr > td.reserved {
     background: #c00;
