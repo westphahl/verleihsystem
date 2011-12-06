@@ -14,7 +14,7 @@
 <h1>Anmeldung</h1>
 {% if request.user.is_anonymous %}
 	{% if form.errors %}
-	<p class="errorlist">Your username and password didn't match. Please try again.</p>
+	<p class="errorlist">Ihr Benutzername oder Passwort ist falsch. Bitte versuchen Sie es erneut!</p>
 	{% endif %}
 
 	<form id="login" method="post" action="{% url 'django.contrib.auth.views.login' %}">
