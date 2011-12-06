@@ -31,6 +31,9 @@ class Category(MPTTModel):
     parent = TreeForeignKey('self', blank=True, null=True,
         verbose_name=_("Parent"))
 
+    # Cache for storing the denormalized path
+    _denormalized_path = None
+
     class Meta:
         ordering = ['name']
         verbose_name = _(u"Category")
@@ -43,6 +46,27 @@ class Category(MPTTModel):
     def __unicode__(self):
         return u'%s' % (self.name)
 
+    def get_denormalized_path(self):
+        """
+        Returns the denormalized path of a category.
+
+        This method must not be called on a unsaved object. The result of the
+        denormalized path is cached.
+        """
+        if not self._denormalized_path:
+            ancestors = self.get_ancestors()
+            slugs = [a.slug for a in ancestors] + [self.slug]
+            self._denormalized_path = '/'.join(slugs) + '/'
+        return self._denormalized_path
+
+
+    def update_path(self):
+        """
+        Update the path attribute of a category.
+        """
+        self.path = self.get_denormalized_path()
+        self.save()
+
     def save(self, *args, **kwargs):
         """
         Denormalizes the path of a category on save since this is a expensive
@@ -52,12 +76,17 @@ class Category(MPTTModel):
         # all the ancestors.
         super(Category, self).save(*args, **kwargs)
 
-        # Denormalize path and save category
-        ancestors = self.get_ancestors()
-        slugs = [a.slug for a in ancestors]
-        slugs += [self.slug]
-        self.path = '/'.join(slugs) + '/'
-        super(Category, self).save(*args, **kwargs)
+        denormalized_path = self.get_denormalized_path()
+
+        # Denormalize paths if category was moved
+        if self.path != denormalized_path:
+            self.path = denormalized_path
+            super(Category, self).save(*args, **kwargs)
+            descendants = self.get_descendants()
+            [d.update_path() for d in descendants]
+
+        # Normalize path of descendants
+        descendants = self.get_descendants()
 
     @models.permalink
     def get_absolute_url(self):
