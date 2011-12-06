@@ -7,7 +7,7 @@
         {% url reservation_dashboard as url_dashboard %}
         <a rel="tipsy_w" title="Dashboard" class="dashboard{% ifequal request.path url_dashboard %} current{% endifequal %}" href="{{ url_dashboard }}">
             {% if dashboard_problem %}
-                <div style="position:absolute;margin:5px;"><img src="{{ MEDIA_URL }}img/icon/error.png" alt="" /></div>
+                <div id="dashboard_info"><img src="{{ MEDIA_URL }}img/icon/error.png" alt="" /></div>
             {% endif %}</a>
 
         {% url shoppingcart_index as url_shoppingcart %}

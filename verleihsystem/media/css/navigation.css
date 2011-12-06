@@ -103,3 +103,7 @@ section#nav a.logout:hover {
 section#nav a.logout.current {
     background-image: url('../img/icon/logout_over.png');
 }
+div#dashboard_info {
+    position: absolute;
+    margin: 5px;
+}
