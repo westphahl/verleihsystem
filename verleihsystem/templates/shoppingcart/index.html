@@ -12,6 +12,7 @@
 {% block content %}
 <h1>Warenkorb</h1>
 <h6>Produkte</h6>
+{% if product_list %}
 <table id="product_list">
     <colgroup>
         <col width="">
@@ -51,6 +52,9 @@
     <p class="center"><a href="javascript:void(0)" id="add_form">Zeitraum hinzufügen</a></p>
     <p class="left"><input class="checkout" type="submit" rel="tipsy_e" value="Auschecken"></p>
 </form>
+{% else %}
+<p class="center">keine Produkte vorhanden</p>
+{% endif %}
 
 {% endblock %}
 
