@@ -16,6 +16,9 @@ from shoppingcart.forms import ShoppingCartReservationFormset
 
 
 class ShoppingCartIndexView(FormView):
+    """
+    View for displaying and processing the shopping cart.
+    """
 
     template_name = 'shoppingcart/index.html'
     form_class = ShoppingCartReservationFormset
@@ -24,6 +27,9 @@ class ShoppingCartIndexView(FormView):
     success_url = '/reservations/'
 
     def post(self, request, *args, **kwargs):
+        """
+        Process a POST request.
+        """
         form_class = self.get_form_class()
         formset = self.get_form(form_class)
         if formset.is_valid() and self.process_formset(formset):
@@ -33,6 +39,13 @@ class ShoppingCartIndexView(FormView):
 
     @transaction.commit_manually
     def process_formset(self, formset):
+        """
+        Process the formset of the shopping cart.
+
+        All interaction with the database is wrapped in a transaction. If there
+        is an error while processing the formset the whole transaction is
+        rolled back and no reservations are created.
+        """
         commit = True
         user=self.request.user
         pid_list = self.request.session.get('cart')
@@ -82,12 +95,18 @@ class ShoppingCartIndexView(FormView):
         return commit
 
     def get_context_data(self, **kwargs):
+        """
+        Returns the context for the shopping cart.
+
+        Adds the products with corresponding timelines to the template context.
+        """
         # Call implementation in base class to get context
         context = super(ShoppingCartIndexView, self).get_context_data(**kwargs)
 
-        timeline = self.request.GET.get('timeline', None)
         range_start = date.today()
+        # Fallback if client has no AJAX/JS support
         try:
+            timeline = self.request.GET.get('timeline', None)
             if timeline:
                 year, month, day = map(int, timeline.split('-'))
                 range_start = date(year, month, day)
@@ -102,11 +121,13 @@ class ShoppingCartIndexView(FormView):
             'previous_range': range_start - timedelta(days=day_range),
         })
 
+        # Get product ids from session
         try:
             pid_list = self.request.session['cart']
         except KeyError:
             pid_list = []
 
+        # Get list of producs and possible reservations
         product_list = Product.objects.filter(id__in=pid_list
             ).select_related('product_type')
         entry_list = ReservationEntry.objects.filter(
@@ -115,6 +136,7 @@ class ShoppingCartIndexView(FormView):
                 reservation__start_date__lte=range_end
             ).select_related('reservation')
 
+        # Group reservations by product id
         sorted_entries = dict()
         for entry in entry_list:
             try:
@@ -122,6 +144,7 @@ class ShoppingCartIndexView(FormView):
             except KeyError:
                 sorted_entries.update({ entry.product_id: [entry,]})
 
+        # Create product timelines
         for product in product_list:
             current_date = range_start
             product.timeline = list()
@@ -145,6 +168,9 @@ class ShoppingCartIndexView(FormView):
 
 
 def clear_shoppingcart(request):
+    """
+    Clears the shopping cart.
+    """
     try:
         del request.session['cart']
     except KeyError:
@@ -154,16 +180,23 @@ def clear_shoppingcart(request):
 
 @require_GET
 def add_product(request):
+    """
+    Adds a product to the shopping cart.
+    """
     try:
         pid = int(request.GET.get('id', None))
         request.session['cart']
     except KeyError:
+        # Empty shopping cart
         request.session['cart'] = []
     except (TypeError, ValueError):
+        # Invalid product id
         raise Http404
 
+    # Make sure we've got a valid product id
     product = get_object_or_404(Product, id=pid)
 
+    # Add product to shopping cart
     if product.id not in request.session['cart']:
         request.session['cart'].append(product.id)
         request.session.modified = True
@@ -172,14 +205,20 @@ def add_product(request):
 
 @require_GET
 def remove_product(request):
+    """
+    Removes a product from the shopping cart.
+    """
     try:
         request.session['cart']
         pid = int(request.GET.get('id', None))
     except KeyError:
+        # Empty shopping cart
         request.session['cart'] = []
     except (TypeError, ValueError):
+        # Invalid product id
         raise Http404
 
+    # Remove product from shopping cart
     if pid in request.session['cart']:
         request.session['cart'].remove(pid)
         request.session.modified = True

@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 
 from shoppingcart.views import ShoppingCartIndexView
 
+
 urlpatterns = patterns('shoppingcart.views',
     url(r'^$', login_required(ShoppingCartIndexView.as_view()),
         name='shoppingcart_index'),
