@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load mptt_tags %}
 
 {% block extra_css %}
@@ -48,6 +49,6 @@
     </tbody>
 </table>
 {% else %}
-<p class="center">keine Produkte vorhanden</p>
+<p class="center">{% trans 'No products available.' %}</p>
 {% endif %}
 {% endblock %}
