@@ -24,7 +24,7 @@ class Category(MPTTModel):
     slug = models.SlugField(max_length=50, verbose_name=_("Slug"),
         help_text=_("A slug is a user- and SEO-friendly short text used in a "
             "URL to identify and describe a resource"))
-    path = models.TextField(db_index=True, unique=True, blank=True)
+    path = models.CharField(max_length=255, db_index=True, unique=True, blank=True)
     contact = models.ForeignKey(User, blank=True, null=True, 
         on_delete=models.SET_NULL, verbose_name=_("Contact"),
         limit_choices_to={'groups__name' : CONTACT_GROUP})
