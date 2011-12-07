@@ -24,9 +24,9 @@ MEDIA_ROOT = '/usr/webapps/verleihsystem/media/'
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = 'pluto.hs-weingarten.de/verleihsystem/media/'
+MEDIA_URL = 'http://pluto.hs-weingarten.de/verleihsystem/media/'
 
 # URL prefix for admin static files -- CSS, JavaScript and images.
 # Make sure to use a trailing slash.
 # Examples: "http://foo.com/static/admin/", "/static/admin/".
-ADMIN_MEDIA_PREFIX = 'pluto.hs-weingarten.de/verleihsystem/media/admin/'
+ADMIN_MEDIA_PREFIX = 'http://pluto.hs-weingarten.de/verleihsystem/media/admin/'
