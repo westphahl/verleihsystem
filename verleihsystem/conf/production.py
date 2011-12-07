@@ -30,3 +30,8 @@ MEDIA_URL = 'http://pluto.hs-weingarten.de/verleihsystem/media/'
 # Make sure to use a trailing slash.
 # Examples: "http://foo.com/static/admin/", "/static/admin/".
 ADMIN_MEDIA_PREFIX = 'http://pluto.hs-weingarten.de/verleihsystem/media/admin/'
+
+# Temporary disable LDAP auth
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+)
