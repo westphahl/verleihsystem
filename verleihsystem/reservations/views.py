@@ -10,9 +10,10 @@ from django.views.generic.edit import DeleteView
 from django.utils import simplejson as json
 from django.utils.translation import ugettext as _
 from django.contrib.auth.decorators import login_required
+from django.core.urlresolvers import reverse
 from django.shortcuts import render_to_response
 
-from reservations.models import Reservation, ReservationEntry
+from reservations.models import Reservation
 from products.models import Product
 
 
@@ -84,7 +85,10 @@ class ReservationDeleteView(DeleteView):
 
     # reverse() doesn't work here. This is fixed in Django 1.4
     # See: https://code.djangoproject.com/ticket/5925
-    success_url = '/user/dashboard/'
+
+    def __init__(self, *args, **kwargs):
+        self.success_url = reverse('reservation_dashboard')
+        super(ReservationDeleteView, self).__init__(*args, **kwargs)
 
     def get_queryset(self):
         """

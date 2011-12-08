@@ -22,9 +22,16 @@ class ShoppingCartIndexView(FormView):
 
     template_name = 'shoppingcart/index.html'
     form_class = ShoppingCartReservationFormset
-    # reverse() doesn't work here. This is fixed in Django 1.4
-    # See: https://code.djangoproject.com/ticket/5925
-    success_url = '/reservations/'
+
+    def __init__(self, *args, **kwargs):
+        """
+        Initializes the success URL and calls the baseclass __init__.
+        """
+        # reverse() doesn't work directly on an attribute.
+        # This should be fixed in Django 1.4
+        # See: https://code.djangoproject.com/ticket/5925
+        self.success_url = reverse('reservation_dashboard')
+        super(ShoppingCartIndexView, self).__init__(*args, **kwargs)
 
     def post(self, request, *args, **kwargs):
         """
