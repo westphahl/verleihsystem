@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block extra_css %}
+	<link rel="stylesheet" href="{{ MEDIA_URL }}css/dashboard.css">
+{% endblock %}
+
 {% block content %}
 
 <h1>Reservierung wirklich stornieren?</h1>
@@ -13,7 +17,7 @@ Kommentar: {{ reservation.comments|default:"--" }}
 <form action="" method="post">
 	{% csrf_token %}
     <input type="hidden" name="post" value="yes">
-    <input type="submit" value="Stornieren">
+    <input class="cancel" type="submit" value="Stornieren">
 </form>
 {% endblock %}
 

@@ -1,23 +1,49 @@
-table {
+table#dashboard {
 	width: 100%;
 }
-table > thead {
-	background-color: #333;
-	color: #fff;
+table#dashboard thead {
+	padding: 0;
+    background-color: #333;
 }
-table > tbody > tr {
+table#dashboard thead td {
+	line-height: 2.5em;
+    font-size: .9em;
+    font-weight: bold;
+    color: #fff;
+    padding: 0;
+}
+table#dashboard tbody tr {
 	border-bottom: 1px solid #ccc;
+	line-height: 2em;
 }
-table tr > td {
+table#dashboard tbody tr.even {
+	background-color: #eee;
+}
+table#dashboard tbody tr td {
 	padding: 3px;
 	vertical-align: middle;
 }
-table tr.Überfällig {
-	color: #fff;
-	font-weight: bold;
-	background-color: #c00;
-	border-bottom: 1px solid #f00;
+table#dashboard td.Überfällig {
+	background-color: #f00;
 }
-table tr.Abgelehnt {
-	color: #999;
+table#dashboard td.Reserviert {
+	background-color: #0c0;
+}
+table#dashboard td.Anfrage {
+	background-color: #ccc;
+}
+table#dashboard td.Abgelehnt {
+	background-color: #FFE500;
+}
+table#dashboard tbody tr td img {
+	vertical-align: middle;
+}
+section#content p {
+	line-height: 1.5em;
+}
+input[type="submit"].cancel {
+    padding: 7px 10px 7px 30px;
+    background-image: url(../img/icon/cross.png);
+    background-position: 10px center;
+    background-repeat: no-repeat;
 }

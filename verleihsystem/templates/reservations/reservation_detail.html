@@ -14,13 +14,13 @@ abgeholt am: {{ reservation.borrow_date|default:"--" }}<br>
 Status: {{ reservation.get_state_display }}<br>
 Kommentar: {{ reservation.comments|default:"--" }}
 </p>
-
+<br />
 {% if reservation.state == 1 %}
- 	<p><a href="{{ reservation.get_pdf_path }}">Leihschein als PDF herunterladen</a></p>
+ 	<p class="left"><a href="{{ reservation.get_pdf_path }}"><img src="{{ MEDIA_URL }}img/icon/page_white_acrobat.png" alt="" /> Leihschein als PDF herunterladen</a></p>
 {% endif %}
 <br />
 <h6>reservierte Produkte</h6>
-<table>
+<table id="dashboard">
 {% for entry in reservation.reservationentry_set.all %}
     <tr>
         <td><a href="{{ entry.product.product_type.get_absolute_url }}">{{ entry.product.product_type.name }}</a></td>
@@ -28,7 +28,8 @@ Kommentar: {{ reservation.comments|default:"--" }}
     </tr>
 {% endfor %}
 </table>
+<br />
 {% if reservation.is_cancellable %}
-	<p><a href="{% url reservation_delete reservation.id %}">Reservierung stornieren</a></p>
+	<p class="center"><a href="{% url reservation_delete reservation.id %}">Reservierung stornieren</a></p>
 {% endif %}
 {% endblock %}
