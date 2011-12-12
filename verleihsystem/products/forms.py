@@ -1,4 +1,5 @@
 from django import forms
+from django.utils.translation import ugettext as _
 from mptt.forms import TreeNodeMultipleChoiceField
 
 from products.models import ProductType
@@ -12,7 +13,8 @@ class ProducttypeAdminForm(forms.ModelForm):
     Changes the categories field in the Django admin to display a multiple
     choice field with the categories formatted as a tree.
     """
-    categories = TreeNodeMultipleChoiceField(queryset=Category.tree.all())
+    categories = TreeNodeMultipleChoiceField(queryset=Category.tree.all(),
+        label=_(u"Categories"))
 
     class Meta:
         model = ProductType
