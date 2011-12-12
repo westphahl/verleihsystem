@@ -30,10 +30,10 @@ table#dashboard td.Reserviert {
 	background-color: #0c0;
 }
 table#dashboard td.Anfrage {
-	background-color: #ccc;
+	background-color: #FFE500;
 }
 table#dashboard td.Abgelehnt {
-	background-color: #FFE500;
+	background-color: #333;
 }
 table#dashboard tbody tr td img {
 	vertical-align: middle;
