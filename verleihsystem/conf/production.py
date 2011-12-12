@@ -31,6 +31,8 @@ MEDIA_URL = '/verleihsystem/media/'
 # Examples: "http://foo.com/static/admin/", "/static/admin/".
 ADMIN_MEDIA_PREFIX = '/verleihsystem/media/admin/'
 
+LOGIN_REDIRECT_URL = '/verleihsystem/reservations/'
+
 # Temporary disable LDAP auth
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
