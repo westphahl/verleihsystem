@@ -220,4 +220,4 @@ msgstr "Verleihsystem-Verwaltung"
 #: templates/categories/category_detail.html:52
 #: templates/shoppingcart/index.html:57
 msgid "No products available."
-msgstr "Keine Produkte im Warenkorb"
+msgstr "Keine Produkte verfügbar"
