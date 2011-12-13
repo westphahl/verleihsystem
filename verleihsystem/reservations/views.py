@@ -18,7 +18,7 @@ from products.models import Product
 
 
 @login_required
-def dashboard(request, template='accounts/dashboard.html', *args, **kwargs):
+def dashboard(request, template='reservations/dashboard.html', *args, **kwargs):
     """
     Displays a dashboard view with all the reservations of the current user.
     """
@@ -83,10 +83,13 @@ class ReservationDeleteView(DeleteView):
     Delete view for a reservation.
     """
 
-    # reverse() doesn't work here. This is fixed in Django 1.4
-    # See: https://code.djangoproject.com/ticket/5925
-
     def __init__(self, *args, **kwargs):
+        """
+        Initializes the success URL and calls the baseclass __init__.
+        """
+        # reverse() doesn't work directly on an attribute.
+        # This should be fixed in Django 1.4
+        # See: https://code.djangoproject.com/ticket/5925
         self.success_url = reverse('reservation_dashboard')
         super(ReservationDeleteView, self).__init__(*args, **kwargs)
 

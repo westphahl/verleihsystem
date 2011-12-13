@@ -30,12 +30,12 @@ class ProductType(models.Model):
     """
     Product type for storing common product information.
     """
-    name = models.CharField(max_length=50, verbose_name=_("Title"))
+    name = models.CharField(max_length=50, verbose_name=_(u"Title"))
     slug = models.SlugField(max_length=50)
-    description = models.TextField(verbose_name=_("Description"), blank=True)
-    categories = models.ManyToManyField(Category, verbose_name=_("Categories"))
+    description = models.TextField(verbose_name=_(u"Description"), blank=True)
+    categories = models.ManyToManyField(Category, verbose_name=_(u"Categories"))
     picture = models.ImageField(blank=True, upload_to=get_photo_path,
-        verbose_name=_("Photo"))
+        verbose_name=_(u"Photo"))
 
     def __unicode__(self):
         return u"%s" % (self.name)
@@ -56,8 +56,8 @@ class ProductType(models.Model):
             image.save(self.picture.path)
 
     class Meta:
-        verbose_name = _("Product type")
-        verbose_name_plural = _("Product types")
+        verbose_name = _(u"Product type")
+        verbose_name_plural = _(u"Product types")
 
 
 class Product(models.Model):
@@ -65,8 +65,8 @@ class Product(models.Model):
     Concrete object of a product type.
     """
     product_type = models.ForeignKey(ProductType)
-    sn = models.CharField(max_length=255, verbose_name=_("Serial/Id"))
-    brief_description = models.TextField(verbose_name=_("Brief description"),
+    sn = models.CharField(max_length=255, verbose_name=_(u"Serial/Id"))
+    brief_description = models.TextField(verbose_name=_(u"Brief description"),
         blank=True)
 
     # Add custom manager
@@ -76,5 +76,5 @@ class Product(models.Model):
         return u"%s > %s" % (self.product_type, self.sn)
 
     class Meta:
-        verbose_name = _("Product")
-        verbose_name_plural = _("Products")
+        verbose_name = _(u"Product")
+        verbose_name_plural = _(u"Products")
