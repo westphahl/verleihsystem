@@ -64,17 +64,6 @@ section#content {
     padding: 0 10px;
     margin-right: 225px;
 }
-section#content div#breadcrumbs {
-    color: #999;
-    font-size: .8em;
-    padding-left: 5px;
-    margin-bottom:10px;
-    border-bottom: 1px solid #ccc;
-    text-transform: uppercase;
-}
-section#content div#breadcrumbs p {
-    padding-bottom: 5px;
-}
 .errorlist {
     padding: 5px;
     background-color: #F6CECE;
@@ -86,17 +75,22 @@ input[type="password"] {
     border: 1px solid #ccc;
     margin: 2px 0;
 }
+.button,
 input[type="submit"],
 input[type="reset"] {
+    font-size: 1.1em;
+    color: #333;
     font-weight: bold;
+    text-decoration: none;
     padding: 7px 10px;
-    margin: 10px 10px 10px 0;
     background-color: #eee;
     border: 1px solid #bbb;
     border-radius: 4px;
 }
+a.button:hover,
 input[type="submit"]:hover,
 input[type="reset"]:hover {
+    color: #000;
     border: 1px solid #aaa;
     box-shadow: 0 0 3px #bbb;
 }

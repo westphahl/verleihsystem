@@ -41,6 +41,7 @@ table#dashboard tbody tr td img {
 section#content p {
 	line-height: 1.5em;
 }
+a.cancel,
 input[type="submit"].cancel {
     padding: 7px 10px 7px 30px;
     background-image: url(../img/icon/cross.png);
