@@ -35,6 +35,9 @@ table#dashboard td.Anfrage {
 table#dashboard td.Abgelehnt {
 	background-color: #333;
 }
+table#dashboard tr.Abgelehnt {
+	color: #999;
+}
 table#dashboard tbody tr td img {
 	vertical-align: middle;
 }
