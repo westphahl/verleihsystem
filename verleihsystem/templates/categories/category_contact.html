@@ -1,7 +1,15 @@
+{% with contact=category.get_contact_person %}
+{% if contact %}
 <div id="contact">
 <p class="title">Ansprechpartner</p>
 <div>
-    <p class="name">{{ category.get_contact_person.first_name }} {{ category.get_contact_person.last_name }}</p>
-    <p class="detail">Raum T116, Tel.: 01234567890</p>
+    <p class="name">{{ contact.first_name }} {{ contact.last_name }}</p>
+    {% with profile=contact.get_profile %}
+    {% if profile.phone %}
+    <p class="detail">Tel.: {{ profile.phone }}</p>
+    {% endif %}
+    {% endwith %}
 </div>
 </div>
+{% endif %}
+{% endwith %}
