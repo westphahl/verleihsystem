@@ -14,8 +14,8 @@
 
 {% block content %}
 <h1>{{ category.name }}</h1>
-{% if request.user.is_staff %}
-<p><a href="{% url shoppingcart_add_category %}?id={{ category.id }}">Category ausleihen</a></p>
+{% if request.user.is_staff and product_list %}
+<p><a href="{% url shoppingcart_add_category %}?id={{ category.id }}">Alle Produkte in Warenkorb</a></p>
 {% endif %}
 {% if product_list %}
 <table id="producttype_list">
