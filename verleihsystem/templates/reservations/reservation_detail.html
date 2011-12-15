@@ -16,7 +16,7 @@ Kommentar: {{ reservation.comments|default:"--" }}
 </p>
 <br />
 {% if reservation.state == 1 %}
- 	<p class="left"><a href="{{ reservation.get_pdf_path }}"><img src="{{ MEDIA_URL }}img/icon/page_white_acrobat.png" alt="" /> Leihschein als PDF herunterladen</a></p>
+ 	<p class="left"><a href="{{ MEDIA_URL }}{{ reservation.get_pdf_path }}"><img src="{{ MEDIA_URL }}img/icon/page_white_acrobat.png" alt="" /> Leihschein als PDF herunterladen</a></p>
 {% endif %}
 <br />
 <h6>reservierte Produkte</h6>
