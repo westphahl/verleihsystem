@@ -9,6 +9,7 @@ from django.db import transaction
 from django.core.exceptions import ValidationError
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
+from django.contrib.auth.decorators import login_required
 
 from products.models import Product
 from reservations.models import Reservation, ReservationEntry
@@ -177,6 +178,33 @@ def add_product(request):
     if product.id not in request.session['cart']:
         request.session['cart'].append(product.id)
         request.session.modified = True
+    return redirect(reverse('shoppingcart_index'))
+
+
+@require_GET
+def add_category(request):
+    """
+    Adds all products of a category to the shopping cart.
+    """
+    if not request.user.is_staff:
+        raise Http404
+    try:
+        cid = int(request.GET.get('id', None))
+        request.session['cart']
+    except KeyError:
+        # Empty shopping cart
+        request.session['cart'] = []
+    except (TypeError, ValueError):
+        # Invalid product id
+        raise Http404
+
+    product_list = Product.objects.filter(product_type__categories=cid)
+
+    # Add products to shopping cart
+    for product in product_list:
+        if product.id not in request.session['cart']:
+            request.session['cart'].append(product.id)
+            request.session.modified = True
     return redirect(reverse('shoppingcart_index'))
 
 

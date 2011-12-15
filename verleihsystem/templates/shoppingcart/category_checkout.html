@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/producttype_detail.css">
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/shoppingcart.css">
+{% endblock %}
+
+{% block sidebar %}
+    {% include 'categories/category_tree.html' %}
+{% endblock %}
+
+{% block content %}
+<h1>Warenkorb</h1>
+<h6>Produkte</h6>
+{% if product_list %}
+<table id="product_list">
+    <colgroup>
+        <col width="">
+        <col width="30px">
+    </colgroup>
+    <tbody>
+    {% for product in product_list %}
+        {% cycle 'odd' 'even' as rowcolors silent %}
+        <tr class="{{ rowcolors }}">
+            <td><a href="{{ product.product_type.get_absolute_url }}" class="title">{{ product.product_type.name }}</a> <span style="font-size:0.9em">({{ product.sn }})</span></td>
+            <td rowspan="2" class="actions" style="border-bottom: 1px solid #ccc">
+            {% if product.id in request.session.cart %}
+                <a href="{% url shoppingcart_remove %}?id={{ product.id }}"><img src="{{ MEDIA_URL }}img/icon/cart_minus.png" /></a>
+            {% else %}
+                <a href="{% url shoppingcart_add %}?id={{ product.id }}"><img src="{{ MEDIA_URL }}img/icon/cart_plus.png" /></a>
+            {% endif %}
+            </td>
+        </tr>
+        <tr class="{{ rowcolors }}" style="border-bottom: 1px solid #ccc">
+            <td>
+            {% include "products/snippet_timeline.html" %}
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<br />
+<h6>Zeiträume</h6>
+<form method="post"action="{% url shoppingcart_index %}">
+    {% csrf_token %}
+    {{ form.management_form }}
+    <table id="forms" style="margin:0 auto">
+        {% for fieldset in form %}
+            {% include "shoppingcart/snippet_range_form.html" %}
+        {% endfor %}
+    </table>
+    <p class="center"><a href="javascript:void(0)" id="add_form">Zeitraum hinzufügen</a></p>
+    <p class="left"><input class="checkout" type="submit" rel="tipsy_e" value="Auschecken"></p>
+</form>
+{% else %}
+<p class="center">{% trans 'No products available.' %}</p>
+{% endif %}
+
+{% endblock %}
+
+{% block script %}
+{{ block.super }}
+{% include "products/timeline_javascript.html" %}
+<script>
+
+$(document).ready(function() {
+    var form_count = {{ form.total_form_count }};
+    $.datepicker.setDefaults($.datepicker.regional['de']);
+    $('.datepicker > input').datepicker();
+
+    $('#add_form').click(function() {
+        var form = "{% filter escapejs %}{% include "shoppingcart/snippet_range_form.html" with fieldset=form.empty_form %}{% endfilter %}".replace(/__prefix__/g, form_count);
+        $('#forms').append(form)
+        $('.datepicker > input').datepicker();
+        form_count++;
+        $('#id_form-TOTAL_FORMS').val(form_count);
+    });
+});
+
+</script>
+{% endblock %}
