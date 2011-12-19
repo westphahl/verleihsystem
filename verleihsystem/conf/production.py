@@ -14,6 +14,9 @@ DATABASES = {
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': 'neptun.fbe.fh-weingarten.de',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '3306',                      # Set to empty string for default. Not used with sqlite3.
+        'OPTIONS': {
+           'init_command': 'SET storage_engine=INNODB',
+        }
     }
 }
 
