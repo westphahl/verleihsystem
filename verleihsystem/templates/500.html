@@ -1,9 +1,31 @@
-{% extends "base.html" %}
-
-{% block sidebar %}
-	{% include 'categories/category_tree.html' %}
-{% endblock %}
-
-{% block content %}
-<h1><span style="color:#939">Fehler 500</span><span style="color:#999">://</span><span style="font-weight:300">Interner Serverfehler</span></h1>
-{% endblock %}
+<!DOCTYPE html> 
+<html lang="de"> 
+<head> 
+    <title>Fehler 500 - Verleihsystem</title>
+    <meta charset="utf-8">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,700' rel='stylesheet' type='text/css' />
+    <style>
+    	* {
+		    font-family: 'Open Sans',Verdana,Arial,sans-serif;
+		}
+    	html {
+		    background-color: #f5f5f5;
+		    font-size: 11px;
+		}
+		h1 {
+		    font-size: 2em;
+		    font-weight: 300;
+		    text-align: left;
+		    text-transform: uppercase;
+		}
+	</style>
+</head>
+<body>
+    <section id="content_wrapper">
+        <section id="content">
+            <h1><span style="color:#939">Fehler 500</span><span style="color:#999">://</span><span style="font-weight:300">Interner Serverfehler</span></h1>
+        </section>
+        <section class="clear"></section>
+    </section>
+</body> 
+</html>
