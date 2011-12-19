@@ -59,7 +59,6 @@ class Category(MPTTModel):
             self._denormalized_path = '/'.join(slugs) + '/'
         return self._denormalized_path
 
-
     def update_path(self):
         """
         Update the path attribute of a category.
