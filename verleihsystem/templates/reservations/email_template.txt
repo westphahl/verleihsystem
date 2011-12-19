@@ -1,0 +1,2 @@
+Ihre Reservierung wurde {{ reservation.get_state_display|lower }}.
+Detailansicht: {{ url }}
