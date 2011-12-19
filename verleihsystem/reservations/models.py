@@ -6,6 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 from utils.path import get_media_path
 from products.models import Product
 from reservations.pdf import BorrowFormTemplate
+from reservations.managers import ReservationEntryManager
 
 
 class Reservation(models.Model):
@@ -91,6 +92,8 @@ class ReservationEntry(models.Model):
     """
     reservation = models.ForeignKey(Reservation, verbose_name=_("Reservation"))
     product = models.ForeignKey(Product, verbose_name=_("Product"))
+
+    objects = ReservationEntryManager()
 
     def clean(self):
         """

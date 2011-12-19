@@ -8,6 +8,10 @@ class ProductManager(models.Manager):
     Custom manager for products. 
     """
 
+    def get_query_set(self):
+        return super(ProductManager, self).get_query_set().select_related(
+            'product_type')
+
     def with_timeline(self, product_list, start_date, end_date):
         from reservations.models import ReservationEntry
         """
