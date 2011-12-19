@@ -10,9 +10,9 @@ def mark_acknowledged(modeladmin, request, queryset):
     Custom admin command for acknowledging all selected reservations.
     """
     queryset.update(state=1)
-    # We have to create the resevation ticket manually since the save()
-    # method is NOT called when executing admin commands.
-    [e.create_pdf() for e in queryset]
+    # We have to create the resevation ticket and notify the user manually,
+    # since the save() method is NOT called when executing admin commands.
+    [(e.create_pdf(), e.notify_user()) for e in queryset]
 mark_acknowledged.short_description = _("Mark selected reservations as acknowledged")
 
 
@@ -21,6 +21,9 @@ def mark_rejected(modeladmin, request, queryset):
     Custom admin command for rejecting all selected reservations.
     """
     queryset.update(state=2)
+    # We have to  notify the user manually, since the save() method is NOT
+    # called when executing admin commands.
+    [e.notify_user() for e in queryset]
 mark_rejected.short_description = _("Mark selected reservations as rejected")
 
 

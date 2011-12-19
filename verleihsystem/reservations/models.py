@@ -2,6 +2,9 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
+from django.core.mail import EmailMessage
+from django.template import loader, Context
+from django.contrib.sites.models import Site
 
 from utils.path import get_media_path
 from products.models import Product
@@ -32,6 +35,13 @@ class Reservation(models.Model):
             choices=STATE_CHOICES,)
     comments = models.TextField(blank=True, verbose_name=_("Comments"))
 
+    def __init__(self, *args, **kwargs):
+        """
+        Saves the current state for discovering changes.
+        """
+        super(Reservation, self).__init__(*args, **kwargs)
+        self._previous_state = self.state
+
     def __unicode__(self):
         return u"%s: %s - %s" % (self.user, self.start_date, self.end_date)
 
@@ -55,13 +65,26 @@ class Reservation(models.Model):
         """
         return True if not self.borrow_date else False
 
+    def state_changed(self):
+        """
+        Checks if the state has changed.
+        """
+        if self.state != self._previous_state:
+            return True
+        else:
+            return False
+
     def save(self, *args, **kwargs):
         """
-        Generates the PDF form on save, if the reservation was acknowledged.
+        Generates the PDF form on save, if the reservation was acknowledged
+        and notifies the user if the status has changed.
         """
         super(Reservation, self).save(*args, **kwargs)
-        if self.state == 1:
-            self.create_pdf()
+        if self.state_changed():
+            if self.state != 0:
+                self.notify_user()
+            if self.state == 1:
+                self.create_pdf()
 
     def create_pdf(self):
         """
@@ -72,6 +95,26 @@ class Reservation(models.Model):
         pdf = BorrowFormTemplate(pdf_path, self)
         pdf.set_logo(img_path, 42, 16)
         pdf.build()
+
+    def notify_user(self):
+        """
+        Notify a user of a state change.
+        """
+        recipient = self.user.email
+        if recipient != '':
+            subject = u"[Verleihsystem] Reservierung %s" % (
+                self.get_state_display().lower())
+            reservation_url = u"http://%s%s" % (
+                Site.objects.get_current().domain, self.get_absolute_url())
+
+            # Render the message body
+            template = loader.get_template('reservations/email_template.txt')
+            message = template.render(
+                    Context({'reservation': self, 'url': reservation_url}))
+
+            # Create and send email
+            email = EmailMessage(subject=subject, body=message, to=[recipient])
+            email.send()
 
     def get_pdf_path(self):
         """
@@ -114,7 +157,6 @@ class ReservationEntry(models.Model):
     class Meta:
         verbose_name = _("Reservation Entry")
         verbose_name_plural = _("Reservation Entries")
-
 
 
 class AdminReservationEntry(ReservationEntry):
