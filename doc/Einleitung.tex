@@ -1,0 +1,171 @@
+
+\section{Einleitung \label{Einleitung} }
+Die ist ein kurzes Beispiel zu \LaTeX , es soll keine Einführung sein -- Sie
+können diese Datei aber als Ausgangspunkt für Ihr eigenes Werk nehmen.  Eine
+Einführung in \LaTeX\ finden Sie in den Tutorials: latexTutorial1.pdf
+latexTutorial2.pdf. 
+
+Wenn ein Dokuement einen \LaTeX-Fehler enthält, erwartet das Programm eine
+Eingabe. Meist ist es sinnvoll, nur den Buchstaben 'q' einzugeben. Dies schaltet
+\LaTeX\ auf stumm. Anschließend kann man in der formatierten Datei meist erkennen,
+wo sich der Fehler befindet. Genauers entnimmt man der Datei {\code <name>.log}.  
+
+Eine Rechtschreibprüfung für \LaTeX-Dokumente gibt es ebenfalls. Unter Unix/Linux
+\zb {\code ispell -C -Tlatin1 -t -d ngerman Einleitung.tex} (wenn sie mit UTF-8
+Codierung arbeiten muss der 2. Parameter {\code -Tutf-8} lauten).
+
+
+\subsection{Problemstellung \label{Problemstellung} } 
+
+Ein gößeres Dokument\footnote{Fußnoten sind ebenfalls problemlos möglich.} zerlegt man am besten in ein "'Zentral-Dokument"' und die
+einzelnen Kapitel bzw. Abschnitte (s.~Datei {\code Thesis.tex}. Der \LaTeX\
+"'Source Code"' wird übersetzt in das DVI-Format. Das DVI-File kann dann auf dem
+Bildschirm angezeigt und/oder gedruckt werden oder in ein anderes Format gewandelt
+werden (\zb PostScript, PDF, HTML).
+
+Befehle (Bsp.):
+\begin{verbatim}
+> latex Thesis.tex
+> dvips Thesis.dvi 
+> dvipdf Thesis.dvi
+> ghostview Thesis.ps 
+> ps2pdf Thesis.ps Thesis.pdf 
+> latex2html Thesis.tex 
+\end{verbatim} 
+
+Alternativ kann der \LaTeX\ "'Source Code"' (ohne Umwege über das DVI-Format) direkt in das PDF-Format übersetzt werden:
+\begin{verbatim}
+> pdflatex Thesis.tex
+\end{verbatim} 
+
+Das Literaturverzeichnis erstellt man am besten mit dem Programm
+BibTeX. Voraussetzung ist natürlich, dass man eine BibTex-Datei mit den
+Literatur-Einträgen erstellt hat (in diesem Fall: Literatur.bib). 
+\begin{verbatim}
+> latex Thesis.tex
+> bibtex Thesis
+> latex Thesis.tex
+> latex Thesis.tex
+\end{verbatim} 
+
+Hier folgen noch ein paar Beispiele für \LaTeX-Konstruktionen bzw.\ selbst definierte
+Kommandos Kommandos Kommandos Kommandos Kommandos: 
+
+\paragraph{Querverweis:} Dies ist ein Querverweis auf \secref{Zielsetzung} (das Kommando
+\verb+\secref{}+ ist von mir in {\code Abkuerzugen.tex} definiert). 
+
+\paragraph{Literaturhinweise:} Ein Literaturhinweis
+entsteht durch \cite{mandl99} bzw. durch \cite{sing00, zeller02,edwards00}. Das
+Kommando \verb+\cite{...}+ ist bereits in \LaTeX\ definiert. Die Quellen-Angaben
+schreiben Sie in eine Datei mit der Endung \verb+.bib+, näheres s.~Tutorial. 
+
+Die verschiedenen Kommandos in der Datei {\code Abkuerzugen.tex} \mymargin{nur am
+Rande, bei Bedarf} ergeben \ua folgende Abkürzungen; \ia und \zb und \dht und \zz
+sowie eine Randbemerkung.
+
+\begin{itemize} 
+   \item  eine Aufzählung
+   \item  noch ein Punkt 
+   \item  bla
+\end{itemize} 
+\LaTeX und Emacs: Abkürzungen machen das Leben leichter. Einige Definitionen finden
+sich in der Datei {\code Abkuerzugen.emacs}. So bewirkt \zb die Eingabe von
+\verb+bgit<space>+, dass Emacs die folgenden drei Zeilen einfügt: 
+\begin{verbatim}
+\begin{itemize} 
+   \item 
+\end{itemize}  
+\end{verbatim} 
+Die Datei {\code Abkuerzugen.emacss} muss von Emacs geladen
+werden, am besten automatisch durch einen Eintrag in {\code .emacs},{\code
+  .gnu-emacs} oder{\code .gnu-emacs-custom} je nach Installation \smiley.
+\begin{verbatim} 
+  (if (file-readable-p "~/etc/TeX/Abkuerzugen.emacs")
+      (read-abbrev-file "~/etc/TeX/Abkuerzugen.emacs")) 
+\end{verbatim} 
+
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+\begin{enumerate} 
+   \item  eine Aufzählung nummeriert 
+   \item  Aufzählungen können auch geschachtelt werden \ldots
+   \item  bla
+\end{enumerate} 
+
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+
+\begin{table}[htb] 
+\caption{Eine Tabelle hat (manchmal) eine Überschrift} 
+\begin{center}
+\begin{tabular}{|rc|}           \hline
+eine Tabelle & zweite Spalte \\ \hline \hline 
+  a          & b             \\ 
+  ccc        & ddd           \\ 
+ aber        & ohne          \\ 
+ Buch        & geht's nicht  \\ \hline 
+\end{tabular} 
+\end{center}
+\end{table} 
+
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla  
+
+
+\subsection{Zielsetzung \label{Zielsetzung} } 
+
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+
+\begin{figure}[htbp]
+\centering 
+ \includegraphics[width=0.8\textwidth]{Bilder/magicSquare} 
+ \caption{Das magische Quadrat der konkurrierenden Ziele (als encapsulated
+          postscript)  \label{magicSquare}}
+\end{figure}
+Auf Abbildungen kann natürlich auch referenziert werden \zb durch
+"'\figref{magicSquare} auf Seite~\pageref{magicSquare}"'. Dies setzt allerdings
+voraus, dass man ein Label definiert hat (\zb \verb+\label{magicSquare}+). Der Befehl
+\verb+\figref{..}+ ist nicht von \LaTeX\ definiert sondern in der Datei {\code
+Abkuerzugen.tex}.  Hier sieht man auch, wie man Anführungszeichen schreibt \ldots
+  
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla  
+
+\newpage
+\subsection{Noch ein paar Anmerkungen \label{Anmerkungen}} 
+
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+
+\begin{comment} 
+\cbstart 
+\ \vspace{0.5ex}
+\hrule 
+\ \vspace{0.5ex}
+
+Dieser Abschnitt erscheint nur, wenn der Befehl \verb+\includecomment{comment}+ in
+der \LaTeX -Hauptdatei steht.  Mit einem \verb+%+ -Zeichen kann er auskommentiert
+werden. Dann verschwindet dieser Absatz aus dem Dokument.
+
+Kommentar-Bereiche sind praktisch um Textteile im Dokument "'parken"' zu können. Bei
+Bedarf kann man die Teile sichtbar bzw.\ unsichtbar schalten.  Der graue Balken am
+Rand wird durch die Befehle \verb+\cbstart+ und \verb+\cbend+ erzeugt. Dazu muss das
+Package \verb+changebar+ geladen werden. 
+\ \vspace{0.5ex}
+\hrule 
+\ \vspace{0.5ex}\cbend
+\end{comment} 
+
+bla bla bla bla bla bla\footnote{Fußnoten sind ebenfalls problemlos möglich.} bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla
+
+
+

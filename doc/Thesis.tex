@@ -1,0 +1,96 @@
+
+% Dies ist der "Zentral-Dokument", die verschiedenen Teile können Sie
+% unten einfügen (s.u.). 
+%
+ 
+%[Schritgröße, Seitenlayout, Papierformat, Satzspiegel, Bindungs-Korrektur-Maß]
+\documentclass[12pt, twoside, a4paper, DIV12, BCOR16mm]{scrartcl}
+
+%Ländereinstellungen
+\usepackage[english, german]{babel}
+
+%Grafiken, erweiterte Kopf- und Fußzeilen, Seienreferenzvariablen, Listings, erweiterte Symbole,
+%deutsche Literatur Formatierung, zeilen-übergreifende Kommentare, Textmarkierungen
+\usepackage{graphicx, fancyhdr, lastpage, listings, wasysym, 
+            bibgerm, comment, changebar} 
+
+% weiter evtl. nützliche Packages: ifthen, wasysym, changebar, supertabular
+
+%\usepackage{palatino}% weitere Schriftarten
+
+\usepackage[latin1]{inputenc} % Umlaute richtig verarbeiten  
+\usepackage[T1]{fontenc}      % Feinheiten im Satz von Umlauten
+
+% Packages, die 'bessere' PDF-Dokumente erzeugen 
+\usepackage{ae} 
+\usepackage[
+        pdftitle={Projektarbeit Verleihsystem}
+        bookmarks=true,
+        bookmarksnumbered=true, % Verwendete Bookmarks anzeigen
+        colorlinks,   % Farbige Links
+        linkcolor=black,
+        urlcolor=blue,
+        citecolor=black]{hyperref}
+%\usepackage[dvips]{thumbpdf}
+
+\pagestyle{fancy}
+
+% Legt die Einrücktiefe der ersten Zeile für aller Absätze fest. (0:=Absätze nicht einrücken)
+\setlength{\parindent}{0pt}  
+%\parskip1ex plus0.5ex minus0.5ex   
+
+% Legt die Breite des Randnotizen-Bereichs festlegen (auch über BCORxxx konfigurierbar)
+%\setlength{\marginparwidth}{25mm}
+%\evensidemargin0mm
+%\oddsidemargin8mm
+
+% Definiert die Gesamthöhe des Textrumpfes für alle nachfolgenden Seiten.
+\setlength{\textheight}{225mm}
+\setlength{\headheight}{13mm}
+\setlength{\topskip}{10mm}
+
+% Nummerierungstiefe des Inhaltsverzeichnis 
+\setcounter{tocdepth}{2} % auch {3} ist OK aber bitte nicht mehr
+
+% Kopfzeilenformatierung
+%\fancyhead[RO,LE]{\small \sffamily Inhalt} 
+%\fancyhead[LO,RE]{\small \sffamily Beispiel für ein \LaTeX\ Dokument} 
+
+
+\input{Abkuerzugen} % eigene Kommandos laden 
+
+
+\begin{document} 
+
+\includecomment{comment}
+\excludecomment{unsinn1} % benötigt das Package "comment". Ein- und Auschalten von Textteilen z.B. Anmerkungen 
+\begin{unsinn1} 
+Hier steht ein unsinniger Text, welcher aber glücklicher Weise nicht angezeigt wird!!!
+\end{unsinn1} 
+
+\include{TitelErklaerungVorwort}
+
+\tableofcontents 
+
+%Seitenzahl und Kapitelname in der Kopfzeile anzeigen
+%\fancyhead[RO,LE]{\small \sffamily  \thepage}
+%\fancyhead[LO,RE]{\small \sffamily \leftmark}
+
+% fügen Sie hier die einzelnen Teile (z.B. Kapitel) ein.  
+\include{Einleitung} 
+\include{StandDerTechnik}
+\include{Methode}
+\include{Ergebnisse}
+\include{ZusammenfassungUndAusblick}
+
+\begin{comment} 
+\nocite{coulouris00, coulouris02} 
+\end{comment} 
+
+\addcontentsline{toc}{section}{Literatur} 
+\bibliographystyle{gerplain} 
+\bibliography{Literatur} 
+
+\end{document} 
+
+
