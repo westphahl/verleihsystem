@@ -43,18 +43,20 @@ class BorrowFormTemplate(SimpleDocTemplate):
     flowables = []
     logo = None
 
-    def __init__(self, path, reservation):
+    def __init__(self, path, reservation, spare=0):
         """
         Initialize a new PDF form.
 
         The path argument must be the absolute path for the resulting
         destination file. The reservation argument specifies the reservation
-        the form is created for.
+        the form is created for. Spare defines the number of extra lines
+        available on the reservation form.
         """
         SimpleDocTemplate.__init__(self, path)
         # Get a default stylesheet
         self.styles = getSampleStyleSheet()
         self._set_data(reservation)
+        self.spare = int(spare)
 
     def set_logo(self, logo, width, height):
         """
@@ -151,6 +153,8 @@ class BorrowFormTemplate(SimpleDocTemplate):
                 Paragraph(entry.product.brief_description,
                     self.styles['Normal']),
                 Paragraph(entry.product.sn, self.styles['Normal'])])
+        for i in range(0, self.spare):
+            reservation_table.append(['','',''])
         table = self._get_table_titles() + reservation_table
         column_widths = [40*mm, 80*mm, 40*mm]
         tstyle = TableStyle([
@@ -175,7 +179,7 @@ class BorrowFormTemplate(SimpleDocTemplate):
         ])
         signature_data = [
             [self.start_date, "", self.end_date],
-            [u"Unterschrift (Ausleihe)", "", u"Unterschrift (R\u00fcckgabe)"]
+            [u"Unterschrift (Ausgabe)", "", u"Unterschrift (R\u00fcckgabe)"]
         ]
         return Table(signature_data, colWidths=column_widths,
             repeatRows=1, style=tstyle)

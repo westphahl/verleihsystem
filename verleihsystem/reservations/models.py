@@ -92,7 +92,7 @@ class Reservation(models.Model):
         """
         pdf_path = get_media_path(self.get_pdf_path())
         img_path = get_media_path('img/hrw_logo.png')
-        pdf = BorrowFormTemplate(pdf_path, self)
+        pdf = BorrowFormTemplate(pdf_path, self, 4)
         pdf.set_logo(img_path, 42, 16)
         pdf.build()
 
