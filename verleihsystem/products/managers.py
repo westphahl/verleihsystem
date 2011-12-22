@@ -22,7 +22,9 @@ class ProductManager(models.Manager):
         - The timeline is a list containing a dict for each day in the given
           time frame which has a 'date' and 'state' key.
         - 'date' is a Python date object
-        - 'state' is a list of reserveration states for the day (if any)
+        - 'state' is the reserveration state for the day (if there are any)
+        - 'reservation' is not None if there is a acknowledged reservation for 
+          the current day
         """
         # Get list of products and possible reservations
         entry_list = ReservationEntry.objects.filter(
@@ -50,11 +52,20 @@ class ProductManager(models.Manager):
                 reservation_list = list()
 
             while current_date < end_date:
-                state = [e.reservation.state for e in reservation_list if (
+                valid_reservations = [e.reservation for e in reservation_list if (
                     e.reservation.start_date <= current_date)
                     and (e.reservation.end_date >= current_date)]
+                if len(valid_reservations) == 0:
+                    state = None
+                    reservation = None
+                else:
+                    reservation = valid_reservations[0]
+                    state = reservation.state
+                    if state != 1:
+                        reservation = None
                 product.timeline.append(
-                    {'date': current_date, 'state': state})
+                    {'date': current_date, 'state': state,
+                     'reservation': reservation})
                 current_date += timedelta(days=1)
 
         return product_list

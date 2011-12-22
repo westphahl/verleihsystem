@@ -8,6 +8,21 @@
 
 <h1>Reservierungsdetails</h1>
 
+{% if request.user.is_staff %}
+{% with reservation.user as user %}
+{% with user.get_profile as profile %}
+<p>Benutzername: {{ user.username }}<br>
+Name: {{ user.first_name }} {{ user.last_name }}<br>
+Email: <a href="mailto:{{ user.email }}">{{ user.email }}</a><br>
+Matrikel-Nr.: {{ profile.student_number|default:"--" }}<br>
+Telefon: {{ profile.phone|default:"--" }}<br>
+Mobil: {{ profile.mobil_phone|default:"--" }}
+</p>
+<br />
+{% endwith %}
+{% endwith %}
+{% endif %}
+
 <p>Startdatum: {{ reservation.start_date }}<br>
 Enddatum: {{ reservation.end_date }}<br>
 abgeholt am: {{ reservation.borrow_date|default:"--" }}<br>
@@ -31,5 +46,6 @@ Kommentar: {{ reservation.comments|default:"--" }}
 <br /><br />
 {% if reservation.is_cancellable %}
 	<p class="center"><a class="button cancel" href="{% url reservation_delete reservation.id %}">Reservierung stornieren</a></p>
+<br /><br />
 {% endif %}
 {% endblock %}
