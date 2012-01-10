@@ -4,6 +4,7 @@ section#nav {
     left: 0;
     height: 100%;
     text-align: center;
+    background-color: #333;
     background-image: linear-gradient(left , rgb(34,34,34) 0%, rgb(51,51,51) 50%);
     background-image: -o-linear-gradient(left , rgb(34,34,34) 0%, rgb(51,51,51) 50%);
     background-image: -moz-linear-gradient(left , rgb(34,34,34) 0%, rgb(51,51,51) 50%);
