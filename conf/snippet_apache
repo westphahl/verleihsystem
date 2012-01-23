@@ -1,0 +1,19 @@
+# Benötigte Apache Module: proxy, proxy_http
+
+# Web Anwendung unter http://pluto.hs-weingarten.de/verleihsystem/
+# Redirect für Anfragen ohne Slash
+Redirect /verleihsystem /verleihsystem/
+# Ausnahme für Medieninhalte
+ProxyPass /verleihsystem/media !
+# Anfragen an Web-Anwendung weiterleiten
+ProxyPass /verleihsystem/ http://localhost:8001/verleihsystem/
+ProxyPassReverse /verleihsystem/ http://localhost:8001/verleihsystem/
+
+# Pfad für statische Inhalte: sollte dann unter
+# http://pluto.hs-weingarten.de/verleihsystem/media/ erreichbar sein
+Alias /verleihsystem/media/ /usr/webapps/verleihsystem/media/
+
+<Directory /usr/webapps/verleihsystem/media>
+    Order deny,allow
+    Allow from all
+</Directory>
