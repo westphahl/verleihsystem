@@ -20,6 +20,8 @@ DATABASES = {
     }
 }
 
+SUB_URL = 'verleihsystem/'
+
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
 MEDIA_ROOT = '/usr/webapps/verleihsystem/media/'
