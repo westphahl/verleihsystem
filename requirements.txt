@@ -5,3 +5,4 @@ django-auth-ldap==1.0.12
 reportlab
 -e git+https://github.com/django-mptt/django-mptt.git@8ab6a85aecd8023afb709ab5e1e3ad26e58a84a4#egg=django_mptt-dev
 MySQL-python
+gunicorn
