@@ -1,0 +1,7 @@
+mywebsite/
+	[...]
+	bookmarks/
+		__init__.py
+		models.py
+		views.py
+		tests.py

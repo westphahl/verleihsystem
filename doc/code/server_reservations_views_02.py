@@ -1,0 +1,2 @@
+class ReservationJSONDateList(JSONResponseMixin, BaseListView):
+    [...]

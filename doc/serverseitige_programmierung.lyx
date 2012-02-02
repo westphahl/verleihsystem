@@ -1,0 +1,1595 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass scrreprt
+\begin_preamble
+\usepackage{fancyvrb}
+\usepackage{color}
+
+\hypersetup{
+    urlcolor=blue           % color of external links
+}
+
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\def\PY@tok@gd{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@gu{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\def\PY@tok@gt{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@gs{\let\PY@bf=\textbf}
+\def\PY@tok@gr{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@cm{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.67,0.67,0.67}{##1}}}
+\def\PY@tok@vg{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@m{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@mh{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@cs{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@ge{\let\PY@it=\textit}
+\def\PY@tok@vc{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@il{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@go{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\def\PY@tok@cp{\def\PY@tc##1{\textcolor[rgb]{0.30,0.51,0.09}{##1}}}
+\def\PY@tok@gi{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+\def\PY@tok@gh{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\def\PY@tok@ni{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.00}{##1}}}
+\def\PY@tok@nn{\let\PY@ul=\underline\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.67}{##1}}}
+\def\PY@tok@no{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@na{\def\PY@tc##1{\textcolor[rgb]{0.12,0.56,1.00}{##1}}}
+\def\PY@tok@nb{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.67}{##1}}}
+\def\PY@tok@nc{\let\PY@ul=\underline\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+\def\PY@tok@nd{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\def\PY@tok@si{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@nf{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+\def\PY@tok@s2{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@vi{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@nt{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.12,0.56,1.00}{##1}}}
+\def\PY@tok@nv{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@s1{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@gp{\def\PY@tc##1{\textcolor[rgb]{0.33,0.33,0.33}{##1}}}
+\def\PY@tok@sh{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@ow{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@sx{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@bp{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.67}{##1}}}
+\def\PY@tok@c1{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.67,0.67,0.67}{##1}}}
+\def\PY@tok@kc{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@c{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.67,0.67,0.67}{##1}}}
+\def\PY@tok@mf{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@err{\def\PY@tc##1{\textcolor[rgb]{0.94,0.00,0.00}{##1}}\def\PY@bc##1{\colorbox[rgb]{0.94,0.63,0.63}{##1}}}
+\def\PY@tok@kd{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@ss{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@sr{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@mo{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@mi{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@kn{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@kr{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@s{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@kp{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@w{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\def\PY@tok@kt{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.67}{##1}}}
+\def\PY@tok@sc{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@sb{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@k{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@se{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@sd{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\end_preamble
+\use_default_options true
+\master main.lyx
+\maintain_unincluded_children false
+\language ngerman
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing onehalf
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip smallskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Serverseitige Programmierung mit Python & Django
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Serverseitige-Programmierung-mit"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Packages, Module und Klassen
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Packages,-Module-und"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Der gesamte Quellcode ist - soweit sinnvoll - dokumentiert.
+ Aus Platzgründen wurden die Code-Beispielen hier gekürzt und Kommentare
+ entfernt.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Im folgenden werden nur wichtige und interessante Funktionen genauer erklärt.
+ Eine komplette Erläuterung würde den Rahmen der Dokumentation sprengen.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Der vollständige Quellcode befindet sich unter:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset CommandInset href
+LatexCommand href
+name "http://github.com/westphahl/verleihsystem/ "
+target "http://github.com/westphahl/verleihsystem/ "
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Package: accounts
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Package:-accounts"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Das accounts-Package enthält Funktionalitäten für den Benutzer wie z.B ein
+ Profil und Views um diese zu bearbeiten.
+\end_layout
+
+\begin_layout Subsubsection
+accounts.models
+\end_layout
+
+\begin_layout Standard
+Um zusätzliche benutzerbezogene Daten speichern zu können wurde die von
+ Django mitgelieferte Benutzerverwaltung um ein eigenes, angepasstes User-Profil
+ erweitert.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Python
+	filename code/server_accounts_models.py
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+
+\emph on
+Hinweis: 
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Das Feld “
+\family typewriter
+verbose_name
+\family default
+” ist der Name für das Feld der im Administrations-Bereich angezeigt wird.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\emph default
+Das Feld “
+\family typewriter
+user
+\family default
+” ist ein Fremdschlüssel welcher auf einen User verweist.
+\begin_inset Newline newline
+\end_inset
+
+Im Feld “
+\family typewriter
+student_number
+\family default
+” wird die Matrikelnummer eines Benutzers gespeichert.
+ Die Daten eines Benutzers werden soweit möglich, über LDAP synchronisiert.
+ Weitere Informationen hierzu im Kapitel 
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "sec:LDAP"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+accounts.urls
+\end_layout
+
+\begin_layout Standard
+Das Modul accounts.urls definiert URLs für das Benutzerprofil-Formular sowie
+ Login und Logout.
+\end_layout
+
+\begin_layout Subsubsection
+accounts.views
+\end_layout
+
+\begin_layout Standard
+Um dem Benutzer ein einfaches Bearbeiten seiner Daten zu ermöglichen wird
+ in diesem Modul die View 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+change_user_profile
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+ definiert.
+ 
+\end_layout
+
+\begin_layout Subsection
+Package: categories
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Package:-categories"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Das categories-Package implementiert die generischen Kategorien.
+ Für diesen Zweck wurde die Django-Anwendung “
+\begin_inset CommandInset href
+LatexCommand href
+name "django-mptt"
+target "https://github.com/django-mptt/django-mptt/"
+
+\end_inset
+
+” verwendet.
+\end_layout
+
+\begin_layout Subsubsection
+categories.models
+\end_layout
+
+\begin_layout Standard
+Um eigene Funktionalitäten zu Implementieren wird die MPTTModel-Klasse abgeleite
+t.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Python
+	filename code/server_categories_models.py
+
+\end_inset
+
+Über das Feld “
+\family typewriter
+contact
+\family default
+” kann für eine Katogrie ein Ansprechpartner festgelegt werden.
+ Wird der verknüpfte Ansprechpartner gelöscht, wird das Feld auf 
+\family typewriter
+Null
+\family default
+ gesetzt.
+ Auch lassen sich hier nur Benutzer auswählen, die in der Django-Gruppe
+ “Verwalter” sind.
+ Das Attribut “parent” dient zur Speicherung einer eventuellen übergeordneten
+ Kategorie.
+\end_layout
+
+\begin_layout Subsubsection
+categories.context_processors
+\end_layout
+
+\begin_layout Standard
+Der 
+\begin_inset CommandInset href
+LatexCommand href
+name "Kontextprozessor"
+target "https://docs.djangoproject.com/en/1.3/ref/templates/api/#subclassing-context-requestcontext"
+
+\end_inset
+
+ 
+\begin_inset Quotes erd
+\end_inset
+
+
+\family typewriter
+category_tree
+\family default
+
+\begin_inset Quotes eld
+\end_inset
+
+ fügt dem Template-Kontext alle Root-Kategorien hinzu.
+ Diese werden fast immer benötigt und müssen hierdurch nicht immer manuell
+ hinzugefügt werden.
+\end_layout
+
+\begin_layout Subsubsection
+categories.views
+\end_layout
+
+\begin_layout Standard
+Die View “
+\family typewriter
+category_detail
+\family default
+” dient dazu alle einer Kategorie zugewiesenen Produkte anzuzeigen.
+ Zusätzlich wird der Menübaum mit den Unterkategorien der momentan aktiven
+ Kategorie generiert und an das Template übergeben.
+\end_layout
+
+\begin_layout Subsection
+Package: contact
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Package:-contact"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Im Package “
+\family typewriter
+contact
+\family default
+” ist das Kontaktformular sowie die zugehörige View definiert.
+\end_layout
+
+\begin_layout Subsubsection
+contact.form
+\end_layout
+
+\begin_layout Standard
+In diesem Modul wird das Formular erstellt welches in der entsprechenden
+ View instantiiert wird.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Python
+	filename code/server_contact_form.py
+
+\end_inset
+
+Die Syntax für Formularfelder orientiert sich stark an den Feldern bei Models.
+ Auch lassen sich meist die selben Optionen verwenden.
+\end_layout
+
+\begin_layout Subsubsection
+contact.view
+\end_layout
+
+\begin_layout Standard
+Die “
+\family typewriter
+contact_form
+\family default
+” View ist für die Verarbeitung von POST-Daten zuständig.
+ Wird die View über die Methode GET aufgerufen, so wird eine leere Formularinsta
+nz erzeugt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Python
+	filename code/server_contact_view.py
+
+\end_inset
+
+Über die Einstellung “
+\family typewriter
+CONTACT_FORM_EMAIL
+\family default
+” wird der Empfänger des Kontaktformulars festgelegt.
+ Zusätzlich kann sich der Anwender selber eine Kopie der Nachricht senden
+ lassen, wenn der entsprechende Haken im Formular gesetzt wurde.
+\end_layout
+
+\begin_layout Subsection
+Package: products
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Package:-products"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In diesem Package sind alle Produktbezogenen Klassen und Funktionen enthalten.
+\end_layout
+
+\begin_layout Subsubsection
+products.models
+\end_layout
+
+\begin_layout Standard
+In dem Modul “
+\family typewriter
+products.models
+\family default
+” gibt es zwei verschiedene Klassen.
+\begin_inset Newline newline
+\end_inset
+
+Die Klasse “
+\family typewriter
+ProductType
+\family default
+” dient zum anlegen von Produkttypen.
+ Zu den Produkttypen können Produkte der Klasse “
+\family typewriter
+Product
+\family default
+” angelegt werden.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Python
+	filename code/server_producs_models_01.py
+
+\end_inset
+
+Das Feld “
+\family typewriter
+slug
+\family default
+” enthält einen benutzerfreundlichen Namen für ein Produkttyp, welcher als
+ Indentifier in der URL dient.
+ Diese Feld wird automatisch per JavaScript ausgefüllt.
+ Im Feld “
+\family typewriter
+description
+\family default
+” kann eine Beschreibung angegeben werden, die für alle Produkte gültig
+ ist.
+ Im letzten Feld “
+\family typewriter
+picture
+\family default
+” kann noch ein optionales Produktbild hinterlegt werden.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Die Klasse “
+\family typewriter
+Product
+\family default
+” repräsentiert die eigentlichen Produkte/Objekte eines Typs.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Python
+	filename code/server_producs_models_02.py
+
+\end_inset
+
+Das erste Feld “
+\family typewriter
+product_type
+\family default
+” ist ein Fremdschlüssel, der sich auf den Produkttyp bezieht.
+ Im Feld “
+\family typewriter
+sn
+\family default
+” muss die Seriennummer oder eine andere eindeutige Bezeichnung für das
+ Produkt angegeben werden.
+ Das letzte Feld “
+\family typewriter
+brief_description
+\family default
+” dient dazu, eine kurze Zusatzbeschreibung (Abweichungen zur Beschreibung
+ des Produkttypes, Beschädigungen, …) zu speichern.
+ Dem Attribut “
+\family typewriter
+objects
+\family default
+” wird ein 
+\begin_inset CommandInset href
+LatexCommand href
+name "eigener angepasster Manager"
+target "https://docs.djangoproject.com/en/1.3/topics/db/managers/#custom-managers"
+
+\end_inset
+
+ zugewiesen.
+ Über diesen werden erweiterte Abfragefunktionalitäten implementiert.
+\end_layout
+
+\begin_layout Subsubsection
+products.managers
+\end_layout
+
+\begin_layout Standard
+Der Custom-Manager für ein Produkt erzeugt bei Bedarf für jedes Objekt einer
+ Abfrage ein Timeline und fügt diese dem Produkt hinzu.
+ Hierdurch kann in Templates einfach auf das jeweilige “
+\family typewriter
+timeline
+\family default
+”-Attribut zugegriffen werden ohne zusätzliche Abfragen ausführen zu müssen.
+\end_layout
+
+\begin_layout Subsubsection
+products.views
+\end_layout
+
+\begin_layout Standard
+Die View “
+\family typewriter
+ProductTypeDetail
+\family default
+” ist für die Darstellung eines Produkttyps und der jeweiligen Produkte
+ verantwortlich.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Python
+	filename code/server_producs_views.py
+
+\end_inset
+
+Hier kommt beispielsweise der angepasste Produkt-Manager zum Einsatz um
+ die Zeitleisten für die Produkte mit anzuzeigen.
+ Die Funktion “
+\family typewriter
+get_context_data
+\family default
+” der Klassen-basierten View erstellt den Kontext bevor das Template gerendert
+ wird.
+ 
+\end_layout
+
+\begin_layout Subsection
+Package: reservations
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Package:-reservations"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die durch das Package “
+\family typewriter
+reservations
+\family default
+” zur Verfügung gestellt Funktionalität bezieht sich auf die Reservierung
+ von Produkten.
+\end_layout
+
+\begin_layout Subsubsection
+reservations.models
+\end_layout
+
+\begin_layout Standard
+In dem Modul “
+\family typewriter
+reservations.models
+\family default
+” gibt es zwei verschiedene Klassen, “
+\family typewriter
+Reservation
+\family default
+” und “
+\family typewriter
+ReservationEntry
+\family default
+”.
+ Eine Reservierung (Klasse “
+\family typewriter
+Reservation
+\family default
+”) dient als Elternelement für mehere Reservierungseinträge (Klasse “
+\family typewriter
+ReservationEntry
+\family default
+”).
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Python
+	filename code/server_reservations_models_01.py
+
+\end_inset
+
+Das Klassenattribut “
+\family typewriter
+STATE_CHOICES
+\family default
+” enthält die möglichen Zustände einer Reservierung.
+\end_layout
+
+\begin_layout Standard
+Das erste Feld “
+\family typewriter
+user
+\family default
+” ist ein Fremdschlüssel auf den Benutzer, der die Reservierung erstellt
+ hat.
+ Die Felder “
+\family typewriter
+start_date
+\family default
+” und “
+\family typewriter
+end_date
+\family default
+” geben den Zeitraum der Reservierung an.
+ Im Feld “
+\family typewriter
+borrow_date
+\family default
+” wird das Datum eingetragen, wann die reservierten Produkte abgeholt wurden.
+ Das Feld “
+\family typewriter
+return_date
+\family default
+” wird eingetragen, wann die reservierten Produkte zurückgebracht wurden.
+ Im “
+\family typewriter
+timestamp
+\family default
+”-Feld wird das Erstellungsdatum der Reservierung gespeichert.
+ Der Status einer Reservierung wird über das Feld “
+\family typewriter
+state
+\family default
+” festgelegt.
+ Hier lassen sich nur Werte des Klassenattributes “
+\family typewriter
+STATE_CHOICES
+\family default
+” verwenden.
+ Im Feld “
+\family typewriter
+comments
+\family default
+” können zusätzliche Kommentare angegeben werden z.B.
+ warum eine Reservierung abgelehnt wurde.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Ein Reservierungs-Eintrag dient der Zuordnung eines Produkts zu einer bestimmten
+ Reservierung.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Python
+	filename code/server_reservations_models_02.py
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+reservations.context_processors
+\end_layout
+
+\begin_layout Standard
+Der Kontextprozessor “
+\family typewriter
+dashboard_info
+\family default
+” fügt jedem Template Kontext die Variable “
+\family typewriter
+dashboard_problem
+\family default
+” hinzu.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Python
+	filename code/server_reservations_context_proc.py
+
+\end_inset
+
+Falls es überfällige Reservierungen gibt, wird dem Benutzer neben dem Dashboard-
+Link ein Warnsymbol (Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Warnsymbol-neben-dem"
+
+\end_inset
+
+) angezeigt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/server_reservations.context_processors.png
+	width 10text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Warnsymbol neben dem Dashboard-Link
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Warnsymbol-neben-dem"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+reservations.pdf
+\end_layout
+
+\begin_layout Standard
+Das Modul “
+\family typewriter
+reservations.pdf
+\family default
+” enthält die notwendigen Funktionen um den Leihschein als PDF zu generieren.
+ Für die Erstellung wurde das 
+\begin_inset CommandInset href
+LatexCommand href
+name "Reportlab Toolkit"
+target "http://www.reportlab.com/software/opensource/rl-toolkit/"
+
+\end_inset
+
+ verwendet.
+ Das Layout wird hier durch so genannte Flowables erstellt, die sich ineinander
+ schachteln lassen.
+ Siehe hierzu die 
+\begin_inset CommandInset href
+LatexCommand href
+name "Dokumentation"
+target "http://www.reportlab.com/software/opensource/rl-toolkit/guide/"
+
+\end_inset
+
+ von Reportlab.
+\end_layout
+
+\begin_layout Subsubsection
+reservation.views
+\end_layout
+
+\begin_layout Standard
+Diese Modul implementiert die Views für das Dashboard, zum Anzeigen und
+ Löschen von Reservierungen ebenso wie die AJAX-View zum Aktualisieren der
+ Zeitleiste der Produkte.
+\end_layout
+
+\begin_layout Standard
+Um die Timeline-Daten über JavaScript einfach verarbeiten zu können gibt
+ die View ihre Antwort als 
+\begin_inset CommandInset href
+LatexCommand href
+name "JSON"
+target "http://json.org/"
+
+\end_inset
+
+ zurück.
+ Hierfür muss der Content-Type auf “
+\family typewriter
+application/json
+\family default
+” geändert werden.
+\end_layout
+
+\begin_layout Standard
+Dies geschieht in einer 
+\begin_inset CommandInset href
+LatexCommand href
+name "Mixin"
+target "http://en.wikipedia.org/wiki/Mixin"
+
+\end_inset
+
+-Klasse.
+ Diese ist auch dafür zuständig die Python-Objekte - hier 
+\begin_inset CommandInset href
+LatexCommand href
+name "Dictionaries"
+target "http://docs.python.org/tutorial/datastructures.html#dictionaries"
+
+\end_inset
+
+ - in JSON-Strukturen zu konvertieren.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Python
+	filename code/server_reservations_views_01.py
+
+\end_inset
+
+Da Python Mehrfachvererbung unterstütz, kann über die obige Mixin jede beliebige
+ View in eine JSON-View umgewandelt werden.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Python
+	filename code/server_reservations_views_02.py
+
+\end_inset
+
+Diese View erweitert die
+\begin_inset CommandInset href
+LatexCommand href
+name " generische klassenbasierte “BaseListView”"
+target "https://docs.djangoproject.com/en/1.3/ref/class-based-views/"
+
+\end_inset
+
+ um eigene Funktionen.
+\end_layout
+
+\begin_layout Subsection
+Package: shoppingcart
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Package:-shoppingcart"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Das Package für den virtuellen Einkaufswagen implementiert das Formular
+ sowie die notwendigen Views um konsistente Reservierungen anzulegen.
+\end_layout
+
+\begin_layout Subsubsection
+shoppingcart.forms
+\end_layout
+
+\begin_layout Standard
+Das Formular für den Einkauswagen enthält, neben dem Start- und Enddatum,
+ Funktionen um die Gültigkeit der eingegebenen Reservierungszeiträume zu
+ überprüfen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Python
+	filename code/server_shoppingcart_forms.py
+
+\end_inset
+
+Die “
+\family typewriter
+clean
+\family default
+”-Methode wird beim Verarbeiten eines Formulars von Django automatisch aufgerufe
+n.
+\end_layout
+
+\begin_layout Subsubsection
+shoppingcart.views
+\end_layout
+
+\begin_layout Standard
+Im Modul “
+\family typewriter
+shoppingcart.views
+\family default
+” sind Views für das Hinzufügen und Löschen von Produkten aus dem Warenkorb
+ und Views zum Verarbeiten eines Leihvorgangs definiert.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Die View “
+\family typewriter
+ShoppingCartIndexView
+\family default
+” zum Verarbeiten eines Leihvorgangs enthält die Methode “
+\family typewriter
+process_formset
+\family default
+” die für alle Produkte im Warenkorb versucht eine Reservierung anzulegen.
+ Da es vorkommen kann, dass ein Benutzer einen Zeitraum angibt, der bereits
+ reserviert ist, wird die Verarbeitung in einer Transaktion gekapselt.
+ Kann für ein Produkt keine Reservierung angelegt werden, so wird für alle
+ bereits angelegten Reservierungen ein Rollback durchgeführt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Python
+	filename code/server_shoppingcart_views.py
+
+\end_inset
+
+Hierdurch wird vermieden, das inkonsistente Zustände entstehen können.
+ Dem Benutzer wird im Fehlerfall wieder der Warenkorb mit einer Fehlermeldung
+ angezeigt, die Beschreibt welches Produkt den Abbruch des Vorgangs verursacht
+ hat.
+\end_layout
+
+\begin_layout Section
+LDAP
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:LDAP"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Über Django Anwendung 
+\begin_inset CommandInset href
+LatexCommand href
+name "django-auth-ldap"
+target "http://pypi.python.org/pypi/django-auth-ldap"
+
+\end_inset
+
+ ist eine einfach Authentifizierung von Benutzern an einem LDAP-Server möglich.
+ Die notwendige Konfiguration befindet sich in der Datei “
+\family typewriter
+verleihsystem/conf/default.py
+\family default
+”.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Python
+	filename code/server_ldap_settings.py
+
+\end_inset
+
+Die einzelnen Einstellungsmöglichkeiten und Optionen werden in der 
+\begin_inset CommandInset href
+LatexCommand href
+name "Dokumentation"
+target "http://packages.python.org/django-auth-ldap/"
+
+\end_inset
+
+ von django-auth-ldap näher erklärt.
+\end_layout
+
+\begin_layout Subsection
+Anmeldevorgang
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Anmeldevorgang"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Wenn sich ein Benutzer am Verleihsystem anmelden möchte, wird zuerst versucht
+ den Benutzer über LDAP zu authentifizieren.
+ Schlägt dieser Schritt fehl, so wird überprüft, ob der Benutzer in der
+ Datenbank vorhanden ist.
+ 
+\end_layout
+
+\begin_layout Standard
+Bei einer erfolgreichen LDAP-Authentifizierung werden die Benutzerdaten
+ mit der SQL-Datenbank synchronisiert.
+ Um jedoch zu verhindern, dass sich ein Benutzer immernoch anmelden kann,
+ obwohl dieser im LDAP-Verzeichnis nicht mehr existiert, wird in der Datenbank
+ ein ungültiges Passwort eingetragen.
+ Somit würde eine Authentifizierungs-Versuch über die Datenbank fehlschlagen.
+\end_layout
+
+\begin_layout Subsection
+Synchronistation von LDAP-Gruppen
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Synchronistation-von-LDAP-Gruppe"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Um die Django Gruppen mit LDAP Gruppen mischen zu können, wird die Option
+ 
+\family typewriter
+AUTH_LDAP_FIND_GROUP_PERMS
+\family default
+ verwendet.
+ Hierzu müssen die zu überprüfenden LDAP Gruppen als Gruppen in Django angelegt
+ werden.
+ Den Gruppen in Django können dann die entsprechenden Rechte zugewiesen
+ werden.
+\end_layout
+
+\begin_layout Standard
+Ein LDAP Benutzer erhält beim Login die Rechte der Gruppen, in welchen er
+ im LDAP Mitglied ist, wenn diese zusätzlich in Django angelegt sind.
+ 
+\series bold
+Das Feld "
+\family typewriter
+Gruppen
+\family default
+" der Benutzer wird hierfür nicht verwendet!
+\end_layout
+
+\begin_layout Standard
+In dem Gruppen-Feld des Benutzers können stattdessen zusätzliche Gruppen
+ angegeben werden, in welchen der User in LDAP kein Mitglied ist und welche
+ in LDAP möglicherweise nicht vorhanden sind (z.B.
+ Verwalter).
+\end_layout
+
+\begin_layout Subsection
+LDAP Performance
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:LDAP-Performance"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Um das Prüfen der Rechte bei jedem Request zu vermeiden, werden die Gruppenmitgl
+iedschaften gecached (
+\family typewriter
+AUTH_LDAP_CACHE_GROUPS
+\family default
+).
+ Die Gültigkeitsdauer für die gespeicherten Gruppenzugehörigkeiten kann
+ mit der Option 
+\family typewriter
+AUTH_LDAP_GROUP_CACHE_TIMEOUT
+\family default
+ festgelegt werden.
+\end_layout
+
+\begin_layout Section
+Datenbank
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Datenbank"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Von der Hochschule wurde uns eine MySQL Datenbank zur Verfügung gestellt.
+ Die folgenden Konfiguration für die Produktivumgebung befindet sich in
+ der Datei “
+\family typewriter
+verleihsystem\SpecialChar \slash{}
+conf\SpecialChar \slash{}
+production.py
+\family default
+”.
+ Aus Sicherheitsgründen wird das Passwort für die Datenbankverbindung erst
+ später in einer anderen Datei gesetzt (siehe Abschnitt: 
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "sec:Konfiguration"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Python
+	filename code/server_database_settings.py
+
+\end_inset
+
+Da die Standardengine von MySQL (MyISAM) keine Transaktionen und Foreign
+ Key Constraints 
+\begin_inset CommandInset href
+LatexCommand href
+name "unterstützt"
+target "https://docs.djangoproject.com/en/1.3/ref/databases/#storage-engines"
+
+\end_inset
+
+, kommt in unserem Fall die InnoDB-Engine zum Einsatz.
+ Diese bietet den benötigten Support für Transaktionen.
+\end_layout
+
+\begin_layout Section
+Menübaum
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Menübaum"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Da nach den Projektanforderungen die Kategorien generisch implementiert
+ werden sollten, d.h.
+ ohne Begrenzung der Schachtelungstiefe, müssen diese in der Datebank als
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "Nested Sets"
+target "http://de.wikipedia.org/wiki/Nested_Sets"
+
+\end_inset
+
+ gespeichert werden.
+ Eine Technik mit welcher diese einfach abgefragt werden können, ist auch
+ unter dem Namen 
+\begin_inset CommandInset href
+LatexCommand href
+name "Modified Preorder Tree Traversal"
+target "http://www.sitepoint.com/hierarchical-data-database/"
+
+\end_inset
+
+ bekannt.
+\end_layout
+
+\begin_layout Subsection
+django-mptt
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:django-mptt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Für die hierarchische Anordnung unserer Kategorien wurde 
+\begin_inset CommandInset href
+LatexCommand href
+name "django-mptt"
+target "http://django-mptt.github.com/django-mptt/"
+
+\end_inset
+
+ verwendet.
+ Diese wiederverwendbare Anwendung bietet bereits alle notwendigen Funktionen
+ um komplexe Strukturen und Teilbäume performant abfragen zu können und
+ erspart eine aufwändige Neuimplementation.
+\end_layout
+
+\begin_layout Section
+Einstellungen
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Einstellungen"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Zusätzlich zu den durch Django 
+\begin_inset CommandInset href
+LatexCommand href
+name "verfügbaren Einstellungen"
+target "https://docs.djangoproject.com/en/1.3/ref/settings/"
+
+\end_inset
+
+ wurden eigene Einstellungsmöglichkeiten definiert, um das Verleihsystem
+ einfach anpassbar zu gestalten.
+\end_layout
+
+\begin_layout Subsection
+PRODUCT_IMAGE_SIZE
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:PRODUCT_IMAGE_SIZE"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Legt fest, auf welche Breite und Höhe hochgeladene Produktbilder skaliert
+ und zugeschnitten werden sollen.
+ (Default: 200 x 150)
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Python
+	filename code/server_PRODUCT_IMAGE_SIZE.py
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+
+\emph on
+Hinweis: 
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Bei Veränderung dieser Einstellung muss evtl.
+ das Design, d.h.
+ die CSS-Dateien angepasst werden!
+\end_layout
+
+\begin_layout Subsection
+RESERVATION_TIMELINE_RANGE
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:RESERVATION_TIMELINE_RANGE"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Legt fest, in welchen Schritten die Timeline auf der Produkt-Detailseite
+ angezeigt wird.
+ (Default: 14 Tage)
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Python
+	filename code/server_RESERVATION_TIMELINE_RANGE.py
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+
+\emph on
+Hinweis: 
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Bei Veränderung dieser Einstellung muss evtl.
+ das Design, d.h.
+ die CSS-Dateien angepasst werden!
+\end_layout
+
+\begin_layout Subsection
+CONTACT_FORM_EMAIL
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:CONTACT_FORM_EMAIL"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Empfänger Email-Adresse für Emails welche über das Kontaktformular versendet
+ wurden.
+ Bitte hierzu auch die Einstellung: 
+\family typewriter
+DEFAULT_FROM_EMAIL
+\family default
+ beachten! (Default: '')
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Python
+	filename code/server_CONTACT_FORM_EMAIL.py
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+CATEGORY_CONTACT_GROUP
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:CATEGORY_CONTACT_GROUP"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die Auswahl der Kontakte bei den Kategorien wird auf diese Gruppe beschränkt.
+ (Default: 'Contact')
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Python
+	filename code/server_CATEGORY_CONTACT_GROUP.py
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Internationalisierung
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Internationalisierung"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Django bietet eine einfache Möglichkeit der Internationalisierung (i18n).
+ Dies bedeutet, dass man Translation-Strings in ein Template einfügen kann,
+ die dann später durch Sprachdateien in die jeweilige Sprache übersetzt
+ werden.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Zuerst muss dass Translation-Modul geladen werden:
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Python
+	filename code/server_i18n_01.py
+
+\end_inset
+
+“
+\family typewriter
+as _
+\family default
+” ist eine Abkürzung, damit man statt 
+\family typewriter
+ugettext(u’text’)
+\family default
+ nur 
+\family typewriter
+_(u’text’)
+\family default
+ schreiben muss.
+ Das “
+\family typewriter
+u
+\family default
+” steht dabei für die Unicode-Kodierung.
+ In den Templates muss das Paket “i18n” geladen werden:
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template HTML+Django
+	filename code/server_i18n_02.html
+
+\end_inset
+
+Nun kann im Template einen Translation-String eingefügt werden:
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template HTML+Django
+	filename code/server_i18n_03.html
+
+\end_inset
+
+Wenn neue Translation-Strings eingefügt wurden, muss die Datei für die Deutsche
+ Übersetzung aktualisiert werden:
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Bash
+	filename code/server_i18n_04.sh
+
+\end_inset
+
+Die Übersetzungen befinden sich in der Datei "
+\family typewriter
+locale/de/LC_MESSAGES/django.po
+\family default
+".
+ Nachdem die Übersetzung aktualisiert wurde, muss diese neu kompiliert werden:
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Bash
+	filename code/server_i18n_05.sh
+
+\end_inset
+
+Erst jetzt werden die jeweiligen Übersetzungen verwendet.
+\end_layout
+
+\end_body
+\end_document

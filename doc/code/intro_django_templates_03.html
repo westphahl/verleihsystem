@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}My Bookmarks{% endblock %}
+
+{% block content %}
+<h1>My Bookmarks</h1>
+<dl>
+    {% for bookmark in bookmark_list %}
+        <dt><a href="{{ bookmark.url }}">{{ bookmark.title }}</a></dt>
+        <dd>Added on: {{ bookmark.add_date|date:"d. F Y" }}</dd>
+        {% if bookmark.description %}
+            <dd>{{ bookmark.description }}</dd>
+        {% endif %}
+    {% endfor %}
+</dl>
+{% endblock %}

@@ -1,0 +1,1 @@
+CATEGORY_CONTACT_GROUP = 'Verwalter'

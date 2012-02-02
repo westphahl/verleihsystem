@@ -1,0 +1,231 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass scrreprt
+\begin_preamble
+\usepackage{fancyvrb}
+\usepackage{color}
+
+\hypersetup{
+    urlcolor=blue           % color of external links
+}
+
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\def\PY@tok@gd{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@gu{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\def\PY@tok@gt{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@gs{\let\PY@bf=\textbf}
+\def\PY@tok@gr{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@cm{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.67,0.67,0.67}{##1}}}
+\def\PY@tok@vg{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@m{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@mh{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@cs{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@ge{\let\PY@it=\textit}
+\def\PY@tok@vc{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@il{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@go{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\def\PY@tok@cp{\def\PY@tc##1{\textcolor[rgb]{0.30,0.51,0.09}{##1}}}
+\def\PY@tok@gi{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+\def\PY@tok@gh{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\def\PY@tok@ni{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.00}{##1}}}
+\def\PY@tok@nn{\let\PY@ul=\underline\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.67}{##1}}}
+\def\PY@tok@no{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@na{\def\PY@tc##1{\textcolor[rgb]{0.12,0.56,1.00}{##1}}}
+\def\PY@tok@nb{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.67}{##1}}}
+\def\PY@tok@nc{\let\PY@ul=\underline\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+\def\PY@tok@nd{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\def\PY@tok@si{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@nf{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+\def\PY@tok@s2{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@vi{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@nt{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.12,0.56,1.00}{##1}}}
+\def\PY@tok@nv{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@s1{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@gp{\def\PY@tc##1{\textcolor[rgb]{0.33,0.33,0.33}{##1}}}
+\def\PY@tok@sh{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@ow{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@sx{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@bp{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.67}{##1}}}
+\def\PY@tok@c1{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.67,0.67,0.67}{##1}}}
+\def\PY@tok@kc{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@c{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.67,0.67,0.67}{##1}}}
+\def\PY@tok@mf{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@err{\def\PY@tc##1{\textcolor[rgb]{0.94,0.00,0.00}{##1}}\def\PY@bc##1{\colorbox[rgb]{0.94,0.63,0.63}{##1}}}
+\def\PY@tok@kd{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@ss{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@sr{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@mo{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@mi{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@kn{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@kr{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@s{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@kp{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@w{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\def\PY@tok@kt{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.67}{##1}}}
+\def\PY@tok@sc{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@sb{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@k{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@se{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@sd{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\end_preamble
+\use_default_options true
+\master main.lyx
+\maintain_unincluded_children false
+\language ngerman
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing onehalf
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip smallskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Fazit
+\end_layout
+
+\begin_layout Standard
+Im Vergleich zu Webprogrammierung in PHP, welches wir im Webprogrammierung
+ Praktium kennengelernt haben, bietet Python und Django eine einfachere
+ und saubere Programmierung.
+ Dies liegt zum einen an einer strikten Trennung von Logik und Layout als
+ auch an der sehr guten Dokumentation von Django.
+\end_layout
+
+\begin_layout Standard
+Mit Django ist eine schnelle und einfache Entwicklung von Web-basierten
+ Anwendungen möglich.
+ Um jedoch die Konzepte von Django zu verstehen ist es unumgänglich sich
+ ausführlich mit diesem Framework auseinanderzusetzen.
+ Die Einfürung in Django in dieser Dokumentation zeigt zwar die Grundkonzepte
+ auf, kann jedoch nicht auf alle Details eingehen.
+ Diese sind aber oft wichtig um performante und funktionierenden Code zu
+ erstellen.
+\end_layout
+
+\begin_layout Standard
+Wurde diese anfängliche Hürde beim Einstieg genommen, dann biete Django
+ für die meisten Anwendungsfälle einfache Problemlösungen und eingängige
+ Konzepte.
+\end_layout
+
+\begin_layout Standard
+Besonders komfortabel ist die Django Template Engine.
+ Durch diese muss man nicht wie in PHP 
+\family typewriter
+<?php echo $var ?>
+\family default
+ schreiben, sondern nur 
+\family typewriter
+{{ var }}
+\family default
+.
+ Dies wirkt sich sehr positiv auf die Lesbarkeit der Templates aus.
+ Zusätzlich sind auch noch Filter verfügbar, mit denen der Ausgabewert schnell
+ und einfach verändert werden kann.
+ Ein gutes Beispiel hierfür ist der 
+\begin_inset CommandInset href
+LatexCommand href
+name "Date-Filter"
+target "https://docs.djangoproject.com/en/dev/ref/templates/builtins/#date"
+
+\end_inset
+
+, mit dem das Datumsformat im Template verändert werden kann.
+\end_layout
+
+\begin_layout Standard
+Ein Nachteil von Python-basierten Web-Anwendungen ist der Einsatz im Produktivbe
+trieb.
+ Java bietet hier einfachere Konzepte um eine Webanwendung unkompliziert
+ bereit zu stellen, die gerade im Unternehmensumfeld weit verbreitet sind.
+ Mit der 
+\begin_inset CommandInset href
+LatexCommand href
+name "WSGI-Schnittstelle"
+target "http://www.wsgi.org/en/latest/index.html"
+
+\end_inset
+
+ bietet Python hierfür eine ausgereifte und stablile Alternative, jedoch
+ erfordert die Konfiguration um einiges mehr Aufwand, als z.B.
+ bei einfachen Anwendungen in PHP.
+ Grundsätzliche ist es möglich eine Python-Webanwendung als CGI-Skript auszuführ
+en, da hierbei jedoch bei jedem Request ein neuer Prozess erzeugt wird,
+ ist diese Methode bei komplexeren Anwendungsfällen und große Web-Anwendungen
+ keine günstige Wahl.
+\end_layout
+
+\end_body
+\end_document

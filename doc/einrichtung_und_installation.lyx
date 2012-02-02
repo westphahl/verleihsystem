@@ -1,0 +1,768 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass scrreprt
+\begin_preamble
+\usepackage{fancyvrb}
+\usepackage{color}
+
+\hypersetup{
+    urlcolor=blue           % color of external links
+}
+
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\def\PY@tok@gd{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@gu{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\def\PY@tok@gt{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@gs{\let\PY@bf=\textbf}
+\def\PY@tok@gr{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@cm{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.67,0.67,0.67}{##1}}}
+\def\PY@tok@vg{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@m{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@mh{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@cs{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@ge{\let\PY@it=\textit}
+\def\PY@tok@vc{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@il{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@go{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\def\PY@tok@cp{\def\PY@tc##1{\textcolor[rgb]{0.30,0.51,0.09}{##1}}}
+\def\PY@tok@gi{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+\def\PY@tok@gh{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\def\PY@tok@ni{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.00}{##1}}}
+\def\PY@tok@nn{\let\PY@ul=\underline\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.67}{##1}}}
+\def\PY@tok@no{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@na{\def\PY@tc##1{\textcolor[rgb]{0.12,0.56,1.00}{##1}}}
+\def\PY@tok@nb{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.67}{##1}}}
+\def\PY@tok@nc{\let\PY@ul=\underline\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+\def\PY@tok@nd{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\def\PY@tok@si{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@nf{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+\def\PY@tok@s2{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@vi{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@nt{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.12,0.56,1.00}{##1}}}
+\def\PY@tok@nv{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@s1{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@gp{\def\PY@tc##1{\textcolor[rgb]{0.33,0.33,0.33}{##1}}}
+\def\PY@tok@sh{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@ow{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@sx{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@bp{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.67}{##1}}}
+\def\PY@tok@c1{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.67,0.67,0.67}{##1}}}
+\def\PY@tok@kc{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@c{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.67,0.67,0.67}{##1}}}
+\def\PY@tok@mf{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@err{\def\PY@tc##1{\textcolor[rgb]{0.94,0.00,0.00}{##1}}\def\PY@bc##1{\colorbox[rgb]{0.94,0.63,0.63}{##1}}}
+\def\PY@tok@kd{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@ss{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@sr{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@mo{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@mi{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@kn{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@kr{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@s{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@kp{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@w{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\def\PY@tok@kt{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.67}{##1}}}
+\def\PY@tok@sc{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@sb{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@k{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@se{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@sd{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\end_preamble
+\use_default_options true
+\master main.lyx
+\maintain_unincluded_children false
+\language ngerman
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing onehalf
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip smallskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Einrichtung & Installation
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Einrichtung-&-Installation"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Voraussetzungen
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Voraussetzungen"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Es wird davon ausgegangen, dass die Installation auf einem aktuellen Ubuntu
+ (mindestens Version 11.04) 64bit System mit Python 2.7 durchgeführt wird.
+ 
+\end_layout
+
+\begin_layout Standard
+Als Webserver kommt Apache zum Einsatz bei dem die folgenden Module aktiviert
+ werden müssen: proxy, proxy_http
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Die Apache-Module können folgendermaßen aktiviert werden:
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Bash
+	filename code/installation_voraussetzungen.sh
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Allgemein
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Allgemein"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Zur Installation der Python-Packages werden die Python Setuptools benötigt.
+ Ebenso werden zusätzlich oft die Python Development Header vorausgesetzt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Bash
+	filename code/installation_voraussetzungen_allgemein.sh
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Python Image Library
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Python-Image-Library"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Bash
+	filename code/installation_voraussetzungen_pil_01.sh
+
+\end_inset
+
+Unter Ubuntu in der 64bit-Version müssen die folgenden Symlinks erzeugt
+ werden, damit PIL mit dem Programm pip in der virtuellen Pythonumgebung
+ installiert werden kann (siehe: 
+\begin_inset CommandInset href
+LatexCommand href
+name "Ubuntuforums"
+target "http://ubuntuforums.org/showthread.php?t=1751455"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Bash
+	filename code/installation_voraussetzungen_pil_02.sh
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+python-ldap
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:python-ldap"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+siehe: 
+\begin_inset CommandInset href
+LatexCommand href
+name "Python LDAP - Building and installing"
+target "http://www.python-ldap.org/doc/html/installing.html#prerequisites"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Bash
+	filename code/installation_voraussetzungen_python-ldap.sh
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+mysql-python
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:mysql-python"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Bash
+	filename code/installation_voraussetzungen_mysql-python.sh
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Installation
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Installation-1"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Um bestimmte Version von Python-Packages unabhängig von bereits vorhandener
+ Software im System installieren zu können, werden die benötigten Packages
+ in einer isolierten Python-Ausführungsumgebung installiert.
+ Hierfür wird die Software “
+\begin_inset CommandInset href
+LatexCommand href
+name "Virtualenv"
+target "http://www.virtualenv.org/en/latest/index.html"
+
+\end_inset
+
+” verwendet.
+ Die Installation erfolgt mit dem Tool “
+\family typewriter
+easy_install
+\family default
+” aus den Python Setuptools.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Bash
+	filename code/installation_install_01.sh
+
+\end_inset
+
+Für die Verleihsystem-Webanwendung wurde das Verzeichnis 
+\family typewriter
+/usr\SpecialChar \slash{}
+webapps\SpecialChar \slash{}
+
+\begin_inset Newline linebreak
+\end_inset
+
+verleihsystem
+\family default
+ angelegt.
+ Alle folgenden relativen Pfade beziehen sich auf dieses Verzeichnis.
+ Hier wird mit Virtualenv die virtuelle Python-Umgebung in einem Unterordner
+ (“
+\family typewriter
+environment
+\family default
+”) erstellt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Bash
+	filename code/installation_install_02.sh
+
+\end_inset
+
+Um mit der Umgebung arbeiten zu können, muss diese aktiviert werden.
+ Hierzu dient das Skript “
+\family typewriter
+environment/bin/activate
+\family default
+”.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Bash
+	filename code/installation_install_03.sh
+
+\end_inset
+
+Der Prompt zeigt jetzt den Namen der aktivierten Virtualenv-Umgebung an
+ und kann mit dem Befehl “
+\family typewriter
+deactivate
+\family default
+” wieder deaktiviert werden.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Bash
+	filename code/installation_install_04.sh
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Webanwendung
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Webanwendung"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die eigentliche Webanwendung soll in dem Verzeichnis 
+\family typewriter
+/usr/webapps/verleihsystem/prj
+\family default
+ liegen.
+ Hierzu wird die aktuelle Version aus dem Git-Repository geclont oder das
+ Gzip-Archiv entpackt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Bash
+	filename code/installation_install_webapp_01.sh
+
+\end_inset
+
+Im Projektverzeichnis befindet sich die Datei “
+\family typewriter
+requirements.txt
+\family default
+”.
+ Dort sind alle notwendigen Python-Packages aufgeführt.
+ In der virtuellen Umgebung kann benötigte Software mit dem Tool “
+\family typewriter
+PIP
+\family default
+” ähnlich wie mit “
+\family typewriter
+easy_install
+\family default
+” installiert werden.
+ Mit der Option “
+\family typewriter
+-r
+\family default
+” wird die Datei mit den Abhängigkeiten als Parameter übergeben.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Bash
+	filename code/installation_install_webapp_02.sh
+
+\end_inset
+
+Wenn alle Voraussetzungen aus dem vorherigen Abschnitt erfüllt und installiert
+ sind, werden die notwendigen Packages und Bibliotheken ohne Rückfrage installie
+rt.
+\end_layout
+
+\begin_layout Subsection
+Medieninhalte
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Medieninhalte"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Als letztes legen wir ein Verzeichnis “
+\family typewriter
+media
+\family default
+” an, in welchem sich statische und vom Benutzer hochgeladene Inhalte befinden.
+ Die statischen Inhalte werden einfach das Media-Verzeichnis gelinkt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Bash
+	filename code/installation_install_media_01.sh
+
+\end_inset
+
+Zusätzlich müssen Ordner für vom Benutzer hochgeladene Inhalte angelegt
+ werden.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Bash
+	filename code/installation_install_media_02.sh
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Konfiguration
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Konfiguration"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Webanwendung
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Webanwendung-1"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Im Verzeichnis “
+\family typewriter
+mount/prj/verleihsystem
+\family default
+” befindet sich die Datei “
+\family typewriter
+settings.py
+\family default
+” in welcher zusätzliche notwendige Einstellungen vorgenommen werden.
+ Es müssen vor allem noch Passwörter gesetzt werden, welche aus Sicherheitsgründ
+en nicht im Git Repository gespeichert werden.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Der Inhalt der Datei 
+\family typewriter
+settings.py
+\family default
+ sollte folgenden Inhalt besitzen:
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Python
+	filename code/installation_conf_webapp.py
+
+\end_inset
+
+Falls nötig, können hier auch 
+\begin_inset CommandInset href
+LatexCommand href
+name "Default-Einstellungen von Django"
+target "https://docs.djangoproject.com/en/1.3/ref/settings/"
+
+\end_inset
+
+ überschrieben werden.
+\end_layout
+
+\begin_layout Subsection
+Gunicorn
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Gunicorn"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In der verwendeten Konfiguration liefert Apache die statischen Medieninhalte
+ aus.
+ Anfragen an die Web-Applikation (dynamische Inhalte) werden an einen dedizierte
+n Python-Webserver - hier 
+\begin_inset CommandInset href
+LatexCommand href
+name "Gunicorn"
+target "http://gunicorn.org/"
+
+\end_inset
+
+ - weitergeleitet, welcher als eigenständiger Prozess läuft.
+\end_layout
+
+\begin_layout Standard
+Gunicorn wurde bereits im Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "sub:Webanwendung"
+
+\end_inset
+
+ aus der Datei “
+\family typewriter
+requirements.txt
+\family default
+” in der virtuellen Python-Ausführungsumgebung installiert.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Um Gunicorn automatisiert zu starten, wird ein 
+\begin_inset CommandInset href
+LatexCommand href
+name "Upstart"
+target "http://upstart.ubuntu.com/"
+
+\end_inset
+
+ Skript benötigt, welches unter 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+/etc/init
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+ mit dem Namen “
+\family typewriter
+verleihsystem_webapp.conf
+\family default
+” abgelegt wird.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Bash
+	filename code/installation_conf_gunicorn_01.sh
+
+\end_inset
+
+Nach diesem Schritt kann der Web Application Server von der Kommandozeile
+ gestartet werden.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Bash
+	filename code/installation_conf_gunicorn_02.sh
+
+\end_inset
+
+Wie in dem Script festgelegt, lauscht der Server auf 
+\family typewriter
+localhost
+\family default
+ mit dem Port 8001 und wird als www-data Benutzer ausgeführt.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Ein Neustart der Webanwendung ist mit dem folgenden Befehl möglich
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Bash
+	filename code/installation_conf_gunicorn_03.sh
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Apache VirtualHost
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Apache-VirtualHost"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Das Verleihsystem soll später unter der URL 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://pluto.hs-weingarten.de/verleihsystem/"
+
+\end_inset
+
+ erreichbar sein.
+ Hierzu ist folgende Apache-Konfiguration notwendig.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template ApacheConf
+	filename code/installation_conf_apache.conf
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+
+\emph on
+Hinweis:
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Der Benutzer “www-data” muss auf das Verzeichnis “
+\family typewriter
+media
+\family default
+” sowie Unterverzeichnisse Schreib- und Leserechte besitzen.
+ Auf das Projekt- (“
+\family typewriter
+prj
+\family default
+”) und “
+\family typewriter
+environment
+\family default
+”-Verzeichnis sind Leserechte notwendig.
+\end_layout
+
+\end_body
+\end_document

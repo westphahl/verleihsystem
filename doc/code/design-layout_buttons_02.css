@@ -1,0 +1,10 @@
+.button, input[type="submit"], input[type="reset"] {
+    font-size: 1.1em;
+    color: #333;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 7px 10px;
+    background-color: #eee;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+}

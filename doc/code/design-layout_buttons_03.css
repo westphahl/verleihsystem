@@ -1,0 +1,5 @@
+a.button:hover, input[type="submit"]:hover, input[type="reset"]:hover {
+    color: #000;
+    border: 1px solid #aaa;
+    box-shadow: 0 0 3px #bbb;
+}

@@ -1,0 +1,1589 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass scrreprt
+\begin_preamble
+\usepackage{fancyvrb}
+\usepackage{color}
+
+\hypersetup{
+    urlcolor=blue           % color of external links
+}
+
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\def\PY@tok@gd{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@gu{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\def\PY@tok@gt{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@gs{\let\PY@bf=\textbf}
+\def\PY@tok@gr{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@cm{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.67,0.67,0.67}{##1}}}
+\def\PY@tok@vg{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@m{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@mh{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@cs{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@ge{\let\PY@it=\textit}
+\def\PY@tok@vc{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@il{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@go{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\def\PY@tok@cp{\def\PY@tc##1{\textcolor[rgb]{0.30,0.51,0.09}{##1}}}
+\def\PY@tok@gi{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+\def\PY@tok@gh{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\def\PY@tok@ni{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.00}{##1}}}
+\def\PY@tok@nn{\let\PY@ul=\underline\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.67}{##1}}}
+\def\PY@tok@no{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@na{\def\PY@tc##1{\textcolor[rgb]{0.12,0.56,1.00}{##1}}}
+\def\PY@tok@nb{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.67}{##1}}}
+\def\PY@tok@nc{\let\PY@ul=\underline\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+\def\PY@tok@nd{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\def\PY@tok@si{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@nf{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+\def\PY@tok@s2{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@vi{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@nt{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.12,0.56,1.00}{##1}}}
+\def\PY@tok@nv{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@s1{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@gp{\def\PY@tc##1{\textcolor[rgb]{0.33,0.33,0.33}{##1}}}
+\def\PY@tok@sh{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@ow{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@sx{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@bp{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.67}{##1}}}
+\def\PY@tok@c1{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.67,0.67,0.67}{##1}}}
+\def\PY@tok@kc{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@c{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.67,0.67,0.67}{##1}}}
+\def\PY@tok@mf{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@err{\def\PY@tc##1{\textcolor[rgb]{0.94,0.00,0.00}{##1}}\def\PY@bc##1{\colorbox[rgb]{0.94,0.63,0.63}{##1}}}
+\def\PY@tok@kd{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@ss{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@sr{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@mo{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@mi{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@kn{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@kr{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@s{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@kp{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@w{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\def\PY@tok@kt{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.67}{##1}}}
+\def\PY@tok@sc{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@sb{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@k{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@se{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@sd{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\end_preamble
+\use_default_options true
+\master main.lyx
+\maintain_unincluded_children false
+\language ngerman
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing onehalf
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip smallskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Einführung in Django
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Einführung-in-Django"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Django ist ein in Python geschriebenes Web-Framework welches grob auf der
+ Model-View-Controller (MVC) Architektur beruht.
+ Im Kontext von Django werden ebenfalls die Begriffe “Model” und “View”
+ verwendet, welche aber nicht zwingend die gleiche Bedeutung wie bei MVC
+ besitzen.
+\end_layout
+
+\begin_layout Section
+Installation
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Installation"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Wenn auf dem Entwicklungssystem Python (2.4 =< Version <= 2.7) und die Python-Setu
+ptools installiert sind, kann Django einfach mit dem “easy_install” Befehl
+ installiert werden.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Bash
+	filename code/intro_django_installation.sh
+
+\end_inset
+
+Weitere Schritte sind nicht notwendig um mit der Entwicklung zu beginnen.
+\end_layout
+
+\begin_layout Section
+Projekt anlegen
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Projekt-anlegen"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ein Projekt in Django umfasst alle Einstellungen und Anwendungen die zu
+ einer Website gehören.
+ Eine Anwendung - meist App genannt - stellt für die Website eine bestimmte
+ Funktionalität zur Verfügung, z.B.
+ einen Weblog.
+ Ein Projekt kann beliebig viele Anwendungen enthalten.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Als erstes muss für die Webanwendung ein neues Projekt angelegt werden.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Bash
+	filename code/intro_django_projekt_anlegen_01.sh
+
+\end_inset
+
+Der “
+\family typewriter
+startproject
+\family default
+”-Befehl legt einen neuen Ordner mit der folgenden Struktur an.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template HTML+Django
+	filename code/intro_django_projekt_anlegen_02.txt
+
+\end_inset
+
+Die “
+\family typewriter
+\series bold
+manage.py
+\family default
+\series default
+” dient ähnlich wie das Skript “
+\family typewriter
+\series bold
+django-admin.py
+\family default
+\series default
+” dazu administrative Aufgaben in dem Projekt von der Kommandozeile aus
+ durchzuführen.
+ So können damit z.B.
+ neue Apps in dem Projekt erzeugt oder die Datenbank erstellt werden.
+ In der Datei “
+\family typewriter
+\series bold
+settings.py
+\family default
+\series default
+” werden Einstellungen für das Projekt vorgenommen.
+ Sie enthält die Konfiguration der Datenbank und die installierten Anwendungen.
+ Die Definition der URLs erfolgt in der Datei “
+\family typewriter
+\series bold
+urls.py
+\family default
+\series default
+”.
+ Hier wird festgelegt, welche URLs vorhanden sind und welche Funktionen
+ bei einer Anfrage ausgeführt werden.
+\end_layout
+
+\begin_layout Subsection
+Development Server
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Development-Server"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Um auf dem Entwickler-PC keinen kompletten Webserver aufsetzen zu müssen,
+ liefert Django einen Development Server mit, welcher über das Management-Werkze
+ug gestartet werden kann.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Bash
+	filename code/intro_django_devserver.sh
+
+\end_inset
+
+Die Webanwendung ist unter der Host-Port-Kombination “
+\family typewriter
+http://localhost:8000
+\family default
+” erreichbar.
+ Ohne weitere Änderungen wird bis jetzt nur eine Testseite (Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Testseite-des-Development"
+
+\end_inset
+
+) angezeigt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/django_intro_devserver.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Testseite des Development Server
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Testseite-des-Development"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Datenbank-Einstellungen
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Datenbank-Einstellungen"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Django unterstützt eine Vielzahl von Datenbanken darunter PostgreSQL und
+ MySQL.
+ Für die Einführungen soll der Einfachheit halber eine Dateibasierte SQLite
+ Datenbank verwendet werden.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Die Einstellungen werden für das Projekt in der Datei “
+\family typewriter
+settings.py
+\family default
+” vorgenommen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Python
+	filename code/intro_django_database_settings.py
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Als Datenbank-Backend wird SQLite verwendet und der absolute Pfad zur Datenbank-
+Datei angegeben.
+ Die Datei selber wird später bei der Synchronisation der Datenbank automatisch
+ angelegt.
+\end_layout
+
+\begin_layout Section
+Neue Anwendung erstellen
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Neue-Anwendung-erstellen"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Für diese Einführung soll eine kleine Lesezeichenverwaltung erstellt werden.
+ Wir legen dazu eine neue Anwendung mit dem “
+\family typewriter
+manage.py
+\family default
+” Tool an.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Bash
+	filename code/intro_django_neue_app_01.sh
+
+\end_inset
+
+Durch den “
+\family typewriter
+startapp
+\family default
+”-Befehl wird automatisch ein neues Python-Package in einem Unterordner
+ mit der notwendigen Struktur erstellt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template HTML+Django
+	filename code/intro_django_neue_app_02.txt
+
+\end_inset
+
+In der Datei “
+\family typewriter
+models.py
+\family default
+” werden die Klassen für die Datenbankmodelle angelegt.
+ Django bietet einen Objektrelationaler Mapper welcher aus den Python-Klassen
+ automatisch die zugehörigen Datenbanktabelle erzeugen kann.
+ Zusätzlich steht eine Objektorientierte Schnittstelle zur Verfügung, mit
+ welcher auf die Datenbank zugegriffen werden kann ohne direkt mit SQL arbeiten
+ zu müssen.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Views sind in Django dafür verantworlich einen Request zu verarbeiten und
+ einen Response zu generieren.
+ Per Konvention werden diese in “
+\family typewriter
+views.py
+\family default
+” definiert.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Falls gewünscht, können für die Anwendung in der Datei “
+\family typewriter
+tests.py
+\family default
+” Untitests angelegt werden.
+ Für den automatisierten Test stellt Django einige hilfreiche Funktionen
+ zur Verfügung um dies zu vereinfachen.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Um die erstellte Anwendung zu aktivieren, muss sie in den Einstellungen
+ unter “
+\family typewriter
+INSTALLED_APPS
+\family default
+” hinzugefügt werden.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Python
+	filename code/intro_django_neue_app_03.py
+
+\end_inset
+
+Im nächsten Schritt werden die notwendigen Models sowie Views erstellt und
+ zugehörige URLs angelegt.
+\end_layout
+
+\begin_layout Section
+Model erstellen
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Model-erstellen"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ein Model ist eine Python-Klasse, welche alle notwendigen Felder und das
+ Verhalten der Daten definiert die benötigt werden.
+ Aus den Models wird automatisch das Layout der Datenbank erzeugt.
+ Gleichzeitig bieten sie eine objektorientierte API um Abfragen ohne SQL
+ durchzuführen.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Die jeweiligen Django-Models müssen von der Klasse “Model” abgeleitet sein.
+ Django 
+\begin_inset CommandInset href
+LatexCommand href
+name "definiert bereits viele Felder"
+target "https://docs.djangoproject.com/en/1.3/ref/models/fields/"
+
+\end_inset
+
+, die für die meisten Anwendungsbereiche ausreichend ist.
+ Es ist auch möglich eigene Model-Felder zu erstellen.
+ In unserer Beispielanwendung benötigen wir in der Datei “
+\family typewriter
+models.py
+\family default
+” eine Klasse “
+\family typewriter
+Bookmark
+\family default
+”.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Python
+	filename code/intro_django_models.py
+
+\end_inset
+
+Das Titelfeld ist auf eine Länge von 200 Zeichen begrenzt.
+ Per Default dürfen der Titel und die URL nicht leer sein.
+ Die Beschreibung muss darum mit “
+\family typewriter
+blank=True
+\family default
+” als optional gekennzeichnet werden.
+ Um keine doppelten Lesezeichen zu speichern, verwenden wir bei dem URL
+ Feld einen UNIQUE-Constraint.
+ 
+\end_layout
+
+\begin_layout Standard
+Das “
+\family typewriter
+add_date
+\family default
+”-Feld enthält Datum und Uhrzeit, an dem das Lesezeichen hinzugefügt wurde.
+ Über das Argument “
+\family typewriter
+auto_now_add
+\family default
+” wird hier festgelegt, dass beim Erzeugen das Feld automatisch auf das
+ aktuelle Datum und Uhrzeit gesetzt werden soll.
+\begin_inset Newline newline
+\end_inset
+
+Die “
+\family typewriter
+__unicode__
+\family default
+”-Methode liefert den Titel zurück, wenn eine Bookmark-Instanz als String
+ dargestellt werden muss.
+\end_layout
+
+\begin_layout Subsection
+Datenbank erstellen/synchronisieren
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Datenbank-erstellen/synchronisien"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nachdem die Models definiert wurden, kann die Datenbank erzeugt werden.
+ Hierbei werden auch Django interne Tabellen angelegt.
+ Dabei wird auch zum Anlegen eines Administrator-Benutzers aufgefordert.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Bash
+	filename code/intro_django_syncdb.sh
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\emph on
+Hinweis:
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Werden an den Models einer Django-App Änderungen vorgenommen, so muss die
+ betroffene Datenbanktabelle gelöscht oder die Änderungen an der Datenbank
+ direkt per Kommandozeile und SQL durchgeführt werden.
+ Es empfiehlt sich deshalb, die Models so weit möglich fertigzustellen,
+ bevor die Webanwendung produktiv eingesetzt wird.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\emph default
+Wird eine neue Anwendung erstellt und zu den “
+\family typewriter
+INSTALLED_APPS
+\family default
+” hinzugefügt, muss die Datenbank erneut synchronisiert werden.
+ Damit werden notwendige Tabellen für die neue App angelegt.
+\end_layout
+
+\begin_layout Subsection
+Managers & QuerySet API
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Managers-&-QuerySet"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Über eine objektorientierte API können Objekte bearbeitet und abgefragt
+ werden.
+ Jedes Model besitzt einen s.g.
+ Manager als Klassenttribut, über welchen die verschiedenen Operationen
+ ausgeführt werden können.
+ Über das “
+\family typewriter
+manage.py
+\family default
+”-Tool kann ein Python-Interpreter gestartet werden, in welchem ein Experimentie
+ren mit der API möglich ist.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Python
+	filename code/intro_django_managers_queryset.py
+
+\end_inset
+
+In der Standardeinstellung ist der Manager unter dem “
+\family typewriter
+objects
+\family default
+” Attribut einer Model-Klasse verfügbar.
+ Weiter Möglichkeiten der Manipulation und Abfrage von Objekten zeigt die
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "Dokumentation"
+target "https://docs.djangoproject.com/en/1.3/ref/models/querysets/"
+
+\end_inset
+
+ der QuerySet-API.
+\end_layout
+
+\begin_layout Section
+Administrator Interface
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Administrator-Interface"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Inhalte hinzufügen, bearbeiten und löschen ist ein Teil von fast jeder Webanwend
+ung.
+ Um diesen immer wiederkehrenden Teil einer Webanwendung einfacher zu gestalten,
+ liefert Django eine Admin-Anwendung mit.
+ Diese muss vor der Benutzung in den Einstellungen aktiviert werden.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Python
+	filename code/intro_django_admin_01.py
+
+\end_inset
+
+Zusätzlich muss in der Datei “
+\family typewriter
+urls.py
+\family default
+” die URL festgelegt werden, unter welcher das Admin-Interface erreichbar
+ sein soll.
+ Wir haben uns für die Standardeinstellung “
+\family typewriter
+/admin/
+\family default
+” entschieden.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Python
+	filename code/intro_django_admin_02.py
+
+\end_inset
+
+Da wir eine neue Anwendung installiert haben, muss die Datenbank wieder
+ synchronisiert werden.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset External
+	template Bash
+	filename code/intro_django_admin_03.sh
+
+\end_inset
+
+Anschließend wird der Development-Server gestartet:
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Bash
+	filename code/intro_django_admin_04.sh
+
+\end_inset
+
+Über die URL 
+\family typewriter
+http://localhost:8000/admin/
+\family default
+ lässt sich nun die Administrationsschnittstelle (Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Administrator-Login"
+
+\end_inset
+
+) aufrufen.
+ Hier muss kann man sich mit dem vorher erstellten Benutzer anmelden.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/django_intro_admin_login.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Administrator Login
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Administrator-Login"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nach der Anmeldung wird die Dashboard-Ansicht des Admin-Interface angezeigt
+ (Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Dashboard-ohne-Bookmarks"
+
+\end_inset
+
+).
+ Hier lassen sich auch Gruppen und Benutzer editieren.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/django_intro_admin_dashboard_no_bookmarks.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Dashboard ohne Bookmarks
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Dashboard-ohne-Bookmarks"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Admin Interface für Bookmarks
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Admin-Interface-für-Bookmarks"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Damit wir auch unsere Lesezeichen über das Webinterface verwalten können,
+ muss dies erst noch separat aktiviert werden.
+ Hierfür wird die Datei “
+\family typewriter
+bookmarks/admin.py
+\family default
+” mit dem folgenden Inhalt angelegt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Python
+	filename code/intro_django_bookmarks_admin.py
+
+\end_inset
+
+Dannach kann der Development-Server erneut gestartet werden.
+ Im Admin-Interface ist nun die Bookmarks Anwendung sichtbar (Abbildung
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Dashboard-mit-Bookmarks"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/django_intro_admin_dashboard.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Dashboard mit Bookmarks
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Dashboard-mit-Bookmarks"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Über den Link “
+\family typewriter
+add
+\family default
+” kann ein neues Lesezeichen hinzugefügt werden (Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Lesezeichen-hinzufügen"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/django_intro_admin_add_bookmark.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Lesezeichen hinzufügen
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Lesezeichen-hinzufügen"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+URL Management
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:URL-Management"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Im letzten Abschnitt wurde bereits eine URL definiert, unter welcher das
+ Admin-Interface verfügbar ist.
+ Die s.g.
+ URL-Pattern besteht aus einem regulären Ausdruck gefolgt von einer Python
+ Callback-Funktion und optionalen Parametern.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Für die Lesezeichenverwaltung soll beim Aufruf der Startseite eine Liste
+ mit allen Bookmarks in chronologischer Reihenfolge angezeigt werden.
+ Hierzu legen wir in der Datei “
+\family typewriter
+urls.py
+\family default
+” eine neue URL an.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Python
+	filename code/intro_django_urls.py
+
+\end_inset
+
+Hier wird definiert, dass beim Aufruf der Homepage die View-Funktion “
+\family typewriter
+list_bookmarks
+\family default
+” in der Datei “
+\family typewriter
+bookmarks/views.py
+\family default
+” aufgerufen wird.
+ Die Funktion selber wird im nächsten Abschnitt programmiert.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Da die URL-Pattern reguläre Ausdrücke verwenden sind hier nahezu keine Grenzen
+ gesetzt.
+ Einen weiterführenden Einstieg liefert die 
+\begin_inset CommandInset href
+LatexCommand href
+name "Dokumentation"
+target "https://docs.djangoproject.com/en/1.3/topics/http/urls/"
+
+\end_inset
+
+ zum Thema URLs.
+\end_layout
+
+\begin_layout Section
+View erstellen
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:View-erstellen"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Wenn nach der Einrichtung der URLs der Development-Server gestartet und
+ die Homepage aufgerufen wird, erhält man eine Fehlermeldung (Abbildung
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ViewDoesNotExist-Fehler"
+
+\end_inset
+
+).
+ Das liegt daran, dass die angegebene View noch nicht existiert und somit
+ eine Exception erzeugt wird.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/django_intro_viewdoesnotexist.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+ViewDoesNotExist Fehler
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ViewDoesNotExist-Fehler"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Wie bereits erwähnt, ist eine View eine Callback-Funktion.
+ Sie erhält als erstes Argument ein 
+\begin_inset CommandInset href
+LatexCommand href
+name "HttpRequest"
+target "https://docs.djangoproject.com/en/1.3/ref/request-response/#django.http.HttpRequest"
+
+\end_inset
+
+-Objekt und eventuelle Parameter, die über die Regular Expression abgefangen
+ wurden, als Keyword-Argumente.
+ Eine View liefert als Rückgabewert ein 
+\begin_inset CommandInset href
+LatexCommand href
+name "HttpResponse"
+target "https://docs.djangoproject.com/en/1.3/ref/request-response/#django.http.HttpResponse"
+
+\end_inset
+
+-Objekt.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+In der “
+\family typewriter
+list_bookmarks
+\family default
+”-View verwenden wir die QuerySet-API um alle Lesezeichen abzufragen.
+ Anschließend wird eine HTML-Seite gerendert und eine HttpResponse zurückgegeben.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Python
+	filename code/intro_django_views_01.py
+
+\end_inset
+
+Ein Template wird mit einem bestimmten Kontext gerendert.
+ Der Kontext enthält Daten und Objekte, welche dem Entwickler im Template
+ zur Verfügung stehen.
+ Hier werden die Lesezeichen unter dem Namen “
+\family typewriter
+bookmark_list
+\family default
+” zum Template-Kontext hinzugefügt.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Da das Rendern eines Templates häufig vorkommt, kann durch den Einsatz von
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "Shortcuts"
+target "https://docs.djangoproject.com/en/1.3/topics/http/shortcuts/"
+
+\end_inset
+
+ die View noch folgendermaßen vereinfacht werden.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Python
+	filename code/intro_django_views_02.py
+
+\end_inset
+
+Wird nun erneut versucht auf die Hompage unserer Lesezeichenverwaltung zuzugreif
+en, erscheint eine andere Fehlermeldung (Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:TemplateDoesNotExists-Fehler"
+
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/django_intro_templatedoesnotexist.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+TemplateDoesNotExists Fehler
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:TemplateDoesNotExists-Fehler"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Um diese Fehlermeldung zu beseitigen muss nun im letzten Abschnitt noch
+ ein Template angelegt werden.
+\end_layout
+
+\begin_layout Section
+Templates
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Templates"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Django bringt eine eigene Template-Sprache mit, welcher grundlegende Kontrollstr
+ukturen, wie z.B.
+ Schleifen und Abfragen, realisiert werden können.
+ Diese so genannten Tags und Filter werden in ein HTML-Dokument eingebettet
+ und beim Rendern eines Templates ersetzt und verarbeitet.
+\end_layout
+
+\begin_layout Standard
+Template Tags stehen immer zwischen “
+\family typewriter
+{% tag_name %}
+\family default
+”.
+ Variablen aus dem Kontext können mit “
+\family typewriter
+{{ variablen_name.attribut }}
+\family default
+“ ausgegeben werden.
+ Mit Filtern kann die Ausgabe einer Variablen verändert werden.
+\end_layout
+
+\begin_layout Standard
+Sie werden in der Form “
+\family typewriter
+{{ variable|filter }}
+\family default
+” verwendet und dienen z.B.
+ dazu ein Datum zu formatieren.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Django erlaubt mit Absicht keine direkte Einbettung von Python-Code und
+ komplexeren Kontrollstrukturen in Templates um die strikte Trennung von
+ Logik und Darstellung zu erzwingen.
+ Reichen die bereits vorhandenen Tags und Filter nicht aus, können diese
+ einfach um 
+\begin_inset CommandInset href
+LatexCommand href
+name "eigene Elemente"
+target "https://docs.djangoproject.com/en/1.3/howto/custom-template-tags/"
+
+\end_inset
+
+ erweitert werden.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Die Templates werden in einem “
+\family typewriter
+templates
+\family default
+”-Verzeichnis unterhalb des Django-Projekts abgelegt.
+ Damit diese auch von Django gefunden werden, muss das Verzeichnis in den
+ Einstellungen zu den Template-Verzeichnissen hinzugefügt werden.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template Python
+	filename code/intro_django_templates_01.py
+
+\end_inset
+
+Templates können in Django vererbt werden.
+ Dadurch lassens ich wiederkehrende Elemente wie Doctype, Head und Andere
+ in ein Basis-Template auslagern.
+ In diesem werden Blöcke definiert, die in einem abgeleiteten Template überschri
+eben oder erweitert werden können.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Hier wird ein einfaches HTML5 Template mit dem Namen “
+\family typewriter
+base.html
+\family default
+” angelegt welches als Grundlage für alle anderen Templates dient.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template HTML+Django
+	filename code/intro_django_templates_02.html
+
+\end_inset
+
+Es werden hier die zwei Blöcke “
+\family typewriter
+title
+\family default
+” für den Seitentitel und “
+\family typewriter
+content
+\family default
+” für den Inhalt definiert.
+ Um die Struktur der Templates übersichtlich zu halten, sollten diese nach
+ zugehöriger Django-App in Ordner sortiert werden.
+ Hier wird z.B.
+ der Ordner “
+\family typewriter
+templates/bookmarks
+\family default
+” für die Lesezeichen-Anwendung erstellt und ein Template “
+\family typewriter
+list_view.html
+\family default
+” angelegt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template HTML+Django
+	filename code/intro_django_templates_03.html
+
+\end_inset
+
+Dieses Template wird durch den Template-Tag “
+\family typewriter
+{% extends…
+\family default
+” vom Basis-Template abgeleitet.
+ Die dort definierten Blöcke können nur mit Inhalten befüllt werden.
+\end_layout
+
+\begin_layout Standard
+Im Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "sec:View-erstellen"
+
+\end_inset
+
+ wurden die Lesezeichen unter dem Namen “
+\family typewriter
+bookmark_list
+\family default
+” an den Template-Kontext übergeben.
+ Über eine For-Schleife kann nun über die Elemente der Liste iteriert werden.
+ Innerhalb der For-Schleife wird über den Namen “bookmark” auf die Attribute
+ eines Lesezeichens zugegriffen.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Um das Erstellungsdatum eines Leszeichens zu formatieren wird der 
+\begin_inset CommandInset href
+LatexCommand href
+name "Date-Filter"
+target "https://docs.djangoproject.com/en/1.3/ref/templates/builtins/#date"
+
+\end_inset
+
+ verwendet.
+ Als Argument können die gewünschten Formatierungsoptionen übergeben werden:
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template HTML+Django
+	filename code/intro_django_templates_04.html
+
+\end_inset
+
+Startet man nun erneut den Server und ruft die Startseite auf, so wird die
+ fertige Homepage mit den gespeicherten Lesezeichen angezeigt (Abbildung
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Startseite"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/django_intro_homepage.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Startseite
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Startseite"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Der nächste Schritt wäre, das Layout mit CSS zu erstellen und die entsprechenden
+ Dateien einzubinden.
+ Zu diesem und anderen Themen liefert die offizielle 
+\begin_inset CommandInset href
+LatexCommand href
+name "Django Dokumentation"
+target "https://docs.djangoproject.com/en/1.3/"
+
+\end_inset
+
+ weiterführende und ausführlichere Informationen als es in dieser Einführung
+ möglich wäre.
+\end_layout
+
+\end_body
+\end_document

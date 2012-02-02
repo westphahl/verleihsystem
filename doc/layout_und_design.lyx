@@ -1,0 +1,808 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass scrreprt
+\begin_preamble
+\usepackage{fancyvrb}
+\usepackage{color}
+
+\hypersetup{
+    urlcolor=blue           % color of external links
+}
+
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\def\PY@tok@gd{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@gu{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\def\PY@tok@gt{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@gs{\let\PY@bf=\textbf}
+\def\PY@tok@gr{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@cm{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.67,0.67,0.67}{##1}}}
+\def\PY@tok@vg{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@m{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@mh{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@cs{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@ge{\let\PY@it=\textit}
+\def\PY@tok@vc{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@il{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@go{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\def\PY@tok@cp{\def\PY@tc##1{\textcolor[rgb]{0.30,0.51,0.09}{##1}}}
+\def\PY@tok@gi{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+\def\PY@tok@gh{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\def\PY@tok@ni{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.00}{##1}}}
+\def\PY@tok@nn{\let\PY@ul=\underline\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.67}{##1}}}
+\def\PY@tok@no{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@na{\def\PY@tc##1{\textcolor[rgb]{0.12,0.56,1.00}{##1}}}
+\def\PY@tok@nb{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.67}{##1}}}
+\def\PY@tok@nc{\let\PY@ul=\underline\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+\def\PY@tok@nd{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\def\PY@tok@si{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@nf{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+\def\PY@tok@s2{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@vi{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@nt{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.12,0.56,1.00}{##1}}}
+\def\PY@tok@nv{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@s1{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@gp{\def\PY@tc##1{\textcolor[rgb]{0.33,0.33,0.33}{##1}}}
+\def\PY@tok@sh{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@ow{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@sx{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@bp{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.67}{##1}}}
+\def\PY@tok@c1{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.67,0.67,0.67}{##1}}}
+\def\PY@tok@kc{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@c{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.67,0.67,0.67}{##1}}}
+\def\PY@tok@mf{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@err{\def\PY@tc##1{\textcolor[rgb]{0.94,0.00,0.00}{##1}}\def\PY@bc##1{\colorbox[rgb]{0.94,0.63,0.63}{##1}}}
+\def\PY@tok@kd{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@ss{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@sr{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@mo{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@mi{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@kn{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@kr{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@s{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@kp{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@w{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\def\PY@tok@kt{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.67}{##1}}}
+\def\PY@tok@sc{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@sb{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@k{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@se{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@sd{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\end_preamble
+\use_default_options true
+\master main.lyx
+\maintain_unincluded_children false
+\language ngerman
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing onehalf
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip smallskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Layout & Design
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Layout-&-Design"
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Section
+Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Layout"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Das gesamte Layout kann man in 3 Spalten aufteilen (Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Layout-in-Spalten"
+
+\end_inset
+
+).
+ Auf der linken Seite ist die Navigation (1), in der Mitte Content (2) und
+ auf der rechten Seite die Sidebar (3).
+ Als Hintergrundfarbe wurde ein ganz leichtes Grau (
+\family typewriter
+#f5f5f5
+\family default
+) und als Schriftfarbe Schwarz (
+\family typewriter
+#000000
+\family default
+) gewählt, um einen gut lesbaren Kontrast zu bilden.
+ Als Schriftart wurde “Open Sans” aus den Google Web Fonts#gewählt.
+ Als Akzentfarbe wurde ein Lila-Ton (
+\family typewriter
+#993399
+\family default
+) gewählt, welches den Farben der Hochschule entspricht.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/michael/Dropbox/verleihsystem/img/layout_columns.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Layout in Spalten
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Layout-in-Spalten"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Navigation
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Navigation"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die Navigation (Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Navigationsleiste"
+
+\end_inset
+
+) ist eine statische Leiste, in der alle wichtigen Navigationspunkte zusammengef
+asst sind.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/michael/Dropbox/verleihsystem/img/layout_navigation.png
+	width 40text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Navigationsleiste
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Navigationsleiste"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Bei dem Element Dashboard wird zusätzlich noch ein “Warning”-Symbol angezeigt,
+ falls der Benutzer noch überfällige Leihvorgänge hat.
+ Der Menüpunkt “Administration” wird nur angezeigt, wenn der Benutzer den
+ Status “Redakteur” hat.
+ Wenn kein Benutzer angemeldet ist, werden nur die 3 Menüpunkte “Startseite”,
+ “Kontakt” und “Anmelden” angezeigt.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Die Leiste hat die CSS-Eigenschaft “
+\family typewriter
+position: fixed
+\family default
+”, damit Sie immer an der gleichen Stelle ist, auch wenn nach unten gescrollt
+ wird.
+ Als Hintergrund wurde ein weicher Farbverlauf von 
+\family typewriter
+#222222
+\family default
+ nach 
+\family typewriter
+#333333
+\family default
+ verwendet.
+ Falls ein Browser keinen Farbverlauf unterstützt, z.
+ B.
+ Internet Explorer 6, dann wird als Hintergrund die Farbe 
+\family typewriter
+#333333
+\family default
+ (dunkelgrau) verwendet.
+\end_layout
+
+\begin_layout Subsection
+Content
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Content"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Im Content-Bereich wird der Inhalt der jeweiligen Seite angezeigt (Abbildung
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Inhalt"
+
+\end_inset
+
+).
+ Dabei ist links oben immer der Titel der Seite (1).
+ Rechts davon werden bei Admin-Benutzern die Administrations-Links (2) angezeigt.
+ Darunter ist dann der zentrale Seiteninhalt (z.
+ B.
+ Produkttabelle, Warenkorb) zu sehen (3).
+\begin_inset Newline newline
+\end_inset
+
+Wenn eine Tabelle dargestellt wird, werden die Zeilenhintergründe jeweils
+ abwechselnd zwischen zwei Farben hin- und hergewechselt (4).
+ Dies sorgt für eine bessere Unterscheidbarkeit und Abtrennung der einzelnen
+ Zeilen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/michael/Dropbox/verleihsystem/img/layout_content.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Inhalt
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Inhalt"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Sidebar
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Sidebar"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In der Sidebar (Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Sidebar"
+
+\end_inset
+
+) werden immer die Kategorien (2) angezeigt.
+ Wenn eine Produktkategorie aktiv ist, können zusätzlich noch die Kontaktdaten
+ der verantwortlichen Person (1) angezeigt werden.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/michael/Dropbox/verleihsystem/img/layout_sidebar.png
+	width 30text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Sidebar
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Sidebar"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Template Engine
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Template-Engine"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die Django Template Engine bietet eine sehr einfache und bequeme Möglichkeit,
+ Layouts zu erstellen und zu verschachteln.
+ Dazu gibt es Tags und Filter die in die HTML-Templates eingebaut werden.
+ Ein Beispiel hierfür ist zum Beispiel der “block”-Tag.
+ 
+\end_layout
+
+\begin_layout Paragraph
+Beispiel:
+\end_layout
+
+\begin_layout Standard
+Im Basis-Template wird der Block “content” definiert.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template HTML+Django
+	filename /home/michael/Dropbox/verleihsystem/code/design-layout_template_engine_01.html
+
+\end_inset
+
+Dieses Basis-Template kann nun abgeleitet werden.
+ Dies wird mit dem Befehl
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template HTML+Django
+	filename code/design-layout_template_engine_02.html
+
+\end_inset
+
+gemacht, welcher am Anfang des abgeleiteten Templates steht.
+ Nun kann man die Blöcke des Basis-Template überschreiben.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template HTML+Django
+	filename code/design-layout_template_engine_03.html
+
+\end_inset
+
+Mit dem Befehlt 
+\family typewriter
+{% include … %}
+\family default
+ können auch andere Templates eingebunden werden.
+ Daher bietet es sich an, bestimmte Template-Teile auszulagern.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Mit Filtern kann man die Ausgabe verändern (z.
+ B.
+ Datumsformat, Text nach einer bestimmten Länge abschneiden, …)
+\end_layout
+
+\begin_layout Paragraph
+Beispiel: 
+\end_layout
+
+\begin_layout Standard
+Von einen langen Text sollen nur die ersten 4 Worte als Zusammenfassung
+ angezeigt werden.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template HTML+Django
+	filename code/design-layout_template_engine_04.html
+
+\end_inset
+
+Damit wird aus:
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template HTML+Django
+	filename code/design-layout_template_engine_05.html
+
+\end_inset
+
+Eine vollständige Liste aller Tags und Filter gibt es in der 
+\begin_inset CommandInset href
+LatexCommand href
+name "Dokumentation"
+target "https://docs.djangoproject.com/en/dev/ref/templates/builtins/"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Buttons
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Buttons"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die Buttons wurden teilweise nur mit Icons, mit Icons und Text oder nur
+ Text angezeigt.
+ Die Icons sollen eine schnellere und intuitive Bedienung ermöglichen.
+ Diese Buttons können sowohl aus normalen Links als auch aus Submit-Buttons
+ von Formularen erstellt werden.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template HTML+Django
+	filename code/design-layout_buttons_01.html
+
+\end_inset
+
+Das globale Aussehen wurde mit folgender CSS-Klasse realisiert:
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template CSS
+	filename code/design-layout_buttons_02.css
+
+\end_inset
+
+Diese Klasse übernimmt die Textformatierung, Innenabstand, Rahmen und rundet
+ die Ecken der Buttons ab.
+ Für den Hover-Effekt sorgt folgende Klasse:
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template CSS
+	filename code/design-layout_buttons_03.css
+
+\end_inset
+
+Dadurch ändert sich die Text- und Rahmenfarbe und der Button besitzt einen
+ leichten Schatten (nur bei Browser mit CSS3 Unterstützung).
+ Um ein Icon im Button anzuzeigen, muss noch eine zusätzliche Klasse verwendet
+ werden, welche das entsprechende Icon definiert:
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template CSS
+	filename code/design-layout_buttons_04.css
+
+\end_inset
+
+Dadurch wird der Innenabstand des Buttons vergrößert um Platz für das Icon
+ zu schaffen und dieses dann als Hintergrund auf der linken Seite gesetzt.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Die verschiedene Zustände eines Buttons sind in Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Button-Varianten"
+
+\end_inset
+
+ zu sehen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/layout_buttons.png
+	width 30text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Button-Varianten
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Button-Varianten"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Sonstiges
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Sonstiges"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Als Icons wurde das 
+\begin_inset CommandInset href
+LatexCommand href
+name "Silk Icon-Set"
+target "http://www.famfamfam.com/lab/icons/silk/"
+
+\end_inset
+
+ von Mark James und das Iconset 
+\begin_inset CommandInset href
+LatexCommand href
+name "Dusseldorf"
+target "http://pc.de/icons/"
+
+\end_inset
+
+ von pc.de verwendet.
+ Diese sind kostenlos und unter der Creative Commons Attribution 3.0 Lizenz
+ verfügbar.
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,739 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass scrreprt
+\begin_preamble
+\usepackage{fancyvrb}
+\usepackage{color}
+
+\hypersetup{
+    urlcolor=blue           % color of external links
+}
+
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\def\PY@tok@gd{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@gu{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\def\PY@tok@gt{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@gs{\let\PY@bf=\textbf}
+\def\PY@tok@gr{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@cm{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.67,0.67,0.67}{##1}}}
+\def\PY@tok@vg{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@m{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@mh{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@cs{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@ge{\let\PY@it=\textit}
+\def\PY@tok@vc{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@il{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@go{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\def\PY@tok@cp{\def\PY@tc##1{\textcolor[rgb]{0.30,0.51,0.09}{##1}}}
+\def\PY@tok@gi{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+\def\PY@tok@gh{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\def\PY@tok@ni{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.00}{##1}}}
+\def\PY@tok@nn{\let\PY@ul=\underline\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.67}{##1}}}
+\def\PY@tok@no{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@na{\def\PY@tc##1{\textcolor[rgb]{0.12,0.56,1.00}{##1}}}
+\def\PY@tok@nb{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.67}{##1}}}
+\def\PY@tok@nc{\let\PY@ul=\underline\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+\def\PY@tok@nd{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\def\PY@tok@si{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@nf{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+\def\PY@tok@s2{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@vi{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@nt{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.12,0.56,1.00}{##1}}}
+\def\PY@tok@nv{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PY@tok@s1{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@gp{\def\PY@tc##1{\textcolor[rgb]{0.33,0.33,0.33}{##1}}}
+\def\PY@tok@sh{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@ow{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@sx{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@bp{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.67}{##1}}}
+\def\PY@tok@c1{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.67,0.67,0.67}{##1}}}
+\def\PY@tok@kc{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@c{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.67,0.67,0.67}{##1}}}
+\def\PY@tok@mf{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@err{\def\PY@tc##1{\textcolor[rgb]{0.94,0.00,0.00}{##1}}\def\PY@bc##1{\colorbox[rgb]{0.94,0.63,0.63}{##1}}}
+\def\PY@tok@kd{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@ss{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@sr{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@mo{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@mi{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PY@tok@kn{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@kr{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@s{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@kp{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@w{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\def\PY@tok@kt{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.67}{##1}}}
+\def\PY@tok@sc{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@sb{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@k{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PY@tok@se{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PY@tok@sd{\def\PY@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\end_preamble
+\use_default_options true
+\master main.lyx
+\maintain_unincluded_children false
+\language ngerman
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing onehalf
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip smallskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Clientseitige Programmierung mit JavaScript & jQuery
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Clientseitige-Programmierung-mit"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Framework
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Framework"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Als JavaScript-Framework wurde jQuery verwendet.
+ Zusätzlich wurde auch noch das jQuery User Interface (UI) für den Datepicker
+ verwendet.
+ Es wurde jQuery verwendet, da es ein schnelles und kompaktes JavaScript-Framewo
+rk ist und wir mit der Entwicklung bereits vertraut waren.
+ Es bietet alle benötigten Funktionen, wie Cross-Browser-Support, AJAX,
+ Datepicker und eine einfache Implementierbarkeit.
+ Mit dem 
+\begin_inset CommandInset href
+LatexCommand href
+name "ThemeRoller"
+target "http://jqueryui.com/themeroller/"
+
+\end_inset
+
+ von jQuery UI können angepasste Designs erstellt, heruntergeladen und in
+ die eigene Seite eingebaut werden.
+\end_layout
+
+\begin_layout Section
+Timeline
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Timeline"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Mit der Timeline (Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Timeline"
+
+\end_inset
+
+) kann man sehen, ob ein Objekt zu einem bestimmten Zeitraum schon ausgeliehen
+ ist (1).
+ Um dies übersichtlich zu gestalten, werden immer nur 14 Tage auf einmal
+ angezeigt (die Anzahl der Tage kann über eine Einstellung geändert werden).
+ Die Navigation der Timeline erfolgt über zwei Buttons (2) mit welchen vor-
+ und zurückgeblättert werden kann.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/javascript_timeline_buttons.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Timeline
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Timeline"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Wenn einer diese Buttons gedrückt wird, wird im Hintergrund mit AJAX der
+ neue Datumsbereich abgefragt und sobald die Antwort vorhanden ist, angezeigt.
+ Während die Abfrage läuft, wird anstelle der Timeline ein Ladesymbol (Abbildung
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Timeline-Loading"
+
+\end_inset
+
+) angezeigt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/javascript_timeline_loading.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Timeline Loading
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Timeline-Loading"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Falls kein JavaScript aktiviert sein sollte, wird der Datumsbereich mit
+ GET-Parameter geändert, d.h.
+ die Seite wird mit dem angefragten Datumsbereich neu geladen.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Es gibt drei verschiedene Farben in der Timeline (Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Timeline-Farben"
+
+\end_inset
+
+).
+ Diese sind die einer Ampel nachempfundenen Farben Rot, Gelb und Grün.
+\end_layout
+
+\begin_layout Standard
+Dabei bedeutet Rot (1), dass das Objekt schon Reserviert ist.
+ Gelb (2) bedeutet, dass für das Objekt schon eine Reservierungs-Anfrage
+ vorhanden ist, die jedoch noch nicht bestätigt wurde.
+ Grün (3) bedeutet, dass für dieses Objekt an diesem Tag noch keine Anfrage
+ vorhanden ist.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/javascript_timeline_colors.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Timeline Farben
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Timeline-Farben"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ist der angemeldete Benutzer ein Administrator, so werden für reservierten
+ Tage (1) Links angezeigt über welche zu der entsprechenden Reservierung
+ gesprungen werden kann.
+\end_layout
+
+\begin_layout Standard
+Erfolg die Aktualisierung über AJAX, so ist es wichtig, dass die Tooltip-Funktio
+nen nochmal neu geladen werden.
+ Dies muss gemacht werden, da die “
+\family typewriter
+rel
+\family default
+”- und “
+\family typewriter
+title
+\family default
+”-Attribut von nachgeladenen Objekten in Tooltips umgewandelt werden müssen.
+ Mehr Informationen zu den Tooltips gibt es im Kapitel 
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "sec:Tipsy"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Datepicker
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Datepicker"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Der Datepicker wurde mit jQuery UI realisiert.
+ Die Einstellungen dazu werden aus der Datei “
+\family typewriter
+jquery-ui.datepicker-de.js
+\family default
+” geladen.
+ Dort können gegebenenfalls Parameter geändert werden.
+ Wichtig ist vor allem das Datumsformat, welches von Django geparst werden
+ muss.
+ Dazu wird dem Input-Element die Klasse “
+\family typewriter
+datepicker
+\family default
+” zugewiesen.
+ Damit wird ein Eventlistener für “
+\family typewriter
+onClick
+\family default
+”-Event erstellt.
+ Dieser Eventlistener startet dann den Datepicker (Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Datepicker"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/javascript_datepicker.png
+	width 40text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Datepicker
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Datepicker"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Wenn ein Datum auswählt wurde, wird das Fenster wieder geschlossen und das
+ ausgewählt Datum in das Feld eingetragen.
+\end_layout
+
+\begin_layout Section
+Tipsy
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Tipsy"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tipsy ist ein Tooltip-Plugin für jQuery.
+ Damit lassen sich einfache und schöne Tooltips erstellen.
+ Dabei wird das “
+\family typewriter
+title
+\family default
+”-Attribut verwendet.
+ Um den Tooltip zu aktivieren muss das Objekt ein “
+\family typewriter
+rel
+\family default
+”-Attribut besitzen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template HTML+Django
+	filename code/client_tipsy_01.html
+
+\end_inset
+
+Mit dem Text innerhalb des “
+\family typewriter
+rel
+\family default
+”-Attribut wird es mit einer Funktion verknüpft, welche beim Laden der Seite
+ aktiviert werden.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template JavaScript
+	filename code/client_tipsy_02.js
+
+\end_inset
+
+Bei diesem Beispiel bedeutet dies, dass der Tooltip erst 500 Millisekunden
+ nachdem der Mauszeiger über dem Objekt ist, über diesem erscheint (Abbildung
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Tipsy-Demo"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/javascript_tipsy.png
+	width 1.5cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Tipsy-Demo
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Tipsy-Demo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Kurze Erklärung der Optionen: 
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+delayIn
+\family default
+ - Verzögert die Einblendung um x Millisekunden.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+delayOut
+\family default
+ - Verzögert die Ausblendung um x Millisekunden.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+fade
+\family default
+ - weiches Ein-/Ausblendung des Elements.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+gravity
+\family default
+ - Legt die Position fest.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+north
+\family default
+ (n) - Unterhalb des Objektes.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+east
+\family default
+ (e) - Links des Objektes.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+south
+\family default
+ (s) - Überhalb des Objektes.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+west
+\family default
+ (w) - Rechts des Objektes.
+\end_layout
+
+\begin_layout Standard
+Es sind auch Zwischenstufen wie zum Beispiel “
+\family typewriter
+northwest
+\family default
+” und Auto-Positionierung möglich.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Eine Liste aller möglichen Optionen und Parameter finden Sie in der 
+\begin_inset CommandInset href
+LatexCommand href
+name "Dokumentation"
+target "http://onehackoranother.com/projects/jquery/tipsy/"
+
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document
