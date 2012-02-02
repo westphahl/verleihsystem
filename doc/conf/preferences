@@ -1,0 +1,88 @@
+# LyX 2.0.0 generated this file. If you want to make your own
+# modifications you should do them from inside LyX and save.
+
+Format 1
+
+
+#
+# MISC SECTION ######################################
+#
+
+\user_name ",,,"
+\user_email ""
+\use_converter_cache false
+
+#
+# SCREEN & FONTS SECTION ############################
+#
+
+\screen_font_sizes 5 7 8 9 10 12 14.4 17.260000000000002 20.739999999999998 24.879999999999999
+\single_instance false
+
+#
+# COLOR SECTION ###################################
+#
+
+
+#
+# PRINTER SECTION ###################################
+#
+
+
+#
+# TEX SECTION #######################################
+#
+
+
+#
+# FILE SECTION ######################################
+#
+
+
+#
+# PLAIN TEXT EXPORT SECTION ##############################
+#
+
+
+#
+# SPELLCHECKER SECTION ##############################
+#
+
+
+#
+# LANGUAGE SUPPORT SECTION ##########################
+#
+
+
+#
+# 2nd MISC SUPPORT SECTION ##########################
+#
+
+
+#
+# FORMATS SECTION ##########################
+#
+
+\format "ApacheConf" "conf" "Apache Config" "" "" "" "document"
+\format "Bash" "sh" "Bash" "" "" "" "document"
+\format "CSS" "css" "CSS" "" "" "gedit" "document"
+\format "HTML+Django" "html" "HTML+Django" "" "" "" "document"
+\format "JavaScript" "js" "JavaScript" "" "" "" "document"
+\format "Python" "py" "Python" "" "" "" "document"
+\default_view_format latex
+
+#
+# CONVERTERS SECTION ##########################
+#
+
+\converter "CSS" "latex" "pygmentize -l css -P linenos=True -P verboptions=\"frame=single\" -o $$o  $$i" ""
+\converter "HTML+Django" "latex" "pygmentize -l \"html+django\" -P linenos=True -P verboptions=\"frame=single\" -o $$o  $$i" ""
+\converter "Bash" "latex" "pygmentize -l sh -P linenos=True -P verboptions=\"frame=single\" -o $$o  $$i" ""
+\converter "ApacheConf" "latex" "pygmentize -l apache -P linenos=True -P verboptions=\"frame=single\" -o $$o  $$i" ""
+\converter "Python" "latex" "pygmentize -l python -P linenos=True -P verboptions=\"frame=single\" -o $$o  $$i" ""
+\converter "JavaScript" "latex" "pygmentize -l js -P linenos=True -P verboptions=\"frame=single\" -o $$o  $$i" ""
+
+#
+# COPIERS SECTION ##########################
+#
+
