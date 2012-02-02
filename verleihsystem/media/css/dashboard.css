@@ -23,19 +23,19 @@ table#dashboard tbody tr td {
 	padding: 3px;
 	vertical-align: middle;
 }
-table#dashboard td.Überfällig {
+table#dashboard td.uberfallig {
 	background-color: #f00;
 }
-table#dashboard td.Reserviert {
+table#dashboard td.reserviert {
 	background-color: #0c0;
 }
-table#dashboard td.Anfrage {
+table#dashboard td.anfrage {
 	background-color: #FFE500;
 }
-table#dashboard td.Abgelehnt {
+table#dashboard td.abgelehnt {
 	background-color: #333;
 }
-table#dashboard tr.Abgelehnt {
+table#dashboard tr.abgelehnt {
 	color: #999;
 }
 table#dashboard tbody tr td img {

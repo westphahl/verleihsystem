@@ -16,7 +16,7 @@
 <h1>{{ category.name }}
 <span class="adminopt">
     {% if request.user.is_staff and product_list %}
-    <a rel="tipsy_adminopt" title="Alle Produkte in Warenkorb" href="{% url shoppingcart_add_category %}?id={{ category.id }}"><img src="{{ MEDIA_URL }}img/icon/cart_add.png" alt="Alle Produkte in Warenkorb" /></a>
+    <a class="tipsy_adminopt" title="Alle Produkte in Warenkorb" href="{% url shoppingcart_add_category %}?id={{ category.id }}"><img src="{{ MEDIA_URL }}img/icon/cart_add.png" alt="Alle Produkte in Warenkorb" /></a>
     {% endif %}
 </span>
 </h1>
@@ -27,7 +27,6 @@
         <col style="width:110px" />
         <col />
         <col style="width:60px" />
-        <col style="width:120px" />
     </colgroup>
     <thead>
         <tr>

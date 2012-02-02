@@ -31,8 +31,8 @@
         {% for name, reservation_list in reservation_categories %}
         {% for reservation in reservation_list %}
         {% cycle 'odd' 'even' as rowcolors silent %}
-        <tr class="{{ rowcolors }} {{ name }}">
-            <td class="{{ name }}"></td>
+        <tr class="{{ rowcolors }} {{ name|slugify }}">
+            <td class="{{ name|slugify }}"></td>
             <td>{{ reservation.start_date|date:"l, d. F Y" }}</td>
             <td>{{ reservation.end_date|date:"l, d. F Y" }}</td>
             <td>{{ name }}</td>

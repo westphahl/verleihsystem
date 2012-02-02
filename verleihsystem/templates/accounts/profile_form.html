@@ -38,12 +38,12 @@
 	</table>
 	<br /><br />
 	<h5>Zusätzliche Daten</h5>
-	<form method="post" action="">
+	<form method="post" action="#">
 		{% csrf_token %}
 		<table>
 			<colgroup>
-				<col width="200px">
-				<col width="">
+				<col style="width:200px" />
+				<col />
 			</colgroup>
 			<tbody>
 				<tr>
@@ -63,7 +63,7 @@
 		<br />
 		<p class="left"><input class="save" type="submit" value="Speichern"></p>
 	</form>
-<div>
+</div>
 <br />
 <p style="font-size:0.9em;text-align:right">Letzte Anmeldung: {{ request.user.last_login }}</p>
 {% endblock %}

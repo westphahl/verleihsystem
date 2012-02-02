@@ -16,8 +16,8 @@
 {% if product_list %}
 <table id="product_list">
     <colgroup>
-        <col width="">
-        <col width="30px">
+        <col  />
+        <col style="width:30px" />
     </colgroup>
     <tbody>
     {% for product in product_list %}
@@ -26,9 +26,9 @@
             <td><a href="{{ product.product_type.get_absolute_url }}" class="title">{{ product.product_type.name }}</a> <span style="font-size:0.9em">({{ product.sn }})</span></td>
             <td rowspan="2" class="actions" style="border-bottom: 1px solid #ccc">
             {% if product.id in request.session.cart %}
-                <a href="{% url shoppingcart_remove %}?id={{ product.id }}"><img src="{{ MEDIA_URL }}img/icon/cart_minus.png" /></a>
+                <a href="{% url shoppingcart_remove %}?id={{ product.id }}"><img src="{{ MEDIA_URL }}img/icon/cart_minus.png" alt="" /></a>
             {% else %}
-                <a href="{% url shoppingcart_add %}?id={{ product.id }}"><img src="{{ MEDIA_URL }}img/icon/cart_plus.png" /></a>
+                <a href="{% url shoppingcart_add %}?id={{ product.id }}"><img src="{{ MEDIA_URL }}img/icon/cart_plus.png" alt="" /></a>
             {% endif %}
             </td>
         </tr>
@@ -42,7 +42,7 @@
 </table>
 <br />
 <h6>Zeiträume</h6>
-<form method="post"action="{% url shoppingcart_index %}">
+<form method="post" action="{% url shoppingcart_index %}">
     {% csrf_token %}
     {{ form.management_form }}
     <table id="forms" style="margin:0 auto">
@@ -56,8 +56,8 @@
     <br />
     <table style="width:100%">
         <colgroup>
-            <col width="50%">
-            <col width="50%">
+            <col style="width:50%">
+            <col style="width:50%">
         </colgroup>
         <tr>
             <td class="left"><a class="button clear" href="{% url shoppingcart_clear %}">Löschen</a></td>

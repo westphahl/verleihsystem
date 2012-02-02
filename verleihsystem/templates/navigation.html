@@ -1,36 +1,36 @@
 <section id="nav">
     <img src="{{ MEDIA_URL }}img/icon/hrw.png" alt="" style="padding: 10px 0" />
     {% url home as url_home %}
-    <a rel="tipsy_w" title="Startseite" class="home{% ifequal request.path url_home %} current{% endifequal %}" href="{{ url_home }}"></a>
+    <a title="Startseite" class="tipsy_w home{% ifequal request.path url_home %} current{% endifequal %}" href="{{ url_home }}"></a>
 
     {% if not request.user.is_anonymous %}
         {% url reservation_dashboard as url_dashboard %}
-        <a rel="tipsy_w" title="Dashboard" class="dashboard{% ifequal request.path url_dashboard %} current{% endifequal %}" href="{{ url_dashboard }}">
+        <a title="Dashboard" class="tipsy_w dashboard{% ifequal request.path url_dashboard %} current{% endifequal %}" href="{{ url_dashboard }}">
             {% if dashboard_problem %}
                 <div id="dashboard_info"><img src="{{ MEDIA_URL }}img/icon/error.png" alt="" /></div>
             {% endif %}</a>
 
         {% url shoppingcart_index as url_shoppingcart %}
-        <a rel="tipsy_w" title="Warenkorb" class="cart{% ifequal request.path url_shoppingcart %} current{% endifequal %}" href="{{ url_shoppingcart }}"></a>
+        <a title="Warenkorb" class="tipsy_w cart{% ifequal request.path url_shoppingcart %} current{% endifequal %}" href="{{ url_shoppingcart }}"></a>
 
         {% if request.user.is_staff %}
         {% url admin:index as url_admin %}
-        <a rel="tipsy_w" title="Administration" class="admin{% if url_admin in request.path %} current{% endif %}" href="{{ url_admin }}"></a>
+        <a title="Administration" class="tipsy_w admin{% if url_admin in request.path %} current{% endif %}" href="{{ url_admin }}"></a>
         {% endif %}
 
         {% url user_profile_form as url_user_profile %}
-        <a rel="tipsy_w" title="{{ request.user.get_full_name }}" class="user{% ifequal request.path url_user_profile %} current{% endifequal %}" href="{{ url_user_profile }}"></a>
+        <a title="{{ request.user.get_full_name }}" class="tipsy_w user{% ifequal request.path url_user_profile %} current{% endifequal %}" href="{{ url_user_profile }}"></a>
         
     {% endif %}
 
     {% url contact_form as url_contact %}
-    <a rel="tipsy_w" title="Kontakt" class="contact{% ifequal request.path url_contact %} current{% endifequal %}" href="{{ url_contact }}"></a>
+    <a title="Kontakt" class="tipsy_w contact{% ifequal request.path url_contact %} current{% endifequal %}" href="{{ url_contact }}"></a>
     
     {% if not request.user.is_anonymous %}
         {% url django.contrib.auth.views.logout as url_logout %}
-        <a rel="tipsy_w" title="Abmelden" class="logout{% ifequal request.path url_logout %} current{% endifequal %}" href="{{ url_logout }}?next={{ request.path }}"></a>
+        <a title="Abmelden" class="tipsy_w logout{% ifequal request.path url_logout %} current{% endifequal %}" href="{{ url_logout }}?next={{ request.path }}"></a>
     {% else %}
         {% url django.contrib.auth.views.login as url_login %}
-        <a rel="tipsy_w" title="Anmelden" class="login{% ifequal request.path url_login %} current{% endifequal %}" href="{{ url_login }}?next={{ request.path }}"></a>
+        <a title="Anmelden" class="tipsy_w login{% ifequal request.path url_login %} current{% endifequal %}" href="{{ url_login }}?next={{ request.path }}"></a>
     {% endif %}
 </section>

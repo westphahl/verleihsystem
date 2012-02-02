@@ -1,5 +1,5 @@
 <table class="timeline" id="product{{ product.id }}">
-    <thead>
+    <tbody>
         <tr>
             <td></td>
             {% for day in product.timeline %}
@@ -7,8 +7,6 @@
             {% endfor %}
             <td style="border:0"></td>
         </tr>
-    <thead>
-    <tbody>
         <tr>
             {% with year=previous_range|date:"Y" month=previous_range|date:"m" day=previous_range|date:"d" %}
             <td class="back">
@@ -16,7 +14,7 @@
             </td>
             {% endwith %}
             {% for day in product.timeline %}
-            <td rel="tipsy_n" class="{% if day.state == 0 %}pending{% else %}{% if day.state == 1 %}reserved{% else %}free{% endif %}{% endif %}" title="{% if day.state == 0 %}Anfrage vorhanden{% else %}{% if day.state == 1 %}Reserviert{% else %}Frei{% endif %}{% endif %}">
+            <td class="tipsy_n {% if day.state == 0 %}pending{% else %}{% if day.state == 1 %}reserved{% else %}free{% endif %}{% endif %}" title="{% if day.state == 0 %}Anfrage vorhanden{% else %}{% if day.state == 1 %}Reserviert{% else %}Frei{% endif %}{% endif %}">
                 <p class="date">{% if day.reservation and request.user.is_staff %}<a href="{{ day.reservation.get_absolute_url }}">{{ day.date|date:"d.m" }}</a>{% else %}{{ day.date|date:"d.m" }}{% endif %}</p>
             </td>
             {% endfor %}

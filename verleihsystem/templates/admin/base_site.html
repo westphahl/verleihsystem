@@ -3,9 +3,9 @@
 
 {% block extrastyle %}
 <link rel="stylesheet" type="text/css" media="screen" href="{{ MEDIA_URL }}css/admin.css" />
-<link rel="stylesheet" href="{{ MEDIA_URL }}css/navigation.css">
-<link rel="stylesheet" href="{{ MEDIA_URL }}css/tipsy.css">
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ MEDIA_URL }}css/navigation.css" />
+<link rel="stylesheet" href="{{ MEDIA_URL }}css/tipsy.css" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,700' rel='stylesheet' type='text/css' />
 {% endblock %}
 
 {% block extrahead %}
@@ -14,11 +14,11 @@
 	<script src="{{ MEDIA_URL }}js/jquery.tipsy.js"></script>
 	<script>
         $(function() {
-            $('*[rel=tipsy_n]').tipsy({delayIn: 500, gravity: 'n'});
-            $('*[rel=tipsy_w]').tipsy({fade: true, gravity: 'w'});
-            $('*[rel=tipsy_s]').tipsy({delayIn: 500, gravity: 's'});
-            $('*[rel=tipsy_e]').tipsy({fade: true, gravity: 'e'});
-            $('*[rel=tipsy_adminopt]').tipsy({delayIn: 500, fade: true, gravity: 'n'});
+            $('.tipsy_n').tipsy({delayIn: 500, gravity: 'n'});
+            $('.tipsy_w').tipsy({fade: true, gravity: 'w'});
+            $('.tipsy_s').tipsy({delayIn: 500, gravity: 's'});
+            $('.tipsy_e').tipsy({fade: true, gravity: 'e'});
+            $('.tipsy_adminopt').tipsy({delayIn: 500, fade: true, gravity: 'n'});
         });
     </script>
 {% endblock %}

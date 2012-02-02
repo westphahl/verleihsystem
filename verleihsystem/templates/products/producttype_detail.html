@@ -11,21 +11,21 @@
 <div id="producttype_detail">
 	<p class="photo">
 	{% if producttype.picture %}
-		<img src="{{ producttype.picture.url }}" />
+		<img src="{{ producttype.picture.url }}" alt="" />
 	{% else %}
-		<img src="{{ MEDIA_URL }}img/no_picture.png" />
+		<img src="{{ MEDIA_URL }}img/no_picture.png" alt="" />
 	{% endif %}
 	</p>
 	<p class="description">
 		{{ producttype.description }}
 	</p>
 </div>
-<div class="clear">
+<div class="clear"></div>
 <table id="product_list">
 	<colgroup>
-		<col width="150px">
-		<col width="">
-		<col width="30px">
+		<col style="width:150px" />
+		<col style="" />
+		<col style="width:30px" />
 	</colgroup>
 	<thead>
 		<tr>
@@ -42,9 +42,9 @@
 			<td>{{ product.brief_description }}</td>
 			<td rowspan="2" class="actions" style="border-bottom: 1px solid #ccc">
 			{% if product.id in request.session.cart %}
-				<a href="{% url shoppingcart_remove %}?id={{ product.id }}"><img src="{{ MEDIA_URL }}img/icon/cart_minus.png" /></a>
+				<a href="{% url shoppingcart_remove %}?id={{ product.id }}"><img src="{{ MEDIA_URL }}img/icon/cart_minus.png" alt="Entfernen" /></a>
 			{% else %}
-				<a href="{% url shoppingcart_add %}?id={{ product.id }}"><img src="{{ MEDIA_URL }}img/icon/cart_plus.png" /></a>
+				<a href="{% url shoppingcart_add %}?id={{ product.id }}"><img src="{{ MEDIA_URL }}img/icon/cart_plus.png" alt="Hinzufügen" /></a>
 			{% endif %}
 			</td>
 		</tr>
@@ -54,6 +54,7 @@
 			</td>
 		</tr>
 	{% endfor %}
+	</tbody>
 </table>
 {% endblock %}
 

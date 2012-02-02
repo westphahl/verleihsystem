@@ -1,4 +1,4 @@
-p/* css reset */
+/* css reset */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -52,14 +52,13 @@ table {
     text-align: right;
 }
 /* user styles */
-* {
+html {
     font-family: 'Open Sans',Verdana,Arial,sans-serif;
     font-size: 11px;
 }
 html {
     height: 100%;
     background-color: #f5f5f5;
-    text-shadow:rgba(0,0,0,0.01) 0 0 0;
 }
 h1 {
     font-size: 2em;
