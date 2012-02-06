@@ -269,7 +269,7 @@ Einteilung/-ordnung der Produkte in generische Kategorien
 
 \begin_deeper
 \begin_layout Itemize
-beliebiger Schachtelungstiefe (implementiert als Baum)
+beliebige Schachtelungstiefe (implementiert als Baum)
 \end_layout
 
 \begin_layout Itemize
@@ -321,7 +321,7 @@ Reservierung nur für ganze Tage möglich
 \end_layout
 
 \begin_layout Itemize
-mehrere Zeiträume gleichzeitig reservierbar (mehere Leihzettel), Anlegen
+mehrere Zeiträume gleichzeitig reservierbar (mehrere Leihzettel), Anlegen
  von mehreren Reservierungsvorgängen
 \end_layout
 
@@ -349,7 +349,7 @@ eine Reservierung muss von einem Administrator/Verwalter bestätigt werden
 \end_layout
 
 \begin_layout Itemize
-Bestätigung nach Freigabe per Email an Reservierenden (abwählbar, default:
+Bestätigung nach Freigabe per Email an dem Reservierenden (abwählbar, default:
  aktiviert)
 \end_layout
 
@@ -794,7 +794,7 @@ Frei: für Produktinstanz ist zu einem Zeitpunkt ist kein Reservierungseintrag
 \end_layout
 
 \begin_layout Description
-Anfrage: für Produktinstanz ist zu einem Zeitpunkt Reservierung vorhanden
+Anfrage: für Produktinstanz ist zu einem Zeitpunkt Reservierung vorhanden,
  aber noch nicht von einem Verwalter bestätigt (wird nicht in der Timeline
  angezeigt).
  
@@ -874,8 +874,8 @@ ausleihen aller Produktinstanzen einer Kategorie
 \end_layout
 
 \begin_layout Itemize
-Tabellarisch Ansicht mit überfälligen und aktiven, sowie die nächsten anstehende
-n Reservierungsvorgängen
+Tabellarische Ansicht mit überfälligen und aktiven, sowie die nächsten anstehend
+en Reservierungsvorgängen
 \end_layout
 
 \begin_layout Section

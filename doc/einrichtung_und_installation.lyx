@@ -335,7 +335,7 @@ name "sec:Installation-1"
 \end_layout
 
 \begin_layout Standard
-Um bestimmte Version von Python-Packages unabhängig von bereits vorhandener
+Um eine bestimmte Version von Python-Packages unabhängig von bereits vorhandener
  Software im System installieren zu können, werden die benötigten Packages
  in einer isolierten Python-Ausführungsumgebung installiert.
  Hierfür wird die Software “

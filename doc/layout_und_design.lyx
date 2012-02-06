@@ -340,7 +340,7 @@ Die Leiste hat die CSS-Eigenschaft “
 \family typewriter
 position: fixed
 \family default
-”, damit Sie immer an der gleichen Stelle ist, auch wenn nach unten gescrollt
+”, damit sie immer an der gleichen Stelle ist, auch wenn nach unten gescrollt
  wird.
  Als Hintergrund wurde ein weicher Farbverlauf von 
 \family typewriter
@@ -601,7 +601,7 @@ Beispiel:
 \end_layout
 
 \begin_layout Standard
-Von einen langen Text sollen nur die ersten 4 Worte als Zusammenfassung
+Von einem langen Text sollen nur die ersten 4 Worte als Zusammenfassung
  angezeigt werden.
 \end_layout
 
@@ -703,7 +703,7 @@ Dadurch wird der Innenabstand des Buttons vergrößert um Platz für das Icon
 \begin_inset Newline newline
 \end_inset
 
-Die verschiedene Zustände eines Buttons sind in Abbildung 
+Die verschiedenen Zustände eines Buttons sind in Abbildung 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Button-Varianten"

@@ -345,7 +345,7 @@ reference "fig:Timeline-Farben"
 \end_layout
 
 \begin_layout Standard
-Dabei bedeutet Rot (1), dass das Objekt schon Reserviert ist.
+Dabei bedeutet Rot (1), dass das Objekt schon reserviert ist.
  Gelb (2) bedeutet, dass für das Objekt schon eine Reservierungs-Anfrage
  vorhanden ist, die jedoch noch nicht bestätigt wurde.
  Grün (3) bedeutet, dass für dieses Objekt an diesem Tag noch keine Anfrage
@@ -398,7 +398,7 @@ name "fig:Timeline-Farben"
 
 \begin_layout Standard
 Ist der angemeldete Benutzer ein Administrator, so werden für reservierten
- Tage (1) Links angezeigt über welche zu der entsprechenden Reservierung
+ Tage (1) Links angezeigt, über welche zu der entsprechenden Reservierung
  gesprungen werden kann.
 \end_layout
 
@@ -407,13 +407,9 @@ Erfolg die Aktualisierung über AJAX, so ist es wichtig, dass die Tooltip-Funkti
 nen nochmal neu geladen werden.
  Dies muss gemacht werden, da die “
 \family typewriter
-rel
-\family default
-”- und “
-\family typewriter
 title
 \family default
-”-Attribut von nachgeladenen Objekten in Tooltips umgewandelt werden müssen.
+”-Attribute von nachgeladenen Objekten in Tooltips umgewandelt werden müssen.
  Mehr Informationen zu den Tooltips gibt es im Kapitel 
 \begin_inset CommandInset ref
 LatexCommand nameref
@@ -546,11 +542,8 @@ Tipsy ist ein Tooltip-Plugin für jQuery.
 title
 \family default
 ”-Attribut verwendet.
- Um den Tooltip zu aktivieren muss das Objekt ein “
-\family typewriter
-rel
-\family default
-”-Attribut besitzen.
+ Um den Tooltip zu aktivieren muss das Objekt ein spezielles “class”-Attribut
+ besitzen.
 \end_layout
 
 \begin_layout Standard
@@ -560,12 +553,44 @@ rel
 
 \end_inset
 
-Mit dem Text innerhalb des “
+Das 
+\begin_inset Quotes eld
+\end_inset
+
+
 \family typewriter
-rel
+class
 \family default
-”-Attribut wird es mit einer Funktion verknüpft, welche beim Laden der Seite
- aktiviert werden.
+
+\begin_inset Quotes erd
+\end_inset
+
+-Attribut 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+tipsy_s
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+ wird es mit einer JavaScript-Funktion verknüpft, welche beim Laden der
+ Seite das 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+title
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+-Attribut in einen Tooltip umwandelt.
 \end_layout
 
 \begin_layout Standard
@@ -589,6 +614,7 @@ reference "fig:Tipsy-Demo"
 
 \begin_layout Standard
 \begin_inset Float figure
+placement h
 wide false
 sideways false
 status collapsed

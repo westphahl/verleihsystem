@@ -377,7 +377,7 @@ reference "fig:Produktansicht"
 
 \begin_layout Standard
 Dabei bedeutet Grün, dass das Produkt verfügbar ist.
- Gelb bedeutet, dass für dieses Produkt schon eine Reservierungsanfrage
+ Gelb bedeutet, dass es für dieses Produkt schon eine Reservierungsanfrage
  gibt, diese jedoch noch nicht bestätigt ist (man kann selbst auch noch
  eine Reservierungsanfrage stellen) und Rot bedeutet, dass das Produkt an
  diesem Tag schon reserviert ist (es kann keine Reservierungsanfrage mehr
@@ -602,7 +602,7 @@ reference "fig:Dashboard-Übersicht"
 
 Ganz oben in der Tabelle (rot markiert) sind die überfälligen Reservierungen
  (1), die entweder noch nicht ausgeliehen oder zurückgebracht wurden.
- Darunter, grün markiert, sind die bestätigten Reservierungen (2).
+ Darunter, grün markiert, befinden sich die bestätigten Reservierungen (2).
  Noch nicht bestätigte Reservierungen (3) sind gelb markiert.
  Als letztes, grau markiert, kommen die abgelehnten Reservierungen (4).
 \end_layout
@@ -669,7 +669,7 @@ Der Leihschein, den man zum Ausleihen benötigt, wird erst generiert, wenn
  die Reservierung von einem Verwalter bestätigt wurde.
  Dannach kann man im Dashboard das PDF-Icon sehen oder in der Detailansicht
  der Reservierung gibt es einen Link “Leihschein anzeigen”.
- Mit einem klick darauf, öffnet sich der Leihschein bzw.
+ Mit einem Klick darauf öffnet sich der Leihschein bzw.
  wird der Download gestartet.
 \end_layout
 

@@ -166,16 +166,16 @@ Im Vergleich zu Webprogrammierung in PHP, welches wir im Webprogrammierung
 \begin_layout Standard
 Mit Django ist eine schnelle und einfache Entwicklung von Web-basierten
  Anwendungen möglich.
- Um jedoch die Konzepte von Django zu verstehen ist es unumgänglich sich
+ Um jedoch die Konzepte von Django zu verstehen, ist es unumgänglich, sich
  ausführlich mit diesem Framework auseinanderzusetzen.
  Die Einfürung in Django in dieser Dokumentation zeigt zwar die Grundkonzepte
  auf, kann jedoch nicht auf alle Details eingehen.
- Diese sind aber oft wichtig um performante und funktionierenden Code zu
- erstellen.
+ Diese sind aber oft wichtig, um performanten und funktionierenden Code
+ zu erstellen.
 \end_layout
 
 \begin_layout Standard
-Wurde diese anfängliche Hürde beim Einstieg genommen, dann biete Django
+Wurde diese anfängliche Hürde beim Einstieg genommen, dann bietet Django
  für die meisten Anwendungsfälle einfache Problemlösungen und eingängige
  Konzepte.
 \end_layout
@@ -208,7 +208,7 @@ target "https://docs.djangoproject.com/en/dev/ref/templates/builtins/#date"
 \begin_layout Standard
 Ein Nachteil von Python-basierten Web-Anwendungen ist der Einsatz im Produktivbe
 trieb.
- Java bietet hier einfachere Konzepte um eine Webanwendung unkompliziert
+ Java bietet hier einfachere Konzepte, um eine Webanwendung unkompliziert
  bereit zu stellen, die gerade im Unternehmensumfeld weit verbreitet sind.
  Mit der 
 \begin_inset CommandInset href
@@ -221,7 +221,7 @@ target "http://www.wsgi.org/en/latest/index.html"
  bietet Python hierfür eine ausgereifte und stablile Alternative, jedoch
  erfordert die Konfiguration um einiges mehr Aufwand, als z.B.
  bei einfachen Anwendungen in PHP.
- Grundsätzliche ist es möglich eine Python-Webanwendung als CGI-Skript auszuführ
+ Grundsätzlich ist es möglich, eine Python-Webanwendung als CGI-Skript auszuführ
 en, da hierbei jedoch bei jedem Request ein neuer Prozess erzeugt wird,
  ist diese Methode bei komplexeren Anwendungsfällen und große Web-Anwendungen
  keine günstige Wahl.

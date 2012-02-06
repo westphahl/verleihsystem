@@ -218,7 +218,7 @@ name "sub:Package:-accounts"
 
 \begin_layout Standard
 Das accounts-Package enthält Funktionalitäten für den Benutzer wie z.B ein
- Profil und Views um diese zu bearbeiten.
+ Profil und Views, um diese zu bearbeiten.
 \end_layout
 
 \begin_layout Subsubsection
@@ -226,7 +226,7 @@ accounts.models
 \end_layout
 
 \begin_layout Standard
-Um zusätzliche benutzerbezogene Daten speichern zu können wurde die von
+Um zusätzliche benutzerbezogene Daten speichern zu können, wurde die von
  Django mitgelieferte Benutzerverwaltung um ein eigenes, angepasstes User-Profil
  erweitert.
 \end_layout
@@ -254,7 +254,8 @@ Das Feld “
 \family typewriter
 verbose_name
 \family default
-” ist der Name für das Feld der im Administrations-Bereich angezeigt wird.
+” ist der Name für das Feld, welches im Administrations-Bereich angezeigt
+ wird.
 \begin_inset Newline newline
 \end_inset
 
@@ -277,7 +278,7 @@ Im Feld “
 student_number
 \family default
 ” wird die Matrikelnummer eines Benutzers gespeichert.
- Die Daten eines Benutzers werden soweit möglich, über LDAP synchronisiert.
+ Die Daten eines Benutzers werden, soweit möglich, über LDAP synchronisiert.
  Weitere Informationen hierzu im Kapitel 
 \begin_inset CommandInset ref
 LatexCommand nameref
@@ -302,7 +303,7 @@ accounts.views
 \end_layout
 
 \begin_layout Standard
-Um dem Benutzer ein einfaches Bearbeiten seiner Daten zu ermöglichen wird
+Um dem Benutzer ein einfaches Bearbeiten seiner Daten zu ermöglichen, wird
  in diesem Modul die View 
 \begin_inset Quotes eld
 \end_inset
@@ -348,7 +349,7 @@ categories.models
 \end_layout
 
 \begin_layout Standard
-Um eigene Funktionalitäten zu Implementieren wird die MPTTModel-Klasse abgeleite
+Um eigene Funktionalitäten zu implementieren wird die MPTTModel-Klasse abgeleite
 t.
 \end_layout
 
@@ -414,7 +415,7 @@ Die View “
 \family typewriter
 category_detail
 \family default
-” dient dazu alle einer Kategorie zugewiesenen Produkte anzuzeigen.
+” dient dazu, alle einer Kategorie zugewiesenen Produkte anzuzeigen.
  Zusätzlich wird der Menübaum mit den Unterkategorien der momentan aktiven
  Kategorie generiert und an das Template übergeben.
 \end_layout
@@ -443,8 +444,8 @@ contact.form
 \end_layout
 
 \begin_layout Standard
-In diesem Modul wird das Formular erstellt welches in der entsprechenden
- View instantiiert wird.
+In diesem Modul wird das Formular erstellt, welches in der entsprechenden
+ View instanziiert wird.
 \end_layout
 
 \begin_layout Standard
@@ -455,7 +456,7 @@ In diesem Modul wird das Formular erstellt welches in der entsprechenden
 \end_inset
 
 Die Syntax für Formularfelder orientiert sich stark an den Feldern bei Models.
- Auch lassen sich meist die selben Optionen verwenden.
+ Auch lassen sich meist dieselben Optionen verwenden.
 \end_layout
 
 \begin_layout Subsubsection
@@ -500,7 +501,7 @@ name "sub:Package:-products"
 \end_layout
 
 \begin_layout Standard
-In diesem Package sind alle Produktbezogenen Klassen und Funktionen enthalten.
+In diesem Package sind alle produktbezogenen Klassen und Funktionen enthalten.
 \end_layout
 
 \begin_layout Subsubsection
@@ -520,7 +521,7 @@ Die Klasse “
 \family typewriter
 ProductType
 \family default
-” dient zum anlegen von Produkttypen.
+” dient zum Anlegen von Produkttypen.
  Zu den Produkttypen können Produkte der Klasse “
 \family typewriter
 Product
@@ -541,7 +542,7 @@ slug
 \family default
 ” enthält einen benutzerfreundlichen Namen für ein Produkttyp, welcher als
  Indentifier in der URL dient.
- Diese Feld wird automatisch per JavaScript ausgefüllt.
+ Dieses Feld wird automatisch per JavaScript ausgefüllt.
  Im Feld “
 \family typewriter
 description
@@ -613,12 +614,12 @@ products.managers
 
 \begin_layout Standard
 Der Custom-Manager für ein Produkt erzeugt bei Bedarf für jedes Objekt einer
- Abfrage ein Timeline und fügt diese dem Produkt hinzu.
+ Abfrage eine Timeline und fügt diese dem Produkt hinzu.
  Hierdurch kann in Templates einfach auf das jeweilige “
 \family typewriter
 timeline
 \family default
-”-Attribut zugegriffen werden ohne zusätzliche Abfragen ausführen zu müssen.
+”-Attribut zugegriffen werden, ohne zusätzliche Abfragen ausführen zu müssen.
 \end_layout
 
 \begin_layout Subsubsection
@@ -647,7 +648,7 @@ Hier kommt beispielsweise der angepasste Produkt-Manager zum Einsatz um
 \family typewriter
 get_context_data
 \family default
-” der Klassen-basierten View erstellt den Kontext bevor das Template gerendert
+” der Klassen-basierten View erstellt den Kontext, bevor das Template gerendert
  wird.
  
 \end_layout
@@ -668,7 +669,7 @@ Die durch das Package “
 \family typewriter
 reservations
 \family default
-” zur Verfügung gestellt Funktionalität bezieht sich auf die Reservierung
+” zur Verfügung gestellte Funktionalität bezieht sich auf die Reservierung
  von Produkten.
 \end_layout
 
@@ -694,7 +695,7 @@ ReservationEntry
 \family typewriter
 Reservation
 \family default
-”) dient als Elternelement für mehere Reservierungseinträge (Klasse “
+”) dient als Elternelement für mehrere Reservierungseinträge (Klasse “
 \family typewriter
 ReservationEntry
 \family default
@@ -720,8 +721,8 @@ Das erste Feld “
 \family typewriter
 user
 \family default
-” ist ein Fremdschlüssel auf den Benutzer, der die Reservierung erstellt
- hat.
+” beinhaltet einen Fremdschlüssel auf den Benutzer, der die Reservierung
+ erstellt hat.
  Die Felder “
 \family typewriter
 start_date
@@ -735,12 +736,13 @@ end_date
 \family typewriter
 borrow_date
 \family default
-” wird das Datum eingetragen, wann die reservierten Produkte abgeholt wurden.
+” wird das Datum eingetragen, an dem die reservierten Produkte abgeholt
+ wurden.
  Das Feld “
 \family typewriter
 return_date
 \family default
-” wird eingetragen, wann die reservierten Produkte zurückgebracht wurden.
+” wird eingetragen, wenn die reservierten Produkte zurückgebracht wurden.
  Im “
 \family typewriter
 timestamp
@@ -883,7 +885,7 @@ Das Modul “
 \family typewriter
 reservations.pdf
 \family default
-” enthält die notwendigen Funktionen um den Leihschein als PDF zu generieren.
+” enthält die notwendigen Funktionen, um den Leihschein als PDF zu generieren.
  Für die Erstellung wurde das 
 \begin_inset CommandInset href
 LatexCommand href
@@ -917,7 +919,7 @@ Diese Modul implementiert die Views für das Dashboard, zum Anzeigen und
 \end_layout
 
 \begin_layout Standard
-Um die Timeline-Daten über JavaScript einfach verarbeiten zu können gibt
+Um die Timeline-Daten über JavaScript einfach verarbeiten zu können, gibt
  die View ihre Antwort als 
 \begin_inset CommandInset href
 LatexCommand href
@@ -944,7 +946,7 @@ target "http://en.wikipedia.org/wiki/Mixin"
 \end_inset
 
 -Klasse.
- Diese ist auch dafür zuständig die Python-Objekte - hier 
+ Diese ist auch dafür zuständig, die Python-Objekte - hier 
 \begin_inset CommandInset href
 LatexCommand href
 name "Dictionaries"
@@ -962,8 +964,8 @@ target "http://docs.python.org/tutorial/datastructures.html#dictionaries"
 
 \end_inset
 
-Da Python Mehrfachvererbung unterstütz, kann über die obige Mixin jede beliebige
- View in eine JSON-View umgewandelt werden.
+Da Python Mehrfachvererbung unterstützt, kann über die obige Mixin jede
+ beliebige View in eine JSON-View umgewandelt werden.
 \end_layout
 
 \begin_layout Standard
@@ -976,7 +978,7 @@ Da Python Mehrfachvererbung unterstütz, kann über die obige Mixin jede beliebi
 Diese View erweitert die
 \begin_inset CommandInset href
 LatexCommand href
-name " generische klassenbasierte “BaseListView”"
+name " generische, klassenbasierte “BaseListView”"
 target "https://docs.djangoproject.com/en/1.3/ref/class-based-views/"
 
 \end_inset
@@ -996,8 +998,8 @@ name "sub:Package:-shoppingcart"
 \end_layout
 
 \begin_layout Standard
-Das Package für den virtuellen Einkaufswagen implementiert das Formular
- sowie die notwendigen Views um konsistente Reservierungen anzulegen.
+Das Package für den virtuellen Einkaufswagen implementiert das Formular,
+ sowie die notwendigen Views, um konsistente Reservierungen anzulegen.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1005,8 +1007,8 @@ shoppingcart.forms
 \end_layout
 
 \begin_layout Standard
-Das Formular für den Einkauswagen enthält, neben dem Start- und Enddatum,
- Funktionen um die Gültigkeit der eingegebenen Reservierungszeiträume zu
+Das Formular für den Einkaufswagen enthält, neben dem Start- und Enddatum,
+ Funktionen, um die Gültigkeit der eingegebenen Reservierungszeiträume zu
  überprüfen.
 \end_layout
 
@@ -1051,7 +1053,7 @@ ShoppingCartIndexView
 \family typewriter
 process_formset
 \family default
-” die für alle Produkte im Warenkorb versucht eine Reservierung anzulegen.
+”, die für alle Produkte im Warenkorb versucht, eine Reservierung anzulegen.
  Da es vorkommen kann, dass ein Benutzer einen Zeitraum angibt, der bereits
  reserviert ist, wird die Verarbeitung in einer Transaktion gekapselt.
  Kann für ein Produkt keine Reservierung angelegt werden, so wird für alle
@@ -1065,9 +1067,9 @@ process_formset
 
 \end_inset
 
-Hierdurch wird vermieden, das inkonsistente Zustände entstehen können.
+Hierdurch wird vermieden, dass inkonsistente Zustände entstehen können.
  Dem Benutzer wird im Fehlerfall wieder der Warenkorb mit einer Fehlermeldung
- angezeigt, die Beschreibt welches Produkt den Abbruch des Vorgangs verursacht
+ angezeigt, die beschreibt, welches Produkt den Abbruch des Vorgangs verursacht
  hat.
 \end_layout
 
@@ -1083,7 +1085,7 @@ name "sec:LDAP"
 \end_layout
 
 \begin_layout Standard
-Über Django Anwendung 
+Über die Django Anwendung 
 \begin_inset CommandInset href
 LatexCommand href
 name "django-auth-ldap"
@@ -1129,7 +1131,7 @@ name "sub:Anmeldevorgang"
 \end_layout
 
 \begin_layout Standard
-Wenn sich ein Benutzer am Verleihsystem anmelden möchte, wird zuerst versucht
+Wenn sich ein Benutzer am Verleihsystem anmelden möchte, wird zuerst versucht,
  den Benutzer über LDAP zu authentifizieren.
  Schlägt dieser Schritt fehl, so wird überprüft, ob der Benutzer in der
  Datenbank vorhanden ist.
@@ -1139,7 +1141,7 @@ Wenn sich ein Benutzer am Verleihsystem anmelden möchte, wird zuerst versucht
 \begin_layout Standard
 Bei einer erfolgreichen LDAP-Authentifizierung werden die Benutzerdaten
  mit der SQL-Datenbank synchronisiert.
- Um jedoch zu verhindern, dass sich ein Benutzer immernoch anmelden kann,
+ Um jedoch zu verhindern, dass sich ein Benutzer immer noch anmelden kann,
  obwohl dieser im LDAP-Verzeichnis nicht mehr existiert, wird in der Datenbank
  ein ungültiges Passwort eingetragen.
  Somit würde eine Authentifizierungs-Versuch über die Datenbank fehlschlagen.
@@ -1227,8 +1229,8 @@ name "sec:Datenbank"
 
 \begin_layout Standard
 Von der Hochschule wurde uns eine MySQL Datenbank zur Verfügung gestellt.
- Die folgenden Konfiguration für die Produktivumgebung befindet sich in
- der Datei “
+ Die folgende Konfiguration für die Produktivumgebung befindet sich in der
+ Datei “
 \family typewriter
 verleihsystem\SpecialChar \slash{}
 conf\SpecialChar \slash{}
@@ -1323,7 +1325,7 @@ target "http://django-mptt.github.com/django-mptt/"
 \end_inset
 
  verwendet.
- Diese wiederverwendbare Anwendung bietet bereits alle notwendigen Funktionen
+ Diese wiederverwendbare Anwendung bietet bereits alle notwendigen Funktionen,
  um komplexe Strukturen und Teilbäume performant abfragen zu können und
  erspart eine aufwändige Neuimplementation.
 \end_layout
@@ -1446,7 +1448,7 @@ name "sub:CONTACT_FORM_EMAIL"
 \end_layout
 
 \begin_layout Standard
-Empfänger Email-Adresse für Emails welche über das Kontaktformular versendet
+Empfänger Email-Adresse für Emails, welche über das Kontaktformular versendet
  wurden.
  Bitte hierzu auch die Einstellung: 
 \family typewriter
