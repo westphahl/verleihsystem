@@ -5,6 +5,14 @@ table#dashboard thead {
 	padding: 0;
     background-color: #333;
 }
+table#dashboard thead tr td.first {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+table#dashboard thead tr td.last {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
 table#dashboard thead td {
 	line-height: 2.5em;
     font-size: .9em;

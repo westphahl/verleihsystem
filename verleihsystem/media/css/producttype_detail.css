@@ -8,6 +8,7 @@
 }
 #producttype_detail .description {
     line-height: 1.5em;
+    padding-bottom: 10px;
 }
 table#product_list {
     width: 100%;
