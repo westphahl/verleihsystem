@@ -500,7 +500,7 @@ Als letztes legen wir ein Verzeichnis “
 media
 \family default
 ” an, in welchem sich statische und vom Benutzer hochgeladene Inhalte befinden.
- Die statischen Inhalte werden einfach das Media-Verzeichnis gelinkt.
+ Die statischen Inhalte werden einfach in das Media-Verzeichnis gelinkt.
 \end_layout
 
 \begin_layout Standard
